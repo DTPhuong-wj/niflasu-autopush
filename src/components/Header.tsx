@@ -48,7 +48,7 @@ export default function Header({ now, settings, onOpenSettings }: Props) {
           <SettingsIcon size={16} strokeWidth={1.75} />
           <span>Cài đặt</span>
         </button>
-        <div className="nf-clock">{formatClock(now)}</div>
+        <div className="nf-clock" suppressHydrationWarning>{formatClock(now)}</div>
         <div className="nf-meta-line">{formatCountdown(settings.examDate, now)}</div>
         <div className="nf-meta-line">
           Mục tiêu: {settings.targetLevel} &gt;= {settings.targetScore}
