@@ -589,3 +589,4 @@
 .nf-verdict { font-weight:600; margin-bottom:8px; }
 .nf-verdict.is-ok { color:#2f6b3a; }
 .nf-verdict.is-bad { color:var(--nf-accent); }
+.nf-main .nf-flash { max-width:900px; margin:0 auto; } .nf-main .nf-flash.is-full { max-width:none; }
