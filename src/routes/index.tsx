@@ -122,7 +122,7 @@ function App() {
     // Giữ Unit hợp lệ trong sách mới.
     const nextUnits = [
       ...new Set(
-        allKanji.filter((item) => item.source === books[nextIndex].source).map((i) => i.week),
+        allKanji.filter((item) => item.source === books[nextIndex]!.source).map((i) => i.week),
       ),
     ].sort((a, b) => a - b);
     if (!nextUnits.includes(currentWeek)) setCurrentWeek(nextUnits[0] ?? 1);

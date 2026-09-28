@@ -45,7 +45,7 @@ export default function Flashcard({ items, currentWeek, startIndex, onExit }: Pr
     );
   }
 
-  const item = items[index];
+  const item = items[index]!;
 
   return (
     <div className="nf-flash">
