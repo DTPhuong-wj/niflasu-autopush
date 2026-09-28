@@ -142,3 +142,415 @@
     color: var(--color-foreground);
   }
 }
+
+/* ============================================================
+   NiFlasu — Japanese Academic Study Dashboard
+   Bảng màu trung tính, viền rõ, không gradient/animation.
+   ============================================================ */
+
+:root {
+  --nf-bg: #faf8f4;
+  --nf-surface: #ffffff;
+  --nf-surface-alt: #f7f1e8;
+  --nf-sidebar: #3a332d;
+  --nf-sidebar-active: #4e463d;
+  --nf-text: #171717;
+  --nf-text-soft: #5c554d;
+  --nf-border: #cfc7bd;
+  --nf-border-strong: #b5aca1;
+  --nf-accent: #8c3a2b;
+  --nf-font: "Inter", "Noto Sans JP", system-ui, sans-serif;
+}
+
+.nf-app {
+  min-height: 100vh;
+  background: var(--nf-bg);
+  color: var(--nf-text);
+  font-family: var(--nf-font);
+}
+
+/* ---------- Header ---------- */
+.nf-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: var(--nf-surface);
+  border-bottom: 1px solid var(--nf-border);
+}
+.nf-logo {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.nf-logo-mark {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--nf-border-strong);
+  border-radius: 6px;
+  background: var(--nf-surface-alt);
+  font-size: 20px;
+  font-weight: 600;
+}
+.nf-logo-title {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+.nf-logo-sub {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: var(--nf-text-soft);
+}
+.nf-header-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+.nf-clock {
+  font-size: 20px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.nf-meta-line {
+  font-size: 12px;
+  color: var(--nf-text-soft);
+}
+
+/* ---------- Layout ---------- */
+.nf-body {
+  display: flex;
+  align-items: stretch;
+  min-height: calc(100vh - 92px);
+}
+.nf-sidebar {
+  width: 72px;
+  flex: 0 0 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 8px;
+  background: var(--nf-sidebar);
+}
+.nf-side-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 4px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: #e7e0d6;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.nf-side-item:hover {
+  background: var(--nf-sidebar-active);
+}
+.nf-side-item.is-active {
+  background: var(--nf-sidebar-active);
+  border-color: #6d6459;
+  color: #ffffff;
+}
+.nf-main {
+  flex: 1;
+  min-width: 0;
+  padding: 20px 24px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ---------- Buttons ---------- */
+.nf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1px solid var(--nf-border);
+  border-radius: 8px;
+  background: var(--nf-surface);
+  color: var(--nf-text);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.nf-btn:hover:not(:disabled) {
+  background: var(--nf-surface-alt);
+  border-color: var(--nf-border-strong);
+}
+.nf-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.nf-btn.is-active {
+  background: var(--nf-sidebar);
+  border-color: var(--nf-sidebar);
+  color: #ffffff;
+}
+.nf-btn-square {
+  padding: 8px;
+}
+
+/* ---------- Book selector ---------- */
+.nf-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+}
+.nf-book {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+.nf-book-info {
+  min-width: 220px;
+  padding: 10px 14px;
+  border: 1px solid var(--nf-border);
+  border-radius: 8px;
+  background: var(--nf-surface);
+}
+.nf-book-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+.nf-book-row {
+  font-size: 12px;
+  color: var(--nf-text-soft);
+}
+
+/* ---------- Unit selector ---------- */
+.nf-units {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+.nf-units .nf-btn {
+  white-space: nowrap;
+}
+.nf-units-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--nf-border);
+  flex: 0 0 1px;
+}
+
+/* ---------- Kanji grid ---------- */
+.nf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+  gap: 10px;
+}
+.nf-tile {
+  height: 62px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--nf-border);
+  border-radius: 10px;
+  background: var(--nf-surface);
+  color: var(--nf-text);
+  font-family: var(--nf-font);
+  font-size: 26px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.nf-tile:hover {
+  background: var(--nf-surface-alt);
+  border-color: var(--nf-border-strong);
+}
+
+/* ---------- Cards / flashcard ---------- */
+.nf-card {
+  border: 1px solid var(--nf-border);
+  border-radius: 8px;
+  background: var(--nf-surface);
+  padding: 20px;
+}
+.nf-placeholder,
+.nf-empty {
+  font-size: 13px;
+  color: var(--nf-text-soft);
+}
+.nf-flash {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 560px;
+}
+.nf-flash-meta {
+  font-size: 12px;
+  color: var(--nf-text-soft);
+}
+.nf-flash-card {
+  cursor: pointer;
+  text-align: center;
+}
+.nf-flash-kanji {
+  font-size: 88px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.nf-flash-hint {
+  font-size: 12px;
+  color: var(--nf-text-soft);
+}
+.nf-flash-back {
+  border-top: 1px solid var(--nf-border);
+  margin-top: 12px;
+  padding-top: 12px;
+  text-align: left;
+}
+.nf-flash-reading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--nf-text-soft);
+}
+.nf-word-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.nf-word-list li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: baseline;
+  font-size: 14px;
+}
+.nf-word {
+  font-weight: 600;
+}
+.nf-reading,
+.nf-meaning {
+  font-size: 13px;
+  color: var(--nf-text-soft);
+}
+.nf-flash-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.nf-flash-done {
+  max-width: 420px;
+}
+.nf-flash-done-text {
+  margin: 0 0 12px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* ---------- Settings modal ---------- */
+.nf-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(23, 23, 23, 0.4);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  z-index: 50;
+}
+.nf-modal {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.nf-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nf-modal-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+.nf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--nf-text-soft);
+}
+.nf-field input,
+.nf-field select {
+  padding: 8px 10px;
+  border: 1px solid var(--nf-border);
+  border-radius: 8px;
+  background: var(--nf-surface);
+  color: var(--nf-text);
+  font-family: inherit;
+  font-size: 13px;
+}
+.nf-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1199px) {
+  .nf-grid {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  }
+  .nf-main {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .nf-header {
+    padding: 14px 16px;
+  }
+  .nf-header-meta {
+    align-items: flex-start;
+  }
+  .nf-body {
+    flex-direction: column;
+  }
+  .nf-sidebar {
+    width: 100%;
+    flex: none;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 8px;
+  }
+  .nf-side-item {
+    flex-direction: row;
+    flex: 1 0 auto;
+    padding: 8px 12px;
+  }
+  .nf-book {
+    width: 100%;
+  }
+  .nf-book-info {
+    flex: 1;
+    min-width: 0;
+  }
+  .nf-grid {
+    grid-template-columns: repeat(auto-fill, minmax(68px, 1fr));
+  }
+  .nf-flash-kanji {
+    font-size: 68px;
+  }
+}

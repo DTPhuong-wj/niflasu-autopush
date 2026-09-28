@@ -1,0 +1,2102 @@
+[
+  {
+    "id": 1,
+    "source": "Somatome N3",
+    "week": 1,
+    "day": 1,
+    "number": 1,
+    "kanji": "報",
+    "on": "ホウ",
+    "kun": "",
+    "hanViet": "BÁO",
+    "words": [
+      {
+        "word": "予報",
+        "reading": "よほう",
+        "meaning": "dự báo",
+        "mnemonic": ""
+      },
+      {
+        "word": "報告",
+        "reading": "ほうこく",
+        "meaning": "báo cáo",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "source": "Somatome N3",
+    "week": 1,
+    "day": 1,
+    "number": 2,
+    "kanji": "告",
+    "on": "コク",
+    "kun": "つげる",
+    "hanViet": "CÁO",
+    "words": [
+      {
+        "word": "告白",
+        "reading": "こくはく",
+        "meaning": "tỏ tình",
+        "mnemonic": ""
+      },
+      {
+        "word": "広告",
+        "reading": "こうこく",
+        "meaning": "quảng cáo",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "source": "Somatome N3",
+    "week": 1,
+    "day": 2,
+    "number": 3,
+    "kanji": "増",
+    "on": "ゾウ",
+    "kun": "ふえる",
+    "hanViet": "TĂNG",
+    "words": [
+      {
+        "word": "増加",
+        "reading": "ぞうか",
+        "meaning": "sự tăng thêm",
+        "mnemonic": ""
+      },
+      {
+        "word": "増える",
+        "reading": "ふえる",
+        "meaning": "tăng lên",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "source": "Somatome N3",
+    "week": 1,
+    "day": 2,
+    "number": 4,
+    "kanji": "減",
+    "on": "ゲン",
+    "kun": "へる",
+    "hanViet": "GIẢM",
+    "words": [
+      {
+        "word": "減少",
+        "reading": "げんしょう",
+        "meaning": "sự giảm sút",
+        "mnemonic": ""
+      },
+      {
+        "word": "減る",
+        "reading": "へる",
+        "meaning": "giảm đi",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "source": "Somatome N3",
+    "week": 1,
+    "day": 3,
+    "number": 5,
+    "kanji": "価",
+    "on": "カ",
+    "kun": "",
+    "hanViet": "GIÁ",
+    "words": [
+      {
+        "word": "価格",
+        "reading": "かかく",
+        "meaning": "giá cả",
+        "mnemonic": ""
+      },
+      {
+        "word": "物価",
+        "reading": "ぶっか",
+        "meaning": "vật giá",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "source": "Somatome N3",
+    "week": 1,
+    "day": 3,
+    "number": 6,
+    "kanji": "値",
+    "on": "チ",
+    "kun": "ね",
+    "hanViet": "TRỊ",
+    "words": [
+      {
+        "word": "価値",
+        "reading": "かち",
+        "meaning": "giá trị",
+        "mnemonic": ""
+      },
+      {
+        "word": "値段",
+        "reading": "ねだん",
+        "meaning": "giá tiền",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "source": "Somatome N3",
+    "week": 1,
+    "day": 4,
+    "number": 7,
+    "kanji": "税",
+    "on": "ゼイ",
+    "kun": "",
+    "hanViet": "THUẾ",
+    "words": [
+      {
+        "word": "税金",
+        "reading": "ぜいきん",
+        "meaning": "tiền thuế",
+        "mnemonic": ""
+      },
+      {
+        "word": "消費税",
+        "reading": "しょうひぜい",
+        "meaning": "thuế tiêu thụ",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "source": "Somatome N3",
+    "week": 1,
+    "day": 4,
+    "number": 8,
+    "kanji": "収",
+    "on": "シュウ",
+    "kun": "おさめる",
+    "hanViet": "THU",
+    "words": [
+      {
+        "word": "収入",
+        "reading": "しゅうにゅう",
+        "meaning": "thu nhập",
+        "mnemonic": ""
+      },
+      {
+        "word": "収集",
+        "reading": "しゅうしゅう",
+        "meaning": "sự thu thập",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "source": "Somatome N3",
+    "week": 1,
+    "day": 5,
+    "number": 9,
+    "kanji": "益",
+    "on": "エキ",
+    "kun": "",
+    "hanViet": "ÍCH",
+    "words": [
+      {
+        "word": "利益",
+        "reading": "りえき",
+        "meaning": "lợi nhuận",
+        "mnemonic": ""
+      },
+      {
+        "word": "有益",
+        "reading": "ゆうえき",
+        "meaning": "hữu ích",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "source": "Somatome N3",
+    "week": 1,
+    "day": 5,
+    "number": 10,
+    "kanji": "務",
+    "on": "ム",
+    "kun": "つとめる",
+    "hanViet": "VỤ",
+    "words": [
+      {
+        "word": "事務",
+        "reading": "じむ",
+        "meaning": "công việc hành chính",
+        "mnemonic": ""
+      },
+      {
+        "word": "義務",
+        "reading": "ぎむ",
+        "meaning": "nghĩa vụ",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "source": "Somatome N3",
+    "week": 1,
+    "day": 6,
+    "number": 11,
+    "kanji": "局",
+    "on": "キョク",
+    "kun": "",
+    "hanViet": "CỤC",
+    "words": [
+      {
+        "word": "郵便局",
+        "reading": "ゆうびんきょく",
+        "meaning": "bưu điện",
+        "mnemonic": ""
+      },
+      {
+        "word": "結局",
+        "reading": "けっきょく",
+        "meaning": "cuối cùng",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "source": "Somatome N3",
+    "week": 1,
+    "day": 6,
+    "number": 12,
+    "kanji": "省",
+    "on": "ショウ",
+    "kun": "",
+    "hanViet": "TỈNH",
+    "words": [
+      {
+        "word": "文部省",
+        "reading": "もんぶしょう",
+        "meaning": "bộ giáo dục",
+        "mnemonic": ""
+      },
+      {
+        "word": "反省",
+        "reading": "はんせい",
+        "meaning": "tự kiểm điểm",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "source": "Somatome N3",
+    "week": 1,
+    "day": 7,
+    "number": 13,
+    "kanji": "議",
+    "on": "ギ",
+    "kun": "",
+    "hanViet": "NGHỊ",
+    "words": [
+      {
+        "word": "会議",
+        "reading": "かいぎ",
+        "meaning": "hội nghị",
+        "mnemonic": ""
+      },
+      {
+        "word": "議論",
+        "reading": "ぎろん",
+        "meaning": "sự tranh luận",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "source": "Somatome N3",
+    "week": 1,
+    "day": 7,
+    "number": 14,
+    "kanji": "院",
+    "on": "イン",
+    "kun": "",
+    "hanViet": "VIỆN",
+    "words": [
+      {
+        "word": "病院",
+        "reading": "びょういん",
+        "meaning": "bệnh viện",
+        "mnemonic": ""
+      },
+      {
+        "word": "大学院",
+        "reading": "だいがくいん",
+        "meaning": "cao học",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "source": "Somatome N3",
+    "week": 2,
+    "day": 1,
+    "number": 15,
+    "kanji": "党",
+    "on": "トウ",
+    "kun": "",
+    "hanViet": "ĐẢNG",
+    "words": [
+      {
+        "word": "政党",
+        "reading": "せいとう",
+        "meaning": "chính đảng",
+        "mnemonic": ""
+      },
+      {
+        "word": "与党",
+        "reading": "よとう",
+        "meaning": "đảng cầm quyền",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "source": "Somatome N3",
+    "week": 2,
+    "day": 1,
+    "number": 16,
+    "kanji": "選",
+    "on": "セン",
+    "kun": "えらぶ",
+    "hanViet": "TUYỂN",
+    "words": [
+      {
+        "word": "選挙",
+        "reading": "せんきょ",
+        "meaning": "tuyển cử",
+        "mnemonic": ""
+      },
+      {
+        "word": "選ぶ",
+        "reading": "えらぶ",
+        "meaning": "lựa chọn",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "source": "Somatome N3",
+    "week": 2,
+    "day": 2,
+    "number": 17,
+    "kanji": "挙",
+    "on": "キョ",
+    "kun": "あげる",
+    "hanViet": "CỬ",
+    "words": [
+      {
+        "word": "挙手",
+        "reading": "きょしゅ",
+        "meaning": "giơ tay",
+        "mnemonic": ""
+      },
+      {
+        "word": "選挙",
+        "reading": "せんきょ",
+        "meaning": "bầu cử",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "source": "Somatome N3",
+    "week": 2,
+    "day": 2,
+    "number": 18,
+    "kanji": "法",
+    "on": "ホウ",
+    "kun": "",
+    "hanViet": "PHÁP",
+    "words": [
+      {
+        "word": "法律",
+        "reading": "ほうりつ",
+        "meaning": "pháp luật",
+        "mnemonic": ""
+      },
+      {
+        "word": "方法",
+        "reading": "ほうほう",
+        "meaning": "phương pháp",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "source": "Somatome N3",
+    "week": 2,
+    "day": 3,
+    "number": 19,
+    "kanji": "律",
+    "on": "リツ",
+    "kun": "",
+    "hanViet": "LUẬT",
+    "words": [
+      {
+        "word": "法律",
+        "reading": "ほうりつ",
+        "meaning": "pháp luật",
+        "mnemonic": ""
+      },
+      {
+        "word": "規律",
+        "reading": "きりつ",
+        "meaning": "kỷ luật",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "source": "Somatome N3",
+    "week": 2,
+    "day": 3,
+    "number": 20,
+    "kanji": "罰",
+    "on": "バツ",
+    "kun": "",
+    "hanViet": "PHẠT",
+    "words": [
+      {
+        "word": "罰金",
+        "reading": "ばっきん",
+        "meaning": "tiền phạt",
+        "mnemonic": ""
+      },
+      {
+        "word": "処罰",
+        "reading": "しょばつ",
+        "meaning": "sự xử phạt",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "source": "Somatome N3",
+    "week": 2,
+    "day": 4,
+    "number": 21,
+    "kanji": "則",
+    "on": "ソク",
+    "kun": "",
+    "hanViet": "TẮC",
+    "words": [
+      {
+        "word": "規則",
+        "reading": "きそく",
+        "meaning": "quy tắc",
+        "mnemonic": ""
+      },
+      {
+        "word": "原則",
+        "reading": "げんそく",
+        "meaning": "nguyên tắc",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "source": "Somatome N3",
+    "week": 2,
+    "day": 4,
+    "number": 22,
+    "kanji": "命",
+    "on": "メイ",
+    "kun": "いのち",
+    "hanViet": "MỆNH",
+    "words": [
+      {
+        "word": "命令",
+        "reading": "めいれい",
+        "meaning": "mệnh lệnh",
+        "mnemonic": ""
+      },
+      {
+        "word": "生命",
+        "reading": "せいめい",
+        "meaning": "sinh mệnh",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "source": "Somatome N3",
+    "week": 2,
+    "day": 5,
+    "number": 23,
+    "kanji": "令",
+    "on": "レイ",
+    "kun": "",
+    "hanViet": "LỆNH",
+    "words": [
+      {
+        "word": "命令",
+        "reading": "めいれい",
+        "meaning": "ra lệnh",
+        "mnemonic": ""
+      },
+      {
+        "word": "法令",
+        "reading": "ほうれい",
+        "meaning": "pháp lệnh",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "source": "Somatome N3",
+    "week": 2,
+    "day": 5,
+    "number": 24,
+    "kanji": "禁",
+    "on": "キン",
+    "kun": "",
+    "hanViet": "CẤM",
+    "words": [
+      {
+        "word": "禁止",
+        "reading": "きんし",
+        "meaning": "sự cấm",
+        "mnemonic": ""
+      },
+      {
+        "word": "禁煙",
+        "reading": "きんえん",
+        "meaning": "cấm thuốc lá",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "source": "Somatome N3",
+    "week": 2,
+    "day": 6,
+    "number": 25,
+    "kanji": "止",
+    "on": "シ",
+    "kun": "とめる",
+    "hanViet": "CHỈ",
+    "words": [
+      {
+        "word": "中止",
+        "reading": "ちゅうし",
+        "meaning": "đình chỉ",
+        "mnemonic": ""
+      },
+      {
+        "word": "止める",
+        "reading": "とめる",
+        "meaning": "dừng lại",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "source": "Somatome N3",
+    "week": 2,
+    "day": 6,
+    "number": 26,
+    "kanji": "許",
+    "on": "キョ",
+    "kun": "ゆるす",
+    "hanViet": "HỨA",
+    "words": [
+      {
+        "word": "許可",
+        "reading": "きょか",
+        "meaning": "sự cho phép",
+        "mnemonic": ""
+      },
+      {
+        "word": "許す",
+        "reading": "ゆるす",
+        "meaning": "tha thứ",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "source": "Somatome N3",
+    "week": 2,
+    "day": 7,
+    "number": 27,
+    "kanji": "可",
+    "on": "カ",
+    "kun": "",
+    "hanViet": "KHẢ",
+    "words": [
+      {
+        "word": "可能",
+        "reading": "かのう",
+        "meaning": "khả năng",
+        "mnemonic": ""
+      },
+      {
+        "word": "不可",
+        "reading": "ふか",
+        "meaning": "không thể",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "source": "Somatome N3",
+    "week": 2,
+    "day": 7,
+    "number": 28,
+    "kanji": "申",
+    "on": "シン",
+    "kun": "もうす",
+    "hanViet": "THÂN",
+    "words": [
+      {
+        "word": "申請",
+        "reading": "しんせい",
+        "meaning": "đơn xin",
+        "mnemonic": ""
+      },
+      {
+        "word": "申し込む",
+        "reading": "もうしこむ",
+        "meaning": "đăng ký",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "source": "Somatome N3",
+    "week": 3,
+    "day": 1,
+    "number": 29,
+    "kanji": "請",
+    "on": "セイ",
+    "kun": "",
+    "hanViet": "THỈNH",
+    "words": [
+      {
+        "word": "請求",
+        "reading": "せいきゅう",
+        "meaning": "sự yêu cầu",
+        "mnemonic": ""
+      },
+      {
+        "word": "申請",
+        "reading": "しんせい",
+        "meaning": "xin phép",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "source": "Somatome N3",
+    "week": 3,
+    "day": 1,
+    "number": 30,
+    "kanji": "届",
+    "on": "",
+    "kun": "とどける",
+    "hanViet": "GIỚI",
+    "words": [
+      {
+        "word": "届く",
+        "reading": "とどく",
+        "meaning": "đến nơi",
+        "mnemonic": ""
+      },
+      {
+        "word": "届ける",
+        "reading": "とどける",
+        "meaning": "chuyển đến",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "source": "Somatome N3",
+    "week": 3,
+    "day": 2,
+    "number": 31,
+    "kanji": "登",
+    "on": "トウ",
+    "kun": "",
+    "hanViet": "ĐĂNG",
+    "words": [
+      {
+        "word": "登録",
+        "reading": "とうろく",
+        "meaning": "đăng ký",
+        "mnemonic": ""
+      },
+      {
+        "word": "登山",
+        "reading": "とざん",
+        "meaning": "leo núi",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "source": "Somatome N3",
+    "week": 3,
+    "day": 2,
+    "number": 32,
+    "kanji": "録",
+    "on": "ロク",
+    "kun": "",
+    "hanViet": "LỤC",
+    "words": [
+      {
+        "word": "記録",
+        "reading": "きろく",
+        "meaning": "ghi chép",
+        "mnemonic": ""
+      },
+      {
+        "word": "録音",
+        "reading": "ろくおん",
+        "meaning": "thu âm",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "source": "Somatome N3",
+    "week": 3,
+    "day": 3,
+    "number": 33,
+    "kanji": "印",
+    "on": "イン",
+    "kun": "しるし",
+    "hanViet": "ẤN",
+    "words": [
+      {
+        "word": "印刷",
+        "reading": "いんさつ",
+        "meaning": "in ấn",
+        "mnemonic": ""
+      },
+      {
+        "word": "印象",
+        "reading": "いんしょう",
+        "meaning": "ấn tượng",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "source": "Somatome N3",
+    "week": 3,
+    "day": 3,
+    "number": 34,
+    "kanji": "刷",
+    "on": "サツ",
+    "kun": "",
+    "hanViet": "SÁT",
+    "words": [
+      {
+        "word": "印刷",
+        "reading": "いんさつ",
+        "meaning": "in",
+        "mnemonic": ""
+      },
+      {
+        "word": "増刷",
+        "reading": "ぞうさつ",
+        "meaning": "in thêm",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "source": "Somatome N3",
+    "week": 3,
+    "day": 4,
+    "number": 35,
+    "kanji": "版",
+    "on": "ハン",
+    "kun": "",
+    "hanViet": "BẢN",
+    "words": [
+      {
+        "word": "出版",
+        "reading": "しゅっぱん",
+        "meaning": "xuất bản",
+        "mnemonic": ""
+      },
+      {
+        "word": "初版",
+        "reading": "しょはん",
+        "meaning": "bản in đầu",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "source": "Somatome N3",
+    "week": 3,
+    "day": 4,
+    "number": 36,
+    "kanji": "編",
+    "on": "ヘン",
+    "kun": "",
+    "hanViet": "BIÊN",
+    "words": [
+      {
+        "word": "編集",
+        "reading": "へんしゅう",
+        "meaning": "biên tập",
+        "mnemonic": ""
+      },
+      {
+        "word": "編成",
+        "reading": "へんせい",
+        "meaning": "biên chế",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "source": "Somatome N3",
+    "week": 3,
+    "day": 5,
+    "number": 37,
+    "kanji": "集",
+    "on": "シュウ",
+    "kun": "あつめる",
+    "hanViet": "TẬP",
+    "words": [
+      {
+        "word": "集中",
+        "reading": "しゅうちゅう",
+        "meaning": "tập trung",
+        "mnemonic": ""
+      },
+      {
+        "word": "集める",
+        "reading": "あつめる",
+        "meaning": "thu thập",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "source": "Somatome N3",
+    "week": 3,
+    "day": 5,
+    "number": 38,
+    "kanji": "放",
+    "on": "ホウ",
+    "kun": "はなす",
+    "hanViet": "PHÓNG",
+    "words": [
+      {
+        "word": "放送",
+        "reading": "ほうそう",
+        "meaning": "phát sóng",
+        "mnemonic": ""
+      },
+      {
+        "word": "開放",
+        "reading": "かいほう",
+        "meaning": "mở cửa",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "source": "Somatome N3",
+    "week": 3,
+    "day": 6,
+    "number": 39,
+    "kanji": "送",
+    "on": "ソウ",
+    "kun": "おくる",
+    "hanViet": "TỐNG",
+    "words": [
+      {
+        "word": "放送",
+        "reading": "ほうそう",
+        "meaning": "phát sóng",
+        "mnemonic": ""
+      },
+      {
+        "word": "送る",
+        "reading": "おくる",
+        "meaning": "gửi",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "source": "Somatome N3",
+    "week": 3,
+    "day": 6,
+    "number": 40,
+    "kanji": "映",
+    "on": "エイ",
+    "kun": "うつる",
+    "hanViet": "ÁNH",
+    "words": [
+      {
+        "word": "映画",
+        "reading": "えいが",
+        "meaning": "phim",
+        "mnemonic": ""
+      },
+      {
+        "word": "映像",
+        "reading": "えいぞう",
+        "meaning": "hình ảnh",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "source": "Somatome N3",
+    "week": 3,
+    "day": 7,
+    "number": 41,
+    "kanji": "像",
+    "on": "ゾウ",
+    "kun": "",
+    "hanViet": "TƯỢNG",
+    "words": [
+      {
+        "word": "映像",
+        "reading": "えいぞう",
+        "meaning": "hình ảnh",
+        "mnemonic": ""
+      },
+      {
+        "word": "想像",
+        "reading": "そうぞう",
+        "meaning": "tưởng tượng",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "source": "Somatome N3",
+    "week": 3,
+    "day": 7,
+    "number": 42,
+    "kanji": "観",
+    "on": "カン",
+    "kun": "",
+    "hanViet": "QUAN",
+    "words": [
+      {
+        "word": "観光",
+        "reading": "かんこう",
+        "meaning": "du lịch",
+        "mnemonic": ""
+      },
+      {
+        "word": "観察",
+        "reading": "かんさつ",
+        "meaning": "quan sát",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "source": "Somatome N3",
+    "week": 4,
+    "day": 1,
+    "number": 43,
+    "kanji": "察",
+    "on": "サツ",
+    "kun": "",
+    "hanViet": "SÁT",
+    "words": [
+      {
+        "word": "観察",
+        "reading": "かんさつ",
+        "meaning": "quan sát",
+        "mnemonic": ""
+      },
+      {
+        "word": "警察",
+        "reading": "けいさつ",
+        "meaning": "cảnh sát",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "source": "Somatome N3",
+    "week": 4,
+    "day": 1,
+    "number": 44,
+    "kanji": "調",
+    "on": "チョウ",
+    "kun": "しらべる",
+    "hanViet": "ĐIỀU",
+    "words": [
+      {
+        "word": "調査",
+        "reading": "ちょうさ",
+        "meaning": "điều tra",
+        "mnemonic": ""
+      },
+      {
+        "word": "調べる",
+        "reading": "しらべる",
+        "meaning": "tra cứu",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "source": "Somatome N3",
+    "week": 4,
+    "day": 2,
+    "number": 45,
+    "kanji": "査",
+    "on": "サ",
+    "kun": "",
+    "hanViet": "TRA",
+    "words": [
+      {
+        "word": "調査",
+        "reading": "ちょうさ",
+        "meaning": "điều tra",
+        "mnemonic": ""
+      },
+      {
+        "word": "検査",
+        "reading": "けんさ",
+        "meaning": "kiểm tra",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "source": "Somatome N3",
+    "week": 4,
+    "day": 2,
+    "number": 46,
+    "kanji": "研",
+    "on": "ケン",
+    "kun": "",
+    "hanViet": "NGHIÊN",
+    "words": [
+      {
+        "word": "研究",
+        "reading": "けんきゅう",
+        "meaning": "nghiên cứu",
+        "mnemonic": ""
+      },
+      {
+        "word": "研修",
+        "reading": "けんしゅう",
+        "meaning": "tập huấn",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "source": "Somatome N3",
+    "week": 4,
+    "day": 3,
+    "number": 47,
+    "kanji": "究",
+    "on": "キュウ",
+    "kun": "",
+    "hanViet": "CỨU",
+    "words": [
+      {
+        "word": "研究",
+        "reading": "けんきゅう",
+        "meaning": "nghiên cứu",
+        "mnemonic": ""
+      },
+      {
+        "word": "追究",
+        "reading": "ついきゅう",
+        "meaning": "truy cứu",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "source": "Somatome N3",
+    "week": 4,
+    "day": 3,
+    "number": 48,
+    "kanji": "論",
+    "on": "ロン",
+    "kun": "",
+    "hanViet": "LUẬN",
+    "words": [
+      {
+        "word": "議論",
+        "reading": "ぎろん",
+        "meaning": "tranh luận",
+        "mnemonic": ""
+      },
+      {
+        "word": "論文",
+        "reading": "ろんぶん",
+        "meaning": "luận văn",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "source": "Somatome N3",
+    "week": 4,
+    "day": 4,
+    "number": 49,
+    "kanji": "評",
+    "on": "ヒョウ",
+    "kun": "",
+    "hanViet": "BÌNH",
+    "words": [
+      {
+        "word": "評価",
+        "reading": "ひょうか",
+        "meaning": "đánh giá",
+        "mnemonic": ""
+      },
+      {
+        "word": "評判",
+        "reading": "ひょうばん",
+        "meaning": "danh tiếng",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "source": "Somatome N3",
+    "week": 4,
+    "day": 4,
+    "number": 50,
+    "kanji": "比",
+    "on": "ヒ",
+    "kun": "くらべる",
+    "hanViet": "TỈ",
+    "words": [
+      {
+        "word": "比較",
+        "reading": "ひかく",
+        "meaning": "so sánh",
+        "mnemonic": ""
+      },
+      {
+        "word": "比べる",
+        "reading": "くらべる",
+        "meaning": "so sánh",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "source": "Somatome N3",
+    "week": 4,
+    "day": 5,
+    "number": 51,
+    "kanji": "較",
+    "on": "カク",
+    "kun": "",
+    "hanViet": "GIẢO",
+    "words": [
+      {
+        "word": "比較",
+        "reading": "ひかく",
+        "meaning": "so sánh",
+        "mnemonic": ""
+      },
+      {
+        "word": "比較的",
+        "reading": "ひかくてき",
+        "meaning": "tương đối",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "source": "Somatome N3",
+    "week": 4,
+    "day": 5,
+    "number": 52,
+    "kanji": "関",
+    "on": "カン",
+    "kun": "かかわる",
+    "hanViet": "QUAN",
+    "words": [
+      {
+        "word": "関係",
+        "reading": "かんけい",
+        "meaning": "quan hệ",
+        "mnemonic": ""
+      },
+      {
+        "word": "関心",
+        "reading": "かんしん",
+        "meaning": "sự quan tâm",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "source": "Somatome N3",
+    "week": 4,
+    "day": 6,
+    "number": 53,
+    "kanji": "係",
+    "on": "ケイ",
+    "kun": "かかり",
+    "hanViet": "HỆ",
+    "words": [
+      {
+        "word": "関係",
+        "reading": "かんけい",
+        "meaning": "quan hệ",
+        "mnemonic": ""
+      },
+      {
+        "word": "係員",
+        "reading": "かかりいん",
+        "meaning": "người phụ trách",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "source": "Somatome N3",
+    "week": 4,
+    "day": 6,
+    "number": 54,
+    "kanji": "参",
+    "on": "サン",
+    "kun": "まいる",
+    "hanViet": "THAM",
+    "words": [
+      {
+        "word": "参加",
+        "reading": "さんか",
+        "meaning": "tham gia",
+        "mnemonic": ""
+      },
+      {
+        "word": "参考",
+        "reading": "さんこう",
+        "meaning": "tham khảo",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "source": "Somatome N3",
+    "week": 4,
+    "day": 7,
+    "number": 55,
+    "kanji": "加",
+    "on": "カ",
+    "kun": "くわえる",
+    "hanViet": "GIA",
+    "words": [
+      {
+        "word": "加入",
+        "reading": "かにゅう",
+        "meaning": "gia nhập",
+        "mnemonic": ""
+      },
+      {
+        "word": "加える",
+        "reading": "くわえる",
+        "meaning": "thêm vào",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "source": "Somatome N3",
+    "week": 4,
+    "day": 7,
+    "number": 56,
+    "kanji": "退",
+    "on": "タイ",
+    "kun": "しりぞく",
+    "hanViet": "THỐI",
+    "words": [
+      {
+        "word": "退職",
+        "reading": "たいしょく",
+        "meaning": "nghỉ việc",
+        "mnemonic": ""
+      },
+      {
+        "word": "引退",
+        "reading": "いんたい",
+        "meaning": "về hưu",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "source": "Somatome N3",
+    "week": 5,
+    "day": 1,
+    "number": 57,
+    "kanji": "職",
+    "on": "ショク",
+    "kun": "",
+    "hanViet": "CHỨC",
+    "words": [
+      {
+        "word": "職業",
+        "reading": "しょくぎょう",
+        "meaning": "nghề nghiệp",
+        "mnemonic": ""
+      },
+      {
+        "word": "就職",
+        "reading": "しゅうしょく",
+        "meaning": "xin việc",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 58,
+    "source": "Somatome N3",
+    "week": 5,
+    "day": 1,
+    "number": 58,
+    "kanji": "勤",
+    "on": "キン",
+    "kun": "つとめる",
+    "hanViet": "CẦN",
+    "words": [
+      {
+        "word": "勤務",
+        "reading": "きんむ",
+        "meaning": "làm việc",
+        "mnemonic": ""
+      },
+      {
+        "word": "通勤",
+        "reading": "つうきん",
+        "meaning": "đi làm",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 59,
+    "source": "Somatome N3",
+    "week": 5,
+    "day": 2,
+    "number": 59,
+    "kanji": "給",
+    "on": "キュウ",
+    "kun": "",
+    "hanViet": "CẤP",
+    "words": [
+      {
+        "word": "給料",
+        "reading": "きゅうりょう",
+        "meaning": "tiền lương",
+        "mnemonic": ""
+      },
+      {
+        "word": "供給",
+        "reading": "きょうきゅう",
+        "meaning": "cung cấp",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 60,
+    "source": "Somatome N3",
+    "week": 5,
+    "day": 2,
+    "number": 60,
+    "kanji": "料",
+    "on": "リョウ",
+    "kun": "",
+    "hanViet": "LIỆU",
+    "words": [
+      {
+        "word": "料金",
+        "reading": "りょうきん",
+        "meaning": "phí",
+        "mnemonic": ""
+      },
+      {
+        "word": "材料",
+        "reading": "ざいりょう",
+        "meaning": "nguyên liệu",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 61,
+    "source": "Somatome N3",
+    "week": 5,
+    "day": 3,
+    "number": 61,
+    "kanji": "貯",
+    "on": "チョ",
+    "kun": "",
+    "hanViet": "TRỮ",
+    "words": [
+      {
+        "word": "貯金",
+        "reading": "ちょきん",
+        "meaning": "tiền tiết kiệm",
+        "mnemonic": ""
+      },
+      {
+        "word": "貯蓄",
+        "reading": "ちょちく",
+        "meaning": "sự tích trữ",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "source": "Somatome N3",
+    "week": 5,
+    "day": 3,
+    "number": 62,
+    "kanji": "貸",
+    "on": "タイ",
+    "kun": "かす",
+    "hanViet": "THÁI",
+    "words": [
+      {
+        "word": "貸す",
+        "reading": "かす",
+        "meaning": "cho vay",
+        "mnemonic": ""
+      },
+      {
+        "word": "貸家",
+        "reading": "かしや",
+        "meaning": "nhà cho thuê",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 63,
+    "source": "Somatome N3",
+    "week": 5,
+    "day": 4,
+    "number": 63,
+    "kanji": "借",
+    "on": "シャク",
+    "kun": "かりる",
+    "hanViet": "TÁ",
+    "words": [
+      {
+        "word": "借りる",
+        "reading": "かりる",
+        "meaning": "vay",
+        "mnemonic": ""
+      },
+      {
+        "word": "借金",
+        "reading": "しゃっきん",
+        "meaning": "nợ",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 64,
+    "source": "Somatome N3",
+    "week": 5,
+    "day": 4,
+    "number": 64,
+    "kanji": "預",
+    "on": "ヨ",
+    "kun": "あずける",
+    "hanViet": "DỰ",
+    "words": [
+      {
+        "word": "預金",
+        "reading": "よきん",
+        "meaning": "tiền gửi",
+        "mnemonic": ""
+      },
+      {
+        "word": "預ける",
+        "reading": "あずける",
+        "meaning": "gửi giữ",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 65,
+    "source": "Somatome N3",
+    "week": 5,
+    "day": 5,
+    "number": 65,
+    "kanji": "貨",
+    "on": "カ",
+    "kun": "",
+    "hanViet": "HÓA",
+    "words": [
+      {
+        "word": "貨物",
+        "reading": "かもつ",
+        "meaning": "hàng hóa",
+        "mnemonic": ""
+      },
+      {
+        "word": "通貨",
+        "reading": "つうか",
+        "meaning": "tiền tệ",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "source": "Somatome N3",
+    "week": 5,
+    "day": 5,
+    "number": 66,
+    "kanji": "幣",
+    "on": "ヘイ",
+    "kun": "",
+    "hanViet": "TỆ",
+    "words": [
+      {
+        "word": "紙幣",
+        "reading": "しへい",
+        "meaning": "tiền giấy",
+        "mnemonic": ""
+      },
+      {
+        "word": "貨幣",
+        "reading": "かへい",
+        "meaning": "tiền tệ",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "source": "Somatome N3",
+    "week": 5,
+    "day": 6,
+    "number": 67,
+    "kanji": "費",
+    "on": "ヒ",
+    "kun": "",
+    "hanViet": "PHÍ",
+    "words": [
+      {
+        "word": "費用",
+        "reading": "ひよう",
+        "meaning": "chi phí",
+        "mnemonic": ""
+      },
+      {
+        "word": "消費",
+        "reading": "しょうひ",
+        "meaning": "tiêu thụ",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 68,
+    "source": "Somatome N3",
+    "week": 5,
+    "day": 6,
+    "number": 68,
+    "kanji": "支",
+    "on": "シ",
+    "kun": "ささえる",
+    "hanViet": "CHI",
+    "words": [
+      {
+        "word": "支払う",
+        "reading": "しはらう",
+        "meaning": "chi trả",
+        "mnemonic": ""
+      },
+      {
+        "word": "支持",
+        "reading": "しじ",
+        "meaning": "ủng hộ",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 69,
+    "source": "Somatome N3",
+    "week": 5,
+    "day": 7,
+    "number": 69,
+    "kanji": "払",
+    "on": "",
+    "kun": "はらう",
+    "hanViet": "PHẤT",
+    "words": [
+      {
+        "word": "支払い",
+        "reading": "しはらい",
+        "meaning": "sự thanh toán",
+        "mnemonic": ""
+      },
+      {
+        "word": "払う",
+        "reading": "はらう",
+        "meaning": "trả tiền",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 70,
+    "source": "Somatome N3",
+    "week": 5,
+    "day": 7,
+    "number": 70,
+    "kanji": "得",
+    "on": "トク",
+    "kun": "える",
+    "hanViet": "ĐẮC",
+    "words": [
+      {
+        "word": "得る",
+        "reading": "える",
+        "meaning": "đạt được",
+        "mnemonic": ""
+      },
+      {
+        "word": "損得",
+        "reading": "そんとく",
+        "meaning": "lợi và hại",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 71,
+    "source": "Somatome N3",
+    "week": 6,
+    "day": 1,
+    "number": 71,
+    "kanji": "損",
+    "on": "ソン",
+    "kun": "",
+    "hanViet": "TỔN",
+    "words": [
+      {
+        "word": "損害",
+        "reading": "そんがい",
+        "meaning": "tổn hại",
+        "mnemonic": ""
+      },
+      {
+        "word": "損失",
+        "reading": "そんしつ",
+        "meaning": "thất thoát",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 72,
+    "source": "Somatome N3",
+    "week": 6,
+    "day": 1,
+    "number": 72,
+    "kanji": "富",
+    "on": "フ",
+    "kun": "とむ",
+    "hanViet": "PHÚ",
+    "words": [
+      {
+        "word": "豊富",
+        "reading": "ほうふ",
+        "meaning": "phong phú",
+        "mnemonic": ""
+      },
+      {
+        "word": "富裕",
+        "reading": "ふゆう",
+        "meaning": "giàu có",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 73,
+    "source": "Somatome N3",
+    "week": 6,
+    "day": 2,
+    "number": 73,
+    "kanji": "貧",
+    "on": "ヒン",
+    "kun": "まずしい",
+    "hanViet": "BẦN",
+    "words": [
+      {
+        "word": "貧乏",
+        "reading": "びんぼう",
+        "meaning": "nghèo khó",
+        "mnemonic": ""
+      },
+      {
+        "word": "貧しい",
+        "reading": "まずしい",
+        "meaning": "nghèo",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 74,
+    "source": "Somatome N3",
+    "week": 6,
+    "day": 2,
+    "number": 74,
+    "kanji": "豊",
+    "on": "ホウ",
+    "kun": "ゆたか",
+    "hanViet": "PHONG",
+    "words": [
+      {
+        "word": "豊富",
+        "reading": "ほうふ",
+        "meaning": "phong phú",
+        "mnemonic": ""
+      },
+      {
+        "word": "豊か",
+        "reading": "ゆたか",
+        "meaning": "sung túc",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 75,
+    "source": "Somatome N3",
+    "week": 6,
+    "day": 3,
+    "number": 75,
+    "kanji": "労",
+    "on": "ロウ",
+    "kun": "",
+    "hanViet": "LAO",
+    "words": [
+      {
+        "word": "労働",
+        "reading": "ろうどう",
+        "meaning": "lao động",
+        "mnemonic": ""
+      },
+      {
+        "word": "苦労",
+        "reading": "くろう",
+        "meaning": "sự khổ nhọc",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 76,
+    "source": "Somatome N3",
+    "week": 6,
+    "day": 3,
+    "number": 76,
+    "kanji": "働",
+    "on": "ドウ",
+    "kun": "はたらく",
+    "hanViet": "ĐỘNG",
+    "words": [
+      {
+        "word": "労働",
+        "reading": "ろうどう",
+        "meaning": "lao động",
+        "mnemonic": ""
+      },
+      {
+        "word": "働く",
+        "reading": "はたらく",
+        "meaning": "làm việc",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 77,
+    "source": "Somatome N3",
+    "week": 6,
+    "day": 4,
+    "number": 77,
+    "kanji": "産",
+    "on": "サン",
+    "kun": "うむ",
+    "hanViet": "SẢN",
+    "words": [
+      {
+        "word": "生産",
+        "reading": "せいさん",
+        "meaning": "sản xuất",
+        "mnemonic": ""
+      },
+      {
+        "word": "産業",
+        "reading": "さんぎょう",
+        "meaning": "ngành sản xuất",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 78,
+    "source": "Somatome N3",
+    "week": 6,
+    "day": 4,
+    "number": 78,
+    "kanji": "業",
+    "on": "ギョウ",
+    "kun": "",
+    "hanViet": "NGHIỆP",
+    "words": [
+      {
+        "word": "工業",
+        "reading": "こうぎょう",
+        "meaning": "công nghiệp",
+        "mnemonic": ""
+      },
+      {
+        "word": "営業",
+        "reading": "えいぎょう",
+        "meaning": "kinh doanh",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 79,
+    "source": "Somatome N3",
+    "week": 6,
+    "day": 5,
+    "number": 79,
+    "kanji": "営",
+    "on": "エイ",
+    "kun": "いとなむ",
+    "hanViet": "DOANH",
+    "words": [
+      {
+        "word": "経営",
+        "reading": "けいえい",
+        "meaning": "sự quản lý",
+        "mnemonic": ""
+      },
+      {
+        "word": "営業",
+        "reading": "えいぎょう",
+        "meaning": "kinh doanh",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 80,
+    "source": "Somatome N3",
+    "week": 6,
+    "day": 5,
+    "number": 80,
+    "kanji": "経",
+    "on": "ケイ",
+    "kun": "へる",
+    "hanViet": "KINH",
+    "words": [
+      {
+        "word": "経験",
+        "reading": "けいけん",
+        "meaning": "kinh nghiệm",
+        "mnemonic": ""
+      },
+      {
+        "word": "経済",
+        "reading": "けいざい",
+        "meaning": "kinh tế",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 81,
+    "source": "Somatome N3",
+    "week": 6,
+    "day": 6,
+    "number": 81,
+    "kanji": "済",
+    "on": "サイ",
+    "kun": "すむ",
+    "hanViet": "TẾ",
+    "words": [
+      {
+        "word": "経済",
+        "reading": "けいざい",
+        "meaning": "kinh tế",
+        "mnemonic": ""
+      },
+      {
+        "word": "返済",
+        "reading": "へんさい",
+        "meaning": "trả nợ",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 82,
+    "source": "Somatome N3",
+    "week": 6,
+    "day": 6,
+    "number": 82,
+    "kanji": "資",
+    "on": "シ",
+    "kun": "",
+    "hanViet": "TƯ",
+    "words": [
+      {
+        "word": "資料",
+        "reading": "しりょう",
+        "meaning": "tài liệu",
+        "mnemonic": ""
+      },
+      {
+        "word": "投資",
+        "reading": "とうし",
+        "meaning": "đầu tư",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 83,
+    "source": "Somatome N3",
+    "week": 6,
+    "day": 7,
+    "number": 83,
+    "kanji": "投",
+    "on": "トウ",
+    "kun": "なげる",
+    "hanViet": "ĐẦU",
+    "words": [
+      {
+        "word": "投資",
+        "reading": "とうし",
+        "meaning": "đầu tư",
+        "mnemonic": ""
+      },
+      {
+        "word": "投げる",
+        "reading": "なげる",
+        "meaning": "ném",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 84,
+    "source": "Somatome N3",
+    "week": 6,
+    "day": 7,
+    "number": 84,
+    "kanji": "株",
+    "on": "",
+    "kun": "かぶ",
+    "hanViet": "CHU",
+    "words": [
+      {
+        "word": "株式",
+        "reading": "かぶしき",
+        "meaning": "cổ phiếu",
+        "mnemonic": ""
+      },
+      {
+        "word": "株価",
+        "reading": "かぶか",
+        "meaning": "giá cổ phiếu",
+        "mnemonic": ""
+      }
+    ]
+  }
+]
