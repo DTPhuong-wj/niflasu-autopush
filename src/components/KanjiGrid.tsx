@@ -13,7 +13,13 @@ export default function KanjiGrid({ items, onSelect }: Props) {
   return (
     <div className="nf-grid">
       {items.map((item) => (
-        <button key={item.id} className="nf-tile" onClick={() => onSelect(item)}>
+        <button
+          key={item.id}
+          className="nf-tile"
+          onClick={() => onSelect(item)}
+          aria-label={`${item.number}. ${item.kanji}`}
+        >
+          <span className="nf-tile-number">{item.number}</span>
           {item.kanji}
         </button>
       ))}

@@ -357,6 +357,7 @@
   gap: 10px;
 }
 .nf-tile {
+  position: relative;
   height: 62px;
   display: grid;
   place-items: center;
@@ -368,6 +369,15 @@
   font-size: 26px;
   font-weight: 600;
   cursor: pointer;
+}
+.nf-tile-number {
+  position: absolute;
+  top: 5px;
+  left: 7px;
+  color: var(--nf-text-muted);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
 }
 .nf-tile:hover {
   background: var(--nf-surface-alt);

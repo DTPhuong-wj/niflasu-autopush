@@ -1,0 +1,235 @@
+[
+  {
+    "id": 1,
+    "source": "Mimikara N3",
+    "unit": 1,
+    "number": 1,
+    "word": "改善",
+    "reading": "かいぜん",
+    "hanViet": "CẢI THIỆN",
+    "meaning": "cải thiện",
+    "relatedWords": [
+      { "word": "合", "reading": "ごう", "type": "related", "formula": "合計 = 合 + 計" },
+      { "word": "開", "reading": "かい", "type": "related" },
+      { "word": "連", "reading": "れん", "type": "related" }
+    ],
+    "example": {
+      "sentence": "生活を改善する。",
+      "reading": "せいかつをかいぜんする。",
+      "meaning": "Cải thiện cuộc sống."
+    }
+  },
+  {
+    "id": 836,
+    "source": "Mimikara N3",
+    "unit": 11,
+    "number": 836,
+    "word": "炊ける",
+    "reading": "たける",
+    "hanViet": "XUY",
+    "meaning": "được nấu; nấu chín (tự động từ)",
+    "relatedWords": [{}],
+    "example": {
+      "sentence": "ごはんが炊けた。",
+      "reading": "ごはんがたけた。",
+      "meaning": "Cơm đã nấu xong."
+    }
+  },
+  {
+    "id": 837,
+    "source": "Mimikara N3",
+    "unit": 11,
+    "number": 837,
+    "word": "炊く",
+    "reading": "たく",
+    "hanViet": "XUY",
+    "meaning": "nấu cơm; nấu",
+    "relatedWords": [
+      {
+       
+      }
+    ],
+    "example": {
+      "sentence": "ごはんを炊く。",
+      "reading": "ごはんをたく。",
+      "meaning": "Nấu cơm."
+    }
+  },
+  {
+    "id": 838,
+    "source": "Mimikara N3",
+    "unit": 11,
+    "number": 838,
+    "word": "煮える",
+    "reading": "にえる",
+    "hanViet": "CHỬ",
+    "meaning": "được nấu chín; được ninh nhừ (tự động từ)",
+    "relatedWords": [
+      {
+        "word": "合", 
+        "reading": "ごう", 
+        "type": "related", 
+        "formula": "煮物　にもの　đồ nấu"
+      }
+    ],
+    "example": {
+      "sentence": "野菜が煮えたら、塩で味をつけてください。",
+      "reading": "やさいがにえたら、しおであじをつけてください。",
+      "meaning": "Khi rau đã nhừ, hãy nêm gia vị bằng muối."
+    }
+  },
+  {
+    "id": 839,
+    "source": "Mimikara N3",
+    "unit": 11,
+    "number": 839,
+    "word": "煮る",
+    "reading": "にる",
+    "hanViet": "CHỬ",
+    "meaning": "nấu; ninh; hầm",
+    "relatedWords": [
+      {
+        "word": "合", 
+        "reading": "ごう", 
+        "type": "related", 
+        "formula": "煮物　にもの　đồ nấu"
+      }
+    ],
+    "example": {
+      "sentence": "この野菜をスープで煮てください。",
+      "reading": "このやさいをスープでにてください。",
+      "meaning": "Hãy ninh rau này bằng súp."
+    }
+  },
+  {
+    "id": 840,
+    "source": "Mimikara N3",
+    "unit": 11,
+    "number": 840,
+    "word": "炒める",
+    "reading": "いためる",
+    "hanViet": "SAO",
+    "meaning": "xào; rán",
+    "relatedWords": [
+      {
+        "word": "合", 
+        "reading": "ごう", 
+        "type": "related", 
+        "formula": "炒め物　いためもの　đồ rán\n野菜炒め やさいいため　rau xào"
+      }
+    ],
+    "example": {
+      "sentence": "フライパンに油をひいて、肉と野菜を炒める。",
+      "reading": "フライパンにあぶらをひいて、にくとやさいをいためる。",
+      "meaning": "Cho dầu vào chảo rồi xào thịt và rau."
+    }
+  },
+  {
+    "id": 841,
+    "source": "Mimikara N3",
+    "unit": 11,
+    "number": 841,
+    "word": "焼ける",
+    "reading": "やける",
+    "hanViet": "THIÊU",
+    "meaning": "được nướng; được rán; chín (tự động từ)",
+    "relatedWords": [
+      {
+        "word": "合", 
+        "reading": "ごう", 
+        "type": "related", 
+        "formula": "焼肉・焼き魚　thịt nướng, cá nướng\n卵焼き　trứng rán"
+      }
+    ],
+    "example": {
+      "sentence": "よく焼けていない豚肉は食べないほうがいい。",
+      "reading": "よくやけていないぶたにくはたべないほうがいい。",
+      "meaning": "Thịt lợn chưa nướng chín kỹ thì không nên ăn."
+    }
+  },
+  {
+    "id": 842,
+    "source": "Mimikara N3",
+    "unit": 11,
+    "number": 842,
+    "word": "焼く",
+    "reading": "やく",
+    "hanViet": "THIÊU",
+    "meaning": "nướng; rán",
+    "relatedWords": [
+      {
+        "word": "合", 
+        "reading": "ごう", 
+        "type": "related", 
+        "formula": "焼肉・焼き魚　thịt nướng, cá nướng\n卵焼き　trứng rán"
+      }
+    ],
+    "example": {
+      "sentence": "フライパンでオムレツを焼く。",
+      "reading": "フライパンでオムレツをやく。",
+      "meaning": "Rán trứng ốp lết bằng chảo."
+    }
+  },
+  {
+    "id": 843,
+    "source": "Mimikara N3",
+    "unit": 11,
+    "number": 843,
+    "word": "ゆでる",
+    "reading": "ゆでる",
+    "hanViet": null,
+    "meaning": "luộc",
+    "relatedWords": [
+      {
+        "word": "合", 
+        "reading": "ごう", 
+        "type": "related", 
+        "formula": "ゆで卵　ゆでたまご　trứng luộc"
+      }
+    ],
+    "example": {
+      "sentence": "熱い湯で卵や野菜をゆでる。",
+      "reading": "あついゆでたまごややさいをゆでる。",
+      "meaning": "Luộc trứng và rau bằng nước nóng."
+    }
+  },
+  {
+    "id": 844,
+    "source": "Mimikara N3",
+    "unit": 11,
+    "number": 844,
+    "word": "揚げる",
+    "reading": "あげる",
+    "hanViet": "DƯƠNG",
+    "meaning": "chiên; rán",
+    "relatedWords": [
+      {
+        "word": "合", 
+        "reading": "ごう", 
+        "type": "related", 
+        "formula": "揚げ物　あげもの　đồ chiên" 
+      }
+    ],
+    "example": {
+      "sentence": "油でてんぷらを揚げる。",
+      "reading": "あぶらでてんぷらをあげる。",
+      "meaning": "Chiên tempura bằng dầu."
+    }
+  },
+  {
+    "id": 845,
+    "source": "Mimikara N3",
+    "unit": 11,
+    "number": 845,
+    "word": "蒸す",
+    "reading": "むす",
+    "hanViet": "CHƯNG",
+    "meaning": "hấp",
+    "relatedWords": [],
+    "example": {
+      "sentence": "湯を沸かして、その湯気でギョーザを蒸す。",
+      "reading": "ゆをわかして、そのゆげでギョーザをむす。",
+      "meaning": "Đun sôi nước rồi hấp há cảo bằng hơi nước đó."
+    }
+  }
+]
