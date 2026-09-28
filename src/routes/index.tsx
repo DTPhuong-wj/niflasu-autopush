@@ -5,7 +5,8 @@ import type { Kanji, Settings } from "../types/kanji";
 import Header from "../components/Header";
 import Sidebar, { type Section } from "../components/Sidebar";
 import BookSelector, { type BookInfo } from "../components/BookSelector";
-import UnitSelector from "../components/UnitSelector";
+import UnitSelector, { type StudyMode } from "../components/UnitSelector";
+import Practice from "../components/Practice";
 import KanjiGrid from "../components/KanjiGrid";
 import Flashcard from "../components/Flashcard";
 import SettingsModal from "../components/SettingsModal";
@@ -60,7 +61,7 @@ function App() {
   const books = useMemo(buildBooks, []);
   const [bookIndex, setBookIndex] = useState(0);
   const [currentWeek, setCurrentWeek] = useState(1);
-  const [currentMode, setCurrentMode] = useState<"study" | "flashcard">("study");
+  const [currentMode, setCurrentMode] = useState<StudyMode>("study");
   const [section, setSection] = useState<Section>("review");
   const [flashStart, setFlashStart] = useState(0);
   const [settings, setSettings] = useState<Settings>(DEFAULT_SETTINGS);
@@ -164,7 +165,9 @@ function App() {
                 />
               </div>
 
-              {currentMode === "flashcard" ? (
+              {currentMode === "practice" ? (
+                <Practice items={filteredKanji} currentWeek={currentWeek} />
+              ) : currentMode === "flashcard" ? (
                 <Flashcard
                   items={filteredKanji}
                   currentWeek={currentWeek}
