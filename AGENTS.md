@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Flashcards render both faces simultaneously and animate only with CSS 3D transforms, ensuring a physical flip without content swapping.

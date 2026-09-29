@@ -12,7 +12,6 @@ interface Props {
 export default function Flashcard({ items, currentWeek, startIndex, onExit }: Props) {
   const [index, setIndex] = useState(startIndex);
   const [revealed, setRevealed] = useState(false);
-  const [showMnemonic, setShowMnemonic] = useState(false);
   const [auto, setAuto] = useState(false);
   const [isFull, setIsFull] = useState(false);
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -41,20 +40,15 @@ export default function Flashcard({ items, currentWeek, startIndex, onExit }: Pr
     return () => document.removeEventListener("fullscreenchange", onChange);
   }, []);
 
-  // Phím tắt.
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       const t = e.target as HTMLElement;
-      if (t.tagName === "INPUT" || t.tagName === "SELECT" || t.tagName === "TEXTAREA") return;
-      const k = e.key.toLowerCase();
-      if (e.key === " ") {
+      if (["INPUT", "SELECT", "TEXTAREA", "BUTTON", "A"].includes(t.tagName)) return;
+      if (e.key === " " || e.key === "Enter") {
         e.preventDefault();
         setRevealed((v) => !v);
       } else if (e.key === "ArrowRight") go(1);
       else if (e.key === "ArrowLeft") go(-1);
-      else if (k === "h") setShowMnemonic((v) => !v);
-      else if (k === "a") setAuto((v) => !v);
-      else if (k === "f") toggleFull();
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -98,40 +92,37 @@ export default function Flashcard({ items, currentWeek, startIndex, onExit }: Pr
           </div>
 
           <div
-            className={`nf-card nf-flash-card${revealed ? " is-back" : ""}`}
+            className="nf-flash-scene"
+            role="button"
+            tabIndex={0}
+            aria-label={`${item.kanji}. ${revealed ? "Đang hiển thị mặt sau" : "Đang hiển thị mặt trước"}. Nhấn để lật thẻ.`}
+            aria-pressed={revealed}
             onClick={() => setRevealed((v) => !v)}
           >
-            {!revealed ? (
-              <>
+            <div className={`nf-flash-card${revealed ? " is-flipped" : ""}`}>
+              <div className="nf-card nf-flash-face nf-flash-front" aria-hidden={revealed}>
                 <div className="nf-flash-kanji">{item.kanji}</div>
-                <p className="nf-flash-hint">Nhấn Space hoặc click để lật thẻ</p>
-              </>
-            ) : (
-              <>
+                <p className="nf-flash-hint">Nhấn để lật</p>
+              </div>
+              <div className="nf-card nf-flash-face nf-flash-back-face" aria-hidden={!revealed}>
                 <div className="nf-flash-kanji is-small">{item.kanji}</div>
-                <KanjiBack item={item} showMnemonic={showMnemonic} />
-              </>
-            )}
+                <KanjiBack item={item} />
+              </div>
+            </div>
+          </div>
+
+          <div className="nf-flash-nav" aria-label="Điều hướng flashcard">
+            <button className="nf-btn" onClick={() => go(-1)} disabled={index === 0}>← Trước</button>
+            <span className="nf-flash-count">{index + 1} / {items.length}</span>
+            <button className="nf-btn" onClick={() => go(1)}>Tiếp →</button>
           </div>
 
           <div className="nf-flash-actions">
-            <button className="nf-btn" onClick={() => go(-1)} disabled={index === 0}>← Trước</button>
-            <button className="nf-btn" onClick={() => setRevealed((v) => !v)}>Lật thẻ</button>
-            <button className="nf-btn" onClick={() => go(1)}>Sau →</button>
-            <button className={`nf-btn${showMnemonic ? " is-active" : ""}`} onClick={() => setShowMnemonic((v) => !v)}>Mẹo</button>
             <button className={`nf-btn${auto ? " is-active" : ""}`} onClick={() => setAuto((v) => !v)}>
               {auto ? "Dừng tự động" : "Tự động"}
             </button>
             <button className="nf-btn" onClick={toggleFull}>{isFull ? "Thoát toàn màn hình" : "Toàn màn hình"}</button>
             {!isFull && <button className="nf-btn" onClick={onExit}>Thoát</button>}
-          </div>
-
-          <div className="nf-shortcuts">
-            <span><kbd>Space</kbd> Lật thẻ</span>
-            <span><kbd>←</kbd><kbd>→</kbd> Chuyển thẻ</span>
-            <span><kbd>H</kbd> Mẹo ghi nhớ</span>
-            <span><kbd>A</kbd> Tự động: lật 2s → thẻ kế 2s</span>
-            <span><kbd>F</kbd> Toàn màn hình</span>
           </div>
         </>
       )}

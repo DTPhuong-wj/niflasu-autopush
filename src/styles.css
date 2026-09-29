@@ -149,16 +149,18 @@
    ============================================================ */
 
 :root {
-  --nf-bg: #faf8f4;
-  --nf-surface: #ffffff;
-  --nf-surface-alt: #f7f1e8;
-  --nf-sidebar: #3a332d;
-  --nf-sidebar-active: #4e463d;
-  --nf-text: #171717;
-  --nf-text-soft: #5c554d;
-  --nf-border: #cfc7bd;
-  --nf-border-strong: #b5aca1;
-  --nf-accent: #8c3a2b;
+  --nf-bg: oklch(0.96 0.025 72);
+  --nf-surface: oklch(0.995 0.008 75);
+  --nf-surface-alt: oklch(0.93 0.04 72);
+  --nf-sidebar: oklch(0.38 0.045 48);
+  --nf-sidebar-active: oklch(0.48 0.055 50);
+  --nf-text: oklch(0.29 0.035 48);
+  --nf-text-soft: oklch(0.47 0.035 50);
+  --nf-text-muted: oklch(0.58 0.025 55);
+  --nf-border: oklch(0.82 0.04 65);
+  --nf-border-strong: oklch(0.7 0.055 55);
+  --nf-accent: oklch(0.56 0.075 49);
+  --nf-shadow: 0 18px 45px color-mix(in oklab, var(--nf-sidebar) 14%, transparent);
   --nf-font: "Inter", "Noto Sans JP", system-ui, sans-serif;
 }
 
@@ -247,19 +249,20 @@
   border: 1px solid transparent;
   border-radius: 8px;
   background: transparent;
-  color: #e7e0d6;
+  color: var(--nf-surface-alt);
   font-family: inherit;
   font-size: 11px;
   font-weight: 500;
   cursor: pointer;
+  transition: background-color 180ms ease-out, border-color 180ms ease-out, color 180ms ease-out;
 }
 .nf-side-item:hover {
   background: var(--nf-sidebar-active);
 }
 .nf-side-item.is-active {
   background: var(--nf-sidebar-active);
-  border-color: #6d6459;
-  color: #ffffff;
+  border-color: var(--nf-border-strong);
+  color: var(--nf-surface);
 }
 .nf-main {
   flex: 1;
@@ -284,19 +287,21 @@
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
+  transition: background-color 180ms ease-out, border-color 180ms ease-out, color 180ms ease-out, transform 180ms ease-out;
 }
 .nf-btn:hover:not(:disabled) {
   background: var(--nf-surface-alt);
   border-color: var(--nf-border-strong);
+  transform: translateY(-1px);
 }
 .nf-btn:disabled {
   opacity: 0.45;
   cursor: not-allowed;
 }
 .nf-btn.is-active {
-  background: var(--nf-sidebar);
-  border-color: var(--nf-sidebar);
-  color: #ffffff;
+  background: var(--nf-accent);
+  border-color: var(--nf-accent);
+  color: var(--nf-surface);
 }
 .nf-btn-square {
   padding: 8px;
@@ -369,6 +374,7 @@
   font-size: 26px;
   font-weight: 600;
   cursor: pointer;
+  transition: transform 220ms ease-out, box-shadow 220ms ease-out, border-color 220ms ease-out, background-color 220ms ease-out;
 }
 .nf-tile-number {
   position: absolute;
@@ -382,6 +388,8 @@
 .nf-tile:hover {
   background: var(--nf-surface-alt);
   border-color: var(--nf-border-strong);
+  box-shadow: 0 8px 20px color-mix(in oklab, var(--nf-sidebar) 10%, transparent);
+  transform: translateY(-2px);
 }
 
 /* ---------- Cards / flashcard ---------- */
@@ -406,12 +414,8 @@
   font-size: 12px;
   color: var(--nf-text-soft);
 }
-.nf-flash-card {
-  cursor: pointer;
-  text-align: center;
-}
 .nf-flash-kanji {
-  font-size: 88px;
+  font-size: 140px;
   font-weight: 600;
   line-height: 1.2;
 }
@@ -460,6 +464,22 @@
   flex-wrap: wrap;
   gap: 8px;
 }
+.nf-flash-nav {
+  width: min(620px, 80vw);
+  display: grid;
+  grid-template-columns: 1fr 80px 1fr;
+  align-items: center;
+  gap: 16px;
+}
+.nf-flash-nav .nf-btn:first-child { justify-self: start; }
+.nf-flash-nav .nf-btn:last-child { justify-self: end; }
+.nf-flash-count {
+  text-align: center;
+  color: var(--nf-text-soft);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
 .nf-flash-done {
   max-width: 420px;
 }
@@ -473,7 +493,7 @@
 .nf-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(23, 23, 23, 0.4);
+  background: color-mix(in oklab, var(--nf-text) 40%, transparent);
   display: grid;
   place-items: center;
   padding: 16px;
@@ -570,22 +590,52 @@
   padding:8px 12px; border:1px solid var(--nf-border); border-radius:6px;
   background:var(--nf-surface); color:var(--nf-text); font-family:var(--nf-font); font-size:14px;
 }
-.nf-flash { display:flex; flex-direction:column; align-items:center; gap:14px; width:100%; }
-.nf-flash .nf-flash-card { width:100%; max-width:640px; min-height:340px; margin:0 auto;
-  display:flex; flex-direction:column; align-items:center; justify-content:center; cursor:pointer; }
-.nf-flash.is-full { background:var(--nf-bg); padding:32px; justify-content:center; overflow:auto; }
-.nf-flash.is-full .nf-flash-card { max-width:900px; min-height:60vh; }
-.nf-flash.is-full .nf-flash-kanji:not(.is-small) { font-size:180px; }
+.nf-flash { display:flex; flex-direction:column; align-items:center; gap:16px; width:100%; }
+.nf-flash-scene {
+  width:min(620px, 80vw);
+  height:380px;
+  perspective:1200px;
+  cursor:pointer;
+  outline:none;
+  touch-action:manipulation;
+}
+.nf-flash-scene:focus-visible .nf-flash-face { box-shadow:0 0 0 3px var(--nf-bg), 0 0 0 5px var(--nf-accent), var(--nf-shadow); }
+.nf-flash-card {
+  position:relative;
+  width:100%;
+  height:100%;
+  transform-style:preserve-3d;
+  transition:transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.nf-flash-card.is-flipped { transform:rotateY(180deg); }
+.nf-flash-face {
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  overflow:auto;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  box-shadow:var(--nf-shadow);
+  transition:box-shadow 220ms ease-out, border-color 220ms ease-out;
+}
+.nf-flash-scene:hover .nf-flash-face { border-color:var(--nf-border-strong); box-shadow:0 22px 50px color-mix(in oklab, var(--nf-sidebar) 18%, transparent); }
+.nf-flash-front { background:var(--nf-surface); }
+.nf-flash-back-face { transform:rotateY(180deg); background:var(--nf-surface); justify-content:flex-start; padding:22px 28px; }
+.nf-flash.is-full { max-width:none; min-height:100vh; background:var(--nf-bg); padding:32px; justify-content:center; overflow:auto; }
+.nf-flash.is-full .nf-flash-scene { width:min(820px, 82vw); height:min(540px, 62vh); }
+.nf-flash.is-full .nf-flash-nav { width:min(820px, 82vw); }
+.nf-flash.is-full .nf-flash-kanji:not(.is-small) { font-size:160px; }
 .nf-flash-kanji.is-small { font-size:56px; }
 .nf-flash-meta { width:100%; max-width:640px; text-align:center; color:var(--nf-text-soft); font-size:14px; }
 .nf-progress { height:4px; background:var(--nf-border); border-radius:2px; margin-top:6px; }
 .nf-progress > div { height:100%; background:var(--nf-accent); border-radius:2px; }
 .nf-flash-actions { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; }
-.nf-shortcuts { display:flex; flex-wrap:wrap; justify-content:center; gap:14px; font-size:12px; color:var(--nf-text-soft); }
-.nf-shortcuts kbd { border:1px solid var(--nf-border-strong); border-radius:4px; padding:1px 6px; margin-right:4px; background:var(--nf-surface); font-family:var(--nf-font); }
-.nf-mnemonic { display:block; width:100%; font-size:13px; color:var(--nf-accent); }
 .nf-practice-setup { display:flex; flex-direction:column; gap:14px; padding:24px; }
 .nf-practice-setup h2 { font-size:18px; font-weight:600; }
+.nf-practice-card { width:100%; max-width:640px; min-height:340px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
 .nf-range { display:flex; align-items:center; gap:8px; font-size:14px; }
 .nf-range input { width:80px; }
 .nf-muted { color:var(--nf-text-soft); font-size:13px; }
@@ -597,6 +647,22 @@
 .nf-answer { display:flex; flex-direction:column; gap:10px; width:100%; max-width:320px; cursor:default; }
 .nf-ask { text-align:center; font-weight:600; color:var(--nf-accent); }
 .nf-verdict { font-weight:600; margin-bottom:8px; }
-.nf-verdict.is-ok { color:#2f6b3a; }
+.nf-verdict.is-ok { color:oklch(0.45 0.09 145); }
 .nf-verdict.is-bad { color:var(--nf-accent); }
 .nf-main .nf-flash { max-width:900px; margin:0 auto; } .nf-main .nf-flash.is-full { max-width:none; }
+
+@media (max-width: 767px) {
+  .nf-flash-scene { width:calc(100vw - 32px); height:min(420px, 65vh); }
+  .nf-flash-nav { width:calc(100vw - 32px); grid-template-columns:1fr 64px 1fr; gap:8px; }
+  .nf-flash-face { padding:18px; }
+  .nf-flash-back-face { padding:18px; }
+  .nf-flash-kanji { font-size:96px; }
+  .nf-flash-kanji.is-small { font-size:48px; }
+  .nf-flash-reading { gap:8px 12px; }
+  .nf-word-list { width:100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nf-flash-card { transition-duration:1ms; }
+  .nf-btn, .nf-tile, .nf-side-item { transition-duration:1ms; }
+}
