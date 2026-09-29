@@ -203,7 +203,7 @@ function Session({ queue, onRestart, onBack }: { queue: Question[]; onRestart: (
               {result.on !== undefined && ` · On: ${result.on ? "✓" : `✗ (${onIn || "trống"})`}`}
               {result.kun !== undefined && ` · Kun: ${result.kun ? "✓" : `✗ (${kunIn || "trống"})`}`}
             </p>
-            <KanjiBack item={q.item} showMnemonic />
+            <KanjiBack item={q.item} />
           </>
         )}
       </div>
