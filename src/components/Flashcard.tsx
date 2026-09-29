@@ -40,19 +40,66 @@ export default function Flashcard({ items, currentWeek, startIndex, onExit }: Pr
     return () => document.removeEventListener("fullscreenchange", onChange);
   }, []);
 
-  useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      const t = e.target as HTMLElement;
-      if (["INPUT", "SELECT", "TEXTAREA", "BUTTON", "A"].includes(t.tagName)) return;
-      if (e.key === " " || e.key === "Enter") {
+  const handleKeyNavigation = useCallback(
+    (e: KeyboardEvent | React.KeyboardEvent<HTMLElement>) => {
+      const target = e.target as HTMLElement | null;
+      if (target && ["INPUT", "SELECT", "TEXTAREA", "BUTTON", "A"].includes(target.tagName)) return;
+
+      if (e.key === " " || e.key === "Spacebar" || e.code === "Space") {
         e.preventDefault();
         setRevealed((v) => !v);
-      } else if (e.key === "ArrowRight") go(1);
-      else if (e.key === "ArrowLeft") go(-1);
-    }
+        return;
+      }
+
+      if (e.key === "Enter") {
+        e.preventDefault();
+        setRevealed((v) => !v);
+        return;
+      }
+
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        go(1);
+        return;
+      }
+
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        go(-1);
+        return;
+      }
+
+      if (e.key === "a" || e.key === "A") {
+        e.preventDefault();
+        setAuto((v) => !v);
+        return;
+      }
+
+      if (e.key === "f" || e.key === "F") {
+        e.preventDefault();
+        toggleFull();
+        return;
+      }
+
+      if (e.key === "Escape") {
+        if (document.fullscreenElement) {
+          e.preventDefault();
+          void document.exitFullscreen();
+          return;
+        }
+
+        e.preventDefault();
+        onExit();
+      }
+    },
+    [go, onExit, toggleFull],
+  );
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => handleKeyNavigation(e);
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [go, toggleFull]);
+  }, [handleKeyNavigation]);
 
   // Tự động: mặt trước 2s -> lật -> 2s -> thẻ kế.
   useEffect(() => {
@@ -92,12 +139,14 @@ export default function Flashcard({ items, currentWeek, startIndex, onExit }: Pr
           </div>
 
           <div
+            key={item.id}
             className="nf-flash-scene"
             role="button"
             tabIndex={0}
             aria-label={`${item.kanji}. ${revealed ? "Đang hiển thị mặt sau" : "Đang hiển thị mặt trước"}. Nhấn để lật thẻ.`}
             aria-pressed={revealed}
             onClick={() => setRevealed((v) => !v)}
+            onKeyDown={(e) => handleKeyNavigation(e)}
           >
             <div className={`nf-flash-card${revealed ? " is-flipped" : ""}`}>
               <div className="nf-card nf-flash-face nf-flash-front" aria-hidden={revealed}>
@@ -117,12 +166,11 @@ export default function Flashcard({ items, currentWeek, startIndex, onExit }: Pr
             <button className="nf-btn" onClick={() => go(1)}>Tiếp →</button>
           </div>
 
-          <div className="nf-flash-actions">
-            <button className={`nf-btn${auto ? " is-active" : ""}`} onClick={() => setAuto((v) => !v)}>
-              {auto ? "Dừng tự động" : "Tự động"}
-            </button>
-            <button className="nf-btn" onClick={toggleFull}>{isFull ? "Thoát toàn màn hình" : "Toàn màn hình"}</button>
-            {!isFull && <button className="nf-btn" onClick={onExit}>Thoát</button>}
+          <div className="nf-flash-help" aria-label="Phím tắt flashcard">
+            <span className="nf-kbd">[Space]</span> lật thẻ
+            <span className="nf-kbd">A</span> tự động
+            <span className="nf-kbd">F</span> toàn màn hình
+            <span className="nf-kbd">Esc</span> thoát
           </div>
         </>
       )}

@@ -1,0 +1,52 @@
+.nf-flash-back-inner {
+  width: max-content;
+  max-width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.nf-flash-row {
+  width: max-content;
+  max-width: 100%;
+  margin: 0 0 8px;
+  text-align: center;
+}
+
+.nf-flash-row.is-split {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  justify-content: center;
+  align-items: center;
+  column-gap: 22px;
+}
+
+.nf-flash-row.is-single {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nf-flash-label {
+  display: block;
+  white-space: nowrap;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.nf-flash-word-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.nf-flash-word-cell {
+  text-align: center;
+  min-width: 0;
+  width: 100%;
+}

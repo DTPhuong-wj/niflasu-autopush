@@ -33,26 +33,31 @@ function formatCountdown(examDate: string, now: Date) {
 export default function Header({ now, settings, onOpenSettings }: Props) {
   return (
     <header className="nf-header">
-      <div className="nf-logo">
-        <div className="nf-logo-mark" aria-hidden="true">
-          日
-        </div>
-        <div>
-          <div className="nf-logo-title">NIFLASU</div>
-          <div className="nf-logo-sub">JAPANESE FLASHCARDS</div>
+      <div className="nf-header-left">
+        <div className="nf-logo">
+          <div className="nf-logo-mark" aria-hidden="true">
+            日
+          </div>
+          <div>
+            <div className="nf-logo-title">NIFLASU</div>
+            <div className="nf-logo-sub">JAPANESE FLASHCARDS</div>
+          </div>
         </div>
       </div>
 
-      <div className="nf-header-meta">
-        <button className="nf-btn nf-btn-icon" onClick={onOpenSettings}>
-          <SettingsIcon size={16} strokeWidth={1.75} />
-          <span>Cài đặt</span>
-        </button>
+      <div className="nf-header-center">
         <div className="nf-clock" suppressHydrationWarning>{formatClock(now)}</div>
         <div className="nf-meta-line">{formatCountdown(settings.examDate, now)}</div>
         <div className="nf-meta-line">
           Mục tiêu: {settings.targetLevel} &gt;= {settings.targetScore}
         </div>
+      </div>
+
+      <div className="nf-header-actions">
+        <button className="nf-btn nf-btn-icon" onClick={onOpenSettings}>
+          <SettingsIcon size={16} strokeWidth={1.75} />
+          <span>Cài đặt</span>
+        </button>
       </div>
     </header>
   );
