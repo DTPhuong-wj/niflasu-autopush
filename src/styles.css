@@ -149,16 +149,18 @@
    ============================================================ */
 
 :root {
-  --nf-bg: #faf8f4;
-  --nf-surface: #ffffff;
-  --nf-surface-alt: #f7f1e8;
-  --nf-sidebar: #3a332d;
-  --nf-sidebar-active: #4e463d;
-  --nf-text: #171717;
-  --nf-text-soft: #5c554d;
-  --nf-border: #cfc7bd;
-  --nf-border-strong: #b5aca1;
-  --nf-accent: #8c3a2b;
+  --nf-bg: oklch(0.96 0.025 72);
+  --nf-surface: oklch(0.995 0.008 75);
+  --nf-surface-alt: oklch(0.93 0.04 72);
+  --nf-sidebar: oklch(0.38 0.045 48);
+  --nf-sidebar-active: oklch(0.48 0.055 50);
+  --nf-text: oklch(0.29 0.035 48);
+  --nf-text-soft: oklch(0.47 0.035 50);
+  --nf-text-muted: oklch(0.58 0.025 55);
+  --nf-border: oklch(0.82 0.04 65);
+  --nf-border-strong: oklch(0.7 0.055 55);
+  --nf-accent: oklch(0.56 0.075 49);
+  --nf-shadow: 0 18px 45px color-mix(in oklab, var(--nf-sidebar) 14%, transparent);
   --nf-font: "Inter", "Noto Sans JP", system-ui, sans-serif;
 }
 
@@ -247,19 +249,20 @@
   border: 1px solid transparent;
   border-radius: 8px;
   background: transparent;
-  color: #e7e0d6;
+  color: var(--nf-surface-alt);
   font-family: inherit;
   font-size: 11px;
   font-weight: 500;
   cursor: pointer;
+  transition: background-color 180ms ease-out, border-color 180ms ease-out, color 180ms ease-out;
 }
 .nf-side-item:hover {
   background: var(--nf-sidebar-active);
 }
 .nf-side-item.is-active {
   background: var(--nf-sidebar-active);
-  border-color: #6d6459;
-  color: #ffffff;
+  border-color: var(--nf-border-strong);
+  color: var(--nf-surface);
 }
 .nf-main {
   flex: 1;
@@ -284,19 +287,21 @@
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
+  transition: background-color 180ms ease-out, border-color 180ms ease-out, color 180ms ease-out, transform 180ms ease-out;
 }
 .nf-btn:hover:not(:disabled) {
   background: var(--nf-surface-alt);
   border-color: var(--nf-border-strong);
+  transform: translateY(-1px);
 }
 .nf-btn:disabled {
   opacity: 0.45;
   cursor: not-allowed;
 }
 .nf-btn.is-active {
-  background: var(--nf-sidebar);
-  border-color: var(--nf-sidebar);
-  color: #ffffff;
+  background: var(--nf-accent);
+  border-color: var(--nf-accent);
+  color: var(--nf-surface);
 }
 .nf-btn-square {
   padding: 8px;
@@ -369,6 +374,7 @@
   font-size: 26px;
   font-weight: 600;
   cursor: pointer;
+  transition: transform 220ms ease-out, box-shadow 220ms ease-out, border-color 220ms ease-out, background-color 220ms ease-out;
 }
 .nf-tile-number {
   position: absolute;
@@ -382,6 +388,8 @@
 .nf-tile:hover {
   background: var(--nf-surface-alt);
   border-color: var(--nf-border-strong);
+  box-shadow: 0 8px 20px color-mix(in oklab, var(--nf-sidebar) 10%, transparent);
+  transform: translateY(-2px);
 }
 
 /* ---------- Cards / flashcard ---------- */
@@ -405,10 +413,6 @@
 .nf-flash-meta {
   font-size: 12px;
   color: var(--nf-text-soft);
-}
-.nf-flash-card {
-  cursor: pointer;
-  text-align: center;
 }
 .nf-flash-kanji {
   font-size: 88px;
@@ -460,6 +464,22 @@
   flex-wrap: wrap;
   gap: 8px;
 }
+.nf-flash-nav {
+  width: min(620px, 80vw);
+  display: grid;
+  grid-template-columns: 1fr 80px 1fr;
+  align-items: center;
+  gap: 16px;
+}
+.nf-flash-nav .nf-btn:first-child { justify-self: start; }
+.nf-flash-nav .nf-btn:last-child { justify-self: end; }
+.nf-flash-count {
+  text-align: center;
+  color: var(--nf-text-soft);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
 .nf-flash-done {
   max-width: 420px;
 }
@@ -473,7 +493,7 @@
 .nf-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(23, 23, 23, 0.4);
+  background: color-mix(in oklab, var(--nf-text) 40%, transparent);
   display: grid;
   place-items: center;
   padding: 16px;
