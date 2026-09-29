@@ -172,7 +172,7 @@ function Session({ queue, onRestart, onBack }: { queue: Question[]; onRestart: (
         Câu {i + 1}/{queue.length} · Đúng {score}
         <div className="nf-progress"><div style={{ width: `${((i + 1) / queue.length) * 100}%` }} /></div>
       </div>
-      <div className={`nf-card nf-flash-card${result ? " is-back" : ""}`}>
+      <div className="nf-card nf-practice-card">
         <div className={`nf-flash-kanji${result ? " is-small" : ""}`}>{q.item.kanji}</div>
         {!result ? (
           <form

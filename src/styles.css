@@ -635,6 +635,7 @@
 .nf-flash-actions { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; }
 .nf-practice-setup { display:flex; flex-direction:column; gap:14px; padding:24px; }
 .nf-practice-setup h2 { font-size:18px; font-weight:600; }
+.nf-practice-card { width:100%; max-width:640px; min-height:340px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
 .nf-range { display:flex; align-items:center; gap:8px; font-size:14px; }
 .nf-range input { width:80px; }
 .nf-muted { color:var(--nf-text-soft); font-size:13px; }
