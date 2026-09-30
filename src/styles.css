@@ -811,3 +811,37 @@
   .nf-flash-card { transition-duration:1ms; }
   .nf-btn, .nf-tile, .nf-side-item { transition-duration:1ms; }
 }
+
+/* ---------- Vocabulary (Mimikara) ---------- */
+.nf-vgrid { display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:10px; }
+.nf-vtile {
+  position:relative; min-height:76px; padding:22px 12px 10px; text-align:left;
+  border:1px solid var(--nf-border); border-radius:10px; background:var(--nf-surface); color:var(--nf-text);
+  font-family:var(--nf-font); cursor:pointer;
+  transition:transform 220ms ease-out, box-shadow 220ms ease-out, border-color 220ms ease-out;
+}
+.nf-vtile:hover { border-color:var(--nf-border-strong); box-shadow:0 8px 20px color-mix(in oklab, var(--nf-sidebar) 10%, transparent); transform:translateY(-2px); }
+.nf-vtile-row { display:flex; align-items:flex-end; justify-content:space-between; gap:8px; }
+.nf-vtile-word { font-size:22px; font-weight:600; line-height:1.2; word-break:keep-all; }
+.nf-vtype { flex:none; font-size:12px; font-weight:600; padding:2px 7px; border-radius:4px; background:var(--nf-type-bg); color:var(--nf-type-fg); }
+.nf-vtype { --nf-type-bg:oklch(0.93 0.015 70); --nf-type-fg:oklch(0.45 0.03 60); }
+.nf-vtype.is-noun { --nf-type-bg:oklch(0.92 0.03 55); --nf-type-fg:oklch(0.42 0.07 50); }
+.nf-vtype.is-verb { --nf-type-bg:oklch(0.93 0.03 175); --nf-type-fg:oklch(0.42 0.06 180); }
+.nf-vtype.is-adj { --nf-type-bg:oklch(0.93 0.045 80); --nf-type-fg:oklch(0.48 0.08 70); }
+.nf-vtype.is-adv { --nf-type-bg:oklch(0.92 0.025 320); --nf-type-fg:oklch(0.43 0.05 320); }
+.nf-vfront-word { font-size:clamp(44px, 8vw, 72px); font-weight:700; line-height:1.2; margin-bottom:18px; text-align:center; }
+.nf-vrelated { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:10px; width:100%; max-width:480px; }
+.nf-vrelated-item { border:1px solid var(--nf-border); border-radius:8px; background:var(--nf-bg); padding:10px 8px; text-align:center; }
+.nf-vrelated-word { font-size:24px; font-weight:700; }
+.nf-vrelated-formula { font-size:12px; color:var(--nf-text-soft); white-space:pre-line; margin-top:4px; }
+.nf-vback { width:100%; max-width:480px; margin:auto; display:flex; flex-direction:column; gap:12px; }
+.nf-vback-word { font-size:40px; font-weight:700; text-align:center; }
+.nf-vback dl { display:grid; grid-template-columns:90px 1fr; gap:6px 12px; font-size:15px; }
+.nf-vback dt { color:var(--nf-text-soft); }
+.nf-vexample { border-top:1px solid var(--nf-border); padding-top:10px; font-size:14px; display:flex; flex-direction:column; gap:2px; }
+.nf-vexample-jp { font-size:16px; font-weight:600; }
+@media (max-width:767px) {
+  .nf-vgrid { grid-template-columns:repeat(auto-fill, minmax(110px, 1fr)); }
+  .nf-vtile-word { font-size:18px; }
+  .nf-vrelated-word { font-size:20px; }
+}
