@@ -10,6 +10,7 @@ import Practice from "../components/Practice";
 import KanjiGrid from "../components/KanjiGrid";
 import Flashcard from "../components/Flashcard";
 import SettingsModal from "../components/SettingsModal";
+import ListeningPage from "../components/listening/ListeningPage";
 import vocabularyData from "../data/vocabulary.json";
 import vocabSenmonData from "../data/senmon.json";
 import type { Vocabulary } from "../types/vocabulary";
@@ -202,7 +203,9 @@ function App() {
         <Sidebar current={section} onChange={setSection} />
 
         <main className="nf-main">
-          {section !== "review" ? (
+          {section === "listening" ? (
+            <ListeningPage />
+          ) : section !== "review" ? (
             <div className="nf-card nf-placeholder">Tính năng đang phát triển</div>
           ) : (
             <>
