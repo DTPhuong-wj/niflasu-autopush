@@ -6,6 +6,8 @@ export interface BookInfo {
   totalWords: number;
   totalWeeks: number;
   daysPerWeek: number;
+  /** Sách từ vựng (Mimikara) thay vì Kanji. */
+  isVocabulary?: boolean;
 }
 
 interface Props {
@@ -26,7 +28,9 @@ export default function BookSelector({ book, onPrev, onNext, disabled }: Props) 
         <div className="nf-book-title">{book.source}</div>
         <div className="nf-book-row">{book.title}</div>
         <div className="nf-book-row">
-          {book.totalWords} từ · {book.totalWeeks} tuần · mỗi tuần {book.daysPerWeek} ngày
+          {book.isVocabulary
+            ? `${book.totalWords} từ · ${book.totalWeeks} unit`
+            : `${book.totalWords} từ · ${book.totalWeeks} tuần · mỗi tuần ${book.daysPerWeek} ngày`}
         </div>
       </div>
 
