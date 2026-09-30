@@ -40,7 +40,7 @@ function VocabularyBack({ item }: { item: Vocabulary }) {
     <div className="nf-vback">
       <div className="nf-vback-word">{item.word}</div>
       <dl>
-        <dt>Reading</dt><dd>{item.reading || "—"}</dd>
+        <dt>Cách đọc</dt><dd>{item.reading || "—"}</dd>
         <dt>Hán Việt</dt><dd>{item.hanViet || "—"}</dd>
         <dt>Nghĩa</dt><dd>{item.meaning || "—"}</dd>
       </dl>

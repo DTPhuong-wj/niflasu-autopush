@@ -9,8 +9,8 @@ export default function KanjiBack({ item }: { item: Kanji }) {
     <div className="nf-flash-back">
       <div className="nf-flash-back-inner">
         <div className="nf-flash-row is-split">
-          <span className="nf-flash-label">音読み: {item.on}</span>
-          <span className="nf-flash-label">訓読み: {item.kun}</span>
+          <span className="nf-flash-label.onyomi">音読み: {item.on}</span>
+          <span className="nf-flash-label.kunyomi">訓読み: {item.kun}</span>
         </div>
         <div className="nf-flash-row is-single">
           <span className="nf-flash-label">Hán việt: {item.hanViet || "—"}</span>
