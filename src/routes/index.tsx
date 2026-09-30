@@ -11,7 +11,9 @@ import KanjiGrid from "../components/KanjiGrid";
 import Flashcard from "../components/Flashcard";
 import SettingsModal from "../components/SettingsModal";
 import vocabularyData from "../data/vocabulary.json";
+import vocabSenmonData from "../data/senmon.json";
 import type { Vocabulary } from "../types/vocabulary";
+import type { Vocabulary as Senmon } from "../types/vocab_senmon";
 import { VocabularyFlashcard, VocabularyGrid, VocabularyPractice } from "../components/VocabularyStudy";
 
 export const Route = createFileRoute("/")({
@@ -45,6 +47,12 @@ const DEFAULT_SETTINGS: Settings = {
 
 const allKanji = kanjiData as Kanji[];
 const allVocabulary = vocabularyData as Vocabulary[];
+const allSenmon = vocabSenmonData as Senmon[];
+const senmonVocabulary: Vocabulary[] = allSenmon.map((item) => ({
+  ...item,
+  hanViet: null,
+  relatedWords: [],
+}));
 
 /** Danh sách sách: Kanji (theo `source` trong kanji.json) + Từ vựng (vocabulary.json). */
 function buildBooks(): BookInfo[] {
@@ -72,13 +80,28 @@ function buildBooks(): BookInfo[] {
       isVocabulary: true,
     };
   });
-  return [...kanjiBooks, ...vocabBooks];
+  const senmonBooks = [...new Set(allSenmon.map((item) => item.source))].map((source) => {
+    const items = allSenmon.filter((item) => item.source === source);
+    const weeks = [...new Set(items.map((item) => item.unit))];
+    return {
+      source,
+      title: source.replace(/\s?N[1-5]$/, ""),
+      totalWords: items.length,
+      totalWeeks: weeks.length,
+      daysPerWeek: 0,
+      isVocabulary: true,
+      isSenmon: true,
+    };
+  });
+  return [...kanjiBooks, ...vocabBooks, ...senmonBooks].sort((a, b) => a.title.localeCompare(b.title));
 }
 
 /** Unit của một sách, lấy trực tiếp từ JSON. */
 function unitsOf(book: BookInfo | undefined): number[] {
   if (!book) return [];
-  const list = book.isVocabulary
+  const list = book.isSenmon
+    ? allSenmon.filter((s) => s.source === book.source).map((s) => s.unit)
+    : book.isVocabulary
     ? allVocabulary.filter((v) => v.source === book.source).map((v) => v.unit)
     : allKanji.filter((k) => k.source === book.source).map((k) => k.week);
   return [...new Set(list)].sort((a, b) => a - b);
@@ -93,10 +116,12 @@ function App() {
   const [flashStart, setFlashStart] = useState(0);
   const [settings, setSettings] = useState<Settings>(DEFAULT_SETTINGS);
   const [showSettings, setShowSettings] = useState(false);
+  const [showBookList, setShowBookList] = useState(false);
   const [now, setNow] = useState(() => new Date());
 
   const currentBook = books[bookIndex]?.source ?? "";
-  const isVocabulary = !!books[bookIndex]?.isVocabulary;
+  const currentBookInfo = books[bookIndex];
+  const isVocabulary = !!currentBookInfo?.isVocabulary || !!currentBookInfo?.isSenmon;
 
   // Đồng hồ + countdown realtime.
   useEffect(() => {
@@ -143,19 +168,29 @@ function App() {
     [currentBook, currentWeek],
   );
 
+  const filteredSenmon = useMemo(
+    () =>
+      senmonVocabulary
+        .filter((item) => item.source === currentBook)
+        .filter((item) => item.unit === currentWeek)
+        .sort((a, b) => a.number - b.number),
+    [currentBook, currentWeek],
+  );
+
+  const studyVocabulary = currentBookInfo?.isSenmon ? filteredSenmon : filteredVocabulary;
+
   function saveSettings(next: Settings) {
     setSettings(next);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
     setShowSettings(false);
   }
 
-  function changeBook(step: number) {
-    const nextIndex = (bookIndex + step + books.length) % books.length;
-    setBookIndex(nextIndex);
+  function selectBook(index: number) {
+    setBookIndex(index);
     setCurrentMode("study");
     setFlashStart(0);
     // Giữ Unit hợp lệ trong sách mới.
-    const nextUnits = unitsOf(books[nextIndex]);
+    const nextUnits = unitsOf(books[index]);
     if (!nextUnits.includes(currentWeek)) setCurrentWeek(nextUnits[0] ?? 1);
   }
 
@@ -175,8 +210,16 @@ function App() {
                 {books[bookIndex] && (
                   <BookSelector
                     book={books[bookIndex]}
-                    onPrev={() => changeBook(-1)}
-                    onNext={() => changeBook(1)}
+                    books={books}
+                    bookIndex={bookIndex}
+                    showBookList={showBookList}
+                    onPrev={() => setShowBookList(true)}
+                    onNext={() => setShowBookList(true)}
+                    onSelect={(index) => {
+                      selectBook(index);
+                      setShowBookList(false);
+                    }}
+                    onClose={() => setShowBookList(false)}
                     disabled={books.length < 2}
                   />
                 )}
@@ -197,19 +240,19 @@ function App() {
 
               {isVocabulary ? (
                 currentMode === "practice" ? (
-                  <VocabularyPractice items={filteredVocabulary} currentUnit={currentWeek} />
+                  <VocabularyPractice items={studyVocabulary} currentUnit={currentWeek} />
                 ) : currentMode === "flashcard" ? (
                   <VocabularyFlashcard
-                    items={filteredVocabulary}
+                    items={studyVocabulary}
                     currentUnit={currentWeek}
                     startIndex={flashStart}
                     onExit={() => setCurrentMode("study")}
                   />
                 ) : (
                   <VocabularyGrid
-                    items={filteredVocabulary}
+                    items={studyVocabulary}
                     onSelect={(item) => {
-                      setFlashStart(filteredVocabulary.findIndex((v) => v.id === item.id));
+                      setFlashStart(studyVocabulary.findIndex((v) => v.id === item.id));
                       setCurrentMode("flashcard");
                     }}
                   />

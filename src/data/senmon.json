@@ -1,0 +1,1952 @@
+[
+  {
+    "id": 1,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 1,
+    "word": "単体テスト",
+    "reading": "たんたいテスト",
+    "meaning": "Kiểm thử đơn vị",
+    "type": "名詞"
+  },
+  {
+    "id": 2,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 2,
+    "word": "動作",
+    "reading": "どうさ",
+    "meaning": "Hoạt động của máy móc",
+    "type": "名詞"
+  },
+  {
+    "id": 3,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 3,
+    "word": "あくまで",
+    "reading": "あくまで",
+    "meaning": "Đến cùng, cuối cùng",
+    "type": "副詞"
+  },
+  {
+    "id": 4,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 4,
+    "word": "結合テスト",
+    "reading": "けつごうテスト",
+    "meaning": "Kiểm thử tích hợp",
+    "type": "名詞"
+  },
+  {
+    "id": 5,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 5,
+    "word": "条件分岐",
+    "reading": "じょうけんぶんき",
+    "meaning": "Lệnh rẽ nhánh điều kiện",
+    "type": "名詞"
+  },
+  {
+    "id": 6,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 6,
+    "word": "値",
+    "reading": "あたい",
+    "meaning": "Giá trị",
+    "type": "名詞"
+  },
+  {
+    "id": 7,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 7,
+    "word": "ループ処理",
+    "reading": "ループしょり",
+    "meaning": "Xử lý vòng lặp",
+    "type": "名詞"
+  },
+  {
+    "id": 8,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 8,
+    "word": "ループ離脱",
+    "reading": "ループりだつ",
+    "meaning": "Thoát khỏi vòng lặp",
+    "type": "名詞"
+  },
+  {
+    "id": 9,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 9,
+    "word": "発見",
+    "reading": "はっけん",
+    "meaning": "Phát hiện",
+    "type": "名詞"
+  },
+  {
+    "id": 10,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 10,
+    "word": "件数",
+    "reading": "けんすう",
+    "meaning": "Số lượng",
+    "type": "名詞"
+  },
+  {
+    "id": 11,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 11,
+    "word": "単純",
+    "reading": "たんじゅん",
+    "meaning": "Đơn giản",
+    "type": "な形容詞"
+  },
+  {
+    "id": 12,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 12,
+    "word": "コピペミス",
+    "reading": "コピペミス",
+    "meaning": "Lỗi copy-paste",
+    "type": "名詞"
+  },
+  {
+    "id": 13,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 13,
+    "word": "変数名",
+    "reading": "へんすうめい",
+    "meaning": "Tên biến",
+    "type": "名詞"
+  },
+  {
+    "id": 14,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 14,
+    "word": "構文誤り",
+    "reading": "こうぶんあやまり",
+    "meaning": "Lỗi cú pháp",
+    "type": "名詞"
+  },
+  {
+    "id": 15,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 15,
+    "word": "型変数",
+    "reading": "がたへんすう",
+    "meaning": "Kiểu biến",
+    "type": "名詞"
+  },
+  {
+    "id": 16,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 16,
+    "word": "比較",
+    "reading": "ひかく",
+    "meaning": "So sánh",
+    "type": "名詞"
+  },
+  {
+    "id": 17,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 17,
+    "word": "無限ループ",
+    "reading": "むげんループ",
+    "meaning": "Vòng lặp vô hạn",
+    "type": "名詞"
+  },
+  {
+    "id": 18,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 18,
+    "word": "取り除く",
+    "reading": "とりのぞく",
+    "meaning": "Loại bỏ, gỡ bỏ",
+    "type": "動詞"
+  },
+  {
+    "id": 19,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 19,
+    "word": "通過する",
+    "reading": "つうかする",
+    "meaning": "Đi qua, vượt qua",
+    "type": "動詞"
+  },
+  {
+    "id": 20,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 20,
+    "word": "カバレッジ率",
+    "reading": "カバレッジりつ",
+    "meaning": "Tỷ lệ bao phủ",
+    "type": "名詞"
+  },
+  {
+    "id": 21,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 21,
+    "word": "なるべく",
+    "reading": "なるべく",
+    "meaning": "Cố gắng hết sức",
+    "type": "副詞"
+  },
+  {
+    "id": 22,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 22,
+    "word": "例外",
+    "reading": "れいがい",
+    "meaning": "Ngoại lệ",
+    "type": "名詞"
+  },
+  {
+    "id": 23,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 23,
+    "word": "大抵",
+    "reading": "たいてい",
+    "meaning": "Thường là, phần lớn",
+    "type": "副詞"
+  },
+  {
+    "id": 24,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 24,
+    "word": "示す",
+    "reading": "しめす",
+    "meaning": "Chỉ ra, thể hiện",
+    "type": "動詞"
+  },
+  {
+    "id": 25,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 25,
+    "word": "エビデンス",
+    "reading": "エビデンス",
+    "meaning": "Bằng chứng, tài liệu chứng minh",
+    "type": "名詞"
+  },
+  {
+    "id": 26,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 26,
+    "word": "予め",
+    "reading": "あらかじめ",
+    "meaning": "Trước, làm gì đó trước",
+    "type": "副詞"
+  },
+  {
+    "id": 27,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 27,
+    "word": "駆動",
+    "reading": "くどう",
+    "meaning": "Thúc đẩy, điều khiển",
+    "type": "名詞"
+  },
+  {
+    "id": 28,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 28,
+    "word": "普及",
+    "reading": "ふきゅう",
+    "meaning": "Phổ biến, phổ cập",
+    "type": "名詞"
+  },
+  {
+    "id": 29,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 29,
+    "word": "用いる",
+    "reading": "もちいる",
+    "meaning": "Sử dụng, áp dụng",
+    "type": "動詞"
+  },
+  {
+    "id": 30,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 30,
+    "word": "簡易化",
+    "reading": "かんいか",
+    "meaning": "Đơn giản hóa",
+    "type": "名詞"
+  },
+  {
+    "id": 31,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 31,
+    "word": "傾向",
+    "reading": "けいこう",
+    "meaning": "Xu hướng",
+    "type": "名詞"
+  },
+  {
+    "id": 32,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 32,
+    "word": "提案する",
+    "reading": "ていあんする",
+    "meaning": "Đề xuất",
+    "type": "動詞"
+  },
+  {
+    "id": 33,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 33,
+    "word": "追われる",
+    "reading": "おわれる",
+    "meaning": "Bị đuổi kịp, bị thúc ép",
+    "type": "動詞"
+  },
+  {
+    "id": 34,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 34,
+    "word": "売上",
+    "reading": "うりあげ",
+    "meaning": "Doanh thu",
+    "type": "名詞"
+  },
+  {
+    "id": 35,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 35,
+    "word": "作成",
+    "reading": "さくせい",
+    "meaning": "Sản xuất, tạo ra",
+    "type": "名詞"
+  },
+  {
+    "id": 36,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 36,
+    "word": "出荷",
+    "reading": "しゅっか",
+    "meaning": "Xuất hàng",
+    "type": "名詞"
+  },
+  {
+    "id": 37,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 37,
+    "word": "処理",
+    "reading": "しょり",
+    "meaning": "Xử lý",
+    "type": "名詞"
+  },
+  {
+    "id": 38,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 38,
+    "word": "損益",
+    "reading": "そんえき",
+    "meaning": "Lỗ lãi",
+    "type": "名詞"
+  },
+  {
+    "id": 39,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 39,
+    "word": "統計",
+    "reading": "とうけい",
+    "meaning": "Thống kê",
+    "type": "名詞"
+  },
+  {
+    "id": 40,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 40,
+    "word": "納入",
+    "reading": "のうにゅう",
+    "meaning": "Giao hàng",
+    "type": "名詞"
+  },
+  {
+    "id": 41,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 41,
+    "word": "編集",
+    "reading": "へんしゅう",
+    "meaning": "Chỉnh sửa",
+    "type": "名詞"
+  },
+  {
+    "id": 42,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 42,
+    "word": "返品",
+    "reading": "へんぴん",
+    "meaning": "Trả hàng",
+    "type": "名詞"
+  },
+  {
+    "id": 43,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 43,
+    "word": "予定どおり",
+    "reading": "よていどおり",
+    "meaning": "Theo như dự định",
+    "type": "副詞"
+  },
+  {
+    "id": 44,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 44,
+    "word": "体系",
+    "reading": "たいけい",
+    "meaning": "Hệ thống",
+    "type": "名詞"
+  },
+  {
+    "id": 45,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 45,
+    "word": "貸借",
+    "reading": "たいしゃく",
+    "meaning": "Khoản vay, khoản nợ",
+    "type": "名詞"
+  },
+  {
+    "id": 46,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 46,
+    "word": "対照",
+    "reading": "たいしょう",
+    "meaning": "Tương phản, so sánh đối chiếu",
+    "type": "名詞"
+  },
+  {
+    "id": 47,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 47,
+    "word": "アマゾン",
+    "reading": "アマゾン",
+    "meaning": "Amazon",
+    "type": "固有名詞"
+  },
+  {
+    "id": 48,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 48,
+    "word": "インフォシーク",
+    "reading": "インフォシーク",
+    "meaning": "Infoseek",
+    "type": "固有名詞"
+  },
+  {
+    "id": 49,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 49,
+    "word": "グーグル",
+    "reading": "グーグル",
+    "meaning": "Google",
+    "type": "固有名詞"
+  },
+  {
+    "id": 50,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 50,
+    "word": "クリアケース",
+    "reading": "クリアケース",
+    "meaning": "Clearcase",
+    "type": "固有名詞"
+  },
+  {
+    "id": 51,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 51,
+    "word": "コミット",
+    "reading": "コミット",
+    "meaning": "Commit",
+    "type": "名詞"
+  },
+  {
+    "id": 52,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 52,
+    "word": "サブバージョン",
+    "reading": "サブバージョン",
+    "meaning": "Subversion",
+    "type": "固有名詞"
+  },
+  {
+    "id": 53,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 53,
+    "word": "ソースコード",
+    "reading": "ソースコード",
+    "meaning": "Mã nguồn",
+    "type": "名詞"
+  },
+  {
+    "id": 54,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 54,
+    "word": "バージョン",
+    "reading": "バージョン",
+    "meaning": "Phiên bản",
+    "type": "名詞"
+  },
+  {
+    "id": 55,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 55,
+    "word": "バージョン管理システム",
+    "reading": "バージョンかんりシステム",
+    "meaning": "Hệ thống quản lý phiên bản",
+    "type": "名詞"
+  },
+  {
+    "id": 56,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 56,
+    "word": "ビットキーパー",
+    "reading": "ビットキーパー",
+    "meaning": "BitKeeper",
+    "type": "固有名詞"
+  },
+  {
+    "id": 57,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 57,
+    "word": "ミス",
+    "reading": "ミス",
+    "meaning": "Lỗi",
+    "type": "名詞"
+  },
+  {
+    "id": 58,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 58,
+    "word": "ヤフー",
+    "reading": "ヤフー",
+    "meaning": "Yahoo",
+    "type": "固有名詞"
+  },
+  {
+    "id": 59,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 59,
+    "word": "アクセサリ",
+    "reading": "アクセサリ",
+    "meaning": "Phụ kiện",
+    "type": "名詞"
+  },
+  {
+    "id": 60,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 60,
+    "word": "CVS",
+    "reading": "CVS",
+    "meaning": "CVS",
+    "type": "固有名詞"
+  },
+  {
+    "id": 61,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 61,
+    "word": "スターチーム",
+    "reading": "スターチーム",
+    "meaning": "Star Team",
+    "type": "固有名詞"
+  },
+  {
+    "id": 62,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 62,
+    "word": "（～に）依存する",
+    "reading": "（～に）いぞんする",
+    "meaning": "Phụ thuộc vào",
+    "type": "動詞"
+  },
+  {
+    "id": 63,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 63,
+    "word": "お疲れ様でした",
+    "reading": "おつかれさまでした",
+    "meaning": "Cảm ơn bạn đã làm việc chăm chỉ",
+    "type": "表現"
+  },
+  {
+    "id": 64,
+    "source": "TNCN 4",
+    "unit": 9,
+    "number": 64,
+    "word": "重要",
+    "reading": "じゅうよう",
+    "meaning": "Quan trọng",
+    "type": "な形容詞"
+  },
+  {
+    "id": 65,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 1,
+    "word": "進捗",
+    "reading": "しんちょく",
+    "meaning": "Tiến độ công việc",
+    "type": "名詞"
+  },
+  {
+    "id": 66,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 2,
+    "word": "主流",
+    "reading": "しゅりゅう",
+    "meaning": "Xu hướng chính",
+    "type": "名詞"
+  },
+  {
+    "id": 67,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 3,
+    "word": "アジャイル",
+    "reading": "あじゃいる",
+    "meaning": "Linh hoạt",
+    "type": "名詞"
+  },
+  {
+    "id": 68,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 4,
+    "word": "改善策",
+    "reading": "かいぜんさく",
+    "meaning": "Biện pháp cải thiện",
+    "type": "名詞"
+  },
+  {
+    "id": 69,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 5,
+    "word": "助言",
+    "reading": "じょげん",
+    "meaning": "Lời khuyên",
+    "type": "名詞"
+  },
+  {
+    "id": 70,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 6,
+    "word": "ビジネスロジック",
+    "reading": "びじねすろじっく",
+    "meaning": "Logic kinh doanh",
+    "type": "名詞"
+  },
+  {
+    "id": 71,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 7,
+    "word": "消化",
+    "reading": "しょうか",
+    "meaning": "Tiêu hóa, xử lí",
+    "type": "名詞"
+  },
+  {
+    "id": 72,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 8,
+    "word": "プラグイン",
+    "reading": "ぷらぐいん",
+    "meaning": "Plugin",
+    "type": "名詞"
+  },
+  {
+    "id": 73,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 9,
+    "word": "スクロール",
+    "reading": "すくろーる",
+    "meaning": "Cuộn trang",
+    "type": "名詞"
+  },
+  {
+    "id": 74,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 10,
+    "word": "不足",
+    "reading": "ふそく",
+    "meaning": "Thiếu hụt",
+    "type": "名詞"
+  },
+  {
+    "id": 75,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 11,
+    "word": "嘘",
+    "reading": "うそ",
+    "meaning": "Nói dối",
+    "type": "名詞"
+  },
+  {
+    "id": 76,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 12,
+    "word": "偽り",
+    "reading": "いつわり",
+    "meaning": "Sự giả dối",
+    "type": "名詞"
+  },
+  {
+    "id": 77,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 13,
+    "word": "割り当てる",
+    "reading": "わりあてる",
+    "meaning": "Phân bổ",
+    "type": "動詞"
+  },
+  {
+    "id": 78,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 14,
+    "word": "客観的",
+    "reading": "きゃくかんてき",
+    "meaning": "Tính khách quan",
+    "type": "な形容詞"
+  },
+  {
+    "id": 79,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 15,
+    "word": "参考書",
+    "reading": "さんこうしょ",
+    "meaning": "Tài liệu tham khảo",
+    "type": "名詞"
+  },
+  {
+    "id": 80,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 16,
+    "word": "試験項目",
+    "reading": "しけんこうもく",
+    "meaning": "Mục kiểm thử",
+    "type": "名詞"
+  },
+  {
+    "id": 81,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 17,
+    "word": "進捗度",
+    "reading": "しんちょくど",
+    "meaning": "Mức tiến trình",
+    "type": "名詞"
+  },
+  {
+    "id": 82,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 18,
+    "word": "その調子で",
+    "reading": "そのちょうしで",
+    "meaning": "Với mức độ khó",
+    "type": "表現"
+  },
+  {
+    "id": 83,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 19,
+    "word": "段階",
+    "reading": "だんかい",
+    "meaning": "Giai đoạn",
+    "type": "名詞"
+  },
+  {
+    "id": 84,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 20,
+    "word": "～割",
+    "reading": "わり",
+    "meaning": "Phần trăm",
+    "type": "名詞"
+  },
+  {
+    "id": 85,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 21,
+    "word": "ウィンドウ",
+    "reading": "ウィンドウ",
+    "meaning": "Window",
+    "type": "名詞"
+  },
+  {
+    "id": 86,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 22,
+    "word": "エディタウインドウ",
+    "reading": "エディタウインドウ",
+    "meaning": "Cửa sổ soạn thảo",
+    "type": "名詞"
+  },
+  {
+    "id": 87,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 23,
+    "word": "コーディング",
+    "reading": "コーディング",
+    "meaning": "Lập trình",
+    "type": "名詞"
+  },
+  {
+    "id": 88,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 24,
+    "word": "コンパイル",
+    "reading": "コンパイル",
+    "meaning": "Biên dịch code",
+    "type": "名詞"
+  },
+  {
+    "id": 89,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 25,
+    "word": "ジェービルダー",
+    "reading": "ジェービルダー",
+    "meaning": "JBuilder",
+    "type": "固有名詞"
+  },
+  {
+    "id": 90,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 26,
+    "word": "ネットビーンズ",
+    "reading": "ネットビーンズ",
+    "meaning": "NetBeans",
+    "type": "固有名詞"
+  },
+  {
+    "id": 91,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 27,
+    "word": "バグ",
+    "reading": "バグ",
+    "meaning": "Lỗi",
+    "type": "名詞"
+  },
+  {
+    "id": 92,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 28,
+    "word": "ビジュアルスタジオ",
+    "reading": "ビジュアルスタジオ",
+    "meaning": "Visual Studio",
+    "type": "固有名詞"
+  },
+  {
+    "id": 93,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 29,
+    "word": "メニュー",
+    "reading": "メニュー",
+    "meaning": "Menu, danh mục",
+    "type": "名詞"
+  },
+  {
+    "id": 94,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 30,
+    "word": "イーマックス",
+    "reading": "イーマックス",
+    "meaning": "Emacs",
+    "type": "固有名詞"
+  },
+  {
+    "id": 95,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 31,
+    "word": "コードウォリアー",
+    "reading": "コードウォリアー",
+    "meaning": "CodeWarrior",
+    "type": "固有名詞"
+  },
+  {
+    "id": 96,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 32,
+    "word": "デルファイ",
+    "reading": "デルファイ",
+    "meaning": "Delphi",
+    "type": "固有名詞"
+  },
+  {
+    "id": 97,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 33,
+    "word": "ランタイム",
+    "reading": "ランタイム",
+    "meaning": "Runtime",
+    "type": "名詞"
+  },
+  {
+    "id": 98,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 34,
+    "word": "落ちる",
+    "reading": "おちる",
+    "meaning": "Rớt ra, bị treo",
+    "type": "動詞"
+  },
+  {
+    "id": 99,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 35,
+    "word": "外す",
+    "reading": "はずす",
+    "meaning": "Tháo bỏ, rời khỏi chỗ ngồi",
+    "type": "動詞"
+  },
+  {
+    "id": 100,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 36,
+    "word": "落とす",
+    "reading": "おとす",
+    "meaning": "Tắt nguồn",
+    "type": "動詞"
+  },
+  {
+    "id": 101,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 37,
+    "word": "PCが固まる",
+    "reading": "PCがかたまる",
+    "meaning": "Máy tính bị đơ",
+    "type": "動詞"
+  },
+  {
+    "id": 102,
+    "source": "TNCN 4",
+    "unit": 10,
+    "number": 38,
+    "word": "重い",
+    "reading": "おもい",
+    "meaning": "Máy tính chạy chậm",
+    "type": "い形容詞"
+  },
+  {
+    "id": 103,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 1,
+    "word": "遅延報告",
+    "reading": "ちえんほうこく",
+    "meaning": "Báo cáo trễ",
+    "type": "名詞"
+  },
+  {
+    "id": 104,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 2,
+    "word": "速やかに",
+    "reading": "すみやかに",
+    "meaning": "Ngay lập tức",
+    "type": "副詞"
+  },
+  {
+    "id": 105,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 3,
+    "word": "様々",
+    "reading": "さまざま",
+    "meaning": "Đa dạng",
+    "type": "な形容詞"
+  },
+  {
+    "id": 106,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 4,
+    "word": "連携する",
+    "reading": "れんけいする",
+    "meaning": "Hợp tác",
+    "type": "動詞"
+  },
+  {
+    "id": 107,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 5,
+    "word": "テストデータ",
+    "reading": "テストデータ",
+    "meaning": "Dữ liệu kiểm thử",
+    "type": "名詞"
+  },
+  {
+    "id": 108,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 6,
+    "word": "不足",
+    "reading": "ふそく",
+    "meaning": "Thiếu hụt",
+    "type": "名詞"
+  },
+  {
+    "id": 109,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 7,
+    "word": "なるべく",
+    "reading": "なるべく",
+    "meaning": "Càng nhiều càng tốt",
+    "type": "副詞"
+  },
+  {
+    "id": 110,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 8,
+    "word": "ペース",
+    "reading": "ペース",
+    "meaning": "Tốc độ, nhịp độ",
+    "type": "名詞"
+  },
+  {
+    "id": 111,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 9,
+    "word": "ただし",
+    "reading": "ただし",
+    "meaning": "Tuy nhiên",
+    "type": "接続詞"
+  },
+  {
+    "id": 112,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 10,
+    "word": "プラットフォーム",
+    "reading": "プラットフォーム",
+    "meaning": "Nền tảng",
+    "type": "名詞"
+  },
+  {
+    "id": 113,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 11,
+    "word": "回避する",
+    "reading": "かいひする",
+    "meaning": "Tránh",
+    "type": "動詞"
+  },
+  {
+    "id": 114,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 12,
+    "word": "調査",
+    "reading": "ちょうさ",
+    "meaning": "Điều tra",
+    "type": "名詞"
+  },
+  {
+    "id": 115,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 13,
+    "word": "検討する",
+    "reading": "けんとうする",
+    "meaning": "Xem xét",
+    "type": "動詞"
+  },
+  {
+    "id": 116,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 14,
+    "word": "正常",
+    "reading": "せいじょう",
+    "meaning": "Bình thường",
+    "type": "な形容詞"
+  },
+  {
+    "id": 117,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 15,
+    "word": "取り戻す",
+    "reading": "とりもどす",
+    "meaning": "Lấy lại",
+    "type": "動詞"
+  },
+  {
+    "id": 118,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 16,
+    "word": "提案する",
+    "reading": "ていあんする",
+    "meaning": "Đề xuất",
+    "type": "動詞"
+  },
+  {
+    "id": 119,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 17,
+    "word": "追加する",
+    "reading": "ついかする",
+    "meaning": "Thêm",
+    "type": "動詞"
+  },
+  {
+    "id": 120,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 18,
+    "word": "最善",
+    "reading": "さいぜん",
+    "meaning": "Tốt nhất",
+    "type": "名詞"
+  },
+  {
+    "id": 121,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 19,
+    "word": "最悪",
+    "reading": "さいあく",
+    "meaning": "Xấu nhất",
+    "type": "名詞"
+  },
+  {
+    "id": 122,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 20,
+    "word": "手段",
+    "reading": "しゅだん",
+    "meaning": "Phương pháp",
+    "type": "名詞"
+  },
+  {
+    "id": 123,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 21,
+    "word": "重要",
+    "reading": "じゅうよう",
+    "meaning": "Quan trọng",
+    "type": "な形容詞"
+  },
+  {
+    "id": 124,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 22,
+    "word": "余裕",
+    "reading": "よゆう",
+    "meaning": "Dư dả",
+    "type": "名詞"
+  },
+  {
+    "id": 125,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 23,
+    "word": "限る",
+    "reading": "かぎる",
+    "meaning": "Giới hạn",
+    "type": "動詞"
+  },
+  {
+    "id": 126,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 24,
+    "word": "気づく",
+    "reading": "きづく",
+    "meaning": "Nhận thấy",
+    "type": "動詞"
+  },
+  {
+    "id": 127,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 25,
+    "word": "具合",
+    "reading": "ぐあい",
+    "meaning": "Tình trạng",
+    "type": "名詞"
+  },
+  {
+    "id": 128,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 26,
+    "word": "影響する",
+    "reading": "えいきょうする",
+    "meaning": "Ảnh hưởng",
+    "type": "動詞"
+  },
+  {
+    "id": 129,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 27,
+    "word": "対応する",
+    "reading": "たいおうする",
+    "meaning": "Phản ứng",
+    "type": "動詞"
+  },
+  {
+    "id": 130,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 28,
+    "word": "納期",
+    "reading": "のうき",
+    "meaning": "Hạn chót",
+    "type": "名詞"
+  },
+  {
+    "id": 131,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 29,
+    "word": "直前",
+    "reading": "ちょくぜん",
+    "meaning": "Ngay trước",
+    "type": "名詞"
+  },
+  {
+    "id": 132,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 30,
+    "word": "明らか",
+    "reading": "あきらか",
+    "meaning": "Rõ ràng",
+    "type": "な形容詞"
+  },
+  {
+    "id": 133,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 31,
+    "word": "取り返す",
+    "reading": "とりかえす",
+    "meaning": "Khôi phục",
+    "type": "動詞"
+  },
+  {
+    "id": 134,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 32,
+    "word": "アピールする",
+    "reading": "アピールする",
+    "meaning": "Kêu gọi",
+    "type": "動詞"
+  },
+  {
+    "id": 135,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 33,
+    "word": "朝寝坊",
+    "reading": "あさねぼう",
+    "meaning": "Ngủ nướng",
+    "type": "名詞"
+  },
+  {
+    "id": 136,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 34,
+    "word": "安全第一",
+    "reading": "あんぜんだいいち",
+    "meaning": "An toàn là trên hết",
+    "type": "名詞"
+  },
+  {
+    "id": 137,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 35,
+    "word": "依存先",
+    "reading": "いそんさき",
+    "meaning": "Nơi/người phụ thuộc",
+    "type": "名詞"
+  },
+  {
+    "id": 138,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 36,
+    "word": "応用",
+    "reading": "おうよう",
+    "meaning": "Ứng dụng",
+    "type": "名詞"
+  },
+  {
+    "id": 139,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 37,
+    "word": "遅れ",
+    "reading": "おくれ",
+    "meaning": "Muộn",
+    "type": "名詞"
+  },
+  {
+    "id": 140,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 38,
+    "word": "気分転換",
+    "reading": "きぶんてんかん",
+    "meaning": "Thay đổi tâm trạng",
+    "type": "名詞"
+  },
+  {
+    "id": 141,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 39,
+    "word": "原因",
+    "reading": "げんいん",
+    "meaning": "Nguyên nhân",
+    "type": "名詞"
+  },
+  {
+    "id": 142,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 40,
+    "word": "顧客第一",
+    "reading": "こきゃくだいいち",
+    "meaning": "Khách hàng là thượng đế",
+    "type": "名詞"
+  },
+  {
+    "id": 143,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 41,
+    "word": "事故",
+    "reading": "じこ",
+    "meaning": "Tai nạn",
+    "type": "名詞"
+  },
+  {
+    "id": 144,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 42,
+    "word": "しっかり",
+    "reading": "しっかり",
+    "meaning": "Chắc chắn, kỹ lưỡng",
+    "type": "副詞"
+  },
+  {
+    "id": 145,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 43,
+    "word": "週末",
+    "reading": "しゅうまつ",
+    "meaning": "Cuối tuần",
+    "type": "名詞"
+  },
+  {
+    "id": 146,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 44,
+    "word": "増員",
+    "reading": "ぞういん",
+    "meaning": "Tăng nhân sự",
+    "type": "名詞"
+  },
+  {
+    "id": 147,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 45,
+    "word": "体調管理",
+    "reading": "たいちょうかんり",
+    "meaning": "Quản lý sức khỏe",
+    "type": "名詞"
+  },
+  {
+    "id": 148,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 46,
+    "word": "昼食",
+    "reading": "ちゅうしょく",
+    "meaning": "Bữa trưa",
+    "type": "名詞"
+  },
+  {
+    "id": 149,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 47,
+    "word": "土日",
+    "reading": "どにち",
+    "meaning": "Thứ bảy và Chủ nhật",
+    "type": "名詞"
+  },
+  {
+    "id": 150,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 48,
+    "word": "要員",
+    "reading": "よういん",
+    "meaning": "Nhân sự quan trọng",
+    "type": "名詞"
+  },
+  {
+    "id": 151,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 49,
+    "word": "休日出勤",
+    "reading": "きゅうじつしゅっきん",
+    "meaning": "Đi làm vào ngày nghỉ",
+    "type": "名詞"
+  },
+  {
+    "id": 152,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 50,
+    "word": "インストール",
+    "reading": "インストール",
+    "meaning": "Cài đặt",
+    "type": "名詞"
+  },
+  {
+    "id": 153,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 51,
+    "word": "キーボード",
+    "reading": "キーボード",
+    "meaning": "Bàn phím",
+    "type": "名詞"
+  },
+  {
+    "id": 154,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 52,
+    "word": "スタブ",
+    "reading": "スタブ",
+    "meaning": "Stub (chương trình tạm thời)",
+    "type": "名詞"
+  },
+  {
+    "id": 155,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 53,
+    "word": "ミドルウェア",
+    "reading": "ミドルウェア",
+    "meaning": "Phần mềm trung gian",
+    "type": "名詞"
+  },
+  {
+    "id": 156,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 54,
+    "word": "UML",
+    "reading": "ユーエムエル",
+    "meaning": "Ngôn ngữ mô hình hóa thống nhất",
+    "type": "名詞"
+  },
+  {
+    "id": 157,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 55,
+    "word": "上がる",
+    "reading": "あがる",
+    "meaning": "Hoàn thành",
+    "type": "動詞"
+  },
+  {
+    "id": 158,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 56,
+    "word": "延ばす",
+    "reading": "のばす",
+    "meaning": "Kéo dài",
+    "type": "動詞"
+  },
+  {
+    "id": 159,
+    "source": "TNCN 4",
+    "unit": 11,
+    "number": 57,
+    "word": "きつい",
+    "reading": "きつい",
+    "meaning": "Chặt chẽ, nghiêm khắc",
+    "type": "い形容詞"
+  },
+  {
+    "id": 160,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 1,
+    "word": "完了報告",
+    "reading": "かんりょうほうこく",
+    "meaning": "Báo cáo hoàn thành",
+    "type": "名詞"
+  },
+  {
+    "id": 161,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 2,
+    "word": "ソースプログラム",
+    "reading": "",
+    "meaning": "Chương trình nguồn",
+    "type": "名詞"
+  },
+  {
+    "id": 162,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 3,
+    "word": "ロードモジュール",
+    "reading": "",
+    "meaning": "Mô-đun nạp",
+    "type": "名詞"
+  },
+  {
+    "id": 163,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 4,
+    "word": "実行",
+    "reading": "じっこう",
+    "meaning": "Thực thi, tiến hành",
+    "type": "名詞"
+  },
+  {
+    "id": 164,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 5,
+    "word": "品質報告書",
+    "reading": "ひんしつほうこくしょ",
+    "meaning": "Báo cáo chất lượng",
+    "type": "名詞"
+  },
+  {
+    "id": 165,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 6,
+    "word": "揃う",
+    "reading": "そろう",
+    "meaning": "Đầy đủ, sẵn sàng, hoàn tất, tập hợp",
+    "type": "動詞"
+  },
+  {
+    "id": 166,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 7,
+    "word": "進行",
+    "reading": "しんこう",
+    "meaning": "Tiến độ, tiến hành",
+    "type": "名詞"
+  },
+  {
+    "id": 167,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 8,
+    "word": "当初",
+    "reading": "とうしょ",
+    "meaning": "Ban đầu, lúc đầu",
+    "type": "名詞"
+  },
+  {
+    "id": 168,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 9,
+    "word": "依頼する",
+    "reading": "いらいする",
+    "meaning": "Yêu cầu, đề nghị",
+    "type": "動詞"
+  },
+  {
+    "id": 169,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 10,
+    "word": "支援",
+    "reading": "しえん",
+    "meaning": "Hỗ trợ",
+    "type": "名詞"
+  },
+  {
+    "id": 170,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 11,
+    "word": "複雑",
+    "reading": "ふくざつ",
+    "meaning": "Phức tạp",
+    "type": "な形容詞"
+  },
+  {
+    "id": 171,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 12,
+    "word": "決定",
+    "reading": "けってい",
+    "meaning": "Quyết định, xác định",
+    "type": "名詞"
+  },
+  {
+    "id": 172,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 13,
+    "word": "同様",
+    "reading": "どうよう",
+    "meaning": "Tương tự, giống nhau",
+    "type": "な形容詞"
+  },
+  {
+    "id": 173,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 14,
+    "word": "残り",
+    "reading": "のこり",
+    "meaning": "Còn lại, phần còn lại",
+    "type": "名詞"
+  },
+  {
+    "id": 174,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 15,
+    "word": "重大",
+    "reading": "じゅうだい",
+    "meaning": "Nghiêm trọng, đáng kể",
+    "type": "な形容詞"
+  },
+  {
+    "id": 175,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 16,
+    "word": "バッファ",
+    "reading": "",
+    "meaning": "Bộ đệm",
+    "type": "名詞"
+  },
+  {
+    "id": 176,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 17,
+    "word": "順調",
+    "reading": "じゅんちょう",
+    "meaning": "Thuận lợi",
+    "type": "な形容詞"
+  },
+  {
+    "id": 177,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 18,
+    "word": "可能性",
+    "reading": "かのうせい",
+    "meaning": "Khả năng",
+    "type": "名詞"
+  },
+  {
+    "id": 178,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 19,
+    "word": "状態",
+    "reading": "じょうたい",
+    "meaning": "Trạng thái, điều kiện",
+    "type": "名詞"
+  },
+  {
+    "id": 179,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 20,
+    "word": "喜ぶ",
+    "reading": "よろこぶ",
+    "meaning": "Vui mừng, hài lòng",
+    "type": "動詞"
+  },
+  {
+    "id": 180,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 21,
+    "word": "繰り返す",
+    "reading": "くりかえす",
+    "meaning": "Lặp lại, làm lại",
+    "type": "動詞"
+  },
+  {
+    "id": 181,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 22,
+    "word": "身につける",
+    "reading": "みにつける",
+    "meaning": "Thu thập, học hỏi",
+    "type": "動詞"
+  },
+  {
+    "id": 182,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 1,
+    "word": "在庫管理",
+    "reading": "ざいこかんり",
+    "meaning": "Quản lý tồn kho",
+    "type": "名詞"
+  },
+  {
+    "id": 183,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 2,
+    "word": "仕入管理機能",
+    "reading": "しいれかんりきのう",
+    "meaning": "Chức năng quản lý mua hàng",
+    "type": "名詞"
+  },
+  {
+    "id": 184,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 3,
+    "word": "成果物",
+    "reading": "せいかぶつ",
+    "meaning": "Thành quả",
+    "type": "名詞"
+  },
+  {
+    "id": 185,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 4,
+    "word": "単体テスト仕様書",
+    "reading": "たんたいてすとしようしょ",
+    "meaning": "Tài liệu đặc tả kiểm thử đơn vị",
+    "type": "名詞"
+  },
+  {
+    "id": 186,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 5,
+    "word": "提出",
+    "reading": "ていしゅつ",
+    "meaning": "Nộp, gửi",
+    "type": "名詞"
+  },
+  {
+    "id": 187,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 6,
+    "word": "テスト結果報告書",
+    "reading": "てすとけっかほうこくしょ",
+    "meaning": "Bản báo cáo kết quả kiểm thử",
+    "type": "名詞"
+  },
+  {
+    "id": 188,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 7,
+    "word": "手元",
+    "reading": "てもと",
+    "meaning": "Có sẵn trong tay",
+    "type": "名詞"
+  },
+  {
+    "id": 189,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 8,
+    "word": "店舗情報管理",
+    "reading": "てんぽじょうほうかんり",
+    "meaning": "Quản lý thông tin cửa hàng",
+    "type": "名詞"
+  },
+  {
+    "id": 190,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 9,
+    "word": "見積依頼",
+    "reading": "みつもりいらい",
+    "meaning": "Yêu cầu báo giá",
+    "type": "名詞"
+  },
+  {
+    "id": 191,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 10,
+    "word": "買掛金",
+    "reading": "かいかけきん",
+    "meaning": "Nợ phải trả",
+    "type": "名詞"
+  },
+  {
+    "id": 192,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 11,
+    "word": "会計管理",
+    "reading": "かいけいかんり",
+    "meaning": "Quản lý kế toán",
+    "type": "名詞"
+  },
+  {
+    "id": 193,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 12,
+    "word": "販売管理",
+    "reading": "はんばいかんり",
+    "meaning": "Quản lý bán hàng",
+    "type": "名詞"
+  },
+  {
+    "id": 194,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 13,
+    "word": "バグ票",
+    "reading": "バグひょう",
+    "meaning": "Bảng báo lỗi",
+    "type": "名詞"
+  },
+  {
+    "id": 195,
+    "source": "TNCN 4",
+    "unit": 12,
+    "number": 14,
+    "word": "コピーする",
+    "reading": "こぴーする",
+    "meaning": "Sao chép",
+    "type": "動詞"
+  }
+]

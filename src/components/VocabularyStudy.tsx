@@ -19,8 +19,17 @@ const relatedOf = (item: Vocabulary) => (item.relatedWords ?? []).filter((r) => 
 /* ---------- Trang tổng hợp ---------- */
 export function VocabularyGrid({ items, onSelect }: { items: Vocabulary[]; onSelect: (item: Vocabulary) => void }) {
   if (items.length === 0) return EMPTY;
+  const longestWordLength = items.reduce(
+    (longest, item) => Math.max(longest, [...item.word].length),
+    0,
+  );
+  const minColumnWidth = longestWordLength * 22 + 88;
+
   return (
-    <div className="nf-vgrid">
+    <div
+      className="nf-vgrid"
+      style={{ gridTemplateColumns: `repeat(auto-fill, minmax(min(100%, ${minColumnWidth}px), 1fr))` }}
+    >
       {items.map((item) => (
         <button key={item.id} className="nf-vtile" onClick={() => onSelect(item)}>
           <span className="nf-tile-number">{String(item.number).padStart(2, "0")}</span>

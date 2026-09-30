@@ -9598,5 +9598,2103 @@
         "mnemonic": ""
       }
     ]
+  },
+  {
+    "id": 337,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 1,
+    "kanji": "依",
+    "on": "イ, エ",
+    "kun": "よる",
+    "hanViet": "Ỷ, Y",
+    "words": [
+      {
+        "word": "依存",
+        "reading": "いぞん",
+        "meaning": "sự phụ thuộc",
+        "mnemonic": ""
+      },
+      {
+        "word": "依頼",
+        "reading": "いらい",
+        "meaning": "yêu cầu, nhờ vả",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 338,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 2,
+    "kanji": "存",
+    "on": "ソン, ゾン",
+    "kun": "",
+    "hanViet": "TỒN",
+    "words": [
+      {
+        "word": "存知",
+        "reading": "ぞんじ",
+        "meaning": "biết, hiểu biết",
+        "mnemonic": ""
+      },
+      {
+        "word": "存在",
+        "reading": "そんざい",
+        "meaning": "sự tồn tại",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 339,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 3,
+    "kanji": "重",
+    "on": "ジュウ, チョウ",
+    "kun": "おもい, おもり, おもなう, かさねる, かさなる, おも",
+    "hanViet": "TRỌNG",
+    "words": [
+      {
+        "word": "重要",
+        "reading": "じゅうよう",
+        "meaning": "quan trọng",
+        "mnemonic": ""
+      },
+      {
+        "word": "慎重",
+        "reading": "しんちょう",
+        "meaning": "thận trọng",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 340,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 4,
+    "kanji": "要",
+    "on": "ヨウ",
+    "kun": "いる, かなめ",
+    "hanViet": "YẾU, YÊU",
+    "words": [
+      {
+        "word": "必要",
+        "reading": "ひつよう",
+        "meaning": "cần thiết",
+        "mnemonic": ""
+      },
+      {
+        "word": "要点",
+        "reading": "ようてん",
+        "meaning": "điểm chính, điểm cần lưu ý",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 341,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 5,
+    "kanji": "荷",
+    "on": "カ",
+    "kun": "に",
+    "hanViet": "HÀ",
+    "words": [
+      {
+        "word": "入荷",
+        "reading": "にゅうか",
+        "meaning": "nhập hàng, nhận hàng",
+        "mnemonic": ""
+      },
+      {
+        "word": "荷物",
+        "reading": "にもつ",
+        "meaning": "hành lý, hàng hóa",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 342,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 6,
+    "kanji": "処",
+    "on": "ショ",
+    "kun": "ところ, こ, おる",
+    "hanViet": "XỬ",
+    "words": [
+      {
+        "word": "処分",
+        "reading": "しょぶん",
+        "meaning": "xử lý, thanh lý",
+        "mnemonic": ""
+      },
+      {
+        "word": "処置",
+        "reading": "しょち",
+        "meaning": "xử trí, biện pháp xử lý",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 343,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 7,
+    "kanji": "損",
+    "on": "ソン",
+    "kun": "そこなう, そこねる",
+    "hanViet": "TỔN",
+    "words": [
+      {
+        "word": "損害",
+        "reading": "そんがい",
+        "meaning": "thiệt hại",
+        "mnemonic": ""
+      },
+      {
+        "word": "損得",
+        "reading": "そんとく",
+        "meaning": "lỗ lãi, được mất",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 344,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 8,
+    "kanji": "益",
+    "on": "エキ, ヤク",
+    "kun": "ます",
+    "hanViet": "ÍCH",
+    "words": [
+      {
+        "word": "不利益",
+        "reading": "ふりえき",
+        "meaning": "bất lợi, thiệt hại",
+        "mnemonic": ""
+      },
+      {
+        "word": "利益",
+        "reading": "りえき",
+        "meaning": "lợi ích, lợi nhuận",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 345,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 9,
+    "kanji": "統",
+    "on": "トウ",
+    "kun": "すべる, ほびる",
+    "hanViet": "THỐNG",
+    "words": [
+      {
+        "word": "伝統",
+        "reading": "でんとう",
+        "meaning": "truyền thống",
+        "mnemonic": ""
+      },
+      {
+        "word": "系統",
+        "reading": "けいとう",
+        "meaning": "hệ thống, hệ thống phân loại",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 346,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 10,
+    "kanji": "編",
+    "on": "ヘン",
+    "kun": "あむ, あみ",
+    "hanViet": "BIÊN",
+    "words": [
+      {
+        "word": "短編",
+        "reading": "たんぺん",
+        "meaning": "truyện ngắn, tác phẩm ngắn",
+        "mnemonic": ""
+      },
+      {
+        "word": "編集",
+        "reading": "へんしゅう",
+        "meaning": "biên tập, chỉnh sửa",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 347,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 11,
+    "kanji": "集",
+    "on": "シュウ",
+    "kun": "あつまる, あつめる, つどう",
+    "hanViet": "TẬP",
+    "words": [
+      {
+        "word": "全集",
+        "reading": "ぜんしゅう",
+        "meaning": "toàn tập, tuyển tập đầy đủ",
+        "mnemonic": ""
+      },
+      {
+        "word": "募集",
+        "reading": "ぼしゅう",
+        "meaning": "tuyển dụng, tuyển người",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 348,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 12,
+    "kanji": "品",
+    "on": "ヒン, ホン",
+    "kun": "しな",
+    "hanViet": "PHẨM",
+    "words": [
+      {
+        "word": "製品",
+        "reading": "せいひん",
+        "meaning": "sản phẩm",
+        "mnemonic": ""
+      },
+      {
+        "word": "品物",
+        "reading": "しなもの",
+        "meaning": "hàng hóa, đồ vật",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 349,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 13,
+    "kanji": "貸",
+    "on": "タイ",
+    "kun": "かす, かし",
+    "hanViet": "THẢI",
+    "words": [
+      {
+        "word": "貸金",
+        "reading": "かしきん",
+        "meaning": "tiền cho vay",
+        "mnemonic": ""
+      },
+      {
+        "word": "貸借",
+        "reading": "たいしゃく",
+        "meaning": "cho vay và đi vay, khoản vay và khoản nợ",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 350,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 14,
+    "kanji": "借",
+    "on": "シャク",
+    "kun": "かりる",
+    "hanViet": "TÁ",
+    "words": [
+      {
+        "word": "借料",
+        "reading": "しゃくりょう",
+        "meaning": "tiền thuê, phí thuê",
+        "mnemonic": ""
+      },
+      {
+        "word": "借金",
+        "reading": "しゃっきん",
+        "meaning": "tiền vay, nợ",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 351,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 15,
+    "kanji": "対",
+    "on": "タイ, ツイ",
+    "kun": "あいて, こたえる, そろい, つれあい, ならぶ, むかう",
+    "hanViet": "ĐỐI",
+    "words": [
+      {
+        "word": "反対",
+        "reading": "はんたい",
+        "meaning": "phản đối, trái ngược",
+        "mnemonic": ""
+      },
+      {
+        "word": "対等",
+        "reading": "たいとう",
+        "meaning": "bình đẳng, ngang bằng",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 352,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 16,
+    "kanji": "照",
+    "on": "ショウ",
+    "kun": "てる, てらす, てれる",
+    "hanViet": "CHIẾU",
+    "words": [
+      {
+        "word": "照らす",
+        "reading": "てらす",
+        "meaning": "chiếu sáng, soi sáng",
+        "mnemonic": ""
+      },
+      {
+        "word": "照明",
+        "reading": "しょうめい",
+        "meaning": "chiếu sáng, đèn chiếu sáng",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 353,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 2,
+    "day": 1,
+    "number": 17,
+    "kanji": "落",
+    "on": "ラク",
+    "kun": "おちる, おとす",
+    "hanViet": "LẠC",
+    "words": [
+      {
+        "word": "落ちる",
+        "reading": "おちる",
+        "meaning": "rơi, rớt",
+        "mnemonic": ""
+      },
+      {
+        "word": "転落",
+        "reading": "てんらく",
+        "meaning": "ngã, rơi xuống",
+        "mnemonic": ""
+      },
+      {
+        "word": "落語",
+        "reading": "らくご",
+        "meaning": "hài kịch kể chuyện truyền thống Nhật Bản",
+        "mnemonic": ""
+      },
+      {
+        "word": "落下",
+        "reading": "らっか",
+        "meaning": "rơi xuống",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 354,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 2,
+    "day": 1,
+    "number": 18,
+    "kanji": "観",
+    "on": "カン",
+    "kun": "みる, しめす",
+    "hanViet": "QUAN",
+    "words": [
+      {
+        "word": "主観",
+        "reading": "しゅかん",
+        "meaning": "quan điểm chủ quan",
+        "mnemonic": ""
+      },
+      {
+        "word": "観察",
+        "reading": "かんさつ",
+        "meaning": "quan sát",
+        "mnemonic": ""
+      },
+      {
+        "word": "観客",
+        "reading": "かんきゃく",
+        "meaning": "khán giả",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 355,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 2,
+    "day": 1,
+    "number": 19,
+    "kanji": "参",
+    "on": "サン, シン",
+    "kun": "まいる",
+    "hanViet": "THAM",
+    "words": [
+      {
+        "word": "人参",
+        "reading": "にんじん",
+        "meaning": "cà rốt",
+        "mnemonic": ""
+      },
+      {
+        "word": "参照",
+        "reading": "さんしょう",
+        "meaning": "tham khảo, đối chiếu",
+        "mnemonic": ""
+      },
+      {
+        "word": "参戦",
+        "reading": "さんせん",
+        "meaning": "tham gia trận đấu, tham chiến",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 356,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 2,
+    "day": 1,
+    "number": 20,
+    "kanji": "項",
+    "on": "コウ",
+    "kun": "うなじ",
+    "hanViet": "HẠNG",
+    "words": [
+      {
+        "word": "事項",
+        "reading": "じこう",
+        "meaning": "sự việc, hạng mục",
+        "mnemonic": ""
+      },
+      {
+        "word": "項目",
+        "reading": "こうもく",
+        "meaning": "mục, khoản, hạng mục",
+        "mnemonic": ""
+      },
+      {
+        "word": "条項",
+        "reading": "じょうこう",
+        "meaning": "điều khoản",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 357,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 2,
+    "day": 1,
+    "number": 21,
+    "kanji": "調",
+    "on": "チョウ",
+    "kun": "しらべる, しらべ, ととのう, ととのえる",
+    "hanViet": "ĐIỀU, ĐIỆU",
+    "words": [
+      {
+        "word": "調味",
+        "reading": "ちょうみ",
+        "meaning": "nêm gia vị, điều vị",
+        "mnemonic": ""
+      },
+      {
+        "word": "調子",
+        "reading": "ちょうし",
+        "meaning": "tình trạng, trạng thái, nhịp điệu",
+        "mnemonic": ""
+      },
+      {
+        "word": "調印",
+        "reading": "ちょういん",
+        "meaning": "ký kết, ký tên",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 358,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 2,
+    "day": 1,
+    "number": 22,
+    "kanji": "割",
+    "on": "カツ",
+    "kun": "わる, われる, わり, さく",
+    "hanViet": "CÁT",
+    "words": [
+      {
+        "word": "割引",
+        "reading": "わりびき",
+        "meaning": "giảm giá, chiết khấu",
+        "mnemonic": ""
+      },
+      {
+        "word": "時間割",
+        "reading": "じかんわり",
+        "meaning": "thời gian biểu",
+        "mnemonic": ""
+      },
+      {
+        "word": "分割",
+        "reading": "ぶんかつ",
+        "meaning": "phân chia, chia nhỏ",
+        "mnemonic": ""
+      },
+      {
+        "word": "割合",
+        "reading": "わりあい",
+        "meaning": "tỷ lệ",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 359,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 2,
+    "day": 1,
+    "number": 23,
+    "kanji": "固",
+    "on": "コ",
+    "kun": "かためる, かたまる, かたまり, かたい",
+    "hanViet": "CỐ",
+    "words": [
+      {
+        "word": "固形",
+        "reading": "こけい",
+        "meaning": "dạng rắn",
+        "mnemonic": ""
+      },
+      {
+        "word": "固着",
+        "reading": "こちゃく",
+        "meaning": "dính chặt, bám chắc",
+        "mnemonic": ""
+      },
+      {
+        "word": "固定",
+        "reading": "こてい",
+        "meaning": "cố định",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 360,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 3,
+    "day": 1,
+    "number": 24,
+    "kanji": "坊",
+    "on": "ボウ",
+    "kun": "",
+    "hanViet": "PHƯỜNG",
+    "words": [
+      {
+        "word": "僧坊",
+        "reading": "そうぼう",
+        "meaning": "phòng ở của nhà sư",
+        "mnemonic": ""
+      },
+      {
+        "word": "寝坊",
+        "reading": "ねぼう",
+        "meaning": "ngủ muộn, ngủ nướng",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 361,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 3,
+    "day": 1,
+    "number": 25,
+    "kanji": "第",
+    "on": "ダイ, テイ",
+    "kun": "",
+    "hanViet": "ĐỆ",
+    "words": [
+      {
+        "word": "兄弟",
+        "reading": "きょうだい",
+        "meaning": "anh chị em",
+        "mnemonic": ""
+      },
+      {
+        "word": "弟さん",
+        "reading": "おとうとさん",
+        "meaning": "em trai (của người khác)",
+        "mnemonic": ""
+      },
+      {
+        "word": "次第",
+        "reading": "しだい",
+        "meaning": "tùy theo, ngay sau khi",
+        "mnemonic": ""
+      },
+      {
+        "word": "第四",
+        "reading": "だいよん",
+        "meaning": "thứ tư",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 362,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 3,
+    "day": 1,
+    "number": 26,
+    "kanji": "転",
+    "on": "テン",
+    "kun": "ころがる, ころげる, ころがす, ころぶ, まろぶ, うたた, うつる, くるめく",
+    "hanViet": "CHUYỂN",
+    "words": [
+      {
+        "word": "自転車",
+        "reading": "じてんしゃ",
+        "meaning": "xe đạp",
+        "mnemonic": ""
+      },
+      {
+        "word": "運転",
+        "reading": "うんてん",
+        "meaning": "lái xe, vận hành",
+        "mnemonic": ""
+      },
+      {
+        "word": "転勤",
+        "reading": "てんきん",
+        "meaning": "chuyển công tác",
+        "mnemonic": ""
+      },
+      {
+        "word": "回転",
+        "reading": "かいてん",
+        "meaning": "xoay vòng, quay",
+        "mnemonic": ""
+      },
+      {
+        "word": "転換",
+        "reading": "てんかん",
+        "meaning": "chuyển đổi, chuyển hướng",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 363,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 3,
+    "day": 1,
+    "number": 27,
+    "kanji": "原",
+    "on": "ゲン",
+    "kun": "はら",
+    "hanViet": "NGUYÊN",
+    "words": [
+      {
+        "word": "原料",
+        "reading": "げんりょう",
+        "meaning": "nguyên liệu",
+        "mnemonic": ""
+      },
+      {
+        "word": "野原",
+        "reading": "のはら",
+        "meaning": "cánh đồng, bãi cỏ",
+        "mnemonic": ""
+      },
+      {
+        "word": "原稿",
+        "reading": "げんこう",
+        "meaning": "bản thảo",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 364,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 3,
+    "day": 1,
+    "number": 28,
+    "kanji": "因",
+    "on": "イン",
+    "kun": "よる, ちなむ",
+    "hanViet": "NHÂN",
+    "words": [
+      {
+        "word": "原因",
+        "reading": "げんいん",
+        "meaning": "nguyên nhân",
+        "mnemonic": ""
+      },
+      {
+        "word": "要因",
+        "reading": "よういん",
+        "meaning": "yếu tố, nhân tố quan trọng",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 365,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 3,
+    "day": 1,
+    "number": 29,
+    "kanji": "故",
+    "on": "コ",
+    "kun": "ゆえ, ふるい, もと",
+    "hanViet": "CỐ",
+    "words": [
+      {
+        "word": "故郷",
+        "reading": "こきょう",
+        "meaning": "quê hương",
+        "mnemonic": ""
+      },
+      {
+        "word": "事故",
+        "reading": "じこ",
+        "meaning": "tai nạn, sự cố",
+        "mnemonic": ""
+      },
+      {
+        "word": "故障",
+        "reading": "こしょう",
+        "meaning": "hỏng hóc, sự cố",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 366,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 3,
+    "day": 1,
+    "number": 30,
+    "kanji": "増",
+    "on": "ゾウ",
+    "kun": "ます, ふえる, ふやす",
+    "hanViet": "TĂNG",
+    "words": [
+      {
+        "word": "仏僧",
+        "reading": "ぶっそう",
+        "meaning": "nhà sư Phật giáo",
+        "mnemonic": ""
+      },
+      {
+        "word": "僧坊",
+        "reading": "そうぼう",
+        "meaning": "phòng ở của nhà sư",
+        "mnemonic": ""
+      },
+      {
+        "word": "増加",
+        "reading": "ぞうか",
+        "meaning": "gia tăng, tăng lên",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 367,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 3,
+    "day": 1,
+    "number": 31,
+    "kanji": "延",
+    "on": "エン",
+    "kun": "のばす, のべる, のびる",
+    "hanViet": "DUYÊN",
+    "words": [
+      {
+        "word": "延びる",
+        "reading": "のびる",
+        "meaning": "kéo dài, giãn ra",
+        "mnemonic": ""
+      },
+      {
+        "word": "延期",
+        "reading": "えんき",
+        "meaning": "hoãn lại",
+        "mnemonic": ""
+      },
+      {
+        "word": "延長",
+        "reading": "えんちょう",
+        "meaning": "kéo dài, gia hạn",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 360,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 4,
+    "day": 1,
+    "number": 24,
+    "kanji": "坊",
+    "on": "ボウ",
+    "kun": "",
+    "hanViet": "PHƯỜNG",
+    "words": [
+      {
+        "word": "僧坊",
+        "reading": "そうぼう",
+        "meaning": "phòng ở của nhà sư",
+        "mnemonic": ""
+      },
+      {
+        "word": "寝坊",
+        "reading": "ねぼう",
+        "meaning": "ngủ muộn, ngủ nướng",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 361,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 4,
+    "day": 1,
+    "number": 25,
+    "kanji": "第",
+    "on": "ダイ, テイ",
+    "kun": "",
+    "hanViet": "ĐỆ",
+    "words": [
+      {
+        "word": "兄弟",
+        "reading": "きょうだい",
+        "meaning": "anh chị em",
+        "mnemonic": ""
+      },
+      {
+        "word": "弟さん",
+        "reading": "おとうとさん",
+        "meaning": "em trai (của người khác)",
+        "mnemonic": ""
+      },
+      {
+        "word": "次第",
+        "reading": "しだい",
+        "meaning": "tùy theo, ngay sau khi",
+        "mnemonic": ""
+      },
+      {
+        "word": "第四",
+        "reading": "だいよん",
+        "meaning": "thứ tư",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 362,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 4,
+    "day": 1,
+    "number": 26,
+    "kanji": "転",
+    "on": "テン",
+    "kun": "ころがる, ころげる, ころがす, ころぶ, まろぶ, うたた, うつる, くるめく",
+    "hanViet": "CHUYỂN",
+    "words": [
+      {
+        "word": "自転車",
+        "reading": "じてんしゃ",
+        "meaning": "xe đạp",
+        "mnemonic": ""
+      },
+      {
+        "word": "運転",
+        "reading": "うんてん",
+        "meaning": "lái xe, vận hành",
+        "mnemonic": ""
+      },
+      {
+        "word": "転勤",
+        "reading": "てんきん",
+        "meaning": "chuyển công tác",
+        "mnemonic": ""
+      },
+      {
+        "word": "回転",
+        "reading": "かいてん",
+        "meaning": "xoay vòng, quay",
+        "mnemonic": ""
+      },
+      {
+        "word": "転換",
+        "reading": "てんかん",
+        "meaning": "chuyển đổi, chuyển hướng",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 363,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 4,
+    "day": 1,
+    "number": 27,
+    "kanji": "原",
+    "on": "ゲン",
+    "kun": "はら",
+    "hanViet": "NGUYÊN",
+    "words": [
+      {
+        "word": "原料",
+        "reading": "げんりょう",
+        "meaning": "nguyên liệu",
+        "mnemonic": ""
+      },
+      {
+        "word": "野原",
+        "reading": "のはら",
+        "meaning": "cánh đồng, bãi cỏ",
+        "mnemonic": ""
+      },
+      {
+        "word": "原稿",
+        "reading": "げんこう",
+        "meaning": "bản thảo",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 364,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 4,
+    "day": 1,
+    "number": 28,
+    "kanji": "因",
+    "on": "イン",
+    "kun": "よる, ちなむ",
+    "hanViet": "NHÂN",
+    "words": [
+      {
+        "word": "原因",
+        "reading": "げんいん",
+        "meaning": "nguyên nhân",
+        "mnemonic": ""
+      },
+      {
+        "word": "要因",
+        "reading": "よういん",
+        "meaning": "yếu tố, nhân tố quan trọng",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 365,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 4,
+    "day": 1,
+    "number": 29,
+    "kanji": "故",
+    "on": "コ",
+    "kun": "ゆえ, ふるい, もと",
+    "hanViet": "CỐ",
+    "words": [
+      {
+        "word": "故郷",
+        "reading": "こきょう",
+        "meaning": "quê hương",
+        "mnemonic": ""
+      },
+      {
+        "word": "事故",
+        "reading": "じこ",
+        "meaning": "tai nạn, sự cố",
+        "mnemonic": ""
+      },
+      {
+        "word": "故障",
+        "reading": "こしょう",
+        "meaning": "hỏng hóc, sự cố",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 366,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 4,
+    "day": 1,
+    "number": 30,
+    "kanji": "増",
+    "on": "ゾウ",
+    "kun": "ます, ふえる, ふやす",
+    "hanViet": "TĂNG",
+    "words": [
+      {
+        "word": "仏僧",
+        "reading": "ぶっそう",
+        "meaning": "nhà sư Phật giáo",
+        "mnemonic": ""
+      },
+      {
+        "word": "僧坊",
+        "reading": "そうぼう",
+        "meaning": "phòng ở của nhà sư",
+        "mnemonic": ""
+      },
+      {
+        "word": "増加",
+        "reading": "ぞうか",
+        "meaning": "gia tăng, tăng lên",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 367,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 4,
+    "day": 1,
+    "number": 31,
+    "kanji": "延",
+    "on": "エン",
+    "kun": "のばす, のべる, のびる",
+    "hanViet": "DUYÊN",
+    "words": [
+      {
+        "word": "延びる",
+        "reading": "のびる",
+        "meaning": "kéo dài, giãn ra",
+        "mnemonic": ""
+      },
+      {
+        "word": "延期",
+        "reading": "えんき",
+        "meaning": "hoãn lại",
+        "mnemonic": ""
+      },
+      {
+        "word": "延長",
+        "reading": "えんちょう",
+        "meaning": "kéo dài, gia hạn",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 368,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 4,
+    "day": 1,
+    "number": 32,
+    "kanji": "果",
+    "on": "カ",
+    "kun": "はたす, はてる, はて",
+    "hanViet": "QUẢ",
+    "words": [
+      {
+        "word": "効果",
+        "reading": "こうか",
+        "meaning": "hiệu quả",
+        "mnemonic": ""
+      },
+      {
+        "word": "因果",
+        "reading": "いんが",
+        "meaning": "nhân quả",
+        "mnemonic": ""
+      },
+      {
+        "word": "結果",
+        "reading": "けっか",
+        "meaning": "kết quả",
+        "mnemonic": ""
+      },
+      {
+        "word": "果報",
+        "reading": "かほう",
+        "meaning": "phúc báo, may mắn do nhân quả mang lại",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 369,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 4,
+    "day": 1,
+    "number": 33,
+    "kanji": "提",
+    "on": "テイ, チョウ, ダイ",
+    "kun": "さげる",
+    "hanViet": "ĐỀ, ĐỂ",
+    "words": [
+      {
+        "word": "前提",
+        "reading": "ぜんてい",
+        "meaning": "tiền đề, giả định ban đầu",
+        "mnemonic": ""
+      },
+      {
+        "word": "提げる",
+        "reading": "さげる",
+        "meaning": "treo, xách, mang theo",
+        "mnemonic": ""
+      },
+      {
+        "word": "提供",
+        "reading": "ていきょう",
+        "meaning": "cung cấp",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 370,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 4,
+    "day": 1,
+    "number": 34,
+    "kanji": "元",
+    "on": "ゲン, ガン",
+    "kun": "もと",
+    "hanViet": "NGUYÊN",
+    "words": [
+      {
+        "word": "元気",
+        "reading": "げんき",
+        "meaning": "sức khỏe, tinh thần khỏe mạnh",
+        "mnemonic": ""
+      },
+      {
+        "word": "地元",
+        "reading": "じもと",
+        "meaning": "địa phương, quê nhà",
+        "mnemonic": ""
+      },
+      {
+        "word": "根元",
+        "reading": "こんげん",
+        "meaning": "gốc rễ, cội nguồn",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 371,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 4,
+    "day": 1,
+    "number": 35,
+    "kanji": "舗",
+    "on": "ホ",
+    "kun": "",
+    "hanViet": "PHỐ",
+    "words": [
+      {
+        "word": "店舗",
+        "reading": "てんぽ",
+        "meaning": "cửa hàng, cửa hiệu",
+        "mnemonic": ""
+      },
+      {
+        "word": "舗装",
+        "reading": "ほそう",
+        "meaning": "lát đường, trải nhựa",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 372,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 4,
+    "day": 1,
+    "number": 36,
+    "kanji": "情",
+    "on": "ジョウ, セイ",
+    "kun": "なさけ",
+    "hanViet": "TÌNH",
+    "words": [
+      {
+        "word": "友情",
+        "reading": "ゆうじょう",
+        "meaning": "tình bạn",
+        "mnemonic": ""
+      },
+      {
+        "word": "感情",
+        "reading": "かんじょう",
+        "meaning": "cảm xúc, tình cảm",
+        "mnemonic": ""
+      },
+      {
+        "word": "人情",
+        "reading": "にんじょう",
+        "meaning": "nhân tình, lòng trắc ẩn",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 373,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 4,
+    "day": 1,
+    "number": 37,
+    "kanji": "報",
+    "on": "ホウ",
+    "kun": "むくいる",
+    "hanViet": "BÁO",
+    "words": [
+      {
+        "word": "報告",
+        "reading": "ほうこく",
+        "meaning": "báo cáo",
+        "mnemonic": ""
+      },
+      {
+        "word": "情報",
+        "reading": "じょうほう",
+        "meaning": "thông tin",
+        "mnemonic": ""
+      },
+      {
+        "word": "報道",
+        "reading": "ほうどう",
+        "meaning": "tin tức, sự đưa tin",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 374,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 4,
+    "day": 1,
+    "number": 38,
+    "kanji": "積",
+    "on": "セキ",
+    "kun": "つむ, つもる, つもり",
+    "hanViet": "TÍCH",
+    "words": [
+      {
+        "word": "積もる",
+        "reading": "つもる",
+        "meaning": "chồng chất, tích tụ",
+        "mnemonic": ""
+      },
+      {
+        "word": "面積",
+        "reading": "めんせき",
+        "meaning": "diện tích",
+        "mnemonic": ""
+      },
+      {
+        "word": "集積",
+        "reading": "しゅうせき",
+        "meaning": "tích lũy, gom lại",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 375,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 4,
+    "day": 1,
+    "number": 39,
+    "kanji": "掛",
+    "on": "カイ, ケイ",
+    "kun": "かける, かかる, かかり",
+    "hanViet": "QUẢI",
+    "words": [
+      {
+        "word": "掛ける",
+        "reading": "かける",
+        "meaning": "treo, móc; nhân",
+        "mnemonic": ""
+      },
+      {
+        "word": "掛率",
+        "reading": "かけりつ",
+        "meaning": "tỷ lệ nhân",
+        "mnemonic": ""
+      },
+      {
+        "word": "掛金",
+        "reading": "かけきん",
+        "meaning": "tiền đóng góp, khoản tiền đóng",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 376,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 5,
+    "day": 1,
+    "number": 40,
+    "kanji": "構",
+    "on": "コウ",
+    "kun": "かまえる, かまう",
+    "hanViet": "CẤU",
+    "words": [
+      {
+        "word": "構う",
+        "reading": "かまう",
+        "meaning": "để ý, bận tâm",
+        "mnemonic": ""
+      },
+      {
+        "word": "構成",
+        "reading": "こうせい",
+        "meaning": "cấu thành, cấu tạo",
+        "mnemonic": ""
+      },
+      {
+        "word": "機構",
+        "reading": "きこう",
+        "meaning": "cơ cấu, tổ chức",
+        "mnemonic": ""
+      },
+      {
+        "word": "結構",
+        "reading": "けっこう",
+        "meaning": "khá, tốt; không cần",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 377,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 5,
+    "day": 1,
+    "number": 41,
+    "kanji": "最",
+    "on": "サイ, シュ",
+    "kun": "もっとも, つま",
+    "hanViet": "TỐI",
+    "words": [
+      {
+        "word": "最も",
+        "reading": "もっとも",
+        "meaning": "nhất, cực kỳ",
+        "mnemonic": ""
+      },
+      {
+        "word": "最初",
+        "reading": "さいしょ",
+        "meaning": "đầu tiên, ban đầu",
+        "mnemonic": ""
+      },
+      {
+        "word": "最後",
+        "reading": "さいご",
+        "meaning": "cuối cùng",
+        "mnemonic": ""
+      },
+      {
+        "word": "最終",
+        "reading": "さいしゅう",
+        "meaning": "cuối cùng, cuối giai đoạn",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 378,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 5,
+    "day": 1,
+    "number": 42,
+    "kanji": "版",
+    "on": "ハン",
+    "kun": "",
+    "hanViet": "BẢN",
+    "words": [
+      {
+        "word": "出版",
+        "reading": "しゅっぱん",
+        "meaning": "xuất bản",
+        "mnemonic": ""
+      },
+      {
+        "word": "版画",
+        "reading": "はんが",
+        "meaning": "tranh khắc gỗ",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 379,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 5,
+    "day": 1,
+    "number": 43,
+    "kanji": "修",
+    "on": "シュウ, シュ",
+    "kun": "おさめる, おさまる",
+    "hanViet": "TU",
+    "words": [
+      {
+        "word": "修士",
+        "reading": "しゅうし",
+        "meaning": "thạc sĩ",
+        "mnemonic": ""
+      },
+      {
+        "word": "修理",
+        "reading": "しゅうり",
+        "meaning": "sửa chữa",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 380,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 5,
+    "day": 1,
+    "number": 44,
+    "kanji": "保",
+    "on": "ホ, ホウ",
+    "kun": "たもつ",
+    "hanViet": "BẢO",
+    "words": [
+      {
+        "word": "保存",
+        "reading": "ほぞん",
+        "meaning": "bảo tồn, lưu giữ",
+        "mnemonic": ""
+      },
+      {
+        "word": "確保",
+        "reading": "かくほ",
+        "meaning": "đảm bảo, giữ chắc",
+        "mnemonic": ""
+      },
+      {
+        "word": "保険",
+        "reading": "ほけん",
+        "meaning": "bảo hiểm",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 381,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 5,
+    "day": 1,
+    "number": 45,
+    "kanji": "守",
+    "on": "シュ, ス",
+    "kun": "まもる, まもり, かみ",
+    "hanViet": "THỦ, THÚ",
+    "words": [
+      {
+        "word": "保守",
+        "reading": "ほしゅ",
+        "meaning": "bảo trì, bảo thủ",
+        "mnemonic": ""
+      },
+      {
+        "word": "守備",
+        "reading": "しゅび",
+        "meaning": "phòng thủ",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 382,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 4,
+    "day": 1,
+    "number": 46,
+    "kanji": "移",
+    "on": "イ",
+    "kun": "うつる, うつす",
+    "hanViet": "DI",
+    "words": [
+      {
+        "word": "移動",
+        "reading": "いどう",
+        "meaning": "di chuyển",
+        "mnemonic": ""
+      },
+      {
+        "word": "移転",
+        "reading": "いてん",
+        "meaning": "di dời, chuyển nhượng",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 383,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 4,
+    "day": 1,
+    "number": 47,
+    "kanji": "密",
+    "on": "ミツ",
+    "kun": "ひそか",
+    "hanViet": "MẬT",
+    "words": [
+      {
+        "word": "秘密",
+        "reading": "ひみつ",
+        "meaning": "bí mật",
+        "mnemonic": ""
+      },
+      {
+        "word": "低密",
+        "reading": "ていみつ",
+        "meaning": "mật độ thấp",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 384,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 4,
+    "day": 1,
+    "number": 48,
+    "kanji": "負",
+    "on": "フ",
+    "kun": "まける, まかす, おう",
+    "hanViet": "PHỤ",
+    "words": [
+      {
+        "word": "勝負",
+        "reading": "しょうぶ",
+        "meaning": "thắng thua, thi đấu",
+        "mnemonic": ""
+      },
+      {
+        "word": "負担",
+        "reading": "ふたん",
+        "meaning": "gánh vác, chịu trách nhiệm",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 385,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 4,
+    "day": 1,
+    "number": 49,
+    "kanji": "警",
+    "on": "ケイ",
+    "kun": "いましめる",
+    "hanViet": "CẢNH",
+    "words": [
+      {
+        "word": "警備",
+        "reading": "けいび",
+        "meaning": "bảo vệ, canh gác",
+        "mnemonic": ""
+      },
+      {
+        "word": "警察",
+        "reading": "けいさつ",
+        "meaning": "cảnh sát",
+        "mnemonic": ""
+      },
+      {
+        "word": "警告",
+        "reading": "けいこく",
+        "meaning": "cảnh cáo, cảnh báo",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 386,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 4,
+    "day": 1,
+    "number": 50,
+    "kanji": "携",
+    "on": "ケイ",
+    "kun": "たずさえる, たずさわる",
+    "hanViet": "HUỀ",
+    "words": [
+      {
+        "word": "提携",
+        "reading": "ていけい",
+        "meaning": "hợp tác, liên kết",
+        "mnemonic": ""
+      },
+      {
+        "word": "携帯",
+        "reading": "けいたい",
+        "meaning": "mang theo; điện thoại di động",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 387,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 51,
+    "kanji": "帯",
+    "on": "タイ",
+    "kun": "おびる, おび",
+    "hanViet": "ĐỚI",
+    "words": [
+      {
+        "word": "温帯",
+        "reading": "おんたい",
+        "meaning": "ôn đới",
+        "mnemonic": ""
+      },
+      {
+        "word": "時間帯",
+        "reading": "じかんたい",
+        "meaning": "khoảng thời gian, khung giờ",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 388,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 52,
+    "kanji": "命",
+    "on": "ミョウ, メイ",
+    "kun": "いのち",
+    "hanViet": "MỆNH",
+    "words": [
+      {
+        "word": "命",
+        "reading": "いのち",
+        "meaning": "sinh mệnh, mạng sống",
+        "mnemonic": ""
+      },
+      {
+        "word": "命じる",
+        "reading": "めいじる",
+        "meaning": "ra lệnh",
+        "mnemonic": ""
+      },
+      {
+        "word": "生命",
+        "reading": "せいめい",
+        "meaning": "sinh mạng, sự sống",
+        "mnemonic": ""
+      },
+      {
+        "word": "運命",
+        "reading": "うんめい",
+        "meaning": "vận mệnh, số phận",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 389,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 53,
+    "kanji": "令",
+    "on": "レイ",
+    "kun": "",
+    "hanViet": "LỆNH",
+    "words": [
+      {
+        "word": "令嬢",
+        "reading": "れいじょう",
+        "meaning": "tiểu thư, con gái của người khác (kính ngữ)",
+        "mnemonic": ""
+      },
+      {
+        "word": "命令",
+        "reading": "めいれい",
+        "meaning": "mệnh lệnh",
+        "mnemonic": ""
+      },
+      {
+        "word": "令和",
+        "reading": "れいわ",
+        "meaning": "Reiwa, niên hiệu hiện tại của Nhật Bản",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 390,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 54,
+    "kanji": "網",
+    "on": "モウ",
+    "kun": "あみ",
+    "hanViet": "VÕNG",
+    "words": [
+      {
+        "word": "天網",
+        "reading": "てんもう",
+        "meaning": "lưới trời",
+        "mnemonic": ""
+      },
+      {
+        "word": "交通網",
+        "reading": "こうつうもう",
+        "meaning": "mạng lưới giao thông",
+        "mnemonic": ""
+      },
+      {
+        "word": "網棚",
+        "reading": "あみだな",
+        "meaning": "giá lưới để đồ trên tàu, xe buýt",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 391,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 55,
+    "kanji": "羅",
+    "on": "ラ",
+    "kun": "うすもの",
+    "hanViet": "LA",
+    "words": [
+      {
+        "word": "羅列",
+        "reading": "られつ",
+        "meaning": "liệt kê",
+        "mnemonic": ""
+      },
+      {
+        "word": "羅針",
+        "reading": "らしん",
+        "meaning": "la bàn, kim chỉ nam",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 392,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 56,
+    "kanji": "条",
+    "on": "ジョウ, チョウ, デキ",
+    "kun": "えだ, すじ",
+    "hanViet": "ĐIỀU",
+    "words": [
+      {
+        "word": "条件",
+        "reading": "じょうけん",
+        "meaning": "điều kiện",
+        "mnemonic": ""
+      },
+      {
+        "word": "信条",
+        "reading": "しんじょう",
+        "meaning": "tín điều, niềm tin",
+        "mnemonic": ""
+      },
+      {
+        "word": "条文",
+        "reading": "じょうぶん",
+        "meaning": "điều khoản trong văn bản pháp luật",
+        "mnemonic": ""
+      },
+      {
+        "word": "条例",
+        "reading": "じょうれい",
+        "meaning": "điều lệ, quy định của địa phương",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 393,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 57,
+    "kanji": "非",
+    "on": "ヒ",
+    "kun": "あらず",
+    "hanViet": "PHI",
+    "words": [
+      {
+        "word": "非常",
+        "reading": "ひじょう",
+        "meaning": "khẩn cấp, phi thường",
+        "mnemonic": ""
+      },
+      {
+        "word": "非難",
+        "reading": "ひなん",
+        "meaning": "chỉ trích, đổ lỗi",
+        "mnemonic": ""
+      },
+      {
+        "word": "非礼",
+        "reading": "ひれい",
+        "meaning": "bất lịch sự, thất lễ",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 394,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 58,
+    "kanji": "持",
+    "on": "ジ",
+    "kun": "もつ, もち, もてる",
+    "hanViet": "TRÌ",
+    "words": [
+      {
+        "word": "支持",
+        "reading": "しじ",
+        "meaning": "ủng hộ, tán thành",
+        "mnemonic": ""
+      },
+      {
+        "word": "持参",
+        "reading": "じさん",
+        "meaning": "mang theo, đem theo",
+        "mnemonic": ""
+      },
+      {
+        "word": "保持",
+        "reading": "ほじ",
+        "meaning": "giữ, duy trì",
+        "mnemonic": ""
+      },
+      {
+        "word": "維持",
+        "reading": "いじ",
+        "meaning": "duy trì, bảo trì",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 395,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 59,
+    "kanji": "実",
+    "on": "ジツ, シツ",
+    "kun": "み, みのる, まこと, みの, みちる",
+    "hanViet": "THỰC",
+    "words": [
+      {
+        "word": "確実",
+        "reading": "かくじつ",
+        "meaning": "chắc chắn, xác thực",
+        "mnemonic": ""
+      },
+      {
+        "word": "実際",
+        "reading": "じっさい",
+        "meaning": "thực tế, trên thực tế",
+        "mnemonic": ""
+      },
+      {
+        "word": "現実",
+        "reading": "げんじつ",
+        "meaning": "hiện thực, thực tại",
+        "mnemonic": ""
+      },
+      {
+        "word": "実現",
+        "reading": "じつげん",
+        "meaning": "thực hiện, biến thành hiện thực",
+        "mnemonic": ""
+      },
+      {
+        "word": "実行",
+        "reading": "じっこう",
+        "meaning": "thực thi, tiến hành",
+        "mnemonic": ""
+      },
+      {
+        "word": "実験",
+        "reading": "じっけん",
+        "meaning": "thí nghiệm, thử nghiệm",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 396,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 60,
+    "kanji": "際",
+    "on": "サイ",
+    "kun": "きわ, ぎわ",
+    "hanViet": "TẾ",
+    "words": [
+      {
+        "word": "交際",
+        "reading": "こうさい",
+        "meaning": "giao du, giao tiếp, quan hệ",
+        "mnemonic": ""
+      },
+      {
+        "word": "国際",
+        "reading": "こくさい",
+        "meaning": "quốc tế",
+        "mnemonic": ""
+      },
+      {
+        "word": "手際",
+        "reading": "てぎわ",
+        "meaning": "khéo léo, thành thạo trong xử lý công việc",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 397,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 61,
+    "kanji": "育",
+    "on": "イク",
+    "kun": "そだつ, そだてる, はぐくむ",
+    "hanViet": "DỤC",
+    "words": [
+      {
+        "word": "体育",
+        "reading": "たいいく",
+        "meaning": "thể dục, giáo dục thể chất",
+        "mnemonic": ""
+      },
+      {
+        "word": "育つ",
+        "reading": "そだつ",
+        "meaning": "lớn lên, trưởng thành, phát triển",
+        "mnemonic": ""
+      },
+      {
+        "word": "育成",
+        "reading": "いくせい",
+        "meaning": "đào tạo, nuôi dưỡng, bồi dưỡng",
+        "mnemonic": ""
+      },
+      {
+        "word": "教育",
+        "reading": "きょういく",
+        "meaning": "giáo dục, dạy dỗ",
+        "mnemonic": ""
+      }
+    ]
+  },
+  {
+    "id": 398,
+    "source": "Kanji_Nix_TNCN4",
+    "week": 1,
+    "day": 1,
+    "number": 62,
+    "kanji": "替",
+    "on": "タイ",
+    "kun": "かえる, かわる",
+    "hanViet": "THẾ",
+    "words": [
+      {
+        "word": "両替",
+        "reading": "りょうがえ",
+        "meaning": "đổi tiền",
+        "mnemonic": ""
+      },
+      {
+        "word": "取り替える",
+        "reading": "とりかえる",
+        "meaning": "đổi, thay",
+        "mnemonic": ""
+      },
+      {
+        "word": "交替",
+        "reading": "こうたい",
+        "meaning": "thay phiên, luân phiên",
+        "mnemonic": ""
+      }
+    ]
   }
 ]

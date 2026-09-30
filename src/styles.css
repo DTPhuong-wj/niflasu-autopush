@@ -815,14 +815,14 @@
 /* ---------- Vocabulary (Mimikara) ---------- */
 .nf-vgrid { display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:10px; }
 .nf-vtile {
-  position:relative; min-height:76px; padding:22px 12px 10px; text-align:left;
+  position:relative; min-width:0; max-width:100%; box-sizing:border-box; min-height:76px; padding:22px 12px 10px; text-align:left;
   border:1px solid var(--nf-border); border-radius:10px; background:var(--nf-surface); color:var(--nf-text);
   font-family:var(--nf-font); cursor:pointer;
   transition:transform 220ms ease-out, box-shadow 220ms ease-out, border-color 220ms ease-out;
 }
 .nf-vtile:hover { border-color:var(--nf-border-strong); box-shadow:0 8px 20px color-mix(in oklab, var(--nf-sidebar) 10%, transparent); transform:translateY(-2px); }
-.nf-vtile-row { display:flex; align-items:flex-end; justify-content:space-between; gap:8px; }
-.nf-vtile-word { font-size:22px; font-weight:600; line-height:1.2; word-break:keep-all; }
+.nf-vtile-row { display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:8px; min-width:0; }
+.nf-vtile-word { min-width:0; font-size:22px; font-weight:600; line-height:1.2; overflow-wrap:anywhere; }
 .nf-vtype { flex:none; font-size:12px; font-weight:600; padding:2px 7px; border-radius:4px; background:var(--nf-type-bg); color:var(--nf-type-fg); }
 .nf-vtype { --nf-type-bg:oklch(0.93 0.015 70); --nf-type-fg:oklch(0.45 0.03 60); }
 .nf-vtype.is-noun { --nf-type-bg:oklch(0.92 0.03 55); --nf-type-fg:oklch(0.42 0.07 50); }
@@ -841,7 +841,6 @@
 .nf-vexample { border-top:1px solid var(--nf-border); padding-top:10px; font-size:14px; display:flex; flex-direction:column; gap:2px; }
 .nf-vexample-jp { font-size:16px; font-weight:600; }
 @media (max-width:767px) {
-  .nf-vgrid { grid-template-columns:repeat(auto-fill, minmax(110px, 1fr)); }
   .nf-vtile-word { font-size:18px; }
   .nf-vrelated-word { font-size:20px; }
 }
