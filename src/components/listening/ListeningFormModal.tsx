@@ -110,24 +110,24 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
       console.log("HTML:", dataTransfer.getData("text/html"));
     }
 
+    const file = dataTransfer.files?.[0] ?? null;
+    if (file) {
+      setSourceChoice("local");
+      handleFile(file);
+      return;
+    }
+
     if (droppedUrl) {
       const detected = detectListeningSource(droppedUrl);
       if (detected.type === "googleDrive") setSourceChoice("google-drive");
       if (detected.type === "youtube") setSourceChoice("youtube");
       setSourceUrl(droppedUrl);
       setInspection(detected);
-      setError(detected.isValid ? "" : "Không nhận diện được link. Vui lòng kéo link Google Drive hoặc dán link vào ô bên dưới.");
+      setError(detected.isValid ? "" : "Link không được hỗ trợ. Vui lòng dùng link Google Drive hoặc YouTube.");
       return;
     }
 
-    const file = dataTransfer.files?.[0] ?? null;
-    if (file && (file.type.startsWith("audio/") || /\.(mp3|wav|m4a|aac|ogg|flac)$/i.test(file.name))) {
-      setSourceChoice("local");
-      handleFile(file);
-      return;
-    }
-
-    setError("Không thể lấy link khi kéo. Vui lòng chọn Copy link trên Google Drive và dán link vào ô bên dưới.");
+    setError("Trình duyệt không cung cấp link khi kéo. Trên Google Drive, chọn Chia sẻ → Sao chép đường liên kết rồi dán vào ô bên dưới.");
   };
 
   const dropZoneProps = {
@@ -258,7 +258,8 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
           {sourceChoice === "local" ? (
             <div className={`nf-listening-dropzone${isDragging ? " is-dragging" : ""}`} {...dropZoneProps}>
               <FileAudio size={26} />
-              <strong>{selectedFile?.name ?? editingLesson?.fileName ?? "Chọn hoặc kéo thả file audio"}</strong>
+              <strong>{selectedFile?.name ?? editingLesson?.fileName ?? "Kéo file audio vào đây hoặc chọn file"}</strong>
+              {selectedFile && <span>{(selectedFile.size / 1024 / 1024).toFixed(2)} MB</span>}
               <span>MP3, WAV, M4A, OGG. File chỉ nghe được trong phiên hiện tại.</span>
               <label className="nf-btn"><Upload size={15} /> Chọn file<input type="file" hidden accept="audio/*,.mp3,.wav,.m4a,.ogg" onChange={(event) => handleFile(event.target.files?.[0] ?? null)} /></label>
             </div>
@@ -269,7 +270,7 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
             </div>
           )}
 
-          {inspection?.isValid && <div className="nf-listening-source-preview"><div className="nf-listening-source-status"><CheckCircle2 size={16} /> Link hợp lệ <span>{sourceLabel(inspection.type)}</span></div>{inspection.type === "youtube" ? <iframe title="YouTube preview" src={inspection.previewUrl} allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen /> : <audio controls preload="metadata" src={inspection.previewUrl} onError={() => setError("Không thể truy cập file Google Drive. Hãy kiểm tra quyền chia sẻ của file. Link vẫn hợp lệ về cấu trúc và có thể lưu.")} />}{inspection.thumbnailUrl && <img src={inspection.thumbnailUrl} alt="YouTube thumbnail" />}{inspection.message && <small>{inspection.message}</small>}<a href={inspection.sourceUrl} target="_blank" rel="noreferrer"><ExternalLink size={14} /> Mở nguồn</a></div>}
+          {inspection?.isValid && <div className="nf-listening-source-preview"><div className="nf-listening-source-status"><CheckCircle2 size={16} /> Link hợp lệ <span>{sourceLabel(inspection.type)}</span></div>{inspection.type === "youtube" ? <iframe title="YouTube preview" src={inspection.previewUrl} allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen /> : <audio controls preload="metadata" src={inspection.previewUrl} onError={() => setError("Không thể truy cập file Google Drive. Hãy kiểm tra quyền chia sẻ của file. Link vẫn hợp lệ về cấu trúc và có thể lưu.")} />}{inspection.thumbnailUrl && <img src={inspection.thumbnailUrl} alt="YouTube thumbnail" />}{inspection.sourceId && inspection.type !== "directAudio" && <small>{inspection.type === "youtube" ? "Video ID" : "File ID"}: {inspection.sourceId}</small>}{inspection.message && <small>{inspection.message}</small>}<a href={inspection.sourceUrl} target="_blank" rel="noreferrer"><ExternalLink size={14} /> Mở nguồn</a></div>}
 
           <label className="nf-field"><span>Thời lượng</span><input value={duration} onChange={(event) => setDuration(event.target.value)} placeholder="02:35 hoặc số giây" /></label>
           <label className="nf-listening-check-row"><input type="checkbox" checked={hasScript} onChange={(event) => setHasScript(event.target.checked)} /><span>Có Script</span></label>

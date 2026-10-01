@@ -46,6 +46,7 @@ export default function ListeningLessonCard({ lesson, onSelect, onEdit, onDelete
         <div className="nf-listening-card-body">
           <div className="nf-listening-card-unit">Unit {lesson.unit}</div>
           <div className="nf-listening-card-title">{lesson.title}</div>
+          <div className="nf-listening-card-unit">Nguồn: {lesson.source === "youtube" || lesson.sourceType === "youtube" ? "YouTube" : lesson.source === "google-drive" || lesson.sourceType === "googleDrive" || lesson.sourceType === "drive" ? "Google Drive" : "File"}</div>
         </div>
 
         {lesson.hasScript && <span className="nf-listening-card-script">Script</span>}
