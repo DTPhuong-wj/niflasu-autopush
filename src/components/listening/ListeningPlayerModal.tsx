@@ -51,7 +51,7 @@ export default function ListeningPlayerModal({ lesson, bookName, onClose }: Prop
           <div className="nf-listening-hero-meta">
             <div className="nf-listening-hero-label">Unit {lesson.unit}</div>
             <div className="nf-listening-hero-title">{lesson.title}</div>
-            <div className="nf-listening-hero-detail">Duration: {formatDuration(lesson.duration)}</div>
+            <div className="nf-listening-hero-detail">Duration: {formatDuration(lesson.duration ?? 0)}</div>
             <div className="nf-listening-hero-detail">Script: {lesson.hasScript ? "Available" : "Unavailable"}</div>
           </div>
         </div>
