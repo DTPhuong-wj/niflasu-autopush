@@ -14,29 +14,29 @@ export interface ListeningLesson {
   unit: number;
   number: number;
   title: string;
-  level?: string;
-  description?: string;
-  source?: ListeningSource;
-  audioUrl?: string;
+  level?: string | undefined;
+  description?: string | undefined;
+  source?: ListeningSource | undefined;
+  audioUrl?: string | undefined;
   sourceType: ListeningSourceType;
   sourceUrl: string;
-  sourceId?: string;
-  googleDriveUrl?: string;
-  googleDriveId?: string;
-  directUrl?: string;
-  fileName?: string;
-  duration?: number | string;
-  thumbnailUrl?: string;
+  sourceId?: string | undefined;
+  googleDriveUrl?: string | undefined;
+  googleDriveId?: string | undefined;
+  directUrl?: string | undefined;
+  fileName?: string | undefined;
+  duration?: number | string | undefined;
+  thumbnailUrl?: string | undefined;
   hasScript: boolean;
   script: ListeningScriptLine[];
-  createdAt?: string;
-  updatedAt?: string;
+  createdAt?: string | undefined;
+  updatedAt?: string | undefined;
 }
 
 export interface ListeningBook {
   id: string;
   name: string;
-  description?: string;
+  description?: string | undefined;
 }
 
 export interface ListeningBookSet {

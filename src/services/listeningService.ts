@@ -19,7 +19,7 @@ export function parseDurationToSeconds(value: string | number): number {
   if (!trimmed) return 0;
 
   if (/^\d{1,2}:\d{2}$/.test(trimmed)) {
-    const [minutes, seconds] = trimmed.split(":").map(Number);
+    const [minutes = NaN, seconds = NaN] = trimmed.split(":").map(Number);
     return isNaN(minutes) || isNaN(seconds) ? 0 : minutes * 60 + seconds;
   }
 

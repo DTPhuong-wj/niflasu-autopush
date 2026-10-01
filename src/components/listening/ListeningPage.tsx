@@ -100,7 +100,7 @@ export default function ListeningPage() {
               isOpen={isBookMenuOpen}
               onToggle={() => setIsBookMenuOpen((current) => !current)}
               onSelect={(index) => {
-                setSelectedBookId(books[index].book.id);
+                setSelectedBookId(books[index]?.book.id ?? "");
                 setIsBookMenuOpen(false);
                 setActiveLesson(null);
               }}
