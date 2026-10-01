@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 
 interface Props {
   src: string;
-  sourceUrl?: string;
+  sourceUrl?: string | undefined;
   errorMessage?: string;
 }
 
