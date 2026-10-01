@@ -1,4 +1,6 @@
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { useRef, useState } from "react";
+import { ChevronLeft, ChevronRight, Download, Upload, X } from "lucide-react";
+import type { Vocabulary } from "../types/vocabulary";
 
 export interface BookInfo {
   source: string;
@@ -19,6 +21,7 @@ interface Props {
   onPrev: () => void;
   onNext: () => void;
   onSelect: (index: number) => void;
+  onImport: (items: Vocabulary[]) => string | null;
   onClose: () => void;
   disabled: boolean;
 }
@@ -31,9 +34,48 @@ export default function BookSelector({
   onPrev,
   onNext,
   onSelect,
+  onImport,
   onClose,
   disabled,
 }: Props) {
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [importMessage, setImportMessage] = useState("");
+
+  function importFile(file?: File) {
+    if (!file) return;
+    void file.text().then((text) => {
+      try {
+        const items: unknown = JSON.parse(text);
+        if (!Array.isArray(items)) throw new Error("JSON phải là một mảng các mục từ.");
+        const message = onImport(items as Vocabulary[]);
+        setImportMessage(message ?? "Đã thêm sách.");
+      } catch (error) {
+        setImportMessage(error instanceof Error ? error.message : "Không đọc được file JSON.");
+      }
+      if (fileInputRef.current) fileInputRef.current.value = "";
+    });
+  }
+
+  function downloadTemplate() {
+    const template = [{
+      id: 1,
+      source: "Tên sách mới",
+      unit: 1,
+      number: 1,
+      word: "",
+      reading: "",
+      meaning: "",
+      example: { sentence: "", reading: "", meaning: "" },
+      type: "名詞",
+    }];
+    const url = URL.createObjectURL(new Blob([JSON.stringify(template, null, 2)], { type: "application/json" }));
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "gki-book-template.json";
+    link.click();
+    URL.revokeObjectURL(url);
+  }
+
   return (
     <>
       <div className="nf-book">
@@ -58,7 +100,7 @@ export default function BookSelector({
 
       {showBookList && (
         <div className="nf-overlay" onClick={onClose}>
-          <div className="nf-card nf-modal" onClick={(e) => e.stopPropagation()}>
+          <div className="nf-card nf-modal nf-book-modal" onClick={(e) => e.stopPropagation()}>
             <div className="nf-modal-head">
               <h2 className="nf-modal-title">Chọn sách</h2>
               <button className="nf-btn nf-btn-square" onClick={onClose} aria-label="Đóng">
@@ -80,6 +122,22 @@ export default function BookSelector({
                   </span>
                 </button>
               ))}
+            </div>
+            <div className="nf-book-import-actions">
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept=".json,application/json"
+                aria-label="Chọn file JSON"
+                onChange={(event) => importFile(event.target.files?.[0])}
+              />
+              <button className="nf-btn" onClick={() => fileInputRef.current?.click()}>
+                <Upload size={15} /> Thêm sách từ JSON
+              </button>
+              <button className="nf-btn" onClick={downloadTemplate}>
+                <Download size={15} /> Tải mẫu JSON
+              </button>
+              {importMessage && <p className="nf-import-message" role="status">{importMessage}</p>}
             </div>
           </div>
         </div>

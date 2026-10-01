@@ -166,12 +166,6 @@ export default function Flashcard({ items, currentWeek, startIndex, onExit }: Pr
             <button className="nf-btn" onClick={() => go(1)}>Tiếp →</button>
           </div>
 
-          <div className="nf-flash-help" aria-label="Phím tắt flashcard">
-            <span className="nf-kbd">[Space]</span> lật thẻ
-            <span className="nf-kbd">A</span> tự động
-            <span className="nf-kbd">F</span> toàn màn hình
-            <span className="nf-kbd">Esc</span> thoát
-          </div>
         </>
       )}
     </div>

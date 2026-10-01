@@ -53,10 +53,16 @@ export function extractGoogleDriveFileId(url: string): string | null {
   return parseGoogleDriveUrl(url)?.id ?? null;
 }
 
+export function createGoogleDriveMediaUrl(fileId: string): string | null {
+  if (!/^[\w-]+$/.test(fileId)) return null;
+  return `https://drive.google.com/uc?export=download&id=${encodeURIComponent(fileId)}`;
+}
+
 export function getGoogleDriveDirectUrl(googleDriveUrl: string): string | null {
   const googleDriveId = extractGoogleDriveFileId(googleDriveUrl);
   if (!googleDriveId) return null;
-  const directUrl = `https://drive.google.com/uc?export=download&id=${encodeURIComponent(googleDriveId)}`;
+  const directUrl = createGoogleDriveMediaUrl(googleDriveId);
+  if (!directUrl) return null;
   if (import.meta.env.DEV) {
     console.log("Original Google Drive URL:", googleDriveUrl);
     console.log("Google Drive File ID:", googleDriveId);

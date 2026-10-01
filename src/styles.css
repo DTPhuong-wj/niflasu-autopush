@@ -613,6 +613,31 @@
   flex-direction: column;
   gap: 14px;
 }
+.nf-book-modal {
+  max-height: min(80vh, 680px);
+  overflow: auto;
+}
+.nf-book-import-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-top: 1px solid var(--nf-border);
+  padding-top: 12px;
+}
+.nf-book-import-actions input {
+  display: none;
+}
+.nf-book-import-actions .nf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.nf-import-message {
+  flex-basis: 100%;
+  margin: 0;
+  font-size: 12px;
+  color: var(--nf-text-soft);
+}
 .nf-modal-head {
   display: flex;
   align-items: center;

@@ -19,8 +19,8 @@ export interface Vocabulary {
   word: string;
   type?: string;
   reading: string;
-  hanViet: string | null;
+  hanViet?: string | null;
   meaning: string;
-  relatedWords: RelatedWord[];
+  relatedWords?: RelatedWord[];
   example?: Example;
 }

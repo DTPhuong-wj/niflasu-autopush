@@ -1,6 +1,6 @@
 import { CheckCircle2, ExternalLink, FileAudio, Plus, Upload, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { detectListeningSource, extractDroppedUrl, extractGoogleDriveFileId, getGoogleDriveDirectUrl, inspectListeningSource, type ListeningSourceInspection } from "../../services/listeningSources";
+import { detectListeningSource, extractDroppedUrl, extractGoogleDriveFileId, inspectListeningSource, type ListeningSourceInspection } from "../../services/listeningSources";
 import { formatDuration, parseDurationToSeconds } from "../../services/listeningService";
 import type { ListeningBook, ListeningBookSet, ListeningLesson, ListeningSource, ListeningSourceType } from "../../types/listening";
 
@@ -39,11 +39,15 @@ function sourceToFormSource(lesson: ListeningLesson | null): FormSource {
 
 export default function ListeningFormModal({ books, selectedBookId, editingLesson, onClose, onSave, onCreateBook }: Props) {
   const defaultBookId = books.some((book) => book.book.id === selectedBookId) ? selectedBookId : books[0]?.book.id ?? "";
+  const editingGoogleDriveId = editingLesson?.googleDriveId ?? editingLesson?.sourceId ?? extractGoogleDriveFileId(editingLesson?.googleDriveUrl ?? editingLesson?.sourceUrl ?? "");
+  const initialSourceUrl = editingLesson && sourceToFormSource(editingLesson) === "google-drive" && editingGoogleDriveId
+    ? `https://drive.google.com/file/d/${encodeURIComponent(editingGoogleDriveId)}/view`
+    : editingLesson?.sourceUrl ?? "";
   const [bookId, setBookId] = useState(editingLesson?.bookId ?? defaultBookId);
   const [unit, setUnit] = useState<number | string>(editingLesson?.unit ?? "");
   const [number, setNumber] = useState<number | string>(editingLesson?.number ?? "");
   const [title, setTitle] = useState(editingLesson?.title ?? "");
-  const [sourceUrl, setSourceUrl] = useState(editingLesson?.sourceUrl ?? "");
+  const [sourceUrl, setSourceUrl] = useState(initialSourceUrl);
   const [sourceChoice, setSourceChoice] = useState<FormSource>(sourceToFormSource(editingLesson));
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -55,7 +59,7 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
   const [inspection, setInspection] = useState<ListeningSourceInspection | null>(() => {
     if (!editingLesson) return null;
     if (editingLesson.source === "local") return { type: "directAudio", sourceId: editingLesson.sourceId ?? editingLesson.fileName ?? null, sourceUrl: editingLesson.sourceUrl, previewUrl: editingLesson.sourceUrl, isValid: true, message: "File audio chỉ được phát trong phiên hiện tại." };
-    return detectListeningSource(editingLesson.sourceUrl, editingLesson.sourceType);
+    return detectListeningSource(initialSourceUrl, editingLesson.sourceType);
   });
   const [isChecking, setIsChecking] = useState(false);
   const [error, setError] = useState("");
@@ -148,7 +152,7 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
     setInspection(nextInspection);
     if (!nextInspection.isValid) {
       const sourceError = sourceChoice === "google-drive"
-        ? "Link Google Drive không hợp lệ."
+        ? "Không thể lấy File ID từ liên kết Google Drive. Vui lòng kiểm tra lại liên kết."
         : sourceChoice === "youtube"
           ? "Link YouTube không hợp lệ."
           : nextInspection.message;
@@ -175,7 +179,7 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
     if (detected.type === "googleDrive") setSourceChoice("google-drive");
     if (detected.type === "youtube") setSourceChoice("youtube");
     setInspection(value.trim() ? detected : null);
-    const sourceError = sourceChoice === "google-drive" ? "Link Google Drive không hợp lệ." : sourceChoice === "youtube" ? "Link YouTube không hợp lệ." : detected.message;
+    const sourceError = sourceChoice === "google-drive" ? "Không thể lấy File ID từ liên kết Google Drive. Vui lòng kiểm tra lại liên kết." : sourceChoice === "youtube" ? "Link YouTube không hợp lệ." : detected.message;
     setError(value.trim() && !detected.isValid ? sourceError : "");
   };
 
@@ -205,9 +209,8 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
 
     const source: ListeningSource = sourceChoice === "google-drive" ? "google-drive" : sourceChoice === "youtube" ? "youtube" : "local";
     const sourceType: ListeningSourceType = source === "google-drive" ? "googleDrive" : source === "youtube" ? "youtube" : "directAudio";
-    const googleDriveUrl = source === "google-drive" ? inspection.sourceUrl : undefined;
-    const googleDriveId = googleDriveUrl ? extractGoogleDriveFileId(googleDriveUrl) ?? undefined : undefined;
-    const directUrl = googleDriveUrl ? getGoogleDriveDirectUrl(googleDriveUrl) ?? undefined : undefined;
+    const googleDriveId = source === "google-drive" ? extractGoogleDriveFileId(inspection.sourceUrl) ?? undefined : undefined;
+    if (source === "google-drive" && !googleDriveId) return setError("Không thể lấy File ID từ liên kết Google Drive. Vui lòng kiểm tra lại liên kết.");
 
     const now = new Date().toISOString();
     const lesson: ListeningLesson = {
@@ -220,11 +223,9 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
       description: description.trim() || undefined,
       source,
       sourceType,
-      sourceUrl: inspection.sourceUrl,
-      sourceId: inspection.sourceId ?? undefined,
-      googleDriveUrl,
+      sourceUrl: source === "google-drive" ? "" : inspection.sourceUrl,
+      sourceId: source === "google-drive" ? undefined : inspection.sourceId ?? undefined,
       googleDriveId,
-      directUrl,
       fileName: selectedFile?.name ?? editingLesson?.fileName,
       duration: parseDurationToSeconds(duration),
       thumbnailUrl: inspection.thumbnailUrl,

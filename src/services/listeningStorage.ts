@@ -1,4 +1,5 @@
 import { listeningBooks } from "../data/listening";
+import { extractGoogleDriveFileId } from "./listeningSources";
 import type { ListeningBookSet, ListeningLesson, ListeningSourceType } from "../types/listening";
 
 export const LISTENING_STORAGE_KEY = "niflasu-listening-books-v1";
@@ -52,6 +53,38 @@ export function detectSourceTypeFromUrl(rawUrl: string): ListeningSourceType {
   return "directAudio";
 }
 
+function normalizeGoogleDriveLesson(lesson: ListeningLesson): ListeningLesson {
+  const sourceUrlFileId = extractGoogleDriveFileId(lesson.sourceUrl);
+  const googleDriveUrlFileId = extractGoogleDriveFileId(lesson.googleDriveUrl ?? "");
+  const directUrlFileId = extractGoogleDriveFileId(lesson.directUrl ?? "");
+  const isGoogleDrive = lesson.source === "google-drive"
+    || lesson.sourceType === "googleDrive"
+    || lesson.sourceType === "drive"
+    || Boolean(googleDriveUrlFileId || sourceUrlFileId);
+
+  if (!isGoogleDrive) return lesson;
+
+  const fileId = lesson.googleDriveId ?? lesson.sourceId ?? googleDriveUrlFileId ?? sourceUrlFileId ?? directUrlFileId;
+  if (!fileId) return lesson;
+
+  return {
+    ...lesson,
+    sourceUrl: "",
+    sourceId: undefined,
+    googleDriveUrl: undefined,
+    googleDriveId: fileId,
+    directUrl: undefined,
+    audioUrl: undefined,
+  };
+}
+
+function normalizeListeningBooks(books: ListeningBookSet[]): ListeningBookSet[] {
+  return books.map((bookSet) => ({
+    ...bookSet,
+    lessons: bookSet.lessons.map(normalizeGoogleDriveLesson),
+  }));
+}
+
 export function loadListeningBooks(): ListeningBookSet[] {
   if (typeof window === "undefined") return listeningBooks;
 
@@ -60,7 +93,18 @@ export function loadListeningBooks(): ListeningBookSet[] {
     if (!raw) return listeningBooks;
 
     const parsed = JSON.parse(raw) as ListeningBookSet[];
-    return Array.isArray(parsed) ? parsed : listeningBooks;
+    if (!Array.isArray(parsed)) return listeningBooks;
+
+    const normalized = normalizeListeningBooks(parsed);
+    const serialized = JSON.stringify(normalized);
+    if (serialized !== raw) {
+      try {
+        window.localStorage.setItem(LISTENING_STORAGE_KEY, serialized);
+      } catch {
+        // Keep the normalized data available even if the migration cannot be persisted.
+      }
+    }
+    return normalized;
   } catch {
     return listeningBooks;
   }
@@ -70,7 +114,7 @@ export function saveListeningBooks(books: ListeningBookSet[]): void {
   if (typeof window === "undefined") return;
 
   try {
-    window.localStorage.setItem(LISTENING_STORAGE_KEY, JSON.stringify(books));
+    window.localStorage.setItem(LISTENING_STORAGE_KEY, JSON.stringify(normalizeListeningBooks(books)));
   } catch {
     // Bỏ qua lỗi lưu local khi browser không cho phép.
   }

@@ -16,6 +16,7 @@ import vocabSenmonData from "../data/senmon.json";
 import type { Vocabulary } from "../types/vocabulary";
 import type { Vocabulary as Senmon } from "../types/vocab_senmon";
 import { VocabularyFlashcard, VocabularyGrid, VocabularyPractice } from "../components/VocabularyStudy";
+import { isGkiBook, loadCustomBooks, saveCustomBooks } from "../services/bookStorage";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -56,7 +57,7 @@ const senmonVocabulary: Vocabulary[] = allSenmon.map((item) => ({
 }));
 
 /** Danh sách sách: Kanji (theo `source` trong kanji.json) + Từ vựng (vocabulary.json). */
-function buildBooks(): BookInfo[] {
+function buildBooks(customVocabulary: Vocabulary[][] = []): BookInfo[] {
   const sources = [...new Set(allKanji.map((item) => item.source))];
   const kanjiBooks = sources.map((source) => {
     const items = allKanji.filter((item) => item.source === source);
@@ -70,8 +71,9 @@ function buildBooks(): BookInfo[] {
       daysPerWeek: days.length,
     };
   });
-  const vocabBooks = [...new Set(allVocabulary.map((v) => v.source))].map((source) => {
-    const items = allVocabulary.filter((v) => v.source === source);
+  const vocabulary = [...allVocabulary, ...customVocabulary.flat()];
+  const vocabBooks = [...new Set(vocabulary.map((v) => v.source))].map((source) => {
+    const items = vocabulary.filter((v) => v.source === source);
     return {
       source,
       title: source.replace(/\s?N[1-5]$/, ""),
@@ -98,18 +100,19 @@ function buildBooks(): BookInfo[] {
 }
 
 /** Unit của một sách, lấy trực tiếp từ JSON. */
-function unitsOf(book: BookInfo | undefined): number[] {
+function unitsOf(book: BookInfo | undefined, customVocabulary: Vocabulary[][]): number[] {
   if (!book) return [];
   const list = book.isSenmon
     ? allSenmon.filter((s) => s.source === book.source).map((s) => s.unit)
     : book.isVocabulary
-    ? allVocabulary.filter((v) => v.source === book.source).map((v) => v.unit)
+    ? [...allVocabulary, ...customVocabulary.flat()].filter((v) => v.source === book.source).map((v) => v.unit)
     : allKanji.filter((k) => k.source === book.source).map((k) => k.week);
   return [...new Set(list)].sort((a, b) => a - b);
 }
 
 function App() {
-  const books = useMemo(buildBooks, []);
+  const [customVocabulary, setCustomVocabulary] = useState<Vocabulary[][]>([]);
+  const books = useMemo(() => buildBooks(customVocabulary), [customVocabulary]);
   const [bookIndex, setBookIndex] = useState(0);
   const [currentWeek, setCurrentWeek] = useState(1);
   const [currentMode, setCurrentMode] = useState<StudyMode>("study");
@@ -130,6 +133,10 @@ function App() {
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    setCustomVocabulary(loadCustomBooks());
+  }, []);
+
   // Đọc thiết lập đã lưu (chạy sau khi hydrate để tránh lệch SSR).
   useEffect(() => {
     try {
@@ -147,7 +154,7 @@ function App() {
   }, [currentWeek]);
 
   // Unit lấy trực tiếp từ JSON, không hard-code.
-  const units = useMemo(() => unitsOf(books[bookIndex]), [books, bookIndex]);
+  const units = useMemo(() => unitsOf(books[bookIndex], customVocabulary), [books, bookIndex, customVocabulary]);
 
   // LOGIC QUAN TRỌNG: mọi chức năng học đều dùng chung filter này.
   const filteredKanji = useMemo(
@@ -162,11 +169,11 @@ function App() {
   // Tương tự cho từ vựng: cùng sách + cùng Unit.
   const filteredVocabulary = useMemo(
     () =>
-      allVocabulary
+      [...allVocabulary, ...customVocabulary.flat()]
         .filter((item) => item.source === currentBook)
         .filter((item) => item.unit === currentWeek)
         .sort((a, b) => a.number - b.number),
-    [currentBook, currentWeek],
+    [currentBook, currentWeek, customVocabulary],
   );
 
   const filteredSenmon = useMemo(
@@ -191,8 +198,34 @@ function App() {
     setCurrentMode("study");
     setFlashStart(0);
     // Giữ Unit hợp lệ trong sách mới.
-    const nextUnits = unitsOf(books[index]);
+    const nextUnits = unitsOf(books[index], customVocabulary);
     if (!nextUnits.includes(currentWeek)) setCurrentWeek(nextUnits[0] ?? 1);
+  }
+
+  function importBook(items: Vocabulary[]): string | null {
+    if (!isGkiBook(items)) {
+      return "JSON không đúng cấu trúc GKI: cần id, source, unit, number, word, reading, meaning, example và type.";
+    }
+    const source = items[0]?.source;
+    if (!source) return "Sách JSON cần có ít nhất một mục từ.";
+    if ([...allKanji, ...allVocabulary, ...allSenmon].some((item) => item.source === source)) {
+      return `Tên sách "${source}" đã tồn tại.`;
+    }
+    if (customVocabulary.some((book) => book[0]?.source === source)) {
+      return `Sách "${source}" đã được nhập.`;
+    }
+    const next = [...customVocabulary, items];
+    try {
+      saveCustomBooks(next);
+      setCustomVocabulary(next);
+      setBookIndex(buildBooks(next).findIndex((book) => book.source === source));
+      setCurrentWeek(Math.min(...items.map((item) => item.unit)));
+      setCurrentMode("study");
+      setFlashStart(0);
+      return null;
+    } catch {
+      return "Không thể lưu sách. Bộ nhớ trình duyệt có thể đã đầy.";
+    }
   }
 
   return (
@@ -222,6 +255,7 @@ function App() {
                       selectBook(index);
                       setShowBookList(false);
                     }}
+                    onImport={importBook}
                     onClose={() => setShowBookList(false)}
                     disabled={books.length < 2}
                   />
@@ -279,6 +313,15 @@ function App() {
                 />
               )}
             </>
+          )}
+
+          {section === "review" && currentMode === "flashcard" && (
+            <div className="nf-flash-help" aria-label="Phím tắt flashcard">
+              <span className="nf-kbd">[Space]</span> lật thẻ
+              <span className="nf-kbd">A</span> tự động
+              <span className="nf-kbd">F</span> toàn màn hình
+              <span className="nf-kbd">Esc</span> thoát
+            </div>
           )}
         </main>
       </div>
