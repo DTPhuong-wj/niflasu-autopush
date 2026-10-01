@@ -30,11 +30,21 @@ export default function GoogleDriveAudioSource({ lesson }: Props) {
     }
   };
 
-  if (!source.isValid || status === "error") {
+  if (source.isValid && status === "error" && source.sourceId) {
+    return (
+      <div className="nf-listening-drive-player">
+        <div className="nf-listening-embedded-label"><Cloud size={16} /> Google Drive</div>
+        <iframe title="Google Drive audio" src={`https://drive.google.com/file/d/${encodeURIComponent(source.sourceId)}/preview`} allow="autoplay" style={{ width: "100%", height: 80, border: 0 }} />
+        <div className="nf-listening-player-status">Nếu không phát được: không thể truy cập file Google Drive. Hãy kiểm tra quyền chia sẻ của file.</div>
+        <a className="nf-listening-source-link" href={lesson.sourceUrl} target="_blank" rel="noreferrer"><ExternalLink size={14} /> Mở nguồn</a>
+      </div>
+    );
+  }
+
+  if (!source.isValid) {
     return (
       <div className="nf-listening-drive-error">
-        <div className="nf-listening-source-status"><AlertTriangle size={16} /> Không thể phát trực tiếp</div>
-        <p>Google Drive cho phép mở file nhưng không cung cấp audio stream phù hợp để phát trực tiếp trên website.</p>
+        <div className="nf-listening-source-status"><AlertTriangle size={16} /> Link Google Drive không hợp lệ</div>
         <a href={lesson.sourceUrl} target="_blank" rel="noreferrer"><ExternalLink size={14} /> Mở nguồn</a>
       </div>
     );
