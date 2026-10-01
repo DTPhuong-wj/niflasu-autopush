@@ -1635,3 +1635,18 @@
   .nf-vtile-word { font-size:18px; }
   .nf-vrelated-word { font-size:20px; }
 }
+
+/* Listening audio player */
+.nf-audio { display: grid; gap: 10px; width: 100%; }
+.nf-audio-row { display: flex; align-items: center; gap: 12px; }
+.nf-audio-progress { flex: 1; display: grid; gap: 4px; }
+.nf-audio input[type="range"] { width: 100%; accent-color: var(--nf-accent); cursor: pointer; }
+.nf-audio-progress input[type="range"] { -webkit-appearance: none; appearance: none; height: 4px; border-radius: 4px; }
+.nf-audio-progress input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--nf-accent); }
+.nf-audio-time { display: flex; justify-content: space-between; font-size: 12px; font-variant-numeric: tabular-nums; color: var(--nf-muted, currentColor); }
+.nf-audio-volume input[type="range"] { max-width: 140px; }
+.nf-audio-status { font-size: 13px; opacity: 0.75; margin-left: auto; }
+.nf-audio-error { display: grid; gap: 10px; font-size: 14px; }
+.nf-audio-error-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.nf-spin { animation: nf-spin 1s linear infinite; }
+@keyframes nf-spin { to { transform: rotate(360deg); } }
