@@ -1452,19 +1452,12 @@
   overflow-wrap: normal;
 }
 .nf-listening-script-ruby-text ruby {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  margin: 0 0.08em;
+  ruby-position: over;
   white-space: nowrap;
-  line-height: 1.1;
-  font-size: 1em;
 }
 .nf-listening-script-ruby-text rt {
   font-size: 0.46em;
   line-height: 1;
-  margin-bottom: 0.2em;
   color: var(--nf-text-soft);
   text-align: center;
 }

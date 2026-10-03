@@ -4,7 +4,7 @@ import { loadLocalAudioFile } from "./localAudioStorage";
 
 interface PublishedLesson extends Omit<ListeningLesson, "audio" | "audioUrl" | "audioFileId"> {
   bookName: string;
-  audio: { id: string; filename: string; url: string; mimeType?: string } | null;
+  audio: { id: string; filename: string; path: string; mimeType?: string } | null;
   settings: { furiganaVisible: boolean; translationVisible: boolean };
 }
 
@@ -23,6 +23,7 @@ interface JsonRecord {
   lessons?: unknown;
   books?: unknown;
   audio?: unknown;
+  path?: unknown;
   url?: unknown;
   sourceUrl?: unknown;
   bookId?: unknown;
@@ -65,21 +66,21 @@ export async function createListeningExport(books: ListeningBookSet[]) {
         let filename = safeFilename(lesson.fileName ?? "", `${lesson.id}.mp3`);
         if (occupiedFilenames.has(filename)) filename = `${safeFilename(String(lesson.id), "lesson")}-${filename}`;
         occupiedFilenames.add(filename);
-        files[`public/audio/${filename}`] = new Uint8Array(await blob.arrayBuffer());
-        sourceUrl = `/audio/${filename}`;
+        files[`public/uploads/audio/${filename}`] = new Uint8Array(await blob.arrayBuffer());
+        sourceUrl = `/uploads/audio/${filename}`;
         audio = {
           id: lesson.audioFileId,
           filename,
-          url: sourceUrl,
+          path: sourceUrl,
           ...((lesson.audioMimeType || blob.type) ? { mimeType: lesson.audioMimeType || blob.type } : {}),
         };
-      } else if (lesson.source === "local" && !sourceUrl.startsWith("/audio/")) {
+      } else if (lesson.source === "local" && !sourceUrl.startsWith("/uploads/audio/") && !sourceUrl.startsWith("/audio/")) {
         throw new Error(`Bài "${lesson.title}" chưa có audio có thể export. Hãy tải lại file audio.`);
       } else if (sourceUrl) {
         audio = {
           id: lesson.sourceId ?? String(lesson.id),
           filename: safeFilename(lesson.fileName ?? "", ""),
-          url: sourceUrl,
+          path: sourceUrl,
           ...(lesson.audioMimeType ? { mimeType: lesson.audioMimeType } : {}),
         };
       }
@@ -134,8 +135,10 @@ export function parsePublishedListeningData(value: unknown): ListeningBookSet[] 
     const audio = isRecord(entry.audio) ? entry.audio : null;
     const sourceUrl = typeof entry.sourceUrl === "string"
       ? entry.sourceUrl
-      : typeof audio?.url === "string"
-        ? audio.url
+      : typeof audio?.path === "string"
+        ? audio.path
+        : typeof audio?.url === "string"
+          ? audio.url
         : typeof entry.audio === "string" ? entry.audio : "";
     const bookId = typeof entry.bookId === "string" ? entry.bookId : "published-listening";
     const bookSet = books.get(bookId) ?? {

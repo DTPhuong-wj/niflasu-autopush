@@ -42,15 +42,16 @@ function parseScriptText(text: string, previousLines: ListeningLesson["script"] 
 
 function formatFuriganaLine(furigana: ListeningLesson["script"][number]["furigana"]): string {
   if (typeof furigana === "string") return furigana;
-  return (furigana ?? []).map((segment) => `${segment.text}=${segment.reading}`).join("; ");
+  return (furigana ?? []).map((segment) => `${segment.text} → ${segment.reading}`).join("; ");
 }
 
 function parseFuriganaLine(value: string): NonNullable<ListeningLesson["script"][number]["furigana"]> {
   const trimmed = value.trim();
   if (!trimmed) return [];
   const segments = trimmed.split(/[;,，；]/).map((segment) => {
-    const [text, ...readingParts] = segment.split("=");
-    const reading = readingParts.join("=").trim();
+    const parts = segment.split(/\s*(?:=|→|->)\s*/);
+    const text = parts.shift();
+    const reading = parts.join("=").trim();
     return text?.trim() && reading ? { text: text.trim(), reading } : null;
   }).filter((segment): segment is { text: string; reading: string } => segment !== null);
   return segments.length > 0 ? segments : trimmed;
@@ -92,9 +93,10 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
   const [description, setDescription] = useState(editingLesson?.description ?? "");
   const [duration, setDuration] = useState(editingLesson?.duration ? formatDuration(editingLesson.duration) : "");
   const [hasScript, setHasScript] = useState(editingLesson?.hasScript ?? false);
-  const [scriptText, setScriptText] = useState(editingLesson?.script?.map((line) => `${line.speaker}${line.speaker ? "：" : ""}${getScriptLineText(line)}${line.translation ? ` || ${line.translation}` : ""}`).join("\n") ?? "");
+  const [scriptText, setScriptText] = useState(editingLesson?.script?.map((line) => `${line.speaker}${line.speaker ? "：" : ""}${getScriptLineText(line)}`).join("\n") ?? "");
   const [scriptLines, setScriptLines] = useState<ListeningLesson["script"]>(editingLesson?.script ?? []);
   const [furiganaText, setFuriganaText] = useState(editingLesson?.script?.map((line) => formatFuriganaLine(line.furigana)).join("\n") ?? "");
+  const [translationText, setTranslationText] = useState(editingLesson?.script?.map((line) => line.translation ?? "").join("\n") ?? "");
   const [inspection, setInspection] = useState<ListeningSourceInspection | null>(() => {
     if (!editingLesson) return null;
     if (editingLesson.source === "local") return { type: "directAudio", sourceId: editingLesson.sourceId ?? editingLesson.fileName ?? null, sourceUrl: editingLesson.sourceUrl, previewUrl: editingLesson.sourceUrl, isValid: true, message: "File audio chỉ được phát trong phiên hiện tại." };
@@ -286,9 +288,8 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
 
       setScriptLines(nextScript);
       setFuriganaText(nextScript.map((line) => formatFuriganaLine(line.furigana)).join("\n"));
-      setScriptText(nextScript
-        .map((line) => `${line.speaker ? `${line.speaker}：` : ""}${getScriptLineText(line)}${line.translation ? ` || ${line.translation}` : ""}`)
-        .join("\n"));
+      setTranslationText(nextScript.map((line) => line.translation ?? "").join("\n"));
+      setScriptText(nextScript.map((line) => `${line.speaker ? `${line.speaker}：` : ""}${getScriptLineText(line)}`).join("\n"));
       setHasScript(true);
     } catch (saveError) {
       setError(saveError instanceof Error ? saveError.message : "AI không xử lý được script lúc này.");
@@ -348,7 +349,12 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
       script: hasScript
         ? parseScriptText(scriptText, scriptLines).map((line, index) => {
           const furiganaLine = furiganaText.split(/\r?\n/)[index] ?? "";
-          return { ...line, furigana: furiganaLine.trim() ? parseFuriganaLine(furiganaLine) : line.furigana };
+          const translationLine = translationText.split(/\r?\n/)[index]?.trim();
+          return {
+            ...line,
+            furigana: furiganaLine.trim() ? parseFuriganaLine(furiganaLine) : line.furigana,
+            translation: translationLine || line.translation || undefined,
+          };
         })
         : [],
       createdAt: editingLesson?.createdAt ?? now,
@@ -387,7 +393,7 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
               <FileAudio size={26} />
               <strong>{selectedFile?.name ?? editingLesson?.fileName ?? "Kéo file audio vào đây hoặc chọn file"}</strong>
               {selectedFile && <span>{(selectedFile.size / 1024 / 1024).toFixed(2)} MB</span>}
-              <span>MP3, WAV, M4A, OGG. File được tải lên máy chủ khi lưu bài.</span>
+              <span>MP3, WAV, M4A, OGG. Audio local được đóng gói vào uploads/audio khi Sync / Export.</span>
               <label className="nf-btn"><Upload size={15} /> Chọn file<input type="file" hidden accept="audio/*,.mp3,.wav,.m4a,.ogg" onChange={(event) => handleFile(event.target.files?.[0] ?? null)} /></label>
             </div>
           ) : (
@@ -418,7 +424,8 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
                 </button>
               </div>
               <label className="nf-field"><span>Nội dung Script</span><textarea rows={6} value={scriptText} onChange={(event) => setScriptText(event.target.value)} placeholder={'男：こんにちは。\n女：こんにちは。'} /></label>
-              <label className="nf-field"><span>Furigana theo từng câu</span><textarea rows={4} value={furiganaText} onChange={(event) => setFuriganaText(event.target.value)} placeholder={'大沢=おおさわ; 担当=たんとう'} /></label>
+              <label className="nf-field"><span>Furigana theo từng câu</span><textarea rows={4} value={furiganaText} onChange={(event) => setFuriganaText(event.target.value)} placeholder={'大沢 → おおさわ; 担当 → たんとう'} /></label>
+              <label className="nf-field"><span>Bản dịch theo từng câu</span><textarea rows={4} value={translationText} onChange={(event) => setTranslationText(event.target.value)} placeholder={'Anh Osawa, xin lỗi anh.'} /></label>
             </>
           )}
         </div>

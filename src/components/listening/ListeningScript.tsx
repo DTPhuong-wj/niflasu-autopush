@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import type { ListeningLesson, ListeningScriptLine } from "../../types/listening";
-import { getScriptLineText } from "../../types/listening";
+import { getFuriganaSegments, getScriptLineText } from "../../types/listening";
 
 interface Props {
   lesson: ListeningLesson;
@@ -8,10 +8,7 @@ interface Props {
 
 function renderRubyLine(line: ListeningScriptLine) {
   const text = getScriptLineText(line);
-  if (typeof line.furigana === "string" && line.furigana) {
-    return <span className="nf-listening-script-japanese nf-listening-script-ruby-text"><ruby>{text}<rt>{line.furigana}</rt></ruby></span>;
-  }
-  const rubySegments = (Array.isArray(line.furigana) ? line.furigana : []).filter((segment) => segment.text && text.includes(segment.text));
+  const rubySegments = getFuriganaSegments(line);
 
   if (rubySegments.length === 0) {
     return <span className="nf-listening-script-japanese">{text}</span>;

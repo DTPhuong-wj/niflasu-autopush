@@ -23,6 +23,35 @@ export function getScriptLineText(line: Pick<ListeningScriptLine, "text" | "japa
   return (line.text ?? line.japanese ?? "").trim();
 }
 
+export function getFuriganaSegments(line: ListeningScriptLine): FuriganaSegment[] {
+  const japanese = getScriptLineText(line);
+  let segments: FuriganaSegment[];
+
+  if (Array.isArray(line.furigana)) {
+    segments = line.furigana;
+  } else if (typeof line.furigana === "string") {
+    segments = [...line.furigana.matchAll(/([\p{Script=Han}々ヶ]+)[（(]([^）)]+)[）)]/gu)]
+      .map((match) => ({ text: match[1] ?? "", reading: match[2] ?? "" }));
+  } else {
+    return [];
+  }
+
+  const ordered = [...segments]
+    .filter((segment) => segment.text.trim() && segment.reading.trim())
+    .sort((left, right) => japanese.indexOf(left.text) - japanese.indexOf(right.text));
+  const matched: FuriganaSegment[] = [];
+  let cursor = 0;
+
+  for (const segment of ordered) {
+    const index = japanese.indexOf(segment.text, cursor);
+    if (index < cursor) continue;
+    matched.push({ text: segment.text, reading: segment.reading });
+    cursor = index + segment.text.length;
+  }
+
+  return matched;
+}
+
 export interface ListeningLesson {
   id: number | string;
   bookId: string;

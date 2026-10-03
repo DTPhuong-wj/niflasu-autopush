@@ -1,0 +1,153 @@
+{
+  "version": 1,
+  "updatedAt": "2026-10-03T03:36:49.478Z",
+  "books": [
+    {
+      "id": "book-1790998367089",
+      "name": "TNCN 4"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "lesson-1790998551815",
+      "bookId": "book-1790998367089",
+      "unit": 9,
+      "number": 1,
+      "title": "単体テスト終了の報告をしよう！",
+      "source": "local",
+      "sourceType": "directAudio",
+      "sourceUrl": "/audio/Unit-9-.mp3",
+      "sourceId": "Unit 9・モデル会話.mp3",
+      "fileName": "Unit 9・モデル会話.mp3",
+      "duration": 0,
+      "hasScript": true,
+      "script": [
+        {
+          "id": "line-49f316f9-f518-4a20-b9e7-0a69c721b1cb",
+          "speaker": "リー",
+          "text": "大沢さん、すみません。",
+          "japanese": "大沢さん、すみません。",
+          "furigana": "大沢（おおさわ）、売上（うりあげ）、処理（しょり）、単体（たんたい）、終（お）"
+        },
+        {
+          "id": "line-f3042208-7290-43bc-8d52-918156c2e380",
+          "speaker": "大沢",
+          "text": "はい。",
+          "japanese": "はい。",
+          "furigana": "疲（つか）、様（さま）、予定（よてい）"
+        },
+        {
+          "id": "line-724d1e4d-a216-44d9-82f4-fd455cb4afb8",
+          "speaker": "リー",
+          "text": "売上データ処理のモジュールなんですが、単体テストのチェック、すべて終わりました。",
+          "japanese": "売上データ処理のモジュールなんですが、単体テストのチェック、すべて終わりました。",
+          "furigana": "結合（けつごう）、担当（たんとう）、新山（にいやま）、連絡（れんらく）"
+        },
+        {
+          "id": "line-17e2389e-9458-4aeb-b485-b73c0c8f2c46",
+          "speaker": "大沢",
+          "text": "ああ、そうですか。お疲れ様でした。予定どおりでしたね。",
+          "japanese": "ああ、そうですか。お疲れ様でした。予定どおりでしたね。",
+          "furigana": "何（なん）"
+        },
+        {
+          "id": "line-2cddac3b-7b2c-4f00-805b-333f774e8c8b",
+          "speaker": "リー",
+          "text": "ええ、なんとか。",
+          "japanese": "ええ、なんとか。",
+          "furigana": "使（つか）、管理（かんり）"
+        },
+        {
+          "id": "line-7fe008e3-a1c5-459c-ad42-bf6a11a4e182",
+          "speaker": "大沢",
+          "text": "じゃあ、結合テスト担当の新山さんに連絡しますから、ソースコードはクリアケースに",
+          "japanese": "じゃあ、結合テスト担当の新山さんに連絡しますから、ソースコードはクリアケースに",
+          "furigana": "使（つか）、方（かた）、聞（き）"
+        },
+        {
+          "id": "line-34c061b3-3876-471f-a7d5-c91edac0d1d3",
+          "speaker": "",
+          "text": "コミットしておいてください。",
+          "japanese": "コミットしておいてください。",
+          "furigana": "分（わ）、次（つぎ）、作（つく）"
+        },
+        {
+          "id": "line-1c10e5a1-1156-4b37-aa88-6c7482228c67",
+          "speaker": "リー",
+          "text": "え、クリアケースって、何ですか。",
+          "japanese": "え、クリアケースって、何ですか。",
+          "furigana": "分析（ぶんせき）、統計（とうけい）、処理（しょり）、先（さき）"
+        },
+        {
+          "id": "line-f9ccfcfb-d40d-44e3-971b-90c82dc74459",
+          "speaker": "大沢",
+          "text": "うちで使っているバージョン管理システムです。",
+          "japanese": "うちで使っているバージョン管理システムです。",
+          "furigana": "売上（うりあげ）、帳票（ちょうひょう）、出力（しゅつりょく）、処理（しょり）、依存（いぞん）"
+        },
+        {
+          "id": "line-9576730c-86db-46b8-8b1e-7263338dfc41",
+          "speaker": "リー",
+          "text": "あ、CVSとかサブバージョンみたいなシステムですね。",
+          "japanese": "あ、CVSとかサブバージョンみたいなシステムですね。",
+          "furigana": "分（わ）、順番（じゅんばん）、作（つく）"
+        },
+        {
+          "id": "line-bad08520-28be-4a3f-827b-0a0fe2da652a",
+          "speaker": "大沢",
+          "text": "そうです。使い方は新山さんに聞いてください。",
+          "japanese": "そうです。使い方は新山さんに聞いてください。",
+          "furigana": []
+        },
+        {
+          "id": "line-c5421541-39b8-4728-b22c-0bf6147c8cd4",
+          "speaker": "リー",
+          "text": "はい、分かりました。次はどのモジュールを作りますか。",
+          "japanese": "はい、分かりました。次はどのモジュールを作りますか。",
+          "furigana": []
+        },
+        {
+          "id": "line-9d3dfb8f-049e-4502-b3c2-26c10dabdf19",
+          "speaker": "大沢",
+          "text": "まず、分析統計処理モジュールを先に作っておいてください。",
+          "japanese": "まず、分析統計処理モジュールを先に作っておいてください。",
+          "furigana": []
+        },
+        {
+          "id": "line-96124053-e73c-4737-ab82-dedc399dad22",
+          "speaker": "",
+          "text": "このモジュールに売上帳票出力処理モジュールが依存していますので。",
+          "japanese": "このモジュールに売上帳票出力処理モジュールが依存していますので。",
+          "furigana": []
+        },
+        {
+          "id": "line-0392dd99-130c-481a-87d7-b04b8809710f",
+          "speaker": "リー",
+          "text": "分かりました。では、その順番で作ります。",
+          "japanese": "分かりました。では、その順番で作ります。",
+          "furigana": []
+        },
+        {
+          "id": "line-de1ad66c-7dbf-4b74-a37d-462085761605",
+          "speaker": "大沢",
+          "text": "よろしく。",
+          "japanese": "よろしく。",
+          "furigana": []
+        }
+      ],
+      "createdAt": "2026-10-03T03:35:51.815Z",
+      "updatedAt": "2026-10-03T03:35:51.815Z",
+      "bookName": "TNCN 4",
+      "audio": {
+        "id": "lesson-1790998551815-1790998551815",
+        "filename": "Unit-9-.mp3",
+        "url": "/audio/Unit-9-.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "settings": {
+        "furiganaVisible": false,
+        "translationVisible": false
+      }
+    }
+  ]
+}
