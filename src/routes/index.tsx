@@ -135,7 +135,9 @@ function App() {
   const [customVocabulary, setCustomVocabulary] = useState<Vocabulary[][]>([]);
   const books = useMemo(() => buildBooks(customVocabulary), [customVocabulary]);
   const [bookIndex, setBookIndex] = useState(0);
-  const [currentWeek, setCurrentWeek] = useState<UnitValue>(1);
+  const [currentWeek, setCurrentWeek] = useState<UnitValue>(
+    () => unitsOf(books[0], customVocabulary)[0] ?? 1,
+  );
   const [currentMode, setCurrentMode] = useState<StudyMode>("study");
   const [section, setSection] = useState<Section>("review");
   const [flashStart, setFlashStart] = useState(0);
@@ -147,7 +149,14 @@ function App() {
   const currentBook = books[bookIndex]?.source ?? "";
   const currentBookInfo = books[bookIndex];
   const isVocabulary = !!currentBookInfo?.isVocabulary || !!currentBookInfo?.isSenmon;
-  const currentWeekNumber = typeof currentWeek === "number" ? currentWeek : 1;
+  const units = useMemo(
+    () => unitsOf(books[bookIndex], customVocabulary),
+    [books, bookIndex, customVocabulary],
+  );
+  const activeUnit = units.some((unit) => String(unit) === String(currentWeek))
+    ? currentWeek
+    : (units[0] ?? 1);
+  const currentWeekNumber = typeof activeUnit === "number" ? activeUnit : 1;
 
   // Đồng hồ + countdown realtime.
   useEffect(() => {
@@ -164,12 +173,31 @@ function App() {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) setSettings({ ...DEFAULT_SETTINGS, ...JSON.parse(raw) });
-      const savedWeek = localStorage.getItem("niflasu-week");
-      if (savedWeek && /^\d+$/.test(savedWeek)) setCurrentWeek(Number(savedWeek));
     } catch {
       /* bỏ qua dữ liệu lỗi */
     }
   }, []);
+
+  useEffect(() => {
+    try {
+      const savedWeek = localStorage.getItem("niflasu-week");
+      if (
+        savedWeek &&
+        /^\d+$/.test(savedWeek) &&
+        units.some((unit) => String(unit) === savedWeek)
+      ) {
+        setCurrentWeek(Number(savedWeek));
+      }
+    } catch {
+      /* bỏ qua dữ liệu lỗi */
+    }
+  }, [units]);
+
+  useEffect(() => {
+    if (!units.some((unit) => String(unit) === String(currentWeek))) {
+      setCurrentWeek(units[0] ?? 1);
+    }
+  }, [units, currentWeek]);
 
   useEffect(() => {
     if (typeof currentWeek === "number") {
@@ -177,20 +205,14 @@ function App() {
     }
   }, [currentWeek]);
 
-  // Unit lấy trực tiếp từ JSON, không hard-code.
-  const units = useMemo(
-    () => unitsOf(books[bookIndex], customVocabulary),
-    [books, bookIndex, customVocabulary],
-  );
-
   // LOGIC QUAN TRỌNG: mọi chức năng học đều dùng chung filter này.
   const filteredKanji = useMemo(
     () =>
       allKanji
         .filter((item) => item.source === currentBook)
-        .filter((item) => typeof currentWeek === "number" && item.week === currentWeek)
+        .filter((item) => typeof activeUnit === "number" && item.week === activeUnit)
         .sort((a, b) => a.number - b.number),
-    [currentBook, currentWeek],
+    [currentBook, activeUnit],
   );
 
   // Tương tự cho từ vựng: cùng sách + cùng Unit.
@@ -198,18 +220,18 @@ function App() {
     () =>
       [...allVocabulary, ...permanentVocabularyBooks.flat(), ...customVocabulary.flat()]
         .filter((item) => item.source === currentBook)
-        .filter((item) => item.unit === currentWeek)
+        .filter((item) => String(item.unit) === String(activeUnit))
         .sort((a, b) => a.number - b.number),
-    [currentBook, currentWeek, customVocabulary],
+    [currentBook, activeUnit, customVocabulary],
   );
 
   const filteredSenmon = useMemo(
     () =>
       senmonVocabulary
         .filter((item) => item.source === currentBook)
-        .filter((item) => typeof currentWeek === "number" && item.unit === currentWeek)
+        .filter((item) => String(item.unit) === String(activeUnit))
         .sort((a, b) => a.number - b.number),
-    [currentBook, currentWeek],
+    [currentBook, activeUnit],
   );
 
   const studyVocabulary = currentBookInfo?.isSenmon ? filteredSenmon : filteredVocabulary;
@@ -293,7 +315,7 @@ function App() {
                 )}
                 <UnitSelector
                   units={units}
-                  currentWeek={currentWeek}
+                  currentWeek={activeUnit}
                   mode={currentMode}
                   onSelectUnit={(unit) => {
                     setCurrentWeek(unit);
@@ -308,11 +330,11 @@ function App() {
 
               {isVocabulary ? (
                 currentMode === "practice" ? (
-                  <VocabularyPractice items={studyVocabulary} currentUnit={currentWeek} />
+                  <VocabularyPractice items={studyVocabulary} currentUnit={activeUnit} />
                 ) : currentMode === "flashcard" ? (
                   <VocabularyFlashcard
                     items={studyVocabulary}
-                    currentUnit={currentWeek}
+                    currentUnit={activeUnit}
                     startIndex={flashStart}
                     onExit={() => setCurrentMode("study")}
                   />

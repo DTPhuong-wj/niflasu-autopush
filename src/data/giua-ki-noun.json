@@ -703,5 +703,1085 @@
       "meaning": "Có khả năng xảy ra vấn đề."
     },
     "type": "名詞"
+  },
+   {
+    "id": 48,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 48,
+    "word": "注文する",
+    "reading": "ちゅうもんする",
+    "meaning": "Đặt hàng",
+    "example": {
+      "sentence": "商品を注文します。",
+      "reading": "しょうひんをちゅうもんします。",
+      "meaning": "Đặt sản phẩm."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 49,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 49,
+    "word": "発注する",
+    "reading": "はっちゅうする",
+    "meaning": "Đặt hàng, yêu cầu nhà cung cấp cung ứng",
+    "example": {
+      "sentence": "必要な部品を発注します。",
+      "reading": "ひつようなぶひんをはっちゅうします。",
+      "meaning": "Đặt mua những linh kiện cần thiết."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 50,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 50,
+    "word": "管理する",
+    "reading": "かんりする",
+    "meaning": "Quản lý",
+    "example": {
+      "sentence": "データを管理します。",
+      "reading": "データをかんりします。",
+      "meaning": "Quản lý dữ liệu."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 51,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 51,
+    "word": "準備する",
+    "reading": "じゅんびする",
+    "meaning": "Chuẩn bị",
+    "example": {
+      "sentence": "会議の資料を準備します。",
+      "reading": "かいぎのしりょうをじゅんびします。",
+      "meaning": "Chuẩn bị tài liệu cho cuộc họp."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 52,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 52,
+    "word": "実施する",
+    "reading": "じっしする",
+    "meaning": "Thực hiện, tiến hành",
+    "example": {
+      "sentence": "テストを実施します。",
+      "reading": "テストをじっしします。",
+      "meaning": "Tiến hành kiểm thử."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 53,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 53,
+    "word": "進める",
+    "reading": "すすめる",
+    "meaning": "Tiến hành, thúc đẩy",
+    "example": {
+      "sentence": "作業を進めます。",
+      "reading": "さぎょうをすすめます。",
+      "meaning": "Tiến hành công việc."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 54,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 54,
+    "word": "共有する",
+    "reading": "きょうゆうする",
+    "meaning": "Chia sẻ",
+    "example": {
+      "sentence": "情報をチームで共有します。",
+      "reading": "じょうほうをチームできょうゆうします。",
+      "meaning": "Chia sẻ thông tin trong nhóm."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 55,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 55,
+    "word": "完了する",
+    "reading": "かんりょうする",
+    "meaning": "Hoàn thành, kết thúc",
+    "example": {
+      "sentence": "作業が完了しました。",
+      "reading": "さぎょうがかんりょうしました。",
+      "meaning": "Công việc đã hoàn thành."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 56,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 56,
+    "word": "残業する",
+    "reading": "ざんぎょうする",
+    "meaning": "Làm thêm giờ, tăng ca",
+    "example": {
+      "sentence": "今日は残業します。",
+      "reading": "きょうはざんぎょうします。",
+      "meaning": "Hôm nay tôi sẽ làm thêm giờ."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 57,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 57,
+    "word": "相談する",
+    "reading": "そうだんする",
+    "meaning": "Trao đổi, thảo luận, xin ý kiến",
+    "example": {
+      "sentence": "問題について先輩に相談します。",
+      "reading": "もんだいについてせんぱいにそうだんします。",
+      "meaning": "Trao đổi với tiền bối về vấn đề."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 58,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 58,
+    "word": "隠す",
+    "reading": "かくす",
+    "meaning": "Che giấu, giấu",
+    "example": {
+      "sentence": "問題を隠さないでください。",
+      "reading": "もんだいをかくさないでください。",
+      "meaning": "Xin đừng che giấu vấn đề."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 59,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 59,
+    "word": "対応する",
+    "reading": "たいおうする",
+    "meaning": "Xử lý, ứng phó, đáp ứng",
+    "example": {
+      "sentence": "問題にすぐ対応します。",
+      "reading": "もんだいにすぐたいおうします。",
+      "meaning": "Xử lý vấn đề ngay lập tức."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 60,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 60,
+    "word": "終了する",
+    "reading": "しゅうりょうする",
+    "meaning": "Kết thúc",
+    "example": {
+      "sentence": "テストが終了しました。",
+      "reading": "テストがしゅうりょうしました。",
+      "meaning": "Bài kiểm thử đã kết thúc."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 61,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 61,
+    "word": "提出する",
+    "reading": "ていしゅつする",
+    "meaning": "Nộp, 제출",
+    "example": {
+      "sentence": "レポートを提出します。",
+      "reading": "レポートをていしゅつします。",
+      "meaning": "Nộp báo cáo."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 62,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 62,
+    "word": "報告する",
+    "reading": "ほうこくする",
+    "meaning": "Báo cáo",
+    "example": {
+      "sentence": "結果を上司に報告します。",
+      "reading": "けっかをじょうしにほうこくします。",
+      "meaning": "Báo cáo kết quả với cấp trên."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 63,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 63,
+    "word": "依存する",
+    "reading": "いぞんする",
+    "meaning": "Phụ thuộc",
+    "example": {
+      "sentence": "この機能は外部サービスに依存しています。",
+      "reading": "このきのうはがいぶサービスにいぞんしています。",
+      "meaning": "Chức năng này phụ thuộc vào dịch vụ bên ngoài."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 64,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 64,
+    "word": "調整する",
+    "reading": "ちょうせいする",
+    "meaning": "Điều chỉnh, phối hợp",
+    "example": {
+      "sentence": "スケジュールを調整します。",
+      "reading": "スケジュールをちょうせいします。",
+      "meaning": "Điều chỉnh lịch trình."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 65,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 65,
+    "word": "回避する",
+    "reading": "かいひする",
+    "meaning": "Tránh, né, phòng tránh",
+    "example": {
+      "sentence": "問題を回避する方法を考えます。",
+      "reading": "もんだいをかいひするほうほうをかんがえます。",
+      "meaning": "Nghĩ cách tránh vấn đề."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 66,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 66,
+    "word": "調査する",
+    "reading": "ちょうさする",
+    "meaning": "Điều tra, khảo sát",
+    "example": {
+      "sentence": "原因を調査します。",
+      "reading": "げんいんをちょうさします。",
+      "meaning": "Điều tra nguyên nhân."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 67,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 67,
+    "word": "取り戻す",
+    "reading": "とりもどす",
+    "meaning": "Lấy lại, khôi phục",
+    "example": {
+      "sentence": "失った時間を取り戻します。",
+      "reading": "うしなったじかんをとりもどします。",
+      "meaning": "Lấy lại thời gian đã mất."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 68,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 68,
+    "word": "限る",
+    "reading": "かぎる",
+    "meaning": "Giới hạn, hạn chế",
+    "example": {
+      "sentence": "利用できる時間は一時間に限ります。",
+      "reading": "りようできるじかんはいちじかんにかぎります。",
+      "meaning": "Thời gian có thể sử dụng được giới hạn trong một giờ."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 69,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 69,
+    "word": "進行する",
+    "reading": "しんこうする",
+    "meaning": "Tiến hành, diễn tiến",
+    "example": {
+      "sentence": "プロジェクトは予定どおり進行しています。",
+      "reading": "プロジェクトはよていどおりしんこうしています。",
+      "meaning": "Dự án đang tiến triển đúng kế hoạch."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 70,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 70,
+    "word": "増員する",
+    "reading": "ぞういんする",
+    "meaning": "Tăng nhân sự, bổ sung người",
+    "example": {
+      "sentence": "プロジェクトのために増員します。",
+      "reading": "プロジェクトのためにぞういんします。",
+      "meaning": "Tăng nhân sự cho dự án."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 71,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 71,
+    "word": "統計する",
+    "reading": "とうけいする",
+    "meaning": "Thống kê",
+    "example": {
+      "sentence": "データを統計します。",
+      "reading": "データをとうけいします。",
+      "meaning": "Thống kê dữ liệu."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 72,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 72,
+    "word": "出荷する",
+    "reading": "しゅっかする",
+    "meaning": "Xuất hàng, giao hàng",
+    "example": {
+      "sentence": "商品を出荷します。",
+      "reading": "しょうひんをしゅっかします。",
+      "meaning": "Xuất hàng."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 73,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 73,
+    "word": "編集する",
+    "reading": "へんしゅうする",
+    "meaning": "Biên tập, chỉnh sửa",
+    "example": {
+      "sentence": "資料を編集します。",
+      "reading": "しりょうをへんしゅうします。",
+      "meaning": "Chỉnh sửa tài liệu."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 74,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 74,
+    "word": "返品する",
+    "reading": "へんぴんする",
+    "meaning": "Trả hàng",
+    "example": {
+      "sentence": "不良品を返品します。",
+      "reading": "ふりょうひんをへんぴんします。",
+      "meaning": "Trả lại sản phẩm lỗi."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 75,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 75,
+    "word": "慌てる",
+    "reading": "あわてる",
+    "meaning": "Hoảng hốt, cuống lên",
+    "example": {
+      "sentence": "問題が起きても慌てないでください。",
+      "reading": "もんだいがおきてもあわてないでください。",
+      "meaning": "Dù xảy ra vấn đề cũng đừng hoảng."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 76,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 76,
+    "word": "提案する",
+    "reading": "ていあんする",
+    "meaning": "Đề xuất",
+    "example": {
+      "sentence": "新しい方法を提案します。",
+      "reading": "あたらしいほうほうをていあんします。",
+      "meaning": "Đề xuất phương pháp mới."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 77,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 77,
+    "word": "連携する",
+    "reading": "れんけいする",
+    "meaning": "Phối hợp, liên kết",
+    "example": {
+      "sentence": "他のチームと連携します。",
+      "reading": "ほかのチームとれんけいします。",
+      "meaning": "Phối hợp với các nhóm khác."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 78,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 78,
+    "word": "支援する",
+    "reading": "しえんする",
+    "meaning": "Hỗ trợ",
+    "example": {
+      "sentence": "新人の作業を支援します。",
+      "reading": "しんじんのさぎょうをしえんします。",
+      "meaning": "Hỗ trợ công việc của nhân viên mới."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 79,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 79,
+    "word": "修正する",
+    "reading": "しゅうせいする",
+    "meaning": "Sửa chữa, chỉnh sửa",
+    "example": {
+      "sentence": "バグを修正します。",
+      "reading": "バグをしゅうせいします。",
+      "meaning": "Sửa lỗi."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 80,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 80,
+    "word": "対応する",
+    "reading": "たいおうする",
+    "meaning": "Xử lý, ứng phó, đáp ứng",
+    "example": {
+      "sentence": "問い合わせに対応します。",
+      "reading": "といあわせにたいおうします。",
+      "meaning": "Xử lý yêu cầu hỏi đáp."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 81,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 81,
+    "word": "検討する",
+    "reading": "けんとうする",
+    "meaning": "Xem xét, cân nhắc",
+    "example": {
+      "sentence": "解決方法を検討します。",
+      "reading": "かいけつほうほうをけんとうします。",
+      "meaning": "Xem xét phương án giải quyết."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 82,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 82,
+    "word": "頼む",
+    "reading": "たのむ",
+    "meaning": "Nhờ, yêu cầu",
+    "example": {
+      "sentence": "先輩に仕事を頼みます。",
+      "reading": "せんぱいにしごとをたのみます。",
+      "meaning": "Nhờ tiền bối một công việc."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 83,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 83,
+    "word": "追加する",
+    "reading": "ついかする",
+    "meaning": "Thêm, bổ sung",
+    "example": {
+      "sentence": "新しい機能を追加します。",
+      "reading": "あたらしいきのうをついかします。",
+      "meaning": "Thêm chức năng mới."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 84,
+    "source": "Giữa kì_TNCN4",
+    "unit": "動詞",
+    "number": 84,
+    "word": "加える",
+    "reading": "くわえる",
+    "meaning": "Thêm vào, bổ sung",
+    "example": {
+      "sentence": "必要な情報を加えます。",
+      "reading": "ひつようなじょうほうをくわえます。",
+      "meaning": "Thêm thông tin cần thiết."
+    },
+    "type": "動詞"
+  },
+  {
+    "id": 85,
+    "source": "Giữa kì_TNCN4",
+    "unit": "形容詞",
+    "number": 85,
+    "word": "個性的",
+    "reading": "こせいてき",
+    "meaning": "Mang tính cá nhân, độc đáo",
+    "example": {
+      "sentence": "個性的なデザインを考えます。",
+      "reading": "こせいてきなデザインをかんがえます。",
+      "meaning": "Nghĩ ra một thiết kế độc đáo."
+    },
+    "type": "形容詞"
+  },
+  {
+    "id": 86,
+    "source": "Giữa kì_TNCN4",
+    "unit": "形容詞",
+    "number": 86,
+    "word": "具体的",
+    "reading": "ぐたいてき",
+    "meaning": "Cụ thể",
+    "example": {
+      "sentence": "具体的な方法を説明します。",
+      "reading": "ぐたいてきなほうほうをせつめいします。",
+      "meaning": "Giải thích phương pháp cụ thể."
+    },
+    "type": "形容詞"
+  },
+  {
+    "id": 87,
+    "source": "Giữa kì_TNCN4",
+    "unit": "形容詞",
+    "number": 87,
+    "word": "順調",
+    "reading": "じゅんちょう",
+    "meaning": "Thuận lợi, suôn sẻ",
+    "example": {
+      "sentence": "プロジェクトは順調に進んでいます。",
+      "reading": "プロジェクトはじゅんちょうにすすんでいます。",
+      "meaning": "Dự án đang tiến triển thuận lợi."
+    },
+    "type": "形容詞"
+  },
+  {
+    "id": 88,
+    "source": "Giữa kì_TNCN4",
+    "unit": "形容詞",
+    "number": 88,
+    "word": "技術的",
+    "reading": "ぎじゅつてき",
+    "meaning": "Mang tính kỹ thuật",
+    "example": {
+      "sentence": "技術的な問題を解決します。",
+      "reading": "ぎじゅつてきなもんだいをかいけつします。",
+      "meaning": "Giải quyết vấn đề kỹ thuật."
+    },
+    "type": "形容詞"
+  },
+  {
+    "id": 89,
+    "source": "Giữa kì_TNCN4",
+    "unit": "形容詞",
+    "number": 89,
+    "word": "重要",
+    "reading": "じゅうよう",
+    "meaning": "Quan trọng",
+    "example": {
+      "sentence": "これは重要な問題です。",
+      "reading": "これはじゅうようなもんだいです。",
+      "meaning": "Đây là một vấn đề quan trọng."
+    },
+    "type": "形容詞"
+  },
+  {
+    "id": 90,
+    "source": "Giữa kì_TNCN4",
+    "unit": "形容詞",
+    "number": 90,
+    "word": "正確",
+    "reading": "せいかく",
+    "meaning": "Chính xác",
+    "example": {
+      "sentence": "正確な情報を確認します。",
+      "reading": "せいかくなじょうほうをかくにんします。",
+      "meaning": "Kiểm tra thông tin chính xác."
+    },
+    "type": "形容詞"
+  },
+  {
+    "id": 91,
+    "source": "Giữa kì_TNCN4",
+    "unit": "形容詞",
+    "number": 91,
+    "word": "複雑",
+    "reading": "ふくざつ",
+    "meaning": "Phức tạp",
+    "example": {
+      "sentence": "このシステムは複雑です。",
+      "reading": "このシステムはふくざつです。",
+      "meaning": "Hệ thống này phức tạp."
+    },
+    "type": "形容詞"
+  },
+  {
+    "id": 92,
+    "source": "Giữa kì_TNCN4",
+    "unit": "形容詞",
+    "number": 92,
+    "word": "重大",
+    "reading": "じゅうだい",
+    "meaning": "Nghiêm trọng, trọng đại",
+    "example": {
+      "sentence": "重大な問題が発生しました。",
+      "reading": "じゅうだいなもんだいがはっせいしました。",
+      "meaning": "Một vấn đề nghiêm trọng đã xảy ra."
+    },
+    "type": "形容詞"
+  },
+  {
+    "id": 93,
+    "source": "Giữa kì_TNCN4",
+    "unit": "形容詞",
+    "number": 93,
+    "word": "普通",
+    "reading": "ふつう",
+    "meaning": "Bình thường, thông thường",
+    "example": {
+      "sentence": "普通の方法では解決できません。",
+      "reading": "ふつうのほうほうではかいけつできません。",
+      "meaning": "Không thể giải quyết bằng phương pháp thông thường."
+    },
+    "type": "形容詞"
+  },
+  {
+    "id": 94,
+    "source": "Giữa kì_TNCN4",
+    "unit": "形容詞",
+    "number": 94,
+    "word": "簡単",
+    "reading": "かんたん",
+    "meaning": "Đơn giản, dễ dàng",
+    "example": {
+      "sentence": "この作業は簡単です。",
+      "reading": "このさぎょうはかんたんです。",
+      "meaning": "Công việc này đơn giản."
+    },
+    "type": "形容詞"
+  },
+  {
+    "id": 95,
+    "source": "Giữa kì_TNCN4",
+    "unit": "形容詞",
+    "number": 95,
+    "word": "適当",
+    "reading": "てきとう",
+    "meaning": "Thích hợp, phù hợp; qua loa, tùy tiện",
+    "example": {
+      "sentence": "適当な方法を選びます。",
+      "reading": "てきとうなほうほうをえらびます。",
+      "meaning": "Chọn phương pháp phù hợp."
+    },
+    "type": "形容詞"
+  },
+  {
+    "id": 96,
+    "source": "Giữa kì_TNCN4",
+    "unit": "副詞",
+    "number": 96,
+    "word": "正直に",
+    "reading": "しょうじきに",
+    "meaning": "Một cách thành thật, thành thật",
+    "example": {
+      "sentence": "正直に話してください。",
+      "reading": "しょうじきにはなしてください。",
+      "meaning": "Hãy nói chuyện một cách thành thật."
+    },
+    "type": "副詞"
+  },
+  {
+    "id": 97,
+    "source": "Giữa kì_TNCN4",
+    "unit": "副詞",
+    "number": 97,
+    "word": "早めに",
+    "reading": "はやめに",
+    "meaning": "Sớm hơn một chút, sớm",
+    "example": {
+      "sentence": "早めに報告してください。",
+      "reading": "はやめにほうこくしてください。",
+      "meaning": "Hãy báo cáo sớm."
+    },
+    "type": "副詞"
+  },
+  {
+    "id": 98,
+    "source": "Giữa kì_TNCN4",
+    "unit": "副詞",
+    "number": 98,
+    "word": "速やかに",
+    "reading": "すみやかに",
+    "meaning": "Nhanh chóng, ngay lập tức",
+    "example": {
+      "sentence": "問題があれば、速やかに報告してください。",
+      "reading": "もんだいがあれば、すみやかにほうこくしてください。",
+      "meaning": "Nếu có vấn đề, hãy nhanh chóng báo cáo."
+    },
+    "type": "副詞"
+  },
+  {
+    "id": 99,
+    "source": "Giữa kì_TNCN4",
+    "unit": "副詞",
+    "number": 99,
+    "word": "すぐに",
+    "reading": "すぐに",
+    "meaning": "Ngay lập tức, ngay",
+    "example": {
+      "sentence": "すぐに対応します。",
+      "reading": "すぐにたいおうします。",
+      "meaning": "Tôi sẽ xử lý ngay."
+    },
+    "type": "副詞"
+  },
+  {
+    "id": 100,
+    "source": "Giữa kì_TNCN4",
+    "unit": "副詞",
+    "number": 100,
+    "word": "ゆっくり",
+    "reading": "ゆっくり",
+    "meaning": "Chậm rãi, từ từ",
+    "example": {
+      "sentence": "ゆっくり説明してください。",
+      "reading": "ゆっくりせつめいしてください。",
+      "meaning": "Hãy giải thích từ từ."
+    },
+    "type": "副詞"
+  },
+  {
+    "id": 101,
+    "source": "Giữa kì_TNCN4",
+    "unit": "副詞",
+    "number": 101,
+    "word": "たまに",
+    "reading": "たまに",
+    "meaning": "Thỉnh thoảng",
+    "example": {
+      "sentence": "たまに残業します。",
+      "reading": "たまにざんぎょうします。",
+      "meaning": "Thỉnh thoảng tôi làm thêm giờ."
+    },
+    "type": "副詞"
+  },
+  {
+    "id": 102,
+    "source": "Giữa kì_TNCN4",
+    "unit": "副詞",
+    "number": 102,
+    "word": "時々",
+    "reading": "ときどき",
+    "meaning": "Thỉnh thoảng, đôi khi",
+    "example": {
+      "sentence": "時々このシステムを使います。",
+      "reading": "ときどきこのシステムをつかいます。",
+      "meaning": "Thỉnh thoảng tôi sử dụng hệ thống này."
+    },
+    "type": "副詞"
+  },
+  {
+    "id": 103,
+    "source": "Giữa kì_TNCN4",
+    "unit": "副詞",
+    "number": 103,
+    "word": "しっかり",
+    "reading": "しっかり",
+    "meaning": "Chắc chắn, kỹ càng, cẩn thận",
+    "example": {
+      "sentence": "内容をしっかり確認してください。",
+      "reading": "ないようをしっかりかくにんしてください。",
+      "meaning": "Hãy kiểm tra nội dung thật kỹ."
+    },
+    "type": "副詞"
+  },
+  {
+    "id": 104,
+    "source": "Giữa kì_TNCN4",
+    "unit": "副詞",
+    "number": 104,
+    "word": "なるべく",
+    "reading": "なるべく",
+    "meaning": "Cố gắng hết mức có thể, càng... càng tốt",
+    "example": {
+      "sentence": "なるべく早く提出してください。",
+      "reading": "なるべくはやくていしゅつしてください。",
+      "meaning": "Hãy cố gắng nộp sớm nhất có thể."
+    },
+    "type": "副詞"
+  },
+  {
+    "id": 105,
+    "source": "Giữa kì_TNCN4",
+    "unit": "副詞",
+    "number": 105,
+    "word": "やっと",
+    "reading": "やっと",
+    "meaning": "Cuối cùng, mãi mới",
+    "example": {
+      "sentence": "やっと作業が完了しました。",
+      "reading": "やっとさぎょうがかんりょうしました。",
+      "meaning": "Cuối cùng công việc cũng đã hoàn thành."
+    },
+    "type": "副詞"
+  },
+  {
+    "id": 106,
+    "source": "Giữa kì_TNCN4",
+    "unit": "副詞",
+    "number": 106,
+    "word": "たぶん",
+    "reading": "たぶん",
+    "meaning": "Có lẽ, có thể",
+    "example": {
+      "sentence": "たぶん明日には終わります。",
+      "reading": "たぶんあしたにはおわります。",
+      "meaning": "Có lẽ ngày mai sẽ hoàn thành."
+    },
+    "type": "副詞"
+  },
+  {
+    "id": 107,
+    "source": "Giữa kì_TNCN4",
+    "unit": "副詞",
+    "number": 107,
+    "word": "わざと",
+    "reading": "わざと",
+    "meaning": "Cố ý, cố tình",
+    "example": {
+      "sentence": "わざと間違えたわけではありません。",
+      "reading": "わざとまちがえたわけではありません。",
+      "meaning": "Tôi không cố ý làm sai."
+    },
+    "type": "副詞"
+  },
+  {
+    "id": 108,
+    "source": "Giữa kì_TNCN4",
+    "unit": "カタカナ",
+    "number": 108,
+    "word": "タイミング",
+    "reading": "タイミング",
+    "meaning": "Thời điểm, thời cơ",
+    "example": {
+      "sentence": "報告するタイミングを考えます。",
+      "reading": "ほうこくするタイミングをかんがえます。",
+      "meaning": "Xem xét thời điểm báo cáo."
+    },
+    "type": "カタカナ"
+  },
+  {
+    "id": 109,
+    "source": "Giữa kì_TNCN4",
+    "unit": "カタカナ",
+    "number": 109,
+    "word": "コーディング",
+    "reading": "コーディング",
+    "meaning": "Lập trình, viết mã",
+    "example": {
+      "sentence": "コーディングを始めます。",
+      "reading": "コーディングをはじめます。",
+      "meaning": "Bắt đầu lập trình."
+    },
+    "type": "カタカナ"
+  },
+  {
+    "id": 110,
+    "source": "Giữa kì_TNCN4",
+    "unit": "カタカナ",
+    "number": 110,
+    "word": "ロジック",
+    "reading": "ロジック",
+    "meaning": "Logic, lô-gic",
+    "example": {
+      "sentence": "プログラムのロジックを確認します。",
+      "reading": "プログラムのロジックをかくにんします。",
+      "meaning": "Kiểm tra logic của chương trình."
+    },
+    "type": "カタカナ"
+  },
+  {
+    "id": 111,
+    "source": "Giữa kì_TNCN4",
+    "unit": "カタカナ",
+    "number": 111,
+    "word": "リーダー",
+    "reading": "リーダー",
+    "meaning": "Trưởng nhóm, người lãnh đạo",
+    "example": {
+      "sentence": "リーダーに報告します。",
+      "reading": "リーダーにほうこくします。",
+      "meaning": "Báo cáo với trưởng nhóm."
+    },
+    "type": "カタカナ"
+  },
+  {
+    "id": 112,
+    "source": "Giữa kì_TNCN4",
+    "unit": "カタカナ",
+    "number": 112,
+    "word": "メンバー",
+    "reading": "メンバー",
+    "meaning": "Thành viên",
+    "example": {
+      "sentence": "チームのメンバーに共有します。",
+      "reading": "チームのメンバーにきょうゆうします。",
+      "meaning": "Chia sẻ với các thành viên trong nhóm."
+    },
+    "type": "カタカナ"
+  },
+  {
+    "id": 113,
+    "source": "Giữa kì_TNCN4",
+    "unit": "カタカナ",
+    "number": 113,
+    "word": "プログラム",
+    "reading": "プログラム",
+    "meaning": "Chương trình",
+    "example": {
+      "sentence": "プログラムを修正します。",
+      "reading": "プログラムをしゅうせいします。",
+      "meaning": "Sửa chương trình."
+    },
+    "type": "カタカナ"
+  },
+  {
+    "id": 114,
+    "source": "Giữa kì_TNCN4",
+    "unit": "カタカナ",
+    "number": 114,
+    "word": "チーム",
+    "reading": "チーム",
+    "meaning": "Đội, nhóm",
+    "example": {
+      "sentence": "チームで問題を解決します。",
+      "reading": "チームでもんだいをかいけつします。",
+      "meaning": "Cả nhóm cùng giải quyết vấn đề."
+    },
+    "type": "カタカナ"
+  },
+  {
+    "id": 115,
+    "source": "Giữa kì_TNCN4",
+    "unit": "カタカナ",
+    "number": 115,
+    "word": "エラー",
+    "reading": "エラー",
+    "meaning": "Lỗi",
+    "example": {
+      "sentence": "エラーが発生しました。",
+      "reading": "エラーがはっせいしました。",
+      "meaning": "Đã xảy ra lỗi."
+    },
+    "type": "カタカナ"
+  },
+  {
+    "id": 116,
+    "source": "Giữa kì_TNCN4",
+    "unit": "カタカナ",
+    "number": 116,
+    "word": "クレーム",
+    "reading": "クレーム",
+    "meaning": "Khiếu nại, phàn nàn",
+    "example": {
+      "sentence": "お客様からクレームがありました。",
+      "reading": "おきゃくさまからクレームがありました。",
+      "meaning": "Có khiếu nại từ khách hàng."
+    },
+    "type": "カタカナ"
+  },
+  {
+    "id": 117,
+    "source": "Giữa kì_TNCN4",
+    "unit": "カタカナ",
+    "number": 117,
+    "word": "バグ",
+    "reading": "バグ",
+    "meaning": "Lỗi phần mềm, bug",
+    "example": {
+      "sentence": "バグを修正します。",
+      "reading": "バグをしゅうせいします。",
+      "meaning": "Sửa lỗi phần mềm."
+    },
+    "type": "カタカナ"
+  },
+  {
+    "id": 118,
+    "source": "Giữa kì_TNCN4",
+    "unit": "カタカナ",
+    "number": 118,
+    "word": "ツール",
+    "reading": "ツール",
+    "meaning": "Công cụ",
+    "example": {
+      "sentence": "このツールを使います。",
+      "reading": "このツールをつかいます。",
+      "meaning": "Sử dụng công cụ này."
+    },
+    "type": "カタカナ"
+  },
+  {
+    "id": 119,
+    "source": "Giữa kì_TNCN4",
+    "unit": "カタカナ",
+    "number": 119,
+    "word": "モジュール",
+    "reading": "モジュール",
+    "meaning": "Mô-đun, module",
+    "example": {
+      "sentence": "担当モジュールのテストを行います。",
+      "reading": "たんとうモジュールのテストをおこないます。",
+      "meaning": "Tiến hành kiểm thử module phụ trách."
+    },
+    "type": "カタカナ"
   }
 ]

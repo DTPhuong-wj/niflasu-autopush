@@ -7,7 +7,45 @@ npm ci
 npm run dev
 ```
 
-The development build uses Local mode (`.env.development`). The production build uses Web mode (`.env.production`). Listening data is always read from Supabase; only a signed-in Listening admin in Local mode can write it. Browser storage is not used as a Listening data source.
+The development build uses Local mode (`.env.development`). The production build uses Web mode (`.env.production`). The Listening page reads lessons from [`public/lessons.json`](./public/lessons.json) and audio from `public/audio`; it does not read Listening lessons from Supabase.
+
+## Add a Listening lesson
+
+Listening lessons are static files included in the app build. To add a unit, update `public/lessons.json` and add its audio file under `public/audio`. No application code or Supabase changes are needed for a normal lesson.
+
+1. Add the audio file, for example `public/audio/Unit13.mp3`.
+2. Add a lesson object to the existing `lessons` array in `public/lessons.json`. Keep the current top-level book wrapper so the lesson appears with the existing lessons. Set `unit` and `number` explicitly:
+
+   ```json
+   {
+     "id": "5",
+     "unit": 13,
+     "number": 13,
+     "title": "Lesson title",
+     "description": "Short lesson description.",
+     "audio": {
+       "id": "audio-005",
+       "filename": "Unit13.mp3",
+       "url": "/audio/Unit13.mp3",
+       "mimeType": "audio/mpeg"
+     },
+     "script": [
+       {
+         "id": "line-001",
+         "speaker": "話者",
+         "japanese": "日本語のセリフ。",
+         "furigana": [{ "text": "日本語", "reading": "にほんご" }],
+         "translation": "Câu thoại tiếng Nhật."
+       }
+     ]
+   }
+   ```
+
+3. Make sure `audio.url` starts with `/audio/` and matches the file name and letter case exactly. Supported audio files must be committed under `public/audio`; a file left only in `uploads/audio` will not be served by the website.
+4. Add each dialogue line to `script`. `japanese` is the displayed sentence; `speaker` and `translation` may be empty. Use `furigana` entries with `text` and `reading` to enable ruby readings.
+5. Run `npm run build`, then deploy the updated files. After deployment, refresh the Listening page and open the lesson to check both playback and script.
+
+If `unit` is omitted, the page tries to infer it from `Unit<number>` in the audio URL, then falls back to the lesson's position. Explicit `unit` and `number` values are recommended. Keep new lessons in the same book wrapper; a wrapper with a different `id` or `name` is displayed as a separate book.
 
 ## Bundled vocabulary books
 
@@ -15,7 +53,9 @@ The midterm noun review book is kept as source data in [`src/data/giua-ki-noun.j
 
 To add another permanent JSON vocabulary book, copy the validated JSON into `src/data`, import it in `src/routes/index.tsx`, and add it to `permanentVocabularyBooks`. Include that source change in Git and rebuild/deploy. The in-app **Thêm sách từ JSON** action remains a browser import and is not a way to write files into `src/data`.
 
-## Supabase Listening setup
+## Legacy Supabase Listening setup (not used by the current Listening page)
+
+The following sections document the former Supabase-backed Listening implementation and are retained for reference/migration only. They do not describe how to add lessons to the current website; use [Add a Listening lesson](#add-a-listening-lesson) instead.
 
 ### 1. Create the Supabase project and configure keys
 
@@ -78,7 +118,7 @@ Expected: anonymous SELECT is granted, anonymous write grants are false, the `au
 
 ### 4. Import the old `lessons.json` and audio
 
-The website no longer fetches or seeds from `/lessons.json`. Import the existing JSON once from a trusted local terminal after applying both migrations. The tool preserves legacy lesson IDs as stable UUIDs, script IDs and all script fields, and uploads referenced local audio files into the `audio` bucket. If a referenced local file is missing, the import stops with an error rather than silently dropping the audio. Existing YouTube/Drive links remain external sources.
+For the former Supabase-backed implementation, the website did not fetch or seed from `/lessons.json`. The migration tool below imports the JSON once from a trusted local terminal after applying both migrations. This is not required by the current file-backed Listening page.
 
 ```powershell
 $env:SUPABASE_URL = "https://YOUR_PROJECT.supabase.co"
@@ -96,7 +136,7 @@ npm run listening:import -- "public/data/lessons.json"
 
 The service-role key is used only by this local Node.js migration script; never set it in a `VITE_*` variable, commit it, or paste it into the app. Keep a secure backup of the JSON and audio files until the imported lessons and audio have been verified in Supabase. Re-running the import uses stable IDs and updates the same rows rather than creating duplicate lessons.
 
-### 5. Add and verify a lesson in Local mode
+### 5. Add and verify a lesson in the former Supabase-backed Local mode
 
 1. Start `npm run dev` and sign in as the Listening admin.
 2. Create or select a book and choose **Thêm bài nghe**.
@@ -105,7 +145,7 @@ The service-role key is used only by this local Node.js migration script; never 
 5. Save and wait for the Supabase response. The page reports success only after the database write succeeds. If replacing audio, the new uniquely named file is uploaded and referenced first; the previous file is removed only after the database update succeeds.
 6. Refresh Local and verify the lesson, script, furigana, translation, and audio remain. Open the deployed Web site and verify the same lesson can be read and played. Web visitors cannot add, edit, or delete lessons.
 
-### 6. Deploy the read-only Web mode to Cloudflare
+### 6. Deploy the former Supabase-backed read-only Web mode to Cloudflare
 
 1. In Cloudflare **Workers & Pages**, create a Worker from the GitHub repository and select the branch to deploy.
 2. Configure the Worker build with:
@@ -166,10 +206,10 @@ A successful stream typically returns `200 OK`, `Content-Type: audio/...`, and `
 - `GOOGLE_DRIVE_FILE_IS_NOT_AUDIO`: Drive does not recognize the file as `audio/*`.
 - `AUDIO_RANGE_REQUEST_FAILED`: Drive did not provide the requested byte range; playback or seeking may not work.
 
-## Troubleshooting and security checks
+## Legacy Supabase troubleshooting and security checks
 
 - `401` / invalid API key: verify the project URL and publishable key are for the same Supabase project as the migrations.
 - `403` / RLS violation when writing in Local mode: verify the user is authenticated and `app_metadata.role` is exactly `admin`; refresh the session after changing metadata.
 - Storage upload denied: confirm the second migration ran and the signed-in admin has the role above. Anonymous uploads are intentionally denied.
-- Empty Web page: verify lessons are present in `public.lessons`; JSON files in `public/` are no longer runtime data sources.
+- For the current file-backed Listening page, verify the lesson is in `public/lessons.json` and its audio file exists at the matching path under `public/audio`.
 - Check `public.lessons`, `public.listening_books`, `storage.buckets` (bucket `audio`), and `pg_policies` in Supabase. Anonymous INSERT/UPDATE/DELETE must be denied; anonymous SELECT and audio read are allowed.

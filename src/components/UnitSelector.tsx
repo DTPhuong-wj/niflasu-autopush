@@ -29,7 +29,7 @@ export default function UnitSelector({
         >
           {units.map((week) => (
             <option key={week} value={week}>
-              Unit {week}
+              {week}
             </option>
           ))}
         </select>
