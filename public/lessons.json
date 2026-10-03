@@ -1,36 +1,282 @@
-{
-  "version": 1,
-  "lessons": [
+[
     {
-      "id": "lesson-demo-001",
-      "title": "店舗情報管理",
-      "description": "Demo lesson metadata for Listening script and furigana storage.",
-      "audio": {
-        "id": "audio-demo-001",
-        "filename": "lesson-demo-001.mp3",
-        "url": "/audio/lesson-demo-001.mp3",
-        "mimeType": "audio/mpeg"
-      },
-      "script": [
-        {
-          "id": "line-demo-001",
-          "speaker": "リー",
-          "japanese": "大沢さん、すみません。",
-          "furigana": [
-            { "text": "大沢", "reading": "おおさわ" }
-          ],
-          "translation": "Anh Osawa, xin lỗi anh."
+    "version": 1,
+    "lessons": [
+      {
+        "id": "1",
+        "title": "単体テスト終了の報告をしよう！",
+        "description": "このレッスンでは、単体テストが終了したことを報告するための会話を学びます。日常的なビジネスシーンで使える表現を身につけましょう。",
+        "audio": {
+          "id": "audio-001",
+          "filename": "Unit9.mp3",
+          "url": "/audio/Unit9.mp3",
+          "mimeType": "audio/mpeg"
         },
-        {
-          "id": "line-demo-002",
-          "speaker": "大沢",
-          "japanese": "はい。",
-          "furigana": [],
-          "translation": "Vâng."
-        }
-      ],
-      "createdAt": "2026-10-03T00:00:00.000Z",
-      "updatedAt": "2026-10-03T00:00:00.000Z"
-    }
-  ]
-}
+        "script": [
+          {
+            "id": "line-demo-001",
+            "speaker": "リー",
+            "japanese": "大沢さん、すみません。",
+            "furigana": [
+              {
+                "text": "大沢",
+                "reading": "おおさわ"
+              }
+            ],
+            "translation": "Anh Osawa, xin lỗi anh."
+          },
+          {
+            "id": "line-demo-002",
+            "speaker": "大沢",
+            "japanese": "はい。",
+            "furigana": [],
+            "translation": "Vâng."
+          },
+          {
+            "id": "line-demo-003",
+            "speaker": "リー",
+            "japanese": "売上データ処理のモジュールなんですが、単体テストのチェック、すべて終わりました。",
+            "furigana": [
+              {
+                "text": "売上",
+                "reading": "うりあげ"
+              },
+              {
+                "text": "処理",
+                "reading": "しょり"
+              },
+              {
+                "text": "単体",
+                "reading": "たんたい"
+              },
+              {
+                "text": "終",
+                "reading": "お"
+              }
+            ],
+            "translation": "Về module xử lý dữ liệu doanh thu, phần kiểm tra unit test đã hoàn thành tất cả rồi."
+          },
+          {
+            "id": "line-demo-004",
+            "speaker": "大沢",
+            "japanese": "ああ、そうですか。お疲れ様でした。予定どおりでしたね。",
+            "furigana": [
+              {
+                "text": "疲",
+                "reading": "つか"
+              },
+              {
+                "text": "様",
+                "reading": "さま"
+              },
+              {
+                "text": "予定",
+                "reading": "よてい"
+              }
+            ],
+            "translation": "À, vậy à. Anh đã vất vả rồi. Đúng như kế hoạch nhỉ."
+          },
+          {
+            "id": "line-demo-005",
+            "speaker": "リー",
+            "japanese": "ええ、なんとか。",
+            "furigana": [],
+            "translation": "Vâng, cuối cùng cũng hoàn thành được."
+          },
+          {
+            "id": "line-demo-006",
+            "speaker": "大沢",
+            "japanese": "じゃあ、結合テスト担当の新山さんに連絡しますから、ソースコードはクリアケースにコミットしておいてください。",
+            "furigana": [
+              {
+                "text": "結合",
+                "reading": "けつごう"
+              },
+              {
+                "text": "担当",
+                "reading": "たんとう"
+              },
+              {
+                "text": "新山",
+                "reading": "にいやま"
+              },
+              {
+                "text": "連絡",
+                "reading": "れんらく"
+              },
+              {
+                "text": "コミット",
+                "reading": "コミット"
+              }
+            ],
+            "translation": "Vậy thì, tôi sẽ liên lạc với anh Niiyama, người phụ trách integration test, nên hãy commit source code vào ClearCase nhé."
+          },
+          {
+            "id": "line-demo-007",
+            "speaker": "リー",
+            "japanese": "え、クリアケースって、何ですか。",
+            "furigana": [
+              {
+                "text": "何",
+                "reading": "なん"
+              }
+            ],
+            "translation": "Ơ, ClearCase là gì vậy ạ?"
+          },
+          {
+            "id": "line-demo-008",
+            "speaker": "大沢",
+            "japanese": "うちで使っているバージョン管理システムです。",
+            "furigana": [
+              {
+                "text": "使",
+                "reading": "つか"
+              },
+              {
+                "text": "管理",
+                "reading": "かんり"
+              }
+            ],
+            "translation": "Đó là hệ thống quản lý phiên bản mà công ty chúng ta đang sử dụng."
+          },
+          {
+            "id": "line-demo-009",
+            "speaker": "リー",
+            "japanese": "あ、CVSとかサブバージョンみたいなシステムですね。",
+            "furigana": [],
+            "translation": "À, là hệ thống giống như CVS hay Subversion nhỉ."
+          },
+          {
+            "id": "line-demo-010",
+            "speaker": "大沢",
+            "japanese": "そうです。使い方は新山さんに聞いてください。",
+            "furigana": [
+              {
+                "text": "使",
+                "reading": "つか"
+              },
+              {
+                "text": "方",
+                "reading": "かた"
+              },
+              {
+                "text": "新山",
+                "reading": "にいやま"
+              },
+              {
+                "text": "聞",
+                "reading": "き"
+              }
+            ],
+            "translation": "Đúng vậy. Cách sử dụng thì hãy hỏi anh Niiyama nhé."
+          },
+          {
+            "id": "line-demo-011",
+            "speaker": "リー",
+            "japanese": "はい、分かりました。次はどのモジュールを作りますか。",
+            "furigana": [
+              {
+                "text": "分",
+                "reading": "わ"
+              },
+              {
+                "text": "次",
+                "reading": "つぎ"
+              },
+              {
+                "text": "作",
+                "reading": "つく"
+              }
+            ],
+            "translation": "Vâng, tôi hiểu rồi. Tiếp theo tôi sẽ làm module nào ạ?"
+          },
+          {
+            "id": "line-demo-012",
+            "speaker": "大沢",
+            "japanese": "まず、分析統計処理モジュールを先に作っておいてください。",
+            "furigana": [
+              {
+                "text": "分析",
+                "reading": "ぶんせき"
+              },
+              {
+                "text": "統計",
+                "reading": "とうけい"
+              },
+              {
+                "text": "処理",
+                "reading": "しょり"
+              },
+              {
+                "text": "先",
+                "reading": "さき"
+              },
+              {
+                "text": "作",
+                "reading": "つく"
+              }
+            ],
+            "translation": "Trước tiên, hãy làm module xử lý phân tích thống kê trước."
+          },
+          {
+            "id": "line-demo-013",
+            "speaker": "大沢",
+            "japanese": "このモジュールに売上帳票出力処理モジュールが依存していますので。",
+            "furigana": [
+              {
+                "text": "売上",
+                "reading": "うりあげ"
+              },
+              {
+                "text": "帳票",
+                "reading": "ちょうひょう"
+              },
+              {
+                "text": "出力",
+                "reading": "しゅつりょく"
+              },
+              {
+                "text": "処理",
+                "reading": "しょり"
+              },
+              {
+                "text": "依存",
+                "reading": "いぞん"
+              }
+            ],
+            "translation": "Vì module xử lý xuất báo cáo doanh thu phụ thuộc vào module này."
+          },
+          {
+            "id": "line-demo-014",
+            "speaker": "リー",
+            "japanese": "分かりました。では、その順番で作ります。",
+            "furigana": [
+              {
+                "text": "分",
+                "reading": "わ"
+              },
+              {
+                "text": "順番",
+                "reading": "じゅんばん"
+              },
+              {
+                "text": "作",
+                "reading": "つく"
+              }
+            ],
+            "translation": "Tôi hiểu rồi. Vậy tôi sẽ làm theo thứ tự đó."
+          },
+          {
+            "id": "line-demo-015",
+            "speaker": "大沢",
+            "japanese": "よろしく。",
+            "furigana": [],
+            "translation": "Nhờ anh nhé."
+          }
+        ],
+        "createdAt": "2026-10-03T00:00:00.000Z",
+        "updatedAt": "2026-10-03T00:00:00.000Z"
+      }
+    ]
+  }
+]
