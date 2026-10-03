@@ -14,6 +14,10 @@ export interface ListeningLesson {
   unit: number;
   number: number;
   title: string;
+  name?: string | undefined;
+  author?: string | undefined;
+  audio?: string | undefined;
+  audioMimeType?: string | undefined;
   level?: string | undefined;
   description?: string | undefined;
   source?: ListeningSource | undefined;
@@ -24,6 +28,7 @@ export interface ListeningLesson {
   googleDriveUrl?: string | undefined;
   googleDriveId?: string | undefined;
   directUrl?: string | undefined;
+  audioFileId?: string | undefined;
   fileName?: string | undefined;
   duration?: number | string | undefined;
   thumbnailUrl?: string | undefined;

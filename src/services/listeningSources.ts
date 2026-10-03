@@ -5,6 +5,8 @@ export interface ListeningSourceInspection {
   sourceId: string | null;
   sourceUrl: string;
   previewUrl: string;
+  fileId?: string;
+  streamUrl?: string;
   thumbnailUrl?: string;
   title?: string;
   duration?: number;
@@ -36,39 +38,65 @@ export function parseYouTubeUrl(rawUrl: string): { type: "youtube"; id: string }
 }
 
 export function parseGoogleDriveUrl(rawUrl: string): { type: "googleDrive"; id: string } | null {
+  const result = detectGoogleDriveFileId(rawUrl);
+  return result.valid ? { type: "googleDrive", id: result.fileId } : null;
+}
+
+export function detectGoogleDriveFileId(rawUrl: string): { valid: true; fileId: string } | { valid: false; fileId: null } {
   let url: URL;
   try {
     url = new URL(rawUrl.trim());
   } catch {
-    return null;
+    return { valid: false, fileId: null };
   }
-  if (url.hostname !== "drive.google.com") return null;
+  if (url.hostname !== "drive.google.com" || !["http:", "https:"].includes(url.protocol)) {
+    return { valid: false, fileId: null };
+  }
 
-  const pathId = url.pathname.match(/\/file\/d\/([^/]+)/)?.[1];
-  const id = pathId ?? url.searchParams.get("id");
-  return id && /^[\w-]+$/.test(id) ? { type: "googleDrive", id } : null;
+  const pathId = url.pathname.match(/^\/file\/d\/([^/]+)(?:\/view)?\/?$/)?.[1];
+  const queryId = ["/open", "/uc"].includes(url.pathname) ? url.searchParams.get("id") : null;
+  const fileId = pathId ?? queryId;
+  return fileId && /^[A-Za-z0-9_-]{10,200}$/.test(fileId)
+    ? { valid: true, fileId }
+    : { valid: false, fileId: null };
 }
 
 export function extractGoogleDriveFileId(url: string): string | null {
-  return parseGoogleDriveUrl(url)?.id ?? null;
+  const result = detectGoogleDriveFileId(url);
+  return result.valid ? result.fileId : null;
 }
 
-export function createGoogleDriveMediaUrl(fileId: string): string | null {
-  if (!/^[\w-]+$/.test(fileId)) return null;
-  return `https://drive.google.com/uc?export=download&id=${encodeURIComponent(fileId)}`;
+export function createGoogleDriveStreamUrl(fileId: string): string | null {
+  if (!/^[A-Za-z0-9_-]{10,200}$/.test(fileId)) return null;
+  return `/api/listening/google-drive/${encodeURIComponent(fileId)}/stream`;
 }
 
 export function getGoogleDriveDirectUrl(googleDriveUrl: string): string | null {
   const googleDriveId = extractGoogleDriveFileId(googleDriveUrl);
   if (!googleDriveId) return null;
-  const directUrl = createGoogleDriveMediaUrl(googleDriveId);
-  if (!directUrl) return null;
-  if (import.meta.env.DEV) {
-    console.log("Original Google Drive URL:", googleDriveUrl);
-    console.log("Google Drive File ID:", googleDriveId);
-    console.log("Direct URL:", directUrl);
+  return createGoogleDriveStreamUrl(googleDriveId);
+}
+
+export async function getGoogleDrivePlaybackError(streamUrl: string): Promise<string | undefined> {
+  try {
+    const response = await fetch(streamUrl, { method: "HEAD", cache: "no-store" });
+    if (response.ok) return undefined;
+    const messages: Record<string, string> = {
+      INVALID_FILE_ID: "Link Google Drive không hợp lệ.",
+      GOOGLE_DRIVE_FILE_NOT_FOUND: "Không tìm thấy file Google Drive.",
+      GOOGLE_DRIVE_PERMISSION_DENIED: "Không có quyền truy cập file Google Drive.",
+      GOOGLE_DRIVE_AUTH_REQUIRED: "Máy chủ chưa có Google Drive credentials. Cấu hình GOOGLE_DRIVE_API_KEY cho file công khai, hoặc GOOGLE_SERVICE_ACCOUNT_EMAIL và GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY cho file riêng tư.",
+      GOOGLE_DRIVE_API_ERROR: "Không thể đọc file từ Google Drive.",
+      GOOGLE_DRIVE_FILE_IS_NOT_AUDIO: "File Google Drive này không phải file âm thanh.",
+      AUDIO_STREAM_FAILED: "Không thể phát file âm thanh từ Google Drive.",
+      AUDIO_RANGE_REQUEST_FAILED: "Không thể tải đoạn âm thanh được yêu cầu.",
+      NETWORK_ERROR: "Không thể kết nối đến máy chủ.",
+    };
+    const code = response.headers.get("x-audio-error-code") ?? "";
+    return messages[code] ?? "Không thể phát file âm thanh từ Google Drive.";
+  } catch {
+    return "Không thể kết nối đến máy chủ.";
   }
-  return directUrl;
 }
 
 export function extractDroppedUrl(dataTransfer: DataTransfer): string | null {
@@ -114,18 +142,34 @@ const youtubeAdapter: ListeningSourceAdapter = {
 const googleDriveAdapter: ListeningSourceAdapter = {
   type: "googleDrive",
   detect: (url) => parseGoogleDriveUrl(url.toString())?.id ?? null,
-  createPreviewUrl: (sourceId) => `https://drive.google.com/uc?export=download&id=${encodeURIComponent(sourceId)}`,
+  createPreviewUrl: (sourceId) => createGoogleDriveStreamUrl(sourceId) ?? "",
   inspect: (sourceUrl, sourceId) => ({
     type: "googleDrive",
     sourceId,
+    fileId: sourceId,
+    streamUrl: createGoogleDriveStreamUrl(sourceId) ?? "",
     sourceUrl,
-    previewUrl: `https://drive.google.com/uc?export=download&id=${encodeURIComponent(sourceId)}`,
+    previewUrl: createGoogleDriveStreamUrl(sourceId) ?? "",
     isValid: true,
-    message: "Link Google Drive hợp lệ về cấu trúc. Quyền truy cập sẽ được xác nhận khi preview.",
+    message: "Link hợp lệ về cấu trúc. Quyền truy cập và định dạng sẽ được xác nhận khi phát.",
   }),
 };
 
-export const listeningSourceAdapters: ListeningSourceAdapter[] = [youtubeAdapter, googleDriveAdapter];
+const directAudioAdapter: ListeningSourceAdapter = {
+  type: "directAudio",
+  detect: (url) => /\.(mp3|wav|m4a|aac|ogg|flac)$/i.test(url.pathname) ? url.toString() : null,
+  createPreviewUrl: (_sourceId, sourceUrl) => sourceUrl,
+  inspect: (sourceUrl) => ({
+    type: "directAudio",
+    sourceId: null,
+    sourceUrl,
+    previewUrl: sourceUrl,
+    isValid: true,
+    message: "Link audio trực tiếp hợp lệ.",
+  }),
+};
+
+export const listeningSourceAdapters: ListeningSourceAdapter[] = [youtubeAdapter, googleDriveAdapter, directAudioAdapter];
 
 export function detectListeningSource(rawUrl: string, preferredType?: ListeningSourceType): ListeningSourceInspection {
   const sourceUrl = rawUrl.trim();
@@ -143,10 +187,6 @@ export function detectListeningSource(rawUrl: string, preferredType?: ListeningS
   if (adapter) {
     const sourceId = adapter.detect(url);
     if (sourceId) return adapter.inspect(sourceUrl, sourceId);
-  }
-
-  if (/\.(mp3|wav|m4a|aac|ogg|flac)(\?.*)?$/i.test(url.pathname)) {
-    return { type: "directAudio", sourceId: null, sourceUrl, previewUrl: sourceUrl, isValid: true, message: "Link audio trực tiếp hợp lệ." };
   }
 
   return unknownInspection(sourceUrl, "Link không được hỗ trợ. Vui lòng sử dụng Google Drive hoặc YouTube.");

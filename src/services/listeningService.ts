@@ -1,4 +1,5 @@
 import type { ListeningLesson, ListeningSourceType } from "../types/listening";
+import { createGoogleDriveStreamUrl, detectGoogleDriveFileId } from "./listeningSources";
 
 export function normalizeSourceType(value?: string): ListeningSourceType {
   const sourceType = (value ?? "").toLowerCase();
@@ -63,7 +64,7 @@ export function getSourceLabel(sourceType: ListeningSourceType): string {
   }
 }
 
-export function resolveAudioSourceUrl(lesson: Pick<ListeningLesson, "sourceType" | "sourceUrl" | "audioUrl">): string {
+export function resolveAudioSourceUrl(lesson: Pick<ListeningLesson, "sourceType" | "sourceUrl" | "audioUrl" | "sourceId" | "googleDriveId" | "googleDriveUrl" | "directUrl">): string {
   const sourceUrl = lesson.sourceUrl || lesson.audioUrl || "";
 
   if (!sourceUrl) {
@@ -79,11 +80,9 @@ export function resolveAudioSourceUrl(lesson: Pick<ListeningLesson, "sourceType"
     }
     case "googleDrive":
     case "drive": {
-      const driveId =
-        sourceUrl.match(/\/file\/d\/([^/]+)/)?.[1] ??
-        sourceUrl.match(/[?&]id=([^&]+)/)?.[1] ??
-        sourceUrl.match(/id:([\w-]+)/)?.[1];
-      return driveId ? `https://drive.google.com/uc?export=download&id=${driveId}` : sourceUrl;
+      const driveUrl = lesson.googleDriveUrl ?? sourceUrl;
+      const driveId = lesson.googleDriveId ?? lesson.sourceId ?? detectGoogleDriveFileId(driveUrl).fileId;
+      return driveId ? createGoogleDriveStreamUrl(driveId) ?? "" : "";
     }
     case "audio":
     case "directAudio":

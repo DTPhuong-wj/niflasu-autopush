@@ -69,12 +69,9 @@ function normalizeGoogleDriveLesson(lesson: ListeningLesson): ListeningLesson {
 
   return {
     ...lesson,
-    sourceUrl: "",
-    sourceId: undefined,
-    googleDriveUrl: undefined,
+    sourceUrl: lesson.sourceUrl || lesson.googleDriveUrl || "",
+    sourceId: lesson.sourceId ?? fileId,
     googleDriveId: fileId,
-    directUrl: undefined,
-    audioUrl: undefined,
   };
 }
 

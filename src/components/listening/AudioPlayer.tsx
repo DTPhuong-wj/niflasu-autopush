@@ -1,11 +1,15 @@
 import { ExternalLink, Loader2, Pause, Play, RotateCcw, Volume2, VolumeX } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { loadLocalAudioFile } from "../../services/localAudioStorage";
 
 interface Props {
   src: string;
+  localAudioFileId?: string | undefined;
   fallbackSrc?: string | undefined;
   sourceUrl?: string | undefined;
   errorMessage?: string;
+  resolveErrorMessage?: (() => Promise<string | undefined>) | undefined;
+  onDurationChange?: ((duration: number) => void) | undefined;
 }
 
 function formatTime(value: number) {
@@ -18,9 +22,11 @@ function isTyping(target: EventTarget | null) {
   return !!el && (el.tagName === "INPUT" || el.tagName === "TEXTAREA" || el.tagName === "SELECT" || el.isContentEditable);
 }
 
-export default function AudioPlayer({ src, fallbackSrc, sourceUrl, errorMessage = "Không thể phát bài nghe." }: Props) {
+export default function AudioPlayer({ src, localAudioFileId, fallbackSrc, sourceUrl, errorMessage = "Không thể phát bài nghe.", resolveErrorMessage, onDurationChange }: Props) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const lastVolume = useRef(1);
+  const [localAudioUrl, setLocalAudioUrl] = useState("");
+  const [localLoadAttempt, setLocalLoadAttempt] = useState(0);
   const [sourceIndex, setSourceIndex] = useState(0);
   const [retryCount, setRetryCount] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -30,21 +36,45 @@ export default function AudioPlayer({ src, fallbackSrc, sourceUrl, errorMessage 
   const [isMuted, setIsMuted] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
-  const sources = fallbackSrc && fallbackSrc !== src ? [src, fallbackSrc] : [src];
-  const activeSrc = sources[sourceIndex] ?? src;
+  const [displayErrorMessage, setDisplayErrorMessage] = useState(errorMessage);
+  const playbackUrl = localAudioFileId ? localAudioUrl : src;
+  const sources = fallbackSrc && fallbackSrc !== playbackUrl ? [playbackUrl, fallbackSrc] : [playbackUrl];
+  const activeSrc = sources[sourceIndex] ?? playbackUrl;
 
   useEffect(() => {
     const audio = audioRef.current;
+    let cancelled = false;
+    let generatedUrl = "";
     setSourceIndex(0);
     setRetryCount(0);
     setIsPlaying(false);
     setCurrentTime(0);
     setDuration(0);
     setHasError(false);
-    setIsLoading(!!src);
-    if (!src) setHasError(true);
-    return () => audio?.pause();
-  }, [src, fallbackSrc]);
+    setIsLoading(Boolean(src || localAudioFileId));
+    setDisplayErrorMessage(errorMessage);
+    setLocalAudioUrl("");
+    if (localAudioFileId) {
+      void loadLocalAudioFile(localAudioFileId).then((file) => {
+        if (cancelled) return;
+        if (!file) throw new Error("Không tìm thấy file audio trong bộ nhớ thiết bị.");
+        generatedUrl = URL.createObjectURL(file);
+        setLocalAudioUrl(generatedUrl);
+      }).catch(() => {
+        if (cancelled) return;
+        setIsLoading(false);
+        setHasError(true);
+      });
+    } else if (!src) {
+      setIsLoading(false);
+      setHasError(true);
+    }
+    return () => {
+      cancelled = true;
+      audio?.pause();
+      if (generatedUrl) URL.revokeObjectURL(generatedUrl);
+    };
+  }, [src, fallbackSrc, localAudioFileId, errorMessage, localLoadAttempt]);
 
   const toggle = async () => {
     const audio = audioRef.current;
@@ -96,9 +126,13 @@ export default function AudioPlayer({ src, fallbackSrc, sourceUrl, errorMessage 
 
   const retry = () => {
     const audio = audioRef.current;
-    if (!audio || !src) return;
+    if (!audio || (!src && !localAudioFileId)) return;
     setHasError(false);
     setIsLoading(true);
+    if (localAudioFileId && !localAudioUrl) {
+      setLocalLoadAttempt((attempt) => attempt + 1);
+      return;
+    }
     if (sourceIndex !== 0) {
       setSourceIndex(0);
       setRetryCount((count) => count + 1);
@@ -108,7 +142,7 @@ export default function AudioPlayer({ src, fallbackSrc, sourceUrl, errorMessage 
     }
   };
 
-  const handleError = () => {
+  const handleError = async () => {
     if (sourceIndex + 1 < sources.length) {
       setSourceIndex((index) => index + 1);
       setIsLoading(true);
@@ -117,6 +151,10 @@ export default function AudioPlayer({ src, fallbackSrc, sourceUrl, errorMessage 
     setHasError(true);
     setIsLoading(false);
     setIsPlaying(false);
+    if (resolveErrorMessage) {
+      const message = await resolveErrorMessage();
+      if (message) setDisplayErrorMessage(message);
+    }
   };
 
   useEffect(() => {
@@ -150,7 +188,14 @@ export default function AudioPlayer({ src, fallbackSrc, sourceUrl, errorMessage 
         src={activeSrc || undefined}
         preload="metadata"
         onLoadStart={() => { setIsLoading(true); setHasError(false); }}
-        onLoadedMetadata={(e) => { setDuration(e.currentTarget.duration || 0); setIsLoading(false); }}
+        onLoadedMetadata={(e) => {
+          const loadedDuration = e.currentTarget.duration;
+          if (Number.isFinite(loadedDuration) && loadedDuration > 0) {
+            setDuration(loadedDuration);
+            onDurationChange?.(loadedDuration);
+          }
+          setIsLoading(false);
+        }}
         onCanPlay={() => setIsLoading(false)}
         onWaiting={() => setIsLoading(true)}
         onPlaying={() => setIsLoading(false)}
@@ -163,9 +208,9 @@ export default function AudioPlayer({ src, fallbackSrc, sourceUrl, errorMessage 
 
       {hasError ? (
         <div className="nf-audio-error">
-          <div>{errorMessage}</div>
+          <div>{displayErrorMessage}</div>
           <div className="nf-audio-error-actions">
-            {src && <button type="button" className="nf-btn" onClick={retry}><RotateCcw size={14} /> Thử lại</button>}
+            {(src || localAudioFileId) && <button type="button" className="nf-btn" onClick={retry}><RotateCcw size={14} /> Thử lại</button>}
             {sourceUrl && <a className="nf-btn" href={sourceUrl} target="_blank" rel="noreferrer"><ExternalLink size={14} /> Mở nguồn</a>}
           </div>
         </div>

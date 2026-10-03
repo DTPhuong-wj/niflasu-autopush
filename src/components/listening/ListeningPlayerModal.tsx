@@ -13,6 +13,11 @@ interface Props {
 
 export default function ListeningPlayerModal({ lesson, bookName, onClose }: Props) {
   const [showScript, setShowScript] = useState(false);
+  const [loadedDuration, setLoadedDuration] = useState<number | undefined>(() => Number(lesson.duration) > 0 ? Number(lesson.duration) : undefined);
+
+  useEffect(() => {
+    setLoadedDuration(Number(lesson.duration) > 0 ? Number(lesson.duration) : undefined);
+  }, [lesson.id, lesson.updatedAt, lesson.duration]);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -51,12 +56,12 @@ export default function ListeningPlayerModal({ lesson, bookName, onClose }: Prop
           <div className="nf-listening-hero-meta">
             <div className="nf-listening-hero-label">Unit {lesson.unit}</div>
             <div className="nf-listening-hero-title">{lesson.title}</div>
-            <div className="nf-listening-hero-detail">Duration: {formatDuration(lesson.duration ?? 0)}</div>
+            <div className="nf-listening-hero-detail">Duration: {loadedDuration ? formatDuration(loadedDuration) : "Đang tải..."}</div>
             <div className="nf-listening-hero-detail">Script: {lesson.hasScript ? "Available" : "Unavailable"}</div>
           </div>
         </div>
 
-        <ListeningPlayer lesson={lesson} bookName={bookName} />
+        <ListeningPlayer lesson={lesson} bookName={bookName} duration={loadedDuration} onDurationChange={setLoadedDuration} />
 
         {lesson.hasScript && (
           <button

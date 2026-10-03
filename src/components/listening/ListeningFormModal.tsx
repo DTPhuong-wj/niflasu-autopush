@@ -1,6 +1,6 @@
 import { CheckCircle2, ExternalLink, FileAudio, Plus, Upload, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { detectListeningSource, extractDroppedUrl, extractGoogleDriveFileId, inspectListeningSource, type ListeningSourceInspection } from "../../services/listeningSources";
+import { detectListeningSource, extractDroppedUrl, extractGoogleDriveFileId, getGoogleDrivePlaybackError, inspectListeningSource, type ListeningSourceInspection } from "../../services/listeningSources";
 import { formatDuration, parseDurationToSeconds } from "../../services/listeningService";
 import type { ListeningBook, ListeningBookSet, ListeningLesson, ListeningSource, ListeningSourceType } from "../../types/listening";
 
@@ -9,8 +9,8 @@ interface Props {
   selectedBookId: string;
   editingLesson: ListeningLesson | null;
   onClose: () => void;
-  onSave: (payload: { bookId: string; lesson: ListeningLesson }) => void;
-  onCreateBook: (book: ListeningBook) => void;
+  onSave: (payload: { bookId: string; lesson: ListeningLesson; audioFile: File | null }) => Promise<void>;
+  onCreateBook: (book: ListeningBook) => Promise<void>;
 }
 
 function parseScriptText(text: string): ListeningLesson["script"] {
@@ -41,7 +41,7 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
   const defaultBookId = books.some((book) => book.book.id === selectedBookId) ? selectedBookId : books[0]?.book.id ?? "";
   const editingGoogleDriveId = editingLesson?.googleDriveId ?? editingLesson?.sourceId ?? extractGoogleDriveFileId(editingLesson?.googleDriveUrl ?? editingLesson?.sourceUrl ?? "");
   const initialSourceUrl = editingLesson && sourceToFormSource(editingLesson) === "google-drive" && editingGoogleDriveId
-    ? `https://drive.google.com/file/d/${encodeURIComponent(editingGoogleDriveId)}/view`
+    ? editingLesson.sourceUrl || editingLesson.googleDriveUrl || `https://drive.google.com/file/d/${encodeURIComponent(editingGoogleDriveId)}/view`
     : editingLesson?.sourceUrl ?? "";
   const [bookId, setBookId] = useState(editingLesson?.bookId ?? defaultBookId);
   const [unit, setUnit] = useState<number | string>(editingLesson?.unit ?? "");
@@ -50,6 +50,7 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
   const [sourceUrl, setSourceUrl] = useState(initialSourceUrl);
   const [sourceChoice, setSourceChoice] = useState<FormSource>(sourceToFormSource(editingLesson));
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [isSaving, setIsSaving] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [level, setLevel] = useState(editingLesson?.level ?? "");
   const [description, setDescription] = useState(editingLesson?.description ?? "");
@@ -83,11 +84,17 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
   }, []);
 
   const isLinkSource = sourceChoice === "google-drive" || sourceChoice === "youtube";
-  const sourceReady = Boolean(inspection?.isValid && (!isLinkSource || inspection.sourceUrl === sourceUrl.trim()));
+  const expectedLinkType = sourceChoice === "google-drive" ? "googleDrive" : "youtube";
+  const sourceReady = Boolean(
+    inspection?.isValid &&
+    (!isLinkSource || (inspection.type === expectedLinkType && inspection.sourceUrl === sourceUrl.trim())),
+  );
 
   const handleFile = (file: File | null) => {
     if (!file) return;
-    if (!file.type.startsWith("audio/") && !/\.(mp3|wav|m4a|aac|ogg|flac)$/i.test(file.name)) {
+    const supportedMimeTypes = new Set(["audio/mpeg", "audio/mp3", "audio/wav", "audio/x-wav", "audio/ogg", "audio/mp4"]);
+    const supportedExtension = /\.(mp3|wav|m4a|aac|ogg|flac|webm)$/i.test(file.name);
+    if (!supportedMimeTypes.has(file.type.toLowerCase()) && !file.type.toLowerCase().startsWith("audio/") && !supportedExtension) {
       setError("Vui lòng chọn file audio hợp lệ.");
       return;
     }
@@ -96,7 +103,7 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
     objectUrlRef.current = objectUrl;
     setSelectedFile(file);
     setSourceUrl(objectUrl);
-    setInspection({ type: "directAudio", sourceId: file.name, sourceUrl: objectUrl, previewUrl: objectUrl, isValid: true, message: "File audio chỉ được phát trong phiên hiện tại." });
+    setInspection({ type: "directAudio", sourceId: file.name, sourceUrl: objectUrl, previewUrl: objectUrl, isValid: true, message: "File sẽ được tải lên máy chủ khi lưu bài." });
     if (!title.trim()) setTitle(file.name.replace(/\.[^.]+$/, ""));
     setError("");
   };
@@ -150,9 +157,9 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
     setIsChecking(true);
     const nextInspection = inspectListeningSource(sourceUrl, sourceChoice === "google-drive" ? "googleDrive" : sourceChoice === "youtube" ? "youtube" : "directAudio");
     setInspection(nextInspection);
-    if (!nextInspection.isValid) {
+    if (!nextInspection.isValid || (isLinkSource && nextInspection.type !== expectedLinkType)) {
       const sourceError = sourceChoice === "google-drive"
-        ? "Không thể lấy File ID từ liên kết Google Drive. Vui lòng kiểm tra lại liên kết."
+        ? "Link Google Drive không hợp lệ."
         : sourceChoice === "youtube"
           ? "Link YouTube không hợp lệ."
           : nextInspection.message;
@@ -179,26 +186,34 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
     if (detected.type === "googleDrive") setSourceChoice("google-drive");
     if (detected.type === "youtube") setSourceChoice("youtube");
     setInspection(value.trim() ? detected : null);
-    const sourceError = sourceChoice === "google-drive" ? "Không thể lấy File ID từ liên kết Google Drive. Vui lòng kiểm tra lại liên kết." : sourceChoice === "youtube" ? "Link YouTube không hợp lệ." : detected.message;
+    const sourceError = sourceChoice === "google-drive" ? "Link Google Drive không hợp lệ." : sourceChoice === "youtube" ? "Link YouTube không hợp lệ." : detected.message;
     setError(value.trim() && !detected.isValid ? sourceError : "");
   };
 
-  const handleCreateBook = () => {
+  const handleCreateBook = async () => {
     const name = newBookName.trim();
     if (!name) {
       setError("Tên sách không được để trống.");
       return;
     }
     const book: ListeningBook = { id: `${name.toLowerCase().replace(/\s+/g, "-")}-${Date.now()}`, name, description: newBookDescription.trim() || undefined };
-    onCreateBook(book);
-    setBookId(book.id);
-    setNewBookName("");
-    setNewBookDescription("");
-    setShowAddBookForm(false);
-    setError("");
+    setIsSaving(true);
+    try {
+      await onCreateBook(book);
+      setBookId(book.id);
+      setNewBookName("");
+      setNewBookDescription("");
+      setShowAddBookForm(false);
+      setError("");
+    } catch (saveError) {
+      setError(saveError instanceof Error ? saveError.message : "Không thể lưu sách.");
+    } finally {
+      setIsSaving(false);
+    }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    if (isSaving) return;
     const nextUnit = Number(unit);
     const nextNumber = Number(number);
     if (!bookId && !currentBook?.book.id) return setError("Vui lòng chọn sách.");
@@ -209,8 +224,8 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
 
     const source: ListeningSource = sourceChoice === "google-drive" ? "google-drive" : sourceChoice === "youtube" ? "youtube" : "local";
     const sourceType: ListeningSourceType = source === "google-drive" ? "googleDrive" : source === "youtube" ? "youtube" : "directAudio";
-    const googleDriveId = source === "google-drive" ? extractGoogleDriveFileId(inspection.sourceUrl) ?? undefined : undefined;
-    if (source === "google-drive" && !googleDriveId) return setError("Không thể lấy File ID từ liên kết Google Drive. Vui lòng kiểm tra lại liên kết.");
+    const googleDriveId = source === "google-drive" ? inspection.fileId ?? extractGoogleDriveFileId(inspection.sourceUrl) ?? undefined : undefined;
+    if (source === "google-drive" && !googleDriveId) return setError("Link Google Drive không hợp lệ.");
 
     const now = new Date().toISOString();
     const lesson: ListeningLesson = {
@@ -223,9 +238,11 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
       description: description.trim() || undefined,
       source,
       sourceType,
-      sourceUrl: source === "google-drive" ? "" : inspection.sourceUrl,
-      sourceId: source === "google-drive" ? undefined : inspection.sourceId ?? undefined,
+      sourceUrl: source === "local" && selectedFile ? "" : inspection.sourceUrl,
+      sourceId: source === "google-drive" ? googleDriveId : inspection.sourceId ?? undefined,
+      googleDriveUrl: source === "google-drive" ? inspection.sourceUrl : undefined,
       googleDriveId,
+      audioFileId: source === "local" && !selectedFile ? editingLesson?.audioFileId : undefined,
       fileName: selectedFile?.name ?? editingLesson?.fileName,
       duration: parseDurationToSeconds(duration),
       thumbnailUrl: inspection.thumbnailUrl,
@@ -234,7 +251,13 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
       createdAt: editingLesson?.createdAt ?? now,
       updatedAt: now,
     };
-    onSave({ bookId: lesson.bookId, lesson });
+    setIsSaving(true);
+    try {
+      await onSave({ bookId: lesson.bookId, lesson, audioFile: selectedFile });
+    } catch (saveError) {
+      setError(saveError instanceof Error ? saveError.message : "Không thể lưu bài nghe trên máy chủ.");
+      setIsSaving(false);
+    }
   };
 
   return (
@@ -261,7 +284,7 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
               <FileAudio size={26} />
               <strong>{selectedFile?.name ?? editingLesson?.fileName ?? "Kéo file audio vào đây hoặc chọn file"}</strong>
               {selectedFile && <span>{(selectedFile.size / 1024 / 1024).toFixed(2)} MB</span>}
-              <span>MP3, WAV, M4A, OGG. File chỉ nghe được trong phiên hiện tại.</span>
+              <span>MP3, WAV, M4A, OGG. File được tải lên máy chủ khi lưu bài.</span>
               <label className="nf-btn"><Upload size={15} /> Chọn file<input type="file" hidden accept="audio/*,.mp3,.wav,.m4a,.ogg" onChange={(event) => handleFile(event.target.files?.[0] ?? null)} /></label>
             </div>
           ) : (
@@ -271,7 +294,16 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
             </div>
           )}
 
-          {inspection?.isValid && <div className="nf-listening-source-preview"><div className="nf-listening-source-status"><CheckCircle2 size={16} /> Link hợp lệ <span>{sourceLabel(inspection.type)}</span></div>{inspection.type === "youtube" ? <iframe title="YouTube preview" src={inspection.previewUrl} allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen /> : <audio controls preload="metadata" src={inspection.previewUrl} onError={() => setError("Không thể truy cập file Google Drive. Hãy kiểm tra quyền chia sẻ của file. Link vẫn hợp lệ về cấu trúc và có thể lưu.")} />}{inspection.thumbnailUrl && <img src={inspection.thumbnailUrl} alt="YouTube thumbnail" />}{inspection.sourceId && inspection.type !== "directAudio" && <small>{inspection.type === "youtube" ? "Video ID" : "File ID"}: {inspection.sourceId}</small>}{inspection.message && <small>{inspection.message}</small>}<a href={inspection.sourceUrl} target="_blank" rel="noreferrer"><ExternalLink size={14} /> Mở nguồn</a></div>}
+          {inspection?.isValid && <div className="nf-listening-source-preview"><div className="nf-listening-source-status"><CheckCircle2 size={16} /> Link hợp lệ <span>{sourceLabel(inspection.type)}</span></div>{inspection.type === "youtube" ? <iframe title="YouTube preview" src={inspection.previewUrl} allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen /> : <audio controls preload="metadata" src={inspection.previewUrl} onLoadedMetadata={(event) => {
+            const loadedDuration = event.currentTarget.duration;
+            if (Number.isFinite(loadedDuration) && loadedDuration > 0) setDuration(formatDuration(loadedDuration));
+          }} onError={() => {
+            if (inspection.type === "googleDrive") {
+              void getGoogleDrivePlaybackError(inspection.previewUrl).then((message) => setError(message ?? "Không thể phát file âm thanh từ Google Drive."));
+            } else {
+              setError("Không thể tải bản xem trước audio trực tiếp.");
+            }
+          }} />}{inspection.thumbnailUrl && <img src={inspection.thumbnailUrl} alt="YouTube thumbnail" />}{inspection.sourceId && inspection.type !== "directAudio" && <small>{inspection.type === "youtube" ? "Video ID" : "File ID"}: {inspection.sourceId}</small>}{inspection.message && <small>{inspection.message}</small>}<a href={inspection.sourceUrl} target="_blank" rel="noreferrer"><ExternalLink size={14} /> Mở nguồn</a></div>}
 
           <label className="nf-field"><span>Thời lượng</span><input value={duration} onChange={(event) => setDuration(event.target.value)} placeholder="02:35 hoặc số giây" /></label>
           <label className="nf-listening-check-row"><input type="checkbox" checked={hasScript} onChange={(event) => setHasScript(event.target.checked)} /><span>Có Script</span></label>
@@ -279,7 +311,7 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
         </div>
 
         {error && <div className="nf-listening-form-error">{error}</div>}
-        <div className="nf-modal-actions"><button type="button" className="nf-btn" onClick={onClose}>Hủy</button><button type="button" className="nf-btn is-active" onClick={handleSubmit} disabled={!sourceReady}>{editingLesson ? "Cập nhật" : "Lưu bài nghe"}</button></div>
+        <div className="nf-modal-actions"><button type="button" className="nf-btn" onClick={onClose}>Hủy</button><button type="button" className="nf-btn is-active" onClick={handleSubmit} disabled={!sourceReady || isSaving}>{isSaving ? "Đang lưu..." : editingLesson ? "Cập nhật" : "Lưu bài nghe"}</button></div>
       </div>
     </div>
   );
