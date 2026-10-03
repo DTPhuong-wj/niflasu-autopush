@@ -21,7 +21,8 @@ export function isGkiBook(value: unknown): value is Vocabulary[] {
       return (
         item["source"] === source &&
         typeof item["id"] === "number" &&
-        typeof item["unit"] === "number" &&
+        ((typeof item["unit"] === "number" && Number.isFinite(item["unit"])) ||
+          (typeof item["unit"] === "string" && item["unit"].trim().length > 0)) &&
         typeof item["number"] === "number" &&
         typeof item["word"] === "string" &&
         typeof item["reading"] === "string" &&

@@ -1,0 +1,707 @@
+[
+  {
+    "id": 1,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 1,
+    "word": "貿易",
+    "reading": "ぼうえき",
+    "meaning": "Thương mại, ngoại thương",
+    "example": {
+      "sentence": "日本はアメリカと貿易をしています。",
+      "reading": "にほんはアメリカとぼうえきをしています。",
+      "meaning": "Nhật Bản giao thương với Mỹ."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 2,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 2,
+    "word": "輸出",
+    "reading": "ゆしゅつ",
+    "meaning": "Xuất khẩu",
+    "example": {
+      "sentence": "日本は自動車を輸出しています。",
+      "reading": "にほんはじどうしゃをゆしゅつしています。",
+      "meaning": "Nhật Bản đang xuất khẩu ô tô."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 3,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 3,
+    "word": "輸入",
+    "reading": "ゆにゅう",
+    "meaning": "Nhập khẩu",
+    "example": {
+      "sentence": "日本は石油を輸入しています。",
+      "reading": "にほんはせきゆをゆにゅうしています。",
+      "meaning": "Nhật Bản đang nhập khẩu dầu mỏ."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 4,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 4,
+    "word": "機能",
+    "reading": "きのう",
+    "meaning": "Chức năng",
+    "example": {
+      "sentence": "この機能はとても便利です。",
+      "reading": "このきのうはとてもべんりです。",
+      "meaning": "Chức năng này rất tiện lợi."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 5,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 5,
+    "word": "単体テスト",
+    "reading": "たんたいてすと",
+    "meaning": "Kiểm thử đơn vị",
+    "example": {
+      "sentence": "単体テストを実施します。",
+      "reading": "たんたいてすとをじっしします。",
+      "meaning": "Thực hiện kiểm thử đơn vị."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 6,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 6,
+    "word": "結合テスト",
+    "reading": "けつごうてすと",
+    "meaning": "Kiểm thử tích hợp",
+    "example": {
+      "sentence": "結合テストを開始します。",
+      "reading": "けつごうてすとをかいしします。",
+      "meaning": "Bắt đầu kiểm thử tích hợp."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 7,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 7,
+    "word": "試験項目",
+    "reading": "しけんこうもく",
+    "meaning": "Hạng mục kiểm thử",
+    "example": {
+      "sentence": "試験項目を確認してください。",
+      "reading": "しけんこうもくをかくにんしてください。",
+      "meaning": "Hãy kiểm tra các hạng mục kiểm thử."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 8,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 8,
+    "word": "進捗",
+    "reading": "しんちょく",
+    "meaning": "Tiến độ",
+    "example": {
+      "sentence": "プロジェクトの進捗を確認します。",
+      "reading": "プロジェクトのしんちょくをかくにんします。",
+      "meaning": "Kiểm tra tiến độ của dự án."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 9,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 9,
+    "word": "注意点",
+    "reading": "ちゅういてん",
+    "meaning": "Điểm cần lưu ý",
+    "example": {
+      "sentence": "注意点を説明します。",
+      "reading": "ちゅういてんをせつめいします。",
+      "meaning": "Tôi sẽ giải thích những điểm cần lưu ý."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 10,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 10,
+    "word": "統一",
+    "reading": "とういつ",
+    "meaning": "Thống nhất, đồng nhất",
+    "example": {
+      "sentence": "書式を統一してください。",
+      "reading": "しょしきをとういつしてください。",
+      "meaning": "Hãy thống nhất định dạng."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 11,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 11,
+    "word": "予定",
+    "reading": "よてい",
+    "meaning": "Dự định, kế hoạch, lịch trình",
+    "example": {
+      "sentence": "明日の予定を確認します。",
+      "reading": "あしたのよていをかくにんします。",
+      "meaning": "Tôi sẽ kiểm tra lịch trình ngày mai."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 12,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 12,
+    "word": "程度",
+    "reading": "ていど",
+    "meaning": "Mức độ",
+    "example": {
+      "sentence": "この程度なら問題ありません。",
+      "reading": "このていどならもんだいありません。",
+      "meaning": "Nếu ở mức độ này thì không có vấn đề."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 13,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 13,
+    "word": "朝会",
+    "reading": "ちょうかい",
+    "meaning": "Cuộc họp buổi sáng",
+    "example": {
+      "sentence": "毎朝、朝会を行います。",
+      "reading": "まいあさ、ちょうかいをおこないます。",
+      "meaning": "Mỗi sáng chúng tôi tổ chức họp."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 14,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 14,
+    "word": "課題",
+    "reading": "かだい",
+    "meaning": "Vấn đề, nhiệm vụ, bài toán",
+    "example": {
+      "sentence": "現在の課題を整理します。",
+      "reading": "げんざいのかだいをせいりします。",
+      "meaning": "Sắp xếp các vấn đề hiện tại."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 15,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 15,
+    "word": "開発",
+    "reading": "かいはつ",
+    "meaning": "Phát triển",
+    "example": {
+      "sentence": "新しいシステムを開発しています。",
+      "reading": "あたらしいシステムをかいはつしています。",
+      "meaning": "Chúng tôi đang phát triển hệ thống mới."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 16,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 16,
+    "word": "担当",
+    "reading": "たんとう",
+    "meaning": "Phụ trách",
+    "example": {
+      "sentence": "この作業は私が担当します。",
+      "reading": "このさぎょうはわたしがたんとうします。",
+      "meaning": "Tôi phụ trách công việc này."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 17,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 17,
+    "word": "数字",
+    "reading": "すうじ",
+    "meaning": "Con số",
+    "example": {
+      "sentence": "数字を確認してください。",
+      "reading": "すうじをかくにんしてください。",
+      "meaning": "Hãy kiểm tra các con số."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 18,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 18,
+    "word": "件数",
+    "reading": "けんすう",
+    "meaning": "Số lượng vụ/mục",
+    "example": {
+      "sentence": "対応した件数を報告します。",
+      "reading": "たいおうしたけんすうをほうこくします。",
+      "meaning": "Báo cáo số lượng mục đã xử lý."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 19,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 19,
+    "word": "消化",
+    "reading": "しょうか",
+    "meaning": "Hoàn thành, xử lý; tiêu hóa",
+    "example": {
+      "sentence": "予定していた作業を消化しました。",
+      "reading": "よていしていたさぎょうをしょうかしました。",
+      "meaning": "Đã hoàn thành các công việc dự kiến."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 20,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 20,
+    "word": "トラブル",
+    "reading": "とらぶる",
+    "meaning": "Sự cố, rắc rối",
+    "example": {
+      "sentence": "システムでトラブルが発生しました。",
+      "reading": "システムでトラブルがはっせいしました。",
+      "meaning": "Đã xảy ra sự cố trong hệ thống."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 21,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 21,
+    "word": "解決策",
+    "reading": "かいけつさく",
+    "meaning": "Giải pháp",
+    "example": {
+      "sentence": "解決策を考えます。",
+      "reading": "かいけつさくをかんがえます。",
+      "meaning": "Tôi sẽ nghĩ ra giải pháp."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 22,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 22,
+    "word": "遅れ",
+    "reading": "おくれ",
+    "meaning": "Sự chậm trễ",
+    "example": {
+      "sentence": "作業に遅れが出ています。",
+      "reading": "さぎょうにおくれがでています。",
+      "meaning": "Công việc đang bị chậm trễ."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 23,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 23,
+    "word": "遅延",
+    "reading": "ちえん",
+    "meaning": "Trì hoãn, chậm trễ",
+    "example": {
+      "sentence": "開発に遅延が発生しています。",
+      "reading": "かいはつにちえんがはっせいしています。",
+      "meaning": "Việc phát triển đang bị chậm trễ."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 24,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 24,
+    "word": "事実",
+    "reading": "じじつ",
+    "meaning": "Sự thật, thực tế",
+    "example": {
+      "sentence": "事実を確認してください。",
+      "reading": "じじつをかくにんしてください。",
+      "meaning": "Hãy xác nhận sự thật."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 25,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 25,
+    "word": "進捗率",
+    "reading": "しんちょくりつ",
+    "meaning": "Tỷ lệ tiến độ",
+    "example": {
+      "sentence": "進捗率は80パーセントです。",
+      "reading": "しんちょくりつは80パーセントです。",
+      "meaning": "Tỷ lệ tiến độ là 80%."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 26,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 26,
+    "word": "工程",
+    "reading": "こうてい",
+    "meaning": "Công đoạn, quy trình",
+    "example": {
+      "sentence": "次の工程に進みます。",
+      "reading": "つぎのこうていにすすみます。",
+      "meaning": "Chuyển sang công đoạn tiếp theo."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 27,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 27,
+    "word": "詳細",
+    "reading": "しょうさい",
+    "meaning": "Chi tiết",
+    "example": {
+      "sentence": "詳細を資料にまとめます。",
+      "reading": "しょうさいをしりょうにまとめます。",
+      "meaning": "Tổng hợp chi tiết vào tài liệu."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 28,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 28,
+    "word": "影響",
+    "reading": "えいきょう",
+    "meaning": "Ảnh hưởng",
+    "example": {
+      "sentence": "他の機能への影響を確認します。",
+      "reading": "ほかのきのうへのえいきょうをかくにんします。",
+      "meaning": "Kiểm tra ảnh hưởng đến các chức năng khác."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 29,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 29,
+    "word": "原因",
+    "reading": "げんいん",
+    "meaning": "Nguyên nhân",
+    "example": {
+      "sentence": "問題の原因を調べます。",
+      "reading": "もんだいのげんいんをしらべます。",
+      "meaning": "Tìm hiểu nguyên nhân của vấn đề."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 30,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 30,
+    "word": "段階",
+    "reading": "だんかい",
+    "meaning": "Giai đoạn",
+    "example": {
+      "sentence": "現在はテストの段階です。",
+      "reading": "げんざいはテストのだんかいです。",
+      "meaning": "Hiện tại đang ở giai đoạn kiểm thử."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 31,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 31,
+    "word": "不足",
+    "reading": "ふそく",
+    "meaning": "Thiếu hụt, thiếu",
+    "example": {
+      "sentence": "人員が不足しています。",
+      "reading": "じんいんがふそくしています。",
+      "meaning": "Nhân lực đang thiếu."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 32,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 32,
+    "word": "主流",
+    "reading": "しゅりゅう",
+    "meaning": "Chủ đạo, phổ biến",
+    "example": {
+      "sentence": "この方法が現在の主流です。",
+      "reading": "このほうほうがげんざいのしゅりゅうです。",
+      "meaning": "Phương pháp này hiện đang phổ biến."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 33,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 33,
+    "word": "難易度",
+    "reading": "なんいど",
+    "meaning": "Độ khó",
+    "example": {
+      "sentence": "この問題は難易度が高いです。",
+      "reading": "このもんだいはなんいどがたかいです。",
+      "meaning": "Vấn đề này có độ khó cao."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 34,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 34,
+    "word": "規模",
+    "reading": "きぼ",
+    "meaning": "Quy mô",
+    "example": {
+      "sentence": "プロジェクトの規模を確認します。",
+      "reading": "プロジェクトのきぼをかくにんします。",
+      "meaning": "Kiểm tra quy mô của dự án."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 35,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 35,
+    "word": "状態",
+    "reading": "じょうたい",
+    "meaning": "Trạng thái, tình trạng",
+    "example": {
+      "sentence": "システムの状態を確認します。",
+      "reading": "システムのじょうたいをかくにんします。",
+      "meaning": "Kiểm tra trạng thái của hệ thống."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 36,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 36,
+    "word": "作業",
+    "reading": "さぎょう",
+    "meaning": "Công việc, thao tác",
+    "example": {
+      "sentence": "作業を開始してください。",
+      "reading": "さぎょうをかいししてください。",
+      "meaning": "Hãy bắt đầu công việc."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 37,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 37,
+    "word": "余裕",
+    "reading": "よゆう",
+    "meaning": "Dư dả, thời gian dự phòng",
+    "example": {
+      "sentence": "スケジュールに余裕があります。",
+      "reading": "スケジュールによゆうがあります。",
+      "meaning": "Lịch trình có thời gian dự phòng."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 38,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 38,
+    "word": "最善",
+    "reading": "さいぜん",
+    "meaning": "Tốt nhất, phương án tốt nhất",
+    "example": {
+      "sentence": "最善の方法を考えます。",
+      "reading": "さいぜんのほうほうをかんがえます。",
+      "meaning": "Tôi sẽ nghĩ đến phương án tốt nhất."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 39,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 39,
+    "word": "締め切り",
+    "reading": "しめきり",
+    "meaning": "Hạn chót",
+    "example": {
+      "sentence": "締め切りを守ってください。",
+      "reading": "しめきりをまもってください。",
+      "meaning": "Hãy tuân thủ hạn chót."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 40,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 40,
+    "word": "直前",
+    "reading": "ちょくぜん",
+    "meaning": "Ngay trước đó",
+    "example": {
+      "sentence": "締め切り直前に提出しました。",
+      "reading": "しめきりちょくぜんにていしゅつしました。",
+      "meaning": "Tôi đã nộp ngay trước hạn chót."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 41,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 41,
+    "word": "遅刻",
+    "reading": "ちこく",
+    "meaning": "Đi muộn",
+    "example": {
+      "sentence": "朝会に遅刻しないでください。",
+      "reading": "ちょうかいにちこくしないでください。",
+      "meaning": "Đừng đi muộn cuộc họp buổi sáng."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 42,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 42,
+    "word": "部署",
+    "reading": "ぶしょ",
+    "meaning": "Bộ phận",
+    "example": {
+      "sentence": "所属する部署を教えてください。",
+      "reading": "しょぞくするぶしょをおしえてください。",
+      "meaning": "Hãy cho tôi biết bộ phận bạn thuộc về."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 43,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 43,
+    "word": "資料",
+    "reading": "しりょう",
+    "meaning": "Tài liệu",
+    "example": {
+      "sentence": "資料を共有します。",
+      "reading": "しりょうをきょうゆうします。",
+      "meaning": "Tôi sẽ chia sẻ tài liệu."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 44,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 44,
+    "word": "導入",
+    "reading": "どうにゅう",
+    "meaning": "Đưa vào, triển khai, áp dụng",
+    "example": {
+      "sentence": "新しいシステムを導入します。",
+      "reading": "あたらしいシステムをどうにゅうします。",
+      "meaning": "Triển khai hệ thống mới."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 45,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 45,
+    "word": "状況",
+    "reading": "じょうきょう",
+    "meaning": "Tình hình, tình trạng",
+    "example": {
+      "sentence": "現在の状況を報告します。",
+      "reading": "げんざいのじょうきょうをほうこくします。",
+      "meaning": "Báo cáo tình hình hiện tại."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 46,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 46,
+    "word": "経験",
+    "reading": "けいけん",
+    "meaning": "Kinh nghiệm",
+    "example": {
+      "sentence": "日本で働いた経験があります。",
+      "reading": "にほんではたらいたけいけんがあります。",
+      "meaning": "Tôi có kinh nghiệm làm việc ở Nhật."
+    },
+    "type": "名詞"
+  },
+  {
+    "id": 47,
+    "source": "Giữa kì_名詞",
+    "unit": "9_10_11_12",
+    "number": 47,
+    "word": "可能性",
+    "reading": "かのうせい",
+    "meaning": "Khả năng, khả năng xảy ra",
+    "example": {
+      "sentence": "問題が発生する可能性があります。",
+      "reading": "もんだいがはっせいするかのうせいがあります。",
+      "meaning": "Có khả năng xảy ra vấn đề."
+    },
+    "type": "名詞"
+  }
+]

@@ -9,6 +9,12 @@ npm run dev
 
 The development build uses Local mode (`.env.development`). The production build uses Web mode (`.env.production`). Listening data is always read from Supabase; only a signed-in Listening admin in Local mode can write it. Browser storage is not used as a Listening data source.
 
+## Bundled vocabulary books
+
+The midterm noun review book is kept as source data in [`src/data/giua-ki-noun.json`](./src/data/giua-ki-noun.json) and bundled into the app, so it remains available after refresh and deploy without relying on browser storage. Its `unit: "9_10_11_12"` is presented as one combined review unit.
+
+To add another permanent JSON vocabulary book, copy the validated JSON into `src/data`, import it in `src/routes/index.tsx`, and add it to `permanentVocabularyBooks`. Include that source change in Git and rebuild/deploy. The in-app **Thêm sách từ JSON** action remains a browser import and is not a way to write files into `src/data`.
+
 ## Supabase Listening setup
 
 ### 1. Create the Supabase project and configure keys

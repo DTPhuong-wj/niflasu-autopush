@@ -14,7 +14,7 @@ export interface Example {
 export interface Vocabulary {
   id: number;
   source: string;
-  unit: number;
+  unit: number | string;
   number: number;
   word: string;
   type?: string;

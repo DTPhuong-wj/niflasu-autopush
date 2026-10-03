@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { Vocabulary } from "../types/vocabulary";
 
 const EMPTY = <p className="nf-empty">Unit này chưa có dữ liệu từ vựng.</p>;
+type VocabularyUnit = Vocabulary["unit"];
 
 /** Màu nhẹ cho từng loại từ (class CSS tương ứng trong styles.css). */
 function typeClass(type?: string) {
@@ -67,7 +68,7 @@ function VocabularyBack({ item }: { item: Vocabulary }) {
 /* ---------- Flashcard ---------- */
 export function VocabularyFlashcard({
   items, currentUnit, startIndex, onExit,
-}: { items: Vocabulary[]; currentUnit: number; startIndex: number; onExit: () => void }) {
+}: { items: Vocabulary[]; currentUnit: VocabularyUnit; startIndex: number; onExit: () => void }) {
   const [currentVocabularyIndex, setIndex] = useState(startIndex);
   const [isFlipped, setIsFlipped] = useState(false);
 
@@ -170,7 +171,7 @@ function shuffle<T>(arr: T[]) {
   return a;
 }
 
-export function VocabularyPractice({ items, currentUnit }: { items: Vocabulary[]; currentUnit: number }) {
+export function VocabularyPractice({ items, currentUnit }: { items: Vocabulary[]; currentUnit: VocabularyUnit }) {
   const [scope, setScope] = useState<"all" | "range" | "pick">("all");
   const [from, setFrom] = useState(1);
   const [to, setTo] = useState(items.length);
