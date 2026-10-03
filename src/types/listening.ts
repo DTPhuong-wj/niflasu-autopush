@@ -3,9 +3,19 @@ export type ListeningSource = "local" | "google-drive" | "youtube";
 
 export type DetectedListeningSourceType = "directAudio" | "youtube" | "googleDrive" | "unknown";
 
-export interface ListeningScriptLine {
-  speaker: string;
+export interface FuriganaSegment {
   text: string;
+  reading: string;
+}
+
+export interface ListeningScriptLine {
+  id?: string | undefined;
+  speaker: string;
+  /** Japanese sentence (kept as `text` for backward compatibility). */
+  text: string;
+  furigana?: FuriganaSegment[] | undefined;
+  translation?: string | undefined;
+  needsReview?: boolean | undefined;
 }
 
 export interface ListeningLesson {
