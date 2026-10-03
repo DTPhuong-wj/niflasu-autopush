@@ -1,6 +1,7 @@
 [
     {
     "version": 1,
+    "bookname": "TNCN 4",
     "lessons": [
       {
         "id": "1",
@@ -281,6 +282,7 @@
   },
   {
     "version": 2,
+    "bookname": "TNCN 4",
     "lessons": [
       {
         "id": "2",
@@ -553,6 +555,7 @@
   },
   {
     "version": 3,
+    "bookname": "TNCN 4",
     "lessons": [
       {
         "id": "3",
@@ -828,6 +831,7 @@
   },
   {
     "version": 4,
+    "bookname": "TNCN 4",
     "lessons": [
       {
         "id": "4",
@@ -1124,6 +1128,478 @@
         ],
         "createdAt": "2026-10-03T00:00:00.000Z",
         "updatedAt": "2026-10-03T00:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "version": 1,
+    "id": "tncs-4",
+    "bookname": "TNCS 4",
+    "lessons": [
+      {
+        "id": "tncs4-unit-1",
+        "unit": 1,
+        "number": 1,
+        "title": "初めての人と",
+        "audio": {
+          "id": "tncs4-unit-1-audio",
+          "filename": "u1.mp3",
+          "url": "/audio/u1.mp3",
+          "mimeType": "audio/mpeg"
+        },
+        "script": [
+          {
+            "id": "tncs4-unit-1-line-001",
+            "speaker": "マイ",
+            "japanese": "はじめまして、マイと申します。",
+            "furigana": [{ "text": "申", "reading": "もう" }],
+            "translation": "Rất vui được làm quen, tôi tên là Mai."
+          },
+          {
+            "id": "tncs4-unit-1-line-002",
+            "speaker": "マイ",
+            "japanese": "えーと、「日本語おしゃべりサークル」に参加するのは、今日がはじめてです。",
+            "furigana": [
+              { "text": "日本語", "reading": "にほんご" },
+              { "text": "参加", "reading": "さんか" },
+              { "text": "今日", "reading": "きょう" }
+            ],
+            "translation": "Ừm, hôm nay là lần đầu tiên tôi tham gia “Câu lạc bộ trò chuyện tiếng Nhật”."
+          },
+          {
+            "id": "tncs4-unit-1-line-003",
+            "speaker": "マイ",
+            "japanese": "日本語の勉強を始めたのは、んー、3年前です。",
+            "furigana": [
+              { "text": "日本語", "reading": "にほんご" },
+              { "text": "勉強", "reading": "べんきょう" },
+              { "text": "始", "reading": "はじ" },
+              { "text": "年前", "reading": "ねんまえ" }
+            ],
+            "translation": "Tôi bắt đầu học tiếng Nhật khoảng 3 năm trước."
+          },
+          {
+            "id": "tncs4-unit-1-line-004",
+            "speaker": "マイ",
+            "japanese": "きっかけは、日本のアニメを見たことです。",
+            "furigana": [
+              { "text": "日本", "reading": "にほん" },
+              { "text": "見", "reading": "み" }
+            ],
+            "translation": "Cơ duyên là tôi đã xem anime Nhật Bản."
+          },
+          {
+            "id": "tncs4-unit-1-line-005",
+            "speaker": "マイ",
+            "japanese": "えー、仕事のあとで日本語を勉強するのは大変です。",
+            "furigana": [
+              { "text": "仕事", "reading": "しごと" },
+              { "text": "日本語", "reading": "にほんご" },
+              { "text": "勉強", "reading": "べんきょう" },
+              { "text": "大変", "reading": "たいへん" }
+            ],
+            "translation": "Ừm, học tiếng Nhật sau giờ làm thật vất vả."
+          },
+          {
+            "id": "tncs4-unit-1-line-006",
+            "speaker": "マイ",
+            "japanese": "でも、先生や友達のおかげで、楽しく勉強を続けています。",
+            "furigana": [
+              { "text": "先生", "reading": "せんせい" },
+              { "text": "友達", "reading": "ともだち" },
+              { "text": "楽", "reading": "たの" },
+              { "text": "勉強", "reading": "べんきょう" },
+              { "text": "続", "reading": "つづ" }
+            ],
+            "translation": "Nhưng nhờ thầy cô và bạn bè, tôi vẫn vui vẻ tiếp tục học."
+          },
+          {
+            "id": "tncs4-unit-1-line-007",
+            "speaker": "マイ",
+            "japanese": "えーと、今は、日系企業で輸出関係の仕事をしています。",
+            "furigana": [
+              { "text": "今", "reading": "いま" },
+              { "text": "日系企業", "reading": "にっけいきぎょう" },
+              { "text": "輸出関係", "reading": "ゆしゅつかんけい" },
+              { "text": "仕事", "reading": "しごと" }
+            ],
+            "translation": "Ừm, hiện tại tôi đang làm công việc liên quan đến xuất khẩu tại một công ty Nhật Bản."
+          },
+          {
+            "id": "tncs4-unit-1-line-008",
+            "speaker": "マイ",
+            "japanese": "仕事では日本語はあまり使いませんが、日本人のスタッフと、いろいろなことが話せるようになりたいと思っています。",
+            "furigana": [
+              { "text": "仕事", "reading": "しごと" },
+              { "text": "日本語", "reading": "にほんご" },
+              { "text": "使", "reading": "つか" },
+              { "text": "日本人", "reading": "にほんじん" },
+              { "text": "話", "reading": "はな" },
+              { "text": "思", "reading": "おも" }
+            ],
+            "translation": "Trong công việc tôi không dùng tiếng Nhật nhiều, nhưng tôi muốn có thể trò chuyện về nhiều điều với các nhân viên người Nhật."
+          },
+          {
+            "id": "tncs4-unit-1-line-009",
+            "speaker": "マイ",
+            "japanese": "えー、このサークルに参加したのは、日本人の友達をたくさん作りたいと思ったからです。",
+            "furigana": [
+              { "text": "参加", "reading": "さんか" },
+              { "text": "日本人", "reading": "にほんじん" },
+              { "text": "友達", "reading": "ともだち" },
+              { "text": "作", "reading": "つく" },
+              { "text": "思", "reading": "おも" }
+            ],
+            "translation": "Ừm, tôi tham gia câu lạc bộ này vì muốn kết bạn với thật nhiều người Nhật."
+          },
+          {
+            "id": "tncs4-unit-1-line-010",
+            "speaker": "マイ",
+            "japanese": "あ、趣味は食べ歩きです。",
+            "furigana": [
+              { "text": "趣味", "reading": "しゅみ" },
+              { "text": "食", "reading": "た" }
+            ],
+            "translation": "À, sở thích của tôi là đi thưởng thức các món ăn."
+          },
+          {
+            "id": "tncs4-unit-1-line-011",
+            "speaker": "マイ",
+            "japanese": "料理は、食べるのも作るのも大好きです。",
+            "furigana": [
+              { "text": "料理", "reading": "りょうり" },
+              { "text": "食", "reading": "た" },
+              { "text": "作", "reading": "つく" },
+              { "text": "大好", "reading": "だいす" }
+            ],
+            "translation": "Tôi rất thích cả ăn lẫn nấu các món ăn."
+          },
+          {
+            "id": "tncs4-unit-1-line-012",
+            "speaker": "マイ",
+            "japanese": "おしゃべりも大好きなので、どんどん話しかけてください。",
+            "furigana": [
+              { "text": "大好", "reading": "だいす" },
+              { "text": "話", "reading": "はな" }
+            ],
+            "translation": "Tôi cũng rất thích trò chuyện, nên mọi người cứ thoải mái bắt chuyện với tôi nhé."
+          },
+          {
+            "id": "tncs4-unit-1-line-013",
+            "speaker": "マイ",
+            "japanese": "どうぞ、よろしくお願いします。",
+            "furigana": [],
+            "translation": "Rất mong được mọi người giúp đỡ."
+          }
+        ]
+      },
+      {
+        "id": "tncs4-unit-2",
+        "unit": 2,
+        "number": 2,
+        "title": "おすすめの料理",
+        "audio": {
+          "id": "tncs4-unit-2-audio",
+          "filename": "u2.mp3",
+          "url": "/audio/u2.mp3",
+          "mimeType": "audio/mpeg"
+        },
+        "script": [
+          {
+            "id": "tncs4-unit-2-line-001",
+            "speaker": "マイ",
+            "japanese": "色々ありますが、日本の方の口に合うのは、ラグマンだと思います。",
+            "furigana": [
+              { "text": "色々", "reading": "いろいろ" },
+              { "text": "日本", "reading": "にほん" },
+              { "text": "方", "reading": "かた" },
+              { "text": "口", "reading": "くち" },
+              { "text": "合", "reading": "あ" },
+              { "text": "思", "reading": "おも" }
+            ],
+            "translation": "Có nhiều món, nhưng tôi nghĩ món lagman hợp khẩu vị người Nhật."
+          },
+          {
+            "id": "tncs4-unit-2-line-002",
+            "speaker": "マイ",
+            "japanese": "ラグマンは、小麦粉から作られた麺で、えっと、白くて日本のうどんに似ています。",
+            "furigana": [
+              { "text": "小麦粉", "reading": "こむぎこ" },
+              { "text": "作", "reading": "つく" },
+              { "text": "麺", "reading": "めん" },
+              { "text": "白", "reading": "しろ" },
+              { "text": "日本", "reading": "にほん" },
+              { "text": "似", "reading": "に" }
+            ],
+            "translation": "Lagman là loại mì làm từ bột mì; ừm, sợi mì màu trắng và giống mì udon của Nhật."
+          },
+          {
+            "id": "tncs4-unit-2-line-003",
+            "speaker": "マイ",
+            "japanese": "この麺をゆでて、その上に、炒めた肉と野菜をのせるんです。",
+            "furigana": [
+              { "text": "麺", "reading": "めん" },
+              { "text": "上", "reading": "うえ" },
+              { "text": "炒", "reading": "いた" },
+              { "text": "肉", "reading": "にく" },
+              { "text": "野菜", "reading": "やさい" }
+            ],
+            "translation": "Người ta luộc mì, rồi đặt thịt và rau đã xào lên trên."
+          },
+          {
+            "id": "tncs4-unit-2-line-004",
+            "speaker": "マイ",
+            "japanese": "肉からスープが出るので、とてもおいしいんですよ。",
+            "furigana": [
+              { "text": "肉", "reading": "にく" },
+              { "text": "出", "reading": "で" }
+            ],
+            "translation": "Nước ngọt từ thịt tiết ra nên món này ngon lắm."
+          },
+          {
+            "id": "tncs4-unit-2-line-005",
+            "speaker": "マイ",
+            "japanese": "パセリをかけて食べたりもします。",
+            "furigana": [{ "text": "食", "reading": "た" }],
+            "translation": "Đôi khi người ta còn rắc rau mùi tây lên rồi ăn."
+          },
+          {
+            "id": "tncs4-unit-2-line-006",
+            "speaker": "マイ",
+            "japanese": "実は、ラグマンは、中央アジアの他の国にもあって、国によって、色々なパラエティがあるんです。",
+            "furigana": [
+              { "text": "実", "reading": "じつ" },
+              { "text": "中央", "reading": "ちゅうおう" },
+              { "text": "他", "reading": "ほか" },
+              { "text": "国", "reading": "くに" },
+              { "text": "国", "reading": "くに" },
+              { "text": "色々", "reading": "いろいろ" }
+            ],
+            "translation": "Thật ra, lagman cũng có ở các quốc gia khác thuộc Trung Á, và mỗi nước lại có nhiều biến thể khác nhau."
+          },
+          {
+            "id": "tncs4-unit-2-line-007",
+            "speaker": "マイ",
+            "japanese": "日本の方に、一番好きなキルギス料理を聞くと、たいていラグマンだとおしゃいます。",
+            "furigana": [
+              { "text": "日本", "reading": "にほん" },
+              { "text": "方", "reading": "かた" },
+              { "text": "一番", "reading": "いちばん" },
+              { "text": "好", "reading": "す" },
+              { "text": "料理", "reading": "りょうり" },
+              { "text": "聞", "reading": "き" }
+            ],
+            "translation": "Khi hỏi người Nhật món Kyrgyzstan họ thích nhất, thường họ nói đó là lagman."
+          },
+          {
+            "id": "tncs4-unit-2-line-008",
+            "speaker": "マイ",
+            "japanese": "ぜひ、めしあがってみてください。",
+            "furigana": [],
+            "translation": "Nhất định bạn hãy thử nếm nhé."
+          }
+        ]
+      },
+      {
+        "id": "tncs4-unit-3",
+        "unit": 3,
+        "number": 3,
+        "title": "私の好きな音楽",
+        "audio": {
+          "id": "tncs4-unit-3-audio",
+          "filename": "u3.mp3",
+          "url": "/audio/u3.mp3",
+          "mimeType": "audio/mpeg"
+        },
+        "script": [
+          {
+            "id": "tncs4-unit-3-line-001",
+            "speaker": "マイ",
+            "japanese": "ガガって変わったファッションで有名ですけど、彼女の音楽は、すごくレベルが高いんですよ。",
+            "furigana": [
+              { "text": "変", "reading": "か" },
+              { "text": "有名", "reading": "ゆうめい" },
+              { "text": "彼女", "reading": "かのじょ" },
+              { "text": "音楽", "reading": "おんがく" },
+              { "text": "高", "reading": "たか" }
+            ],
+            "translation": "Gaga nổi tiếng với phong cách thời trang khác lạ, nhưng âm nhạc của cô ấy có trình độ rất cao đấy."
+          },
+          {
+            "id": "tncs4-unit-3-line-002",
+            "speaker": "マイ",
+            "japanese": "歌もピアノもうまいんですが、彼女のすごいところは、えっと・・・自分の歌を、全部、自分で作っているところですね。",
+            "furigana": [
+              { "text": "歌", "reading": "うた" },
+              { "text": "彼女", "reading": "かのじょ" },
+              { "text": "自分", "reading": "じぶん" },
+              { "text": "歌", "reading": "うた" },
+              { "text": "全部", "reading": "ぜんぶ" },
+              { "text": "自分", "reading": "じぶん" },
+              { "text": "作", "reading": "つく" }
+            ],
+            "translation": "Cô ấy hát hay và chơi piano giỏi, nhưng điều tuyệt vời ở cô ấy là… ừm, cô ấy tự sáng tác tất cả các bài hát của mình."
+          },
+          {
+            "id": "tncs4-unit-3-line-003",
+            "speaker": "マイ",
+            "japanese": "メロディーやリズムが個性的だし、んー、一度聞いたら忘れられない魅力がありますよ。",
+            "furigana": [
+              { "text": "個性的", "reading": "こせいてき" },
+              { "text": "一度", "reading": "いちど" },
+              { "text": "聞", "reading": "き" },
+              { "text": "忘", "reading": "わす" },
+              { "text": "魅力", "reading": "みりょく" }
+            ],
+            "translation": "Giai điệu và nhịp điệu rất độc đáo, hơn nữa, ừm, có sức hấp dẫn khiến bạn nghe một lần là không thể quên."
+          },
+          {
+            "id": "tncs4-unit-3-line-004",
+            "speaker": "マイ",
+            "japanese": "それに、ミュージックビデオも、まるで映画を見ているようで、ドキドキするんです。",
+            "furigana": [
+              { "text": "映画", "reading": "えいが" },
+              { "text": "見", "reading": "み" }
+            ],
+            "translation": "Hơn nữa, video âm nhạc của cô ấy cứ như đang xem phim vậy, khiến người xem hồi hộp."
+          },
+          {
+            "id": "tncs4-unit-3-line-005",
+            "speaker": "マイ",
+            "japanese": "それだけじゃなくて、ガガは、えー、社会的な活動もしていて、すばらしい人だと思います。",
+            "furigana": [
+              { "text": "社会的", "reading": "しゃかいてき" },
+              { "text": "活動", "reading": "かつどう" },
+              { "text": "人", "reading": "ひと" },
+              { "text": "思", "reading": "おも" }
+            ],
+            "translation": "Không chỉ vậy, ừm, Gaga còn tham gia các hoạt động xã hội; tôi nghĩ cô ấy là một người tuyệt vời."
+          },
+          {
+            "id": "tncs4-unit-3-line-006",
+            "speaker": "マイ",
+            "japanese": "西川さんも、ぜひ聞いてください。",
+            "furigana": [
+              { "text": "西川", "reading": "にしかわ" },
+              { "text": "聞", "reading": "き" }
+            ],
+            "translation": "Anh Nishikawa cũng nhất định hãy nghe thử nhé."
+          }
+        ]
+      },
+      {
+        "id": "tncs4-unit-4",
+        "unit": 4,
+        "number": 4,
+        "title": "温泉に行こう",
+        "audio": {
+          "id": "tncs4-unit-4-audio",
+          "filename": "u4.mp3",
+          "url": "/audio/u4.mp3",
+          "mimeType": "audio/mpeg"
+        },
+        "script": [
+          {
+            "id": "tncs4-unit-4-line-001",
+            "speaker": "マイ",
+            "japanese": "いちばん行きたいのは、お台場の大江戸温泉です。",
+            "furigana": [
+              { "text": "行", "reading": "い" },
+              { "text": "台場", "reading": "だいば" },
+              { "text": "大江戸温泉", "reading": "おおえどおんせん" }
+            ],
+            "translation": "Nơi tôi muốn đến nhất là suối nước nóng Oedo ở Odaiba."
+          },
+          {
+            "id": "tncs4-unit-4-line-002",
+            "speaker": "マイ",
+            "japanese": "友達に聞いたんですけど、温泉のテーマパークみたいなところで、好きな浴衣が借りられるそうなんです。",
+            "furigana": [
+              { "text": "友達", "reading": "ともだち" },
+              { "text": "聞", "reading": "き" },
+              { "text": "温泉", "reading": "おんせん" },
+              { "text": "好", "reading": "す" },
+              { "text": "浴衣", "reading": "ゆかた" },
+              { "text": "借", "reading": "か" }
+            ],
+            "translation": "Tôi nghe bạn kể rằng đó giống như một công viên chủ đề suối nước nóng, nơi mình có thể thuê yukata mình thích."
+          },
+          {
+            "id": "tncs4-unit-4-line-003",
+            "speaker": "マイ",
+            "japanese": "中が江戸の古い町みたいになっていて、すごくおもしろいって言ってました。",
+            "furigana": [
+              { "text": "中", "reading": "なか" },
+              { "text": "江戸", "reading": "えど" },
+              { "text": "古", "reading": "ふる" },
+              { "text": "町", "reading": "まち" },
+              { "text": "言", "reading": "い" }
+            ],
+            "translation": "Bạn ấy nói bên trong được làm giống một khu phố cổ thời Edo, rất thú vị."
+          },
+          {
+            "id": "tncs4-unit-4-line-004",
+            "speaker": "マイ",
+            "japanese": "お風呂に入って、浴衣を着て、ごはんも食べて、一日中いたいです。",
+            "furigana": [
+              { "text": "風呂", "reading": "ふろ" },
+              { "text": "入", "reading": "はい" },
+              { "text": "浴衣", "reading": "ゆかた" },
+              { "text": "着", "reading": "き" },
+              { "text": "食", "reading": "た" },
+              { "text": "一日中", "reading": "いちにちじゅう" }
+            ],
+            "translation": "Tôi muốn tắm suối nước nóng, mặc yukata, ăn uống và ở đó cả ngày."
+          },
+          {
+            "id": "tncs4-unit-4-line-005",
+            "speaker": "マイ",
+            "japanese": "それから、その次に行きたいのは、「アニメイト」とかのアニメショップですね。",
+            "furigana": [
+              { "text": "次", "reading": "つぎ" },
+              { "text": "行", "reading": "い" }
+            ],
+            "translation": "Sau đó, nơi tiếp theo tôi muốn đến là các cửa hàng anime như Animate."
+          },
+          {
+            "id": "tncs4-unit-4-line-006",
+            "speaker": "マイ",
+            "japanese": "私は日本のアニメが大好きなので、どんなところか、一度、行ってみたいんです。",
+            "furigana": [
+              { "text": "私", "reading": "わたし" },
+              { "text": "日本", "reading": "にほん" },
+              { "text": "大好", "reading": "だいす" },
+              { "text": "一度", "reading": "いちど" },
+              { "text": "行", "reading": "い" }
+            ],
+            "translation": "Tôi rất thích anime Nhật Bản nên muốn đến thử một lần xem nơi đó như thế nào."
+          },
+          {
+            "id": "tncs4-unit-4-line-007",
+            "speaker": "マイ",
+            "japanese": "アニメのDVDは、なんでもあるそうですし、キャラクターグッズもおもしろそうですよね。",
+            "furigana": [],
+            "translation": "Nghe nói ở đó có đủ loại DVD anime, mà hàng hóa nhân vật cũng có vẻ thú vị nhỉ."
+          },
+          {
+            "id": "tncs4-unit-4-line-008",
+            "speaker": "マイ",
+            "japanese": "あと、スカイツリーにも行かなくちゃ。",
+            "furigana": [{ "text": "行", "reading": "い" }],
+            "translation": "Ngoài ra, tôi cũng phải đến Skytree nữa."
+          },
+          {
+            "id": "tncs4-unit-4-line-009",
+            "speaker": "マイ",
+            "japanese": "展望台からの眺めがすごくて、夜のライトアップもきれいだそうですね。",
+            "furigana": [
+              { "text": "展望台", "reading": "てんぼうだい" },
+              { "text": "眺", "reading": "なが" },
+              { "text": "夜", "reading": "よる" }
+            ],
+            "translation": "Nghe nói quang cảnh từ đài quan sát rất tuyệt, và Skytree được thắp sáng vào ban đêm cũng rất đẹp."
+          }
+        ]
       }
     ]
   }

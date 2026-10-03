@@ -106,7 +106,8 @@ function toBookSets(data: unknown): ListeningBookSet[] {
   for (const root of roots) {
     if (!Array.isArray(root.lessons)) continue;
     const bookId = asText(root.id) || asText(root.name) || "listening";
-    const bookName = asText(root.name) || asText(root.title) || "Listening";
+    const bookName =
+      asText(root.bookname) || asText(root.name) || asText(root.title) || "Listening";
     const bookSet = books.get(bookId) ?? {
       book: {
         id: bookId,
