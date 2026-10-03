@@ -14,7 +14,112 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      listening_books: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id: string
+          name: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          name?: string
+        }
+        Relationships: []
+      }
+      listening_lessons: {
+        Row: {
+          audio_path: string | null
+          book_id: string
+          created_at: string
+          data: Json
+          id: string
+          number: number
+          title: string
+          unit: number
+          updated_at: string
+        }
+        Insert: {
+          audio_path?: string | null
+          book_id: string
+          created_at?: string
+          data?: Json
+          id: string
+          number: number
+          title: string
+          unit: number
+          updated_at?: string
+        }
+        Update: {
+          audio_path?: string | null
+          book_id?: string
+          created_at?: string
+          data?: Json
+          id?: string
+          number?: number
+          title?: string
+          unit?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "listening_lessons_book_id_fkey"
+            columns: ["book_id"]
+            isOneToOne: false
+            referencedRelation: "listening_books"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      listening_script_lines: {
+        Row: {
+          furigana: Json
+          id: string
+          japanese: string
+          lesson_id: string
+          needs_review: boolean
+          position: number
+          speaker: string
+          translation: string
+        }
+        Insert: {
+          furigana?: Json
+          id?: string
+          japanese: string
+          lesson_id: string
+          needs_review?: boolean
+          position: number
+          speaker?: string
+          translation?: string
+        }
+        Update: {
+          furigana?: Json
+          id?: string
+          japanese?: string
+          lesson_id?: string
+          needs_review?: boolean
+          position?: number
+          speaker?: string
+          translation?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "listening_script_lines_lesson_id_fkey"
+            columns: ["lesson_id"]
+            isOneToOne: false
+            referencedRelation: "listening_lessons"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
