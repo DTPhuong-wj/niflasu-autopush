@@ -12,7 +12,7 @@ interface Props {
 }
 
 export default function ListeningPlayerModal({ lesson, bookName, onClose }: Props) {
-  const [showScript, setShowScript] = useState(false);
+  const [showScript, setShowScript] = useState(true);
   const [loadedDuration, setLoadedDuration] = useState<number | undefined>(() => Number(lesson.duration) > 0 ? Number(lesson.duration) : undefined);
 
   useEffect(() => {
@@ -57,7 +57,6 @@ export default function ListeningPlayerModal({ lesson, bookName, onClose }: Prop
             <div className="nf-listening-hero-label">Unit {lesson.unit}</div>
             <div className="nf-listening-hero-title">{lesson.title}</div>
             <div className="nf-listening-hero-detail">Duration: {loadedDuration ? formatDuration(loadedDuration) : "Đang tải..."}</div>
-            <div className="nf-listening-hero-detail">Script: {lesson.hasScript ? "Available" : "Unavailable"}</div>
           </div>
         </div>
 

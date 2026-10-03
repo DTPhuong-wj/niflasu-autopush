@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "lessons": [
+    {
+      "id": "lesson-demo-001",
+      "title": "店舗情報管理",
+      "description": "Demo lesson metadata for Listening script and furigana storage.",
+      "audio": {
+        "id": "audio-demo-001",
+        "filename": "lesson-demo-001.mp3",
+        "url": "/audio/lesson-demo-001.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      "script": [
+        {
+          "id": "line-demo-001",
+          "speaker": "リー",
+          "japanese": "大沢さん、すみません。",
+          "furigana": [
+            { "text": "大沢", "reading": "おおさわ" }
+          ],
+          "translation": "Anh Osawa, xin lỗi anh."
+        },
+        {
+          "id": "line-demo-002",
+          "speaker": "大沢",
+          "japanese": "はい。",
+          "furigana": [],
+          "translation": "Vâng."
+        }
+      ],
+      "createdAt": "2026-10-03T00:00:00.000Z",
+      "updatedAt": "2026-10-03T00:00:00.000Z"
+    }
+  ]
+}

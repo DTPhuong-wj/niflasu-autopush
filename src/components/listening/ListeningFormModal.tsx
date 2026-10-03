@@ -2,7 +2,9 @@ import { CheckCircle2, ExternalLink, FileAudio, Plus, Upload, X } from "lucide-r
 import { useEffect, useMemo, useRef, useState } from "react";
 import { detectListeningSource, extractDroppedUrl, extractGoogleDriveFileId, getGoogleDrivePlaybackError, inspectListeningSource, type ListeningSourceInspection } from "../../services/listeningSources";
 import { formatDuration, parseDurationToSeconds } from "../../services/listeningService";
-import type { ListeningBook, ListeningBookSet, ListeningLesson, ListeningSource, ListeningSourceType } from "../../types/listening";
+import { processScript } from "../../lib/script-ai.functions";
+import { saveLocalAudioFile } from "../../services/localAudioStorage";
+import { getScriptLineText, type ListeningBook, type ListeningBookSet, type ListeningLesson, type ListeningSource, type ListeningSourceType } from "../../types/listening";
 
 interface Props {
   books: ListeningBookSet[];
@@ -15,8 +17,17 @@ interface Props {
 
 function parseScriptText(text: string): ListeningLesson["script"] {
   return text.split(/\r?\n/).map((line) => line.trim()).filter(Boolean).map((line) => {
-    const match = line.match(/^([^：]+)[:：]\s*(.*)$/);
-    return { speaker: match?.[1]?.trim() ?? "", text: match?.[2]?.trim() || line };
+    const match = line.match(/^([^：]+)[:：]\s*(.*?)(?:\s*\|\|\s*(.*))?$/);
+    const speaker = match?.[1]?.trim() ?? "";
+    const japanese = (match?.[2]?.trim() || line).trim();
+    const translation = match?.[3]?.trim() || undefined;
+    return {
+      speaker,
+      text: japanese,
+      japanese,
+      translation,
+      furigana: [],
+    };
   });
 }
 
@@ -56,13 +67,14 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
   const [description, setDescription] = useState(editingLesson?.description ?? "");
   const [duration, setDuration] = useState(editingLesson?.duration ? formatDuration(editingLesson.duration) : "");
   const [hasScript, setHasScript] = useState(editingLesson?.hasScript ?? false);
-  const [scriptText, setScriptText] = useState(editingLesson?.script?.map((line) => `${line.speaker}${line.speaker ? "：" : ""}${line.text}`).join("\n") ?? "");
+  const [scriptText, setScriptText] = useState(editingLesson?.script?.map((line) => `${line.speaker}${line.speaker ? "：" : ""}${getScriptLineText(line)}${line.translation ? ` || ${line.translation}` : ""}`).join("\n") ?? "");
   const [inspection, setInspection] = useState<ListeningSourceInspection | null>(() => {
     if (!editingLesson) return null;
     if (editingLesson.source === "local") return { type: "directAudio", sourceId: editingLesson.sourceId ?? editingLesson.fileName ?? null, sourceUrl: editingLesson.sourceUrl, previewUrl: editingLesson.sourceUrl, isValid: true, message: "File audio chỉ được phát trong phiên hiện tại." };
     return detectListeningSource(initialSourceUrl, editingLesson.sourceType);
   });
   const [isChecking, setIsChecking] = useState(false);
+  const [isAiProcessing, setIsAiProcessing] = useState(false);
   const [error, setError] = useState("");
   const [showAddBookForm, setShowAddBookForm] = useState(false);
   const [newBookName, setNewBookName] = useState("");
@@ -212,6 +224,50 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
     }
   };
 
+  const handleAiProcessScript = async () => {
+    const parsedLines = parseScriptText(scriptText);
+    if (parsedLines.length === 0) {
+      setError("Nhập script tiếng Nhật trước khi AI xử lý.");
+      return;
+    }
+
+    setIsAiProcessing(true);
+    setError("");
+
+    try {
+      const result = await processScript({
+        lines: parsedLines.map((line) => ({ speaker: line.speaker, text: getScriptLineText(line) })),
+      });
+
+      if (result.error) {
+        throw new Error(result.error);
+      }
+
+      const nextScript = parsedLines.map((line, index) => {
+        const processed = result.lines[index];
+        const japanese = getScriptLineText(line);
+        const translation = processed?.translation?.trim() || line.translation || undefined;
+        return {
+          ...line,
+          japanese,
+          text: japanese,
+          furigana: processed?.furigana ?? [],
+          translation,
+          needsReview: processed?.needsReview ?? line.needsReview ?? false,
+        };
+      });
+
+      setScriptText(nextScript
+        .map((line) => `${line.speaker ? `${line.speaker}：` : ""}${getScriptLineText(line)}${line.translation ? ` || ${line.translation}` : ""}`)
+        .join("\n"));
+      setHasScript(true);
+    } catch (saveError) {
+      setError(saveError instanceof Error ? saveError.message : "AI không xử lý được script lúc này.");
+    } finally {
+      setIsAiProcessing(false);
+    }
+  };
+
   const handleSubmit = async () => {
     if (isSaving) return;
     const nextUnit = Number(unit);
@@ -228,8 +284,21 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
     if (source === "google-drive" && !googleDriveId) return setError("Link Google Drive không hợp lệ.");
 
     const now = new Date().toISOString();
+    const lessonId = String(editingLesson?.id ?? `lesson-${Date.now()}`);
+    let lessonAudioFileId = source === "local" ? (selectedFile ? `${lessonId}-${Date.now()}` : editingLesson?.audioFileId) : undefined;
+
+    if (source === "local" && selectedFile && lessonAudioFileId) {
+      try {
+        await saveLocalAudioFile(lessonAudioFileId, selectedFile);
+      } catch (fileError) {
+        setError(fileError instanceof Error ? fileError.message : "Không thể lưu file audio trên thiết bị.");
+        setIsSaving(false);
+        return;
+      }
+    }
+
     const lesson: ListeningLesson = {
-      id: editingLesson?.id ?? `lesson-${Date.now()}`,
+      id: lessonId,
       bookId: bookId || currentBook!.book.id,
       unit: nextUnit,
       number: nextNumber,
@@ -242,7 +311,7 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
       sourceId: source === "google-drive" ? googleDriveId : inspection.sourceId ?? undefined,
       googleDriveUrl: source === "google-drive" ? inspection.sourceUrl : undefined,
       googleDriveId,
-      audioFileId: source === "local" && !selectedFile ? editingLesson?.audioFileId : undefined,
+      audioFileId: lessonAudioFileId,
       fileName: selectedFile?.name ?? editingLesson?.fileName,
       duration: parseDurationToSeconds(duration),
       thumbnailUrl: inspection.thumbnailUrl,
@@ -307,7 +376,16 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
 
           <label className="nf-field"><span>Thời lượng</span><input value={duration} onChange={(event) => setDuration(event.target.value)} placeholder="02:35 hoặc số giây" /></label>
           <label className="nf-listening-check-row"><input type="checkbox" checked={hasScript} onChange={(event) => setHasScript(event.target.checked)} /><span>Có Script</span></label>
-          {hasScript && <label className="nf-field"><span>Nội dung Script</span><textarea rows={6} value={scriptText} onChange={(event) => setScriptText(event.target.value)} placeholder={'男：こんにちは。\n女：こんにちは。'} /></label>}
+          {hasScript && (
+            <>
+              <div className="nf-listening-inline-actions">
+                <button type="button" className="nf-btn" onClick={handleAiProcessScript} disabled={isAiProcessing}>
+                  {isAiProcessing ? "Đang AI xử lý..." : "AI xử lý Script"}
+                </button>
+              </div>
+              <label className="nf-field"><span>Nội dung Script</span><textarea rows={6} value={scriptText} onChange={(event) => setScriptText(event.target.value)} placeholder={'男：こんにちは。\n女：こんにちは。'} /></label>
+            </>
+          )}
         </div>
 
         {error && <div className="nf-listening-form-error">{error}</div>}

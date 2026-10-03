@@ -1159,15 +1159,15 @@
   font-size: 12px;
 }
 .nf-listening-modal {
-  width: min(620px, calc(100vw - 24px));
-  max-height: min(90vh, 760px);
+  width: min(860px, calc(100vw - 24px));
+  max-height: min(94vh, 920px);
   overflow: auto;
   display: flex;
   flex-direction: column;
   gap: 16px;
   padding: 18px;
   border: 1px solid var(--nf-border);
-  border-radius: 16px;
+  border-radius: 18px;
   background: var(--nf-surface);
   box-shadow: var(--nf-shadow);
 }
@@ -1375,11 +1375,17 @@
 .nf-listening-script {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   padding: 14px;
   border: 1px solid var(--nf-border);
-  border-radius: 10px;
-  background: color-mix(in oklab, var(--nf-surface-alt) 25%, var(--nf-surface));
+  border-radius: 12px;
+  background: color-mix(in oklab, var(--nf-surface-alt) 22%, var(--nf-surface));
+}
+.nf-listening-script-head-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 .nf-listening-script-head {
   font-size: 12px;
@@ -1388,29 +1394,123 @@
   color: var(--nf-text-soft);
   text-transform: uppercase;
 }
+.nf-listening-script-toggle {
+  border: 1px solid var(--nf-border);
+  border-radius: 999px;
+  background: var(--nf-surface);
+  color: var(--nf-text);
+  padding: 7px 11px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.nf-listening-script-toggle.is-on {
+  background: color-mix(in oklab, var(--nf-accent) 12%, var(--nf-surface));
+  border-color: color-mix(in oklab, var(--nf-accent) 30%, var(--nf-border));
+  color: var(--nf-accent);
+}
 .nf-listening-script-body {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 .nf-listening-script-line {
   display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--nf-border);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.nf-listening-script-line:hover {
+  border-color: color-mix(in oklab, var(--nf-accent) 35%, var(--nf-border));
+}
+.nf-listening-script-line-row {
+  display: flex;
+  align-items: flex-start;
   gap: 10px;
-  padding: 6px 0;
-  border-bottom: 1px solid var(--nf-border);
 }
 .nf-listening-script-speaker {
-  min-width: 40px;
+  min-width: 44px;
   color: var(--nf-accent);
   font-weight: 700;
+  padding-top: 2px;
 }
-.nf-listening-script-text {
-  line-height: 1.6;
+.nf-listening-script-main {
+  flex: 1;
+  min-width: 0;
+}
+.nf-listening-script-japanese {
+  display: inline;
+  line-height: 1.7;
   color: var(--nf-text);
+  font-size: 19px;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+.nf-listening-script-ruby-text ruby {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0 0.08em;
+  white-space: nowrap;
+  line-height: 1.1;
+  font-size: 1em;
+}
+.nf-listening-script-ruby-text rt {
+  font-size: 0.46em;
+  line-height: 1;
+  margin-bottom: 0.2em;
+  color: var(--nf-text-soft);
+  text-align: center;
+}
+.nf-listening-script-translate {
+  align-self: flex-start;
+  border: 1px solid var(--nf-border);
+  border-radius: 999px;
+  background: var(--nf-surface);
+  color: var(--nf-text-soft);
+  padding: 5px 9px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.nf-listening-script-translate.is-open,
+.nf-listening-script-translate:hover {
+  background: color-mix(in oklab, var(--nf-accent) 10%, var(--nf-surface));
+  border-color: color-mix(in oklab, var(--nf-accent) 25%, var(--nf-border));
+  color: var(--nf-accent);
+}
+.nf-listening-script-translation {
+  margin-left: 54px;
+  padding: 8px 10px 0 0;
+  color: var(--nf-text-soft);
+  font-size: 13px;
+  line-height: 1.6;
+  border-top: 1px solid var(--nf-border);
+  animation: nf-slide-down 0.2s ease;
 }
 .nf-listening-script-empty {
   font-size: 13px;
   color: var(--nf-text-soft);
+}
+
+@keyframes nf-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 140px;
+  }
 }
 
 /* ---------- Responsive ---------- */

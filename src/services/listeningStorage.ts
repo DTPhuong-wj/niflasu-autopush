@@ -4,6 +4,24 @@ import type { ListeningBookSet, ListeningLesson, ListeningSourceType } from "../
 
 export const LISTENING_STORAGE_KEY = "niflasu-listening-books-v1";
 
+export interface ListeningStorageAdapter {
+  uploadAudio: (lessonId: string, file: File) => Promise<string>;
+  getAudio: (path: string) => Promise<string>;
+  deleteAudio: (path: string) => Promise<void>;
+  saveLesson: (lesson: ListeningLesson, audioFile?: File | null) => Promise<void>;
+  getLesson: (lessonId: string) => Promise<ListeningLesson | null>;
+}
+
+export function createListeningStorage(): ListeningStorageAdapter {
+  return {
+    uploadAudio: async (_lessonId, file) => URL.createObjectURL(file),
+    getAudio: async (path) => path,
+    deleteAudio: async () => undefined,
+    saveLesson: async () => undefined,
+    getLesson: async () => null,
+  };
+}
+
 export function normalizeSourceType(value?: string): ListeningSourceType {
   const sourceType = (value ?? "").toLowerCase();
 

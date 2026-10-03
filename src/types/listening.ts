@@ -12,10 +12,15 @@ export interface ListeningScriptLine {
   id?: string | undefined;
   speaker: string;
   /** Japanese sentence (kept as `text` for backward compatibility). */
-  text: string;
+  text?: string | undefined;
+  japanese?: string | undefined;
   furigana?: FuriganaSegment[] | undefined;
   translation?: string | undefined;
   needsReview?: boolean | undefined;
+}
+
+export function getScriptLineText(line: Pick<ListeningScriptLine, "text" | "japanese">): string {
+  return (line.text ?? line.japanese ?? "").trim();
 }
 
 export interface ListeningLesson {

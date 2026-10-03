@@ -19,7 +19,7 @@ export type ProcessedLine = z.infer<typeof outputSchema>["lines"][number];
 
 /** Adds furigana + Vietnamese translation to Japanese script lines. Original text is never modified. */
 export const processScript = createServerFn({ method: "POST" })
-  .inputValidator((data: unknown) => inputSchema.parse(data))
+  .validator((data: unknown) => inputSchema.parse(data))
   .handler(async ({ data }): Promise<{ lines: ProcessedLine[]; error?: string }> => {
     if (data.lines.length === 0) return { lines: [] };
     const apiKey = process.env["LOVABLE_API_KEY"];
