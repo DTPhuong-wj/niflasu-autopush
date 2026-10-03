@@ -6,13 +6,14 @@ interface Props {
   book: ListeningBook;
   isNew?: boolean;
   onClose: () => void;
-  onSave: (book: ListeningBook) => void;
+  onSave: (book: ListeningBook) => Promise<void> | void;
 }
 
 export default function ListeningBookFormModal({ book, isNew = false, onClose, onSave }: Props) {
   const [name, setName] = useState(book.name);
   const [description, setDescription] = useState(book.description ?? "");
   const [error, setError] = useState("");
+  const [isSaving, setIsSaving] = useState(false);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -22,13 +23,21 @@ export default function ListeningBookFormModal({ book, isNew = false, onClose, o
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [onClose]);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const nextName = name.trim();
     if (!nextName) {
       setError("Tên sách không được để trống.");
       return;
     }
-    onSave({ ...book, name: nextName, description: description.trim() || undefined });
+    setIsSaving(true);
+    setError("");
+    try {
+      await onSave({ ...book, name: nextName, description: description.trim() || undefined });
+    } catch (saveError) {
+      setError(saveError instanceof Error ? saveError.message : "Không thể lưu sách.");
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   return (
@@ -53,8 +62,8 @@ export default function ListeningBookFormModal({ book, isNew = false, onClose, o
         {error && <div className="nf-listening-form-error">{error}</div>}
 
         <div className="nf-modal-actions">
-          <button type="button" className="nf-btn" onClick={onClose}>Hủy</button>
-          <button type="button" className="nf-btn is-active" onClick={handleSubmit}>{isNew ? "Thêm sách" : "Lưu thay đổi"}</button>
+          <button type="button" className="nf-btn" onClick={onClose} disabled={isSaving}>Hủy</button>
+          <button type="button" className="nf-btn is-active" onClick={() => void handleSubmit()} disabled={isSaving}>{isSaving ? "Đang lưu..." : isNew ? "Thêm sách" : "Lưu thay đổi"}</button>
         </div>
       </div>
     </div>

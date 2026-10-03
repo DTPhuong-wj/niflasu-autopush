@@ -25,19 +25,82 @@ npm run dev
 
 ## Deploy to Cloudflare Workers
 
-The production build uses Nitro's Cloudflare Workers preset and generates `.output/server/wrangler.json`.
-Authenticate once with `npx wrangler login`, then validate or deploy with:
+The production build uses Nitro's Cloudflare Workers preset and generates `.output/server/wrangler.json`. For first-time setup, follow **Bật lưu bài nghe trên website** below; it covers connecting this GitHub repository to Cloudflare and configuring the build. To deploy manually from a computer with Node.js and npm installed:
 
 ```sh
+npm ci
+npx wrangler login
 npm run deploy:cloudflare:dry-run
 npm run deploy:cloudflare
 ```
 
 ## Listening Local / Web
 
-`npm run dev` uses Local mode (`.env.development`): lesson metadata stays in browser `localStorage` and uploaded audio stays in IndexedDB. Add, edit, and delete Listening content here, then select **Sync / Export** to download `niflasu-listening-export.zip`.
+`npm run dev` uses Local mode (`.env.development`): lesson metadata stays in browser `localStorage` and uploaded audio stays in IndexedDB. **Sync / Export** can package that local content for backup.
 
-Extract the ZIP at the repository root and replace `public/data/lessons.json`; uploaded files are included under `public/audio/`. The export does not remove browser data. Deploy the project afterward. Production builds use Web mode (`.env.production`), which reads only `/data/lessons.json` and hides Listening management controls.
+Web mode (`.env.production`) reads and writes books, lessons, scripts, and audio through Supabase. Cloudflare hosts the website, while Supabase keeps uploaded content when the site is redeployed. The Listening editor is available without sign-in.
+
+### Bật lưu bài nghe trên website — từ đầu đến cuối
+
+Các bước sau tạo nơi lưu trữ trên Supabase, kết nối website với kho đó, triển khai ứng dụng lên Cloudflare Workers rồi thử tải một bài nghe lên. Bạn cần có tài khoản GitHub và quyền truy cập repository này. Không cần bật đăng nhập cho người học.
+
+#### A. Tạo dự án Supabase
+
+1. Mở [supabase.com](https://supabase.com/) và chọn **Start your project**. Đăng nhập hoặc tạo tài khoản.
+2. Tạo một **Organization** nếu Supabase yêu cầu: nhập tên tổ chức, chọn gói phù hợp rồi tiếp tục.
+3. Trong organization, chọn **New project**. Điền tên, ví dụ `niflasu-listening`; chọn một mật khẩu database mạnh, lưu ở nơi an toàn; chọn region gần bạn/đối tượng nghe nhất; sau đó chọn **Create new project**.
+4. Đợi trạng thái dự án hoàn tất khởi tạo. Mở **Project Settings → API Keys** (một số giao diện cũ hiển thị **Project Settings → API**).
+5. Sao chép **Project URL** và **Publishable key** (ở giao diện cũ có thể tên là `anon`/`public`). Giữ hai giá trị này để cấu hình Cloudflare ở phần C.
+6. Không sao chép hoặc đưa **Secret key**, `service_role` key, hay mật khẩu database vào website. Ứng dụng chỉ cần URL và publishable key; không đăng các giá trị này công khai trong issue/chat.
+
+#### B. Tạo bảng và kho audio
+
+1. Trong dự án Supabase, mở **SQL Editor** → **New query**.
+2. Mở file [`supabase/migrations/20261003000000_public_listening_storage.sql`](./supabase/migrations/20261003000000_public_listening_storage.sql) trong repository. Sao chép toàn bộ nội dung, dán vào SQL Editor rồi chọn **Run**.
+3. Xác nhận query chạy thành công. Có thể kiểm tra trong **Table Editor** thấy `listening_books`, `listening_lessons`, `listening_script_lines`, và trong **Storage** thấy bucket `listening-audio`.
+4. Không cần tạo bucket hay bảng thủ công thêm lần nữa. Migration đã tạo quyền đọc/ghi cho chế độ không đăng nhập.
+
+#### C. Kết nối GitHub và tạo Cloudflare Worker
+
+1. Mở [dash.cloudflare.com](https://dash.cloudflare.com/) và đăng nhập hoặc tạo tài khoản Cloudflare.
+2. Trong Cloudflare, mở **Workers & Pages** → **Create application** → **Workers** → **Import a repository** (tên nút có thể thay đổi theo giao diện).
+3. Kết nối GitHub nếu được hỏi, cấp quyền truy cập repository `DTPhuong-wj/niflasu-autopush`, rồi chọn repository và branch cần deploy (thường là `main`).
+4. Đặt tên Worker, ví dụ `niflasu-autopush`. Nếu Cloudflare hỏi loại cấu hình, chọn **Workers Builds / Connect to Git** để mỗi lần push lên branch đã chọn sẽ build và deploy tự động.
+5. Cấu hình build:
+   - **Root directory:** `/` (thư mục gốc của repository).
+   - **Build command:** `npm run build`.
+   - **Deploy command:** `npx wrangler deploy --config .output/server/wrangler.json`.
+   - Nếu có mục **Build system version**, chọn phiên bản tương thích Node.js 22 trở lên.
+6. Trước khi chạy deploy đầu tiên, thêm hai biến môi trường build trong cấu hình build của Worker:
+   - `VITE_SUPABASE_URL` = **Project URL** đã lấy ở phần A.
+   - `VITE_SUPABASE_PUBLISHABLE_KEY` = **Publishable key** đã lấy ở phần A.
+   
+   Đặt biến cho **Production** (và Preview nếu cần kiểm tra preview). Đây là biến **build-time**: phải khai báo trước khi build vì ứng dụng Vite đóng gói chúng vào website. Không khai báo Secret/service-role key.
+7. Lưu cấu hình rồi chọn **Deploy**. Chờ build và deploy hoàn tất; Cloudflare sẽ hiển thị URL dạng `https://niflasu-autopush.<your-subdomain>.workers.dev`.
+8. Mở URL Worker để kiểm tra trang tải lên. Sau khi thay đổi source code và push lên branch đã kết nối, Cloudflare sẽ tự build/deploy lại. File audio/script vẫn nằm ở Supabase, không mất khi deploy phiên bản website mới.
+
+> **Deploy bằng máy cá nhân thay cho GitHub Builds:** đặt `VITE_SUPABASE_URL` và `VITE_SUPABASE_PUBLISHABLE_KEY` trong môi trường của terminal trước lúc build, đăng nhập bằng `npx wrangler login`, rồi chạy `npm run deploy:cloudflare`. Không chạy build trước khi thiết lập hai biến vì chúng được nhúng vào client bundle.
+
+#### D. Tạo bài nghe, tải audio và lưu script
+
+1. Mở website Cloudflare, vào **Listening** rồi chọn **Thêm sách** nếu danh sách chưa có sách. Nhập tên sách và lưu.
+2. Chọn **Thêm bài nghe**. Chọn sách, nhập **Unit**, **Số thứ tự**, tên bài và các thông tin khác nếu cần.
+3. Ở **Nguồn bài nghe**, chọn **File máy tính**, bấm **Chọn file** hoặc kéo file audio vào vùng tải lên. Chờ chọn xong file.
+4. Tích **Có Script**. Nhập mỗi câu trên một dòng; ví dụ `リー：大沢さん、すみません。`. Có thể nhập thêm furigana và bản dịch theo thứ tự từng câu vào hai ô tương ứng. Các trường này được lưu cùng bài nghe.
+5. Bấm **Lưu bài nghe** và đợi hoàn tất. Nếu lưu thành công, bài sẽ xuất hiện trong danh sách. Chọn bài để mở trình phát và xác nhận audio/script hiển thị.
+6. Tải lại trang. Bài, script và audio vẫn phải còn. Có thể mở URL website trên trình duyệt/thiết bị khác để kiểm tra dữ liệu được lưu dùng chung.
+
+#### E. Kiểm tra và xử lý lỗi thường gặp
+
+- **Thiếu cấu hình Supabase / lỗi không tải được dữ liệu:** kiểm tra `VITE_SUPABASE_URL` và `VITE_SUPABASE_PUBLISHABLE_KEY` trong cấu hình build Cloudflare; sau khi thêm/sửa biến, chạy deploy mới để build lại.
+- **Bảng hoặc bucket không tồn tại / lỗi permission:** xác nhận migration ở phần B chạy thành công trên đúng Supabase project đang dùng bởi Cloudflare.
+- **Audio nghe báo lỗi sau khi lưu:** kiểm tra bucket `listening-audio` tồn tại và là public, migration policy đọc file đã được áp dụng, rồi thử tải lại trang.
+- **Trang chưa thay đổi sau khi push:** mở build log trong Cloudflare **Workers & Pages → Worker → Builds/Deployments** và kiểm tra branch, build command, deploy command có đúng như phần C.
+- **Giới hạn dung lượng:** ứng dụng không đặt giới hạn riêng và bucket được tạo không cấu hình MIME/size cap riêng; quota, giới hạn upload của gói Supabase, trình duyệt và kết nối mạng vẫn áp dụng.
+
+**Quyền truy cập công khai:** để không yêu cầu đăng nhập, migration cho phép bất kỳ khách truy cập nào đọc, thêm, sửa và xóa tất cả sách, bài, script và audio. Audio có thể được truy cập bằng public URL. Không lưu nội dung riêng tư và không chia sẻ website nếu bạn không muốn người khác thay đổi/xóa dữ liệu. Nếu cần giới hạn người có quyền chỉnh sửa, phải bổ sung xác thực và thay các policy mở trước khi dùng.
+
+Khi các bảng Supabase chưa có sách nào, ứng dụng sẽ nhập nội dung khởi tạo từ `/lessons.json` hoặc `/data/lessons.json` nếu có.
 
 ## Thêm link Google Drive và phát audio
 

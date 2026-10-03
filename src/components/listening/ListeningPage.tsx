@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { loadListeningBooks, saveListeningBooks } from "../../services/listeningStorage";
 import { deleteLocalAudioFile } from "../../services/localAudioStorage";
 import { createListeningExport, parsePublishedListeningData } from "../../services/listeningPublish";
+import { deleteBook as deleteCloudBook, deleteLesson as deleteCloudLesson, getBooks, saveBook as saveCloudBook, saveLesson as saveCloudLesson } from "../../services/listeningRepository";
 import type { ListeningBook, ListeningBookSet, ListeningLesson } from "../../types/listening";
 import ListeningBookFormModal from "./ListeningBookFormModal";
 import ListeningBookSelector from "./ListeningBookSelector";
@@ -41,13 +42,21 @@ export default function ListeningPage() {
       return;
     }
 
-    void fetch("/data/lessons.json", { cache: "no-store" })
-      .then((response) => {
+    void getBooks()
+      .then(async (cloudBooks) => {
+        if (cloudBooks.length > 0) return cloudBooks;
+        let response = await fetch("/lessons.json", { cache: "no-store" });
+        if (!response.ok) response = await fetch("/data/lessons.json", { cache: "no-store" });
         if (!response.ok) throw new Error(`Không tải được lessons.json (${response.status}).`);
-        return response.json() as Promise<unknown>;
+        const seedBooks = parsePublishedListeningData(await response.json() as unknown);
+        for (const bookSet of seedBooks) {
+          await saveCloudBook(bookSet.book);
+          for (const lesson of bookSet.lessons) await saveCloudLesson(lesson);
+        }
+        return seedBooks.length > 0 ? getBooks() : seedBooks;
       })
-      .then((data) => {
-        if (!cancelled) setBooks(parsePublishedListeningData(data));
+      .then((loadedBooks) => {
+        if (!cancelled) setBooks(loadedBooks);
       })
       .catch((error: unknown) => {
         if (!cancelled) setStatusMessage(error instanceof Error ? error.message : "Không tải được dữ liệu Listening.");
@@ -77,7 +86,19 @@ export default function ListeningPage() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  const handleSaveLesson = async ({ bookId, lesson }: { bookId: string; lesson: ListeningLesson }) => {
+  const handleSaveLesson = async ({ bookId, lesson, audioFile }: { bookId: string; lesson: ListeningLesson; audioFile: File | null }) => {
+    if (!isLocalMode) {
+      const book = books.find((bookSet) => bookSet.book.id === bookId)?.book;
+      if (!book) throw new Error("Không tìm thấy sách của bài nghe.");
+      await saveCloudBook(book);
+      await saveCloudLesson(lesson, audioFile);
+      setBooks(await getBooks());
+      setSelectedBookId(bookId);
+      setShowLessonForm(false);
+      setEditingLesson(null);
+      return;
+    }
+
     const previousLesson = books.flatMap((bookSet) => bookSet.lessons).find((item) => String(item.id) === String(lesson.id));
     setBooks((current) => current.map((bookSet) => {
       const withoutLesson = bookSet.lessons.filter((item) => item.id !== lesson.id);
@@ -92,7 +113,15 @@ export default function ListeningPage() {
     }
   };
 
-  const handleSaveBook = (book: ListeningBook) => {
+  const handleSaveBook = async (book: ListeningBook) => {
+    if (!isLocalMode) {
+      await saveCloudBook(book);
+      setBooks(await getBooks());
+      setShowBookForm(false);
+      setEditingBook(null);
+      return;
+    }
+
     if (editingBook) {
       setBooks((current) => current.map((bookSet) => bookSet.book.id === book.id ? { ...bookSet, book } : bookSet));
     } else {
@@ -105,6 +134,19 @@ export default function ListeningPage() {
 
   const handleDelete = async () => {
     if (!deleteTarget) return;
+    if (!isLocalMode) {
+      try {
+        if (deleteTarget.type === "book") await deleteCloudBook(deleteTarget.book.book.id);
+        else await deleteCloudLesson(String(deleteTarget.lesson.id));
+        setBooks(await getBooks());
+        setActiveLesson(null);
+        setDeleteTarget(null);
+      } catch (error) {
+        setStatusMessage(error instanceof Error ? error.message : "Không thể xóa dữ liệu Listening.");
+      }
+      return;
+    }
+
     if (deleteTarget.type === "book") {
       await Promise.all(deleteTarget.book.lessons.flatMap((lesson) => lesson.audioFileId ? [deleteLocalAudioFile(lesson.audioFileId)] : []));
       const nextBooks = books.filter((bookSet) => bookSet.book.id !== deleteTarget.book.book.id);
@@ -168,18 +210,18 @@ export default function ListeningPage() {
               onClose={() => setIsBookMenuOpen(false)}
               onEdit={() => { setEditingBook(selectedBook.book); setShowBookForm(true); }}
               onDelete={() => setDeleteTarget({ type: "book", book: selectedBook })}
-              readOnly={!isLocalMode}
+              readOnly={false}
             />
-            {isLocalMode && (
-              <div className="nf-listening-manager-actions">
+            <div className="nf-listening-manager-actions">
+              {isLocalMode && (
                 <button type="button" className="nf-btn" onClick={() => void handleExport()} disabled={isExporting}>
                   <Download size={15} /> {isExporting ? "Đang export..." : "Sync / Export"}
                 </button>
-                <button type="button" className="nf-btn" onClick={openNewLessonForm}>
-                  <Plus size={15} strokeWidth={1.8} /> Thêm bài nghe
-                </button>
-              </div>
-            )}
+              )}
+              <button type="button" className="nf-btn" onClick={openNewLessonForm}>
+                <Plus size={15} strokeWidth={1.8} /> Thêm bài nghe
+              </button>
+            </div>
           </div>
 
           {lessons.length > 0 ? (
@@ -191,25 +233,25 @@ export default function ListeningPage() {
                   onSelect={setActiveLesson}
                   onEdit={(nextLesson) => { setEditingLesson(nextLesson); setShowLessonForm(true); }}
                   onDelete={(lessonToDelete) => setDeleteTarget({ type: "lesson", lesson: lessonToDelete })}
-                  readOnly={!isLocalMode}
+                  readOnly={false}
                 />
               ))}
             </div>
           ) : (
             <div className="nf-listening-empty-state">
               <Headphones size={30} strokeWidth={1.7} />
-              <strong>{isLocalMode ? "Chưa có bài nghe trong sách này" : "Chưa có bài nghe được publish"}</strong>
-              {isLocalMode && <span>Thêm bài nghe đầu tiên để bắt đầu học.</span>}
-              {isLocalMode && <button type="button" className="nf-btn is-active" onClick={openNewLessonForm}><Plus size={15} /> Thêm bài nghe</button>}
+              <strong>Chưa có bài nghe trong sách này</strong>
+              <span>Thêm bài nghe đầu tiên để bắt đầu học.</span>
+              <button type="button" className="nf-btn is-active" onClick={openNewLessonForm}><Plus size={15} /> Thêm bài nghe</button>
             </div>
           )}
         </>
       ) : (
         <div className="nf-listening-empty-state">
           <Headphones size={34} strokeWidth={1.7} />
-          <strong>{isLocalMode ? "Chưa có sách nghe" : "Chưa có bài nghe được publish"}</strong>
-          {isLocalMode && <span>Hãy thêm sách hoặc bài nghe để bắt đầu.</span>}
-          {isLocalMode && <button type="button" className="nf-btn is-active" onClick={() => { setEditingBook(null); setShowBookForm(true); }}><Plus size={15} /> Thêm sách</button>}
+          <strong>Chưa có sách nghe</strong>
+          <span>Hãy thêm sách hoặc bài nghe để bắt đầu.</span>
+          <button type="button" className="nf-btn is-active" onClick={() => { setEditingBook(null); setShowBookForm(true); }}><Plus size={15} /> Thêm sách</button>
         </div>
       ))}
 
@@ -217,18 +259,26 @@ export default function ListeningPage() {
         <ListeningPlayerModal lesson={activeLesson} bookName={selectedBook.book.name} onClose={() => setActiveLesson(null)} />
       )}
 
-      {isLocalMode && showLessonForm && (
+      {showLessonForm && (
         <ListeningFormModal
           books={books}
           selectedBookId={selectedBook?.book.id ?? ""}
           editingLesson={editingLesson}
           onClose={() => { setShowLessonForm(false); setEditingLesson(null); }}
           onSave={handleSaveLesson}
-          onCreateBook={async (book) => { setBooks((current) => [...current, { book, lessons: [] }]); setSelectedBookId(book.id); }}
+          onCreateBook={async (book) => {
+            if (isLocalMode) {
+              setBooks((current) => [...current, { book, lessons: [] }]);
+            } else {
+              await saveCloudBook(book);
+              setBooks(await getBooks());
+            }
+            setSelectedBookId(book.id);
+          }}
         />
       )}
 
-      {isLocalMode && showBookForm && (
+      {showBookForm && (
         <ListeningBookFormModal
           book={editingBook ?? { id: `book-${Date.now()}`, name: "", description: "" }}
           isNew={!editingBook}
@@ -237,14 +287,14 @@ export default function ListeningPage() {
         />
       )}
 
-      {isLocalMode && deleteTarget && (
+      {deleteTarget && (
         <div className="nf-overlay" onClick={() => setDeleteTarget(null)}>
           <div className="nf-listening-confirm-modal" role="dialog" aria-modal="true" onClick={(event) => event.stopPropagation()}>
             <h2 className="nf-modal-title">{deleteTarget.type === "book" ? "Xóa sách?" : "Xóa bài nghe?"}</h2>
             <p>{deleteTarget.type === "book" ? `Bạn có chắc muốn xóa "${deleteTarget.book.book.name}" không? Các bài nghe thuộc sách này cũng sẽ bị xóa khỏi danh sách.` : `Bạn có chắc muốn xóa bài nghe ${deleteTarget.lesson.title}?`}</p>
             <div className="nf-modal-actions">
               <button type="button" className="nf-btn" onClick={() => setDeleteTarget(null)}>Hủy</button>
-              <button type="button" className="nf-btn nf-btn-danger" onClick={handleDelete}><Trash2 size={15} /> {deleteTarget.type === "book" ? "Xóa sách" : "Xóa bài nghe"}</button>
+              <button type="button" className="nf-btn nf-btn-danger" onClick={() => void handleDelete()}><Trash2 size={15} /> {deleteTarget.type === "book" ? "Xóa sách" : "Xóa bài nghe"}</button>
             </div>
           </div>
         </div>

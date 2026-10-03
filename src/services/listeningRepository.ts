@@ -7,7 +7,6 @@ import type { Json } from "@/integrations/supabase/types";
 import { getScriptLineText, type FuriganaSegment, type ListeningBook, type ListeningBookSet, type ListeningLesson, type ListeningScriptLine } from "../types/listening";
 
 const BUCKET = "listening-audio";
-const SIGNED_URL_SECONDS = 60 * 60 * 24 * 7;
 
 function fail(error: { message: string } | null, what: string) {
   if (error) throw new Error(`${what}: ${error.message}`);
@@ -15,10 +14,10 @@ function fail(error: { message: string } | null, what: string) {
 
 // ---------- Audio ----------
 export async function uploadAudio(lessonId: string, file: File): Promise<string> {
-  const ext = file.name.split(".").pop()?.toLowerCase() || "mp3";
-  const path = `${lessonId}/${Date.now()}.${ext}`;
+  const ext = file.name.match(/\.([^.]+)$/)?.[1]?.toLowerCase().replace(/[^a-z0-9]/g, "") || "audio";
+  const path = `${lessonId}/${Date.now()}-${crypto.randomUUID()}.${ext}`;
   const { error } = await supabase.storage.from(BUCKET).upload(path, file, {
-    contentType: file.type || "audio/mpeg",
+    contentType: file.type || "application/octet-stream",
     upsert: true,
   });
   fail(error, "Không tải được file audio");
@@ -26,13 +25,14 @@ export async function uploadAudio(lessonId: string, file: File): Promise<string>
 }
 
 export async function getAudio(path: string): Promise<string> {
-  const { data, error } = await supabase.storage.from(BUCKET).createSignedUrl(path, SIGNED_URL_SECONDS);
-  fail(error, "Không mở được file audio");
-  return data!.signedUrl;
+  const { data } = supabase.storage.from(BUCKET).getPublicUrl(path);
+  if (!data.publicUrl) throw new Error("Không tạo được đường dẫn audio công khai");
+  return data.publicUrl;
 }
 
 export async function deleteAudio(path: string): Promise<void> {
-  await supabase.storage.from(BUCKET).remove([path]);
+  const { error } = await supabase.storage.from(BUCKET).remove([path]);
+  fail(error, "Không xóa được file audio");
 }
 
 // ---------- Books ----------
@@ -46,11 +46,15 @@ export async function saveBook(book: ListeningBook): Promise<void> {
 }
 
 export async function deleteBook(bookId: string): Promise<void> {
-  const { data } = await supabase.from("listening_lessons").select("audio_path").eq("book_id", bookId);
+  const { data, error: lessonsError } = await supabase.from("listening_lessons").select("audio_path").eq("book_id", bookId);
+  fail(lessonsError, "Không tải được danh sách audio");
   const paths = (data ?? []).map((r) => r.audio_path).filter((p): p is string => !!p);
-  if (paths.length) await supabase.storage.from(BUCKET).remove(paths);
   const { error } = await supabase.from("listening_books").delete().eq("id", bookId);
   fail(error, "Không xóa được sách");
+  if (paths.length) {
+    const { error: storageError } = await supabase.storage.from(BUCKET).remove(paths);
+    fail(storageError, "Không xóa được audio của sách");
+  }
 }
 
 // ---------- Lessons ----------
@@ -109,7 +113,7 @@ async function toLesson(row: LessonRow, lines: LineRow[]): Promise<ListeningLess
     lesson.sourceType = "directAudio";
     lesson.audio = row.audio_path;
     lesson.audioFileId = undefined;
-    lesson.sourceUrl = await getAudio(row.audio_path).catch(() => "");
+    lesson.sourceUrl = await getAudio(row.audio_path);
   }
   return lesson;
 }
@@ -133,6 +137,7 @@ export async function getLesson(lessonId: string): Promise<ListeningLesson | nul
     supabase.from("listening_lessons").select("*").eq("id", lessonId).maybeSingle(),
     supabase.from("listening_script_lines").select("*").eq("lesson_id", lessonId),
   ]);
+  fail(lesson.error ?? lines.error, "Không tải được bài nghe");
   if (!lesson.data) return null;
   return toLesson(lesson.data, lines.data ?? []);
 }
@@ -154,19 +159,22 @@ export async function saveScript(lessonId: string, script: ListeningScriptLine[]
     })),
   );
   fail(error, "Không lưu được script");
-  await supabase.from("listening_lessons").update({ updated_at: new Date().toISOString() }).eq("id", lessonId);
+  const updated = await supabase.from("listening_lessons").update({ updated_at: new Date().toISOString() }).eq("id", lessonId);
+  fail(updated.error, "Không cập nhật được thời gian sửa script");
 }
 
 export async function saveLesson(lesson: ListeningLesson, audioFile?: File | null): Promise<void> {
   const id = String(lesson.id);
   const existing = await supabase.from("listening_lessons").select("audio_path").eq("id", id).maybeSingle();
+  fail(existing.error, "Không tải được bài nghe cần cập nhật");
   let audioPath = existing.data?.audio_path ?? null;
+  let newAudioPath: string | null = null;
+  let oldAudioPathToDelete: string | null = null;
   if (audioFile) {
-    const newPath = await uploadAudio(id, audioFile);
-    if (audioPath) await deleteAudio(audioPath);
-    audioPath = newPath;
+    newAudioPath = await uploadAudio(id, audioFile);
+    audioPath = newAudioPath;
   } else if (lesson.source !== "local" && audioPath) {
-    await deleteAudio(audioPath);
+    oldAudioPathToDelete = audioPath;
     audioPath = null;
   }
   const { script: _script, hasScript: _h, id: _id, bookId: _b, unit, number, title, createdAt: _c, updatedAt: _u, ...meta } = lesson;
@@ -180,13 +188,19 @@ export async function saveLesson(lesson: ListeningLesson, audioFile?: File | nul
     audio_path: audioPath,
     updated_at: new Date().toISOString(),
   });
-  fail(error, "Không lưu được bài nghe");
+  if (error) {
+    if (newAudioPath) await deleteAudio(newAudioPath);
+    fail(error, "Không lưu được bài nghe");
+  }
   await saveScript(id, lesson.hasScript ? lesson.script : []);
+  if (newAudioPath && existing.data?.audio_path && existing.data.audio_path !== newAudioPath) oldAudioPathToDelete = existing.data.audio_path;
+  if (oldAudioPathToDelete) await deleteAudio(oldAudioPathToDelete);
 }
 
 export async function deleteLesson(lessonId: string): Promise<void> {
-  const { data } = await supabase.from("listening_lessons").select("audio_path").eq("id", lessonId).maybeSingle();
-  if (data?.audio_path) await deleteAudio(data.audio_path);
+  const { data, error: lessonError } = await supabase.from("listening_lessons").select("audio_path").eq("id", lessonId).maybeSingle();
+  fail(lessonError, "Không tải được bài nghe cần xóa");
   const { error } = await supabase.from("listening_lessons").delete().eq("id", lessonId);
   fail(error, "Không xóa được bài nghe");
+  if (data?.audio_path) await deleteAudio(data.audio_path);
 }

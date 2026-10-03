@@ -66,6 +66,7 @@ function sourceLabel(type: ListeningSourceType | "unknown" | FormSource): string
 }
 
 type FormSource = ListeningSource | "directAudio";
+const isLocalMode = import.meta.env["VITE_APP_MODE"] === "local";
 
 function sourceToFormSource(lesson: ListeningLesson | null): FormSource {
   if (lesson?.source) return lesson.source;
@@ -133,18 +134,12 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
 
   const handleFile = (file: File | null) => {
     if (!file) return;
-    const supportedMimeTypes = new Set(["audio/mpeg", "audio/mp3", "audio/wav", "audio/x-wav", "audio/ogg", "audio/mp4"]);
-    const supportedExtension = /\.(mp3|wav|m4a|aac|ogg|flac|webm)$/i.test(file.name);
-    if (!supportedMimeTypes.has(file.type.toLowerCase()) && !file.type.toLowerCase().startsWith("audio/") && !supportedExtension) {
-      setError("Vui lòng chọn file audio hợp lệ.");
-      return;
-    }
     if (objectUrlRef.current) URL.revokeObjectURL(objectUrlRef.current);
     const objectUrl = URL.createObjectURL(file);
     objectUrlRef.current = objectUrl;
     setSelectedFile(file);
     setSourceUrl(objectUrl);
-    setInspection({ type: "directAudio", sourceId: file.name, sourceUrl: objectUrl, previewUrl: objectUrl, isValid: true, message: "File sẽ được tải lên máy chủ khi lưu bài." });
+    setInspection({ type: "directAudio", sourceId: file.name, sourceUrl: objectUrl, previewUrl: objectUrl, isValid: true, message: isLocalMode ? "File được lưu trên thiết bị này." : "File sẽ được tải lên kho lưu trữ khi lưu bài." });
     if (!title.trim()) setTitle(file.name.replace(/\.[^.]+$/, ""));
     setError("");
   };
@@ -393,8 +388,8 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
               <FileAudio size={26} />
               <strong>{selectedFile?.name ?? editingLesson?.fileName ?? "Kéo file audio vào đây hoặc chọn file"}</strong>
               {selectedFile && <span>{(selectedFile.size / 1024 / 1024).toFixed(2)} MB</span>}
-              <span>MP3, WAV, M4A, OGG. Audio local được đóng gói vào uploads/audio khi Sync / Export.</span>
-              <label className="nf-btn"><Upload size={15} /> Chọn file<input type="file" hidden accept="audio/*,.mp3,.wav,.m4a,.ogg" onChange={(event) => handleFile(event.target.files?.[0] ?? null)} /></label>
+              <span>{isLocalMode ? "Audio được lưu trên thiết bị này và có thể đóng gói bằng Sync / Export." : "Audio được tải lên kho lưu trữ dùng chung khi lưu bài."}</span>
+              <label className="nf-btn"><Upload size={15} /> Chọn file<input type="file" hidden accept="audio/*" onChange={(event) => handleFile(event.target.files?.[0] ?? null)} /></label>
             </div>
           ) : (
             <div className={`nf-listening-link-dropzone${isDragging ? " is-dragging" : ""}`} {...dropZoneProps}>
