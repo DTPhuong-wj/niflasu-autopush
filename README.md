@@ -23,6 +23,16 @@ npm i
 npm run dev
 ```
 
+## Deploy to Cloudflare Workers
+
+The production build uses Nitro's Cloudflare Workers preset and generates `.output/server/wrangler.json`.
+Authenticate once with `npx wrangler login`, then validate or deploy with:
+
+```sh
+npm run deploy:cloudflare:dry-run
+npm run deploy:cloudflare
+```
+
 ## Listening Local / Web
 
 `npm run dev` uses Local mode (`.env.development`): lesson metadata stays in browser `localStorage` and uploaded audio stays in IndexedDB. Add, edit, and delete Listening content here, then select **Sync / Export** to download `niflasu-listening-export.zip`.
