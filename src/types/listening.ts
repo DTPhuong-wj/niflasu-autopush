@@ -14,7 +14,7 @@ export interface ListeningScriptLine {
   /** Japanese sentence (kept as `text` for backward compatibility). */
   text?: string | undefined;
   japanese?: string | undefined;
-  furigana?: FuriganaSegment[] | undefined;
+  furigana?: FuriganaSegment[] | string | undefined;
   translation?: string | undefined;
   needsReview?: boolean | undefined;
 }

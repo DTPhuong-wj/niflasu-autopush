@@ -85,7 +85,7 @@ function nodeModules(): NodeModules {
 }
 
 function storagePaths(modules: NodeModules) {
-  const dataDirectory = modules.path.join(modules.root, "data");
+  const dataDirectory = modules.path.join(modules.root, "src", "data");
   const uploadsDirectory = modules.path.join(modules.root, "uploads");
   const audioDirectory = modules.path.join(uploadsDirectory, "audio");
   return {
@@ -123,7 +123,7 @@ async function readBookSets(): Promise<ListeningBookSet[]> {
   const content = await modules.fs.readFile(jsonFile, "utf8");
   const parsed: unknown = JSON.parse(content);
   if (!Array.isArray(parsed)) {
-    throw new ListeningFileStorageError("LISTENING_DATA_INVALID", "data/listening.json phải chứa một mảng JSON.", 500);
+    throw new ListeningFileStorageError("LISTENING_DATA_INVALID", "src/data/listening.json phải chứa một mảng JSON.", 500);
   }
   return parsed as ListeningBookSet[];
 }

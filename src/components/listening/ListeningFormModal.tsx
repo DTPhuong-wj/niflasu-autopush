@@ -15,20 +15,45 @@ interface Props {
   onCreateBook: (book: ListeningBook) => Promise<void>;
 }
 
-function parseScriptText(text: string): ListeningLesson["script"] {
-  return text.split(/\r?\n/).map((line) => line.trim()).filter(Boolean).map((line) => {
+function parseScriptText(text: string, previousLines: ListeningLesson["script"] = []): ListeningLesson["script"] {
+  const availablePrevious = new Set(previousLines.map((_, index) => index));
+  return text.split(/\r?\n/).map((line) => line.trim()).filter(Boolean).map((line, index) => {
     const match = line.match(/^([^：]+)[:：]\s*(.*?)(?:\s*\|\|\s*(.*))?$/);
     const speaker = match?.[1]?.trim() ?? "";
     const japanese = (match?.[2]?.trim() || line).trim();
     const translation = match?.[3]?.trim() || undefined;
+    const matchingIndex = previousLines.findIndex((previous, previousIndex) => availablePrevious.has(previousIndex)
+      && previous.speaker === speaker
+      && getScriptLineText(previous) === japanese);
+    const previousIndex = matchingIndex >= 0 ? matchingIndex : availablePrevious.has(index) ? index : -1;
+    const previous = previousIndex >= 0 ? previousLines[previousIndex] : undefined;
+    if (previousIndex >= 0) availablePrevious.delete(previousIndex);
+    const lineId = previous?.id ?? `line-${globalThis.crypto?.randomUUID?.() ?? `${Date.now()}-${index}`}`;
     return {
+      id: lineId,
       speaker,
       text: japanese,
       japanese,
       translation,
-      furigana: [],
+      furigana: previous && getScriptLineText(previous) === japanese ? previous.furigana ?? [] : [],
     };
   });
+}
+
+function formatFuriganaLine(furigana: ListeningLesson["script"][number]["furigana"]): string {
+  if (typeof furigana === "string") return furigana;
+  return (furigana ?? []).map((segment) => `${segment.text}=${segment.reading}`).join("; ");
+}
+
+function parseFuriganaLine(value: string): NonNullable<ListeningLesson["script"][number]["furigana"]> {
+  const trimmed = value.trim();
+  if (!trimmed) return [];
+  const segments = trimmed.split(/[;,，；]/).map((segment) => {
+    const [text, ...readingParts] = segment.split("=");
+    const reading = readingParts.join("=").trim();
+    return text?.trim() && reading ? { text: text.trim(), reading } : null;
+  }).filter((segment): segment is { text: string; reading: string } => segment !== null);
+  return segments.length > 0 ? segments : trimmed;
 }
 
 function sourceLabel(type: ListeningSourceType | "unknown" | FormSource): string {
@@ -68,6 +93,8 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
   const [duration, setDuration] = useState(editingLesson?.duration ? formatDuration(editingLesson.duration) : "");
   const [hasScript, setHasScript] = useState(editingLesson?.hasScript ?? false);
   const [scriptText, setScriptText] = useState(editingLesson?.script?.map((line) => `${line.speaker}${line.speaker ? "：" : ""}${getScriptLineText(line)}${line.translation ? ` || ${line.translation}` : ""}`).join("\n") ?? "");
+  const [scriptLines, setScriptLines] = useState<ListeningLesson["script"]>(editingLesson?.script ?? []);
+  const [furiganaText, setFuriganaText] = useState(editingLesson?.script?.map((line) => formatFuriganaLine(line.furigana)).join("\n") ?? "");
   const [inspection, setInspection] = useState<ListeningSourceInspection | null>(() => {
     if (!editingLesson) return null;
     if (editingLesson.source === "local") return { type: "directAudio", sourceId: editingLesson.sourceId ?? editingLesson.fileName ?? null, sourceUrl: editingLesson.sourceUrl, previewUrl: editingLesson.sourceUrl, isValid: true, message: "File audio chỉ được phát trong phiên hiện tại." };
@@ -225,7 +252,7 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
   };
 
   const handleAiProcessScript = async () => {
-    const parsedLines = parseScriptText(scriptText);
+    const parsedLines = parseScriptText(scriptText, scriptLines);
     if (parsedLines.length === 0) {
       setError("Nhập script tiếng Nhật trước khi AI xử lý.");
       return;
@@ -236,7 +263,7 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
 
     try {
       const result = await processScript({
-        lines: parsedLines.map((line) => ({ speaker: line.speaker, text: getScriptLineText(line) })),
+        data: { lines: parsedLines.map((line) => ({ speaker: line.speaker, text: getScriptLineText(line) })) },
       });
 
       if (result.error) {
@@ -257,6 +284,8 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
         };
       });
 
+      setScriptLines(nextScript);
+      setFuriganaText(nextScript.map((line) => formatFuriganaLine(line.furigana)).join("\n"));
       setScriptText(nextScript
         .map((line) => `${line.speaker ? `${line.speaker}：` : ""}${getScriptLineText(line)}${line.translation ? ` || ${line.translation}` : ""}`)
         .join("\n"));
@@ -285,7 +314,7 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
 
     const now = new Date().toISOString();
     const lessonId = String(editingLesson?.id ?? `lesson-${Date.now()}`);
-    let lessonAudioFileId = source === "local" ? (selectedFile ? `${lessonId}-${Date.now()}` : editingLesson?.audioFileId) : undefined;
+    const lessonAudioFileId = source === "local" ? (selectedFile ? `${lessonId}-${Date.now()}` : editingLesson?.audioFileId) : undefined;
 
     if (source === "local" && selectedFile && lessonAudioFileId) {
       try {
@@ -316,7 +345,12 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
       duration: parseDurationToSeconds(duration),
       thumbnailUrl: inspection.thumbnailUrl,
       hasScript,
-      script: hasScript ? parseScriptText(scriptText) : [],
+      script: hasScript
+        ? parseScriptText(scriptText, scriptLines).map((line, index) => {
+          const furiganaLine = furiganaText.split(/\r?\n/)[index] ?? "";
+          return { ...line, furigana: furiganaLine.trim() ? parseFuriganaLine(furiganaLine) : line.furigana };
+        })
+        : [],
       createdAt: editingLesson?.createdAt ?? now,
       updatedAt: now,
     };
@@ -384,6 +418,7 @@ export default function ListeningFormModal({ books, selectedBookId, editingLesso
                 </button>
               </div>
               <label className="nf-field"><span>Nội dung Script</span><textarea rows={6} value={scriptText} onChange={(event) => setScriptText(event.target.value)} placeholder={'男：こんにちは。\n女：こんにちは。'} /></label>
+              <label className="nf-field"><span>Furigana theo từng câu</span><textarea rows={4} value={furiganaText} onChange={(event) => setFuriganaText(event.target.value)} placeholder={'大沢=おおさわ; 担当=たんとう'} /></label>
             </>
           )}
         </div>

@@ -23,6 +23,12 @@ npm i
 npm run dev
 ```
 
+## Listening Local / Web
+
+`npm run dev` uses Local mode (`.env.development`): lesson metadata stays in browser `localStorage` and uploaded audio stays in IndexedDB. Add, edit, and delete Listening content here, then select **Sync / Export** to download `niflasu-listening-export.zip`.
+
+Extract the ZIP at the repository root and replace `public/data/lessons.json`; uploaded files are included under `public/audio/`. The export does not remove browser data. Deploy the project afterward. Production builds use Web mode (`.env.production`), which reads only `/data/lessons.json` and hides Listening management controls.
+
 ## Thêm link Google Drive và phát audio
 
 ### 1. Cấu hình Google Drive API

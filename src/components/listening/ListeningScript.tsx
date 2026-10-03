@@ -8,7 +8,10 @@ interface Props {
 
 function renderRubyLine(line: ListeningScriptLine) {
   const text = getScriptLineText(line);
-  const rubySegments = (line.furigana ?? []).filter((segment) => segment.text && text.includes(segment.text));
+  if (typeof line.furigana === "string" && line.furigana) {
+    return <span className="nf-listening-script-japanese nf-listening-script-ruby-text"><ruby>{text}<rt>{line.furigana}</rt></ruby></span>;
+  }
+  const rubySegments = (Array.isArray(line.furigana) ? line.furigana : []).filter((segment) => segment.text && text.includes(segment.text));
 
   if (rubySegments.length === 0) {
     return <span className="nf-listening-script-japanese">{text}</span>;
@@ -47,7 +50,7 @@ function renderRubyLine(line: ListeningScriptLine) {
 
 export default function ListeningScript({ lesson }: Props) {
   const [showFurigana, setShowFurigana] = useState(false);
-  const [openTranslations, setOpenTranslations] = useState<Record<string, boolean>>({});
+  const [showTranslations, setShowTranslations] = useState(false);
 
   const items = useMemo(() => lesson.script.filter((line) => getScriptLineText(line).length > 0), [lesson.script]);
 
@@ -67,33 +70,29 @@ export default function ListeningScript({ lesson }: Props) {
         >
           Furigana {showFurigana ? "OFF" : "ON"}
         </button>
+        <button
+          type="button"
+          className={`nf-listening-script-toggle ${showTranslations ? "is-on" : ""}`}
+          onClick={() => setShowTranslations((current) => !current)}
+          aria-pressed={showTranslations}
+        >
+          Translation {showTranslations ? "ON" : "OFF"}
+        </button>
       </div>
       <div className="nf-listening-script-body">
         {items.map((line, index) => {
-          const lineKey = line.id ?? `${line.speaker}-${index}`;
           const lineText = getScriptLineText(line);
           const translation = (line.translation ?? "").trim();
-          const isTranslationOpen = Boolean(openTranslations[lineKey]);
 
           return (
-            <div key={lineKey} className="nf-listening-script-line">
+            <div key={line.id ?? `${line.speaker}-${index}`} className="nf-listening-script-line">
               <div className="nf-listening-script-line-row">
                 <span className="nf-listening-script-speaker">{line.speaker}</span>
                 <div className="nf-listening-script-main">
                   {showFurigana ? renderRubyLine(line) : <span className="nf-listening-script-japanese">{lineText}</span>}
                 </div>
-                {translation ? (
-                  <button
-                    type="button"
-                    className={`nf-listening-script-translate ${isTranslationOpen ? "is-open" : ""}`}
-                    onClick={() => setOpenTranslations((current) => ({ ...current, [lineKey]: !current[lineKey] }))}
-                    aria-expanded={isTranslationOpen}
-                  >
-                    {isTranslationOpen ? "閉じる" : "訳"}
-                  </button>
-                ) : null}
               </div>
-              {translation && isTranslationOpen ? (
+              {translation && showTranslations ? (
                 <div className="nf-listening-script-translation">{translation}</div>
               ) : null}
             </div>

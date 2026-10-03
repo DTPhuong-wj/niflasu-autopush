@@ -42,3 +42,18 @@ export async function loadLocalAudioFile(audioFileId: string): Promise<Blob | nu
     database.close();
   }
 }
+
+export async function deleteLocalAudioFile(audioFileId: string): Promise<void> {
+  const database = await openDatabase();
+  try {
+    await new Promise<void>((resolve, reject) => {
+      const transaction = database.transaction(STORE_NAME, "readwrite");
+      transaction.objectStore(STORE_NAME).delete(audioFileId);
+      transaction.oncomplete = () => resolve();
+      transaction.onerror = () => reject(transaction.error ?? new Error("Không thể xóa audio."));
+      transaction.onabort = () => reject(transaction.error ?? new Error("Không thể xóa audio."));
+    });
+  } finally {
+    database.close();
+  }
+}

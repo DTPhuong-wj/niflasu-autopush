@@ -12,6 +12,7 @@ interface Props {
   onClose: () => void;
   onEdit: () => void;
   onDelete: () => void;
+  readOnly?: boolean;
 }
 
 export default function ListeningBookSelector({
@@ -24,6 +25,7 @@ export default function ListeningBookSelector({
   onClose,
   onEdit,
   onDelete,
+  readOnly = false,
 }: Props) {
   const [isManageOpen, setIsManageOpen] = useState(false);
   const manageRef = useRef<HTMLDivElement | null>(null);
@@ -56,7 +58,7 @@ export default function ListeningBookSelector({
         <ChevronLeft size={18} strokeWidth={1.75} />
       </button>
 
-      <div className="nf-listening-book-manage" ref={manageRef}>
+      {!readOnly && <div className="nf-listening-book-manage" ref={manageRef}>
         <button
           type="button"
           className="nf-btn nf-btn-square"
@@ -90,7 +92,7 @@ export default function ListeningBookSelector({
             </button>
           </div>
         )}
-      </div>
+      </div>}
 
       <div className="nf-listening-book-panel">
         <span className="nf-listening-book-label">Listening Books</span>

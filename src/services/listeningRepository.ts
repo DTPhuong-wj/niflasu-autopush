@@ -4,7 +4,7 @@
  */
 import { supabase } from "@/integrations/supabase/client";
 import type { Json } from "@/integrations/supabase/types";
-import type { FuriganaSegment, ListeningBook, ListeningBookSet, ListeningLesson, ListeningScriptLine } from "../types/listening";
+import { getScriptLineText, type FuriganaSegment, type ListeningBook, type ListeningBookSet, type ListeningLesson, type ListeningScriptLine } from "../types/listening";
 
 const BUCKET = "listening-audio";
 const SIGNED_URL_SECONDS = 60 * 60 * 24 * 7;
@@ -147,7 +147,7 @@ export async function saveScript(lessonId: string, script: ListeningScriptLine[]
       lesson_id: lessonId,
       position,
       speaker: line.speaker,
-      japanese: line.text,
+      japanese: getScriptLineText(line),
       furigana: (line.furigana ?? []) as unknown as Json,
       translation: line.translation ?? "",
       needs_review: !!line.needsReview,

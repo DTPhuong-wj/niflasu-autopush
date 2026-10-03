@@ -7,9 +7,10 @@ interface Props {
   onSelect: (lesson: ListeningLesson) => void;
   onEdit: (lesson: ListeningLesson) => void;
   onDelete: (lesson: ListeningLesson) => void;
+  readOnly?: boolean;
 }
 
-export default function ListeningLessonCard({ lesson, onSelect, onEdit, onDelete }: Props) {
+export default function ListeningLessonCard({ lesson, onSelect, onEdit, onDelete, readOnly = false }: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
@@ -52,7 +53,7 @@ export default function ListeningLessonCard({ lesson, onSelect, onEdit, onDelete
         {lesson.hasScript && <span className="nf-listening-card-script">Script</span>}
       </button>
 
-      <div className="nf-listening-card-menu-wrap" ref={menuRef}>
+      {!readOnly && <div className="nf-listening-card-menu-wrap" ref={menuRef}>
         <button
           type="button"
           className="nf-listening-card-menu"
@@ -89,7 +90,7 @@ export default function ListeningLessonCard({ lesson, onSelect, onEdit, onDelete
             </button>
           </div>
         )}
-      </div>
+      </div>}
     </div>
   );
 }

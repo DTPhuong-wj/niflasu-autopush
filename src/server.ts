@@ -3,11 +3,6 @@ import "./lib/error-capture";
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
 import { streamGoogleDriveAudio } from "./services/googleDriveAudioService";
-import { handleListeningApiRequest, initializeListeningFileStorage } from "./services/listeningFileStorage";
-
-void initializeListeningFileStorage().catch((error) => {
-  console.error("Failed to initialize listening file storage:", error);
-});
 
 type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
@@ -53,9 +48,6 @@ function isH3SwallowedErrorBody(body: string): boolean {
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
-      const listeningResponse = await handleListeningApiRequest(request);
-      if (listeningResponse) return listeningResponse;
-
       const url = new URL(request.url);
       const audioStreamMatch = url.pathname.match(/^\/api\/listening\/google-drive\/([^/]+)\/stream$/);
       if (audioStreamMatch) {
