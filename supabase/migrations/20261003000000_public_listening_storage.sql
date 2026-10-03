@@ -33,23 +33,25 @@ alter table public.listening_lessons enable row level security;
 alter table public.listening_script_lines enable row level security;
 
 drop policy if exists "Public can manage listening books" on public.listening_books;
-create policy "Public can manage listening books"
-  on public.listening_books for all to anon, authenticated
-  using (true) with check (true);
+drop policy if exists "Public can read listening books" on public.listening_books;
+create policy "Public can read listening books"
+  on public.listening_books for select to anon, authenticated
+  using (true);
 
 drop policy if exists "Public can manage listening lessons" on public.listening_lessons;
-create policy "Public can manage listening lessons"
-  on public.listening_lessons for all to anon, authenticated
-  using (true) with check (true);
+drop policy if exists "Public can read listening lessons" on public.listening_lessons;
+create policy "Public can read listening lessons"
+  on public.listening_lessons for select to anon, authenticated
+  using (true);
 
 drop policy if exists "Public can manage listening script lines" on public.listening_script_lines;
-create policy "Public can manage listening script lines"
-  on public.listening_script_lines for all to anon, authenticated
-  using (true) with check (true);
+drop policy if exists "Public can read listening script lines" on public.listening_script_lines;
+create policy "Public can read listening script lines"
+  on public.listening_script_lines for select to anon, authenticated
+  using (true);
 
-grant select, insert, update, delete on public.listening_books to anon, authenticated;
-grant select, insert, update, delete on public.listening_lessons to anon, authenticated;
-grant select, insert, update, delete on public.listening_script_lines to anon, authenticated;
+revoke all on public.listening_books, public.listening_lessons, public.listening_script_lines from public, anon, authenticated;
+grant select on public.listening_books, public.listening_lessons, public.listening_script_lines to anon, authenticated;
 
 insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
 values ('listening-audio', 'listening-audio', true, null, null)
@@ -64,17 +66,5 @@ create policy "Public can read listening audio"
   using (bucket_id = 'listening-audio');
 
 drop policy if exists "Public can upload listening audio" on storage.objects;
-create policy "Public can upload listening audio"
-  on storage.objects for insert to anon, authenticated
-  with check (bucket_id = 'listening-audio');
-
 drop policy if exists "Public can update listening audio" on storage.objects;
-create policy "Public can update listening audio"
-  on storage.objects for update to anon, authenticated
-  using (bucket_id = 'listening-audio')
-  with check (bucket_id = 'listening-audio');
-
 drop policy if exists "Public can delete listening audio" on storage.objects;
-create policy "Public can delete listening audio"
-  on storage.objects for delete to anon, authenticated
-  using (bucket_id = 'listening-audio');
