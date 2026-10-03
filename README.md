@@ -92,11 +92,49 @@ Các bước sau tạo nơi lưu trữ trên Supabase, kết nối website với
 
 #### E. Kiểm tra và xử lý lỗi thường gặp
 
-- **Thiếu cấu hình Supabase / lỗi không tải được dữ liệu:** kiểm tra `VITE_SUPABASE_URL` và `VITE_SUPABASE_PUBLISHABLE_KEY` trong cấu hình build Cloudflare; sau khi thêm/sửa biến, chạy deploy mới để build lại.
-- **Bảng hoặc bucket không tồn tại / lỗi permission:** xác nhận migration ở phần B chạy thành công trên đúng Supabase project đang dùng bởi Cloudflare.
-- **Audio nghe báo lỗi sau khi lưu:** kiểm tra bucket `listening-audio` tồn tại và là public, migration policy đọc file đã được áp dụng, rồi thử tải lại trang.
+- **Không lưu được sách hoặc bài nghe — kiểm tra theo thứ tự này:**
+  1. Trong Cloudflare, mở **Workers & Pages → niflasu-autopush → Settings → Builds** (hoặc **Build configuration → Variables and secrets**, tùy giao diện). Kiểm tra `VITE_SUPABASE_URL` và `VITE_SUPABASE_PUBLISHABLE_KEY` có trong **Build variables** của đúng môi trường/branch đang mở. Thêm/sửa biến dưới **Worker runtime Variables** là chưa đủ: đây là ứng dụng Vite, nên giá trị phải có sẵn lúc build.
+  2. So sánh `VITE_SUPABASE_URL` với **Project URL** ở **Supabase → Project Settings → API**. Phải là URL của chính dự án nơi bạn chạy migration; nếu URL trỏ sang dự án khác thì trang đang ghi/đọc nhầm nơi.
+  3. Mở đúng dự án Supabase đó → **SQL Editor**. File migration trong GitHub **không tự chạy** khi deploy Cloudflare. Nếu chưa chạy, hoặc không chắc đã chạy trên dự án nào, chạy lại toàn bộ [`supabase/migrations/20261003000000_public_listening_storage.sql`](./supabase/migrations/20261003000000_public_listening_storage.sql). Migration có thể chạy lại an toàn: các bảng/bucket đã tồn tại sẽ được giữ và các policy do migration quản lý sẽ được tạo lại.
+  4. Chờ Cloudflare build/deploy lại sau khi cập nhật biến. Nếu deploy không tự chạy, vào **Deployments/Builds** và chạy **Retry deployment** hoặc tạo deployment mới. Không chỉ refresh trình duyệt: URL/key đã được nhúng vào bundle lúc build.
+  5. Mở website mới, refresh mạnh bằng `Ctrl+Shift+R` (Windows) / `Cmd+Shift+R` (Mac), thử **Thêm sách** với tên mới, lưu, rồi tải lại trang. Sau khi sách lưu được, thử thêm bài với một file audio nhỏ trước.
+- **Xác minh schema, quyền và bucket trực tiếp trong Supabase:** chạy query chỉ đọc sau trong **SQL Editor** của dự án đang kết nối:
+
+  ```sql
+  select table_name
+  from information_schema.tables
+  where table_schema = 'public'
+    and table_name in ('listening_books', 'listening_lessons', 'listening_script_lines')
+  order by table_name;
+
+  select
+    has_table_privilege('anon', 'public.listening_books', 'INSERT') as anon_can_insert_books,
+    has_table_privilege('anon', 'public.listening_lessons', 'INSERT') as anon_can_insert_lessons,
+    has_table_privilege('anon', 'public.listening_script_lines', 'INSERT') as anon_can_insert_script;
+
+  select id, name, public, file_size_limit, allowed_mime_types
+  from storage.buckets
+  where id = 'listening-audio';
+
+  select schemaname, tablename, policyname, roles, cmd
+  from pg_policies
+  where (schemaname = 'public' and tablename in ('listening_books', 'listening_lessons', 'listening_script_lines'))
+     or (schemaname = 'storage' and tablename = 'objects' and policyname like '%listening audio%')
+  order by schemaname, tablename, policyname;
+  ```
+
+  Kết quả mong đợi: có đủ 3 bảng; các cột `anon_can_insert_*` đều là `true`; bucket có `id = listening-audio` và `public = true`; policies có quyền `ALL` trên 3 bảng và `SELECT`, `INSERT`, `UPDATE`, `DELETE` cho audio. Nếu bảng/bucket thiếu, SQL policy không đủ, hoặc quyền insert trả `false`, chạy lại migration và kiểm tra Supabase có báo lỗi nào trong quá trình **Run** không.
+- **Tìm lỗi chính xác trên website:** mở trang → nhấn `F12` → **Network** → bật **Preserve log** → thử lưu lại. Chọn request có URL chứa `/rest/v1/listening_books`, `/rest/v1/listening_lessons`, `/rest/v1/listening_script_lines` hoặc `/storage/v1/object/listening-audio`; xem **Status** và **Response**. Không đăng/chia sẻ header `apikey`, token, cookie hoặc publishable key cùng ảnh chụp màn hình.
+  - `401` hoặc `Invalid API key`: URL/key thiếu, sai, hoặc Cloudflare đang phục vụ build cũ. Kiểm tra build variables rồi deploy lại.
+  - `403`, `42501` hoặc `row-level security`: migration chưa chạy trên đúng project, thiếu policy/grant, hoặc request đang dùng nhầm Supabase project. Chạy migration lại và dùng các query kiểm tra phía trên.
+  - `404`, `relation ... does not exist` hoặc `Bucket not found`: đang trỏ nhầm project hoặc migration chưa tạo bảng/bucket; so sánh URL và chạy migration.
+  - `400`, `column ... does not exist` hoặc lỗi schema: project có schema cũ/khác với ứng dụng; kiểm tra đúng project và chạy migration. Nếu lỗi vẫn còn, giữ nguyên nội dung lỗi để xác định cột/bảng chưa khớp.
+  - `413`, `Payload too large`, `EntityTooLarge` hoặc lỗi quota: file vượt giới hạn của gói/project Supabase, giới hạn Storage hoặc trình duyệt/mạng. Thử file nhỏ hơn; không thể bỏ giới hạn của nhà cung cấp chỉ bằng cách sửa giao diện.
+- **Thêm được sách nhưng không tải được audio:** mở **Supabase → Storage → Policies**, kiểm tra bucket `listening-audio` có policy `INSERT` dành cho `anon`/`authenticated`; kiểm tra bucket là public và project còn dung lượng/quota. Trong Network, lỗi ở `/storage/v1/object/listening-audio` là lỗi upload; lỗi ở `/rest/v1/...` là lỗi bảng/policy.
+- **Audio tải lên thành công nhưng không phát:** kiểm tra request public URL audio trong Network. Xác nhận bucket public, file có trong **Storage → listening-audio**, và policy `SELECT` đang áp dụng. Nếu file mở trực tiếp được nhưng player không phát, thử MP3 chuẩn trên trình duyệt khác và kiểm tra định dạng audio được browser hỗ trợ.
 - **Trang chưa thay đổi sau khi push:** mở build log trong Cloudflare **Workers & Pages → Worker → Builds/Deployments** và kiểm tra branch, build command, deploy command có đúng như phần C.
-- **Giới hạn dung lượng:** ứng dụng không đặt giới hạn riêng và bucket được tạo không cấu hình MIME/size cap riêng; quota, giới hạn upload của gói Supabase, trình duyệt và kết nối mạng vẫn áp dụng.
+- **Chưa chắc đã lưu thành công:** kiểm tra hàng mới trong **Supabase → Table Editor → listening_books** hoặc **listening_lessons**, và audio trong **Storage → listening-audio**. Không coi việc đóng modal hoặc thấy tên bài tạm thời trên màn hình là xác nhận dữ liệu đã ghi vào server.
+- **Giới hạn dung lượng:** ứng dụng không đặt giới hạn riêng và bucket được tạo không cấu hình MIME/size cap riêng; giới hạn upload, quota của gói Supabase, trình duyệt và kết nối mạng vẫn áp dụng.
 
 **Quyền truy cập công khai:** để không yêu cầu đăng nhập, migration cho phép bất kỳ khách truy cập nào đọc, thêm, sửa và xóa tất cả sách, bài, script và audio. Audio có thể được truy cập bằng public URL. Không lưu nội dung riêng tư và không chia sẻ website nếu bạn không muốn người khác thay đổi/xóa dữ liệu. Nếu cần giới hạn người có quyền chỉnh sửa, phải bổ sung xác thực và thay các policy mở trước khi dùng.
 
