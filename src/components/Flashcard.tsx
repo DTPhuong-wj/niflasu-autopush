@@ -43,7 +43,11 @@ export default function Flashcard({ items, currentWeek, startIndex, onExit }: Pr
   const handleKeyNavigation = useCallback(
     (e: KeyboardEvent | React.KeyboardEvent<HTMLElement>) => {
       const target = e.target as HTMLElement | null;
-      if (target && ["INPUT", "SELECT", "TEXTAREA", "BUTTON", "A"].includes(target.tagName)) return;
+      if (
+        target &&
+        (target.isContentEditable || ["INPUT", "SELECT", "TEXTAREA"].includes(target.tagName))
+      ) return;
+      if (e.altKey || e.ctrlKey || e.metaKey) return;
 
       if (e.key === " " || e.key === "Spacebar" || e.code === "Space") {
         e.preventDefault();
@@ -146,7 +150,6 @@ export default function Flashcard({ items, currentWeek, startIndex, onExit }: Pr
             aria-label={`${item.kanji}. ${revealed ? "Đang hiển thị mặt sau" : "Đang hiển thị mặt trước"}. Nhấn để lật thẻ.`}
             aria-pressed={revealed}
             onClick={() => setRevealed((v) => !v)}
-            onKeyDown={(e) => handleKeyNavigation(e)}
           >
             <div className={`nf-flash-card${revealed ? " is-flipped" : ""}`}>
               <div className="nf-card nf-flash-face nf-flash-front" aria-hidden={revealed}>
