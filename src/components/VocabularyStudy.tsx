@@ -71,8 +71,13 @@ export function VocabularyFlashcard({
 }: { items: Vocabulary[]; currentUnit: VocabularyUnit; startIndex: number; onExit: () => void }) {
   const [currentVocabularyIndex, setIndex] = useState(startIndex);
   const [isFlipped, setIsFlipped] = useState(false);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(false);
 
-  useEffect(() => { setIndex(startIndex); setIsFlipped(false); }, [startIndex, currentUnit]);
+  useEffect(() => {
+    setIndex(startIndex);
+    setIsFlipped(false);
+    setIsAutoPlaying(false);
+  }, [startIndex, currentUnit]);
 
   // Chuyển thẻ luôn quay về mặt trước; cho phép tới items.length = màn hoàn thành.
   const go = useCallback((step: number) => {
@@ -87,11 +92,33 @@ export function VocabularyFlashcard({
       if (e.code === "Space" || e.key === "Enter") { e.preventDefault(); setIsFlipped((v) => !v); }
       else if (e.key === "ArrowRight") { e.preventDefault(); go(1); }
       else if (e.key === "ArrowLeft") { e.preventDefault(); go(-1); }
+      else if (e.key === "a" || e.key === "A") {
+        e.preventDefault();
+        if (isAutoPlaying) {
+          setIsAutoPlaying(false);
+        } else {
+          setIsFlipped(false);
+          setIsAutoPlaying(true);
+        }
+      }
       else if (e.key === "Escape") onExit();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [go, onExit]);
+  }, [go, isAutoPlaying, onExit]);
+
+  useEffect(() => {
+    if (!isAutoPlaying || currentVocabularyIndex >= items.length) return;
+    const timer = setTimeout(() => {
+      if (!isFlipped) setIsFlipped(true);
+      else go(1);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [currentVocabularyIndex, go, isAutoPlaying, isFlipped, items.length]);
+
+  useEffect(() => {
+    if (currentVocabularyIndex >= items.length) setIsAutoPlaying(false);
+  }, [currentVocabularyIndex, items.length]);
 
   if (items.length === 0) return EMPTY;
   const item = items[currentVocabularyIndex];

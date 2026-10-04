@@ -19,6 +19,7 @@ export default function Flashcard({ items, currentWeek, startIndex, onExit }: Pr
   useEffect(() => {
     setIndex(startIndex);
     setRevealed(false);
+    setAuto(false);
   }, [startIndex, currentWeek]);
 
   const go = useCallback(
@@ -75,7 +76,12 @@ export default function Flashcard({ items, currentWeek, startIndex, onExit }: Pr
 
       if (e.key === "a" || e.key === "A") {
         e.preventDefault();
-        setAuto((v) => !v);
+        if (auto) {
+          setAuto(false);
+        } else {
+          setRevealed(false);
+          setAuto(true);
+        }
         return;
       }
 
@@ -96,7 +102,7 @@ export default function Flashcard({ items, currentWeek, startIndex, onExit }: Pr
         onExit();
       }
     },
-    [go, onExit, toggleFull],
+    [auto, go, onExit, toggleFull],
   );
 
   useEffect(() => {
