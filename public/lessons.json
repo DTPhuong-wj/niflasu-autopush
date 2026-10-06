@@ -1307,8 +1307,28 @@
         "script": [
           {
             "id": "tncs4-unit-2-line-001",
+            "speaker": "森",
+            "japanese": "森さん、今夜はキルギス料理のレストランにご案内します。",
+            "furigana": [
+              { "text": "今夜", "reading": "こんや" },
+              { "text": "料理", "reading": "りょうり" },
+              { "text": "案内", "reading": "あんない" }
+            ],
+            "translation": "Anh/chị Mori, tối nay tôi sẽ đưa anh/chị đến một nhà hàng món Kyrgyzstan."
+          },
+          {
+            "id": "tncs4-unit-2-line-002",
+            "speaker": "森",
+            "japanese": "へえ、キルギス料理っていうと、どんなものがあるんですか。",
+            "furigana": [
+              { "text": "料理", "reading": "りょうり" }
+            ],
+            "translation": "Ồ, nói đến món ăn Kyrgyzstan thì có những món gì vậy?"
+          },
+          {
+            "id": "tncs4-unit-2-line-003",
             "speaker": "マイ",
-            "japanese": "色々ありますが、日本の方の口に合うのは、ラグマンだと思います。",
+            "japanese": "そうですね。いろいろありますが、日本の方の口に合うのは、ラグマンだと思います。",
             "furigana": [
               { "text": "色々", "reading": "いろいろ" },
               { "text": "日本", "reading": "にほん" },
@@ -1317,12 +1337,19 @@
               { "text": "合", "reading": "あ" },
               { "text": "思", "reading": "おも" }
             ],
-            "translation": "Có nhiều món, nhưng tôi nghĩ món lagman hợp khẩu vị người Nhật."
+            "translation": "Ừm, có nhiều món, nhưng tôi nghĩ món lagman hợp khẩu vị người Nhật."
           },
           {
-            "id": "tncs4-unit-2-line-002",
+            "id": "tncs4-unit-2-line-004",
+            "speaker": "森",
+            "japanese": "へえ、ラグマン。",
+            "furigana": [],
+            "translation": "Ồ, lagman à."
+          },
+          {
+            "id": "tncs4-unit-2-line-005",
             "speaker": "マイ",
-            "japanese": "ラグマンは、小麦粉から作られた麺で、えっと、白くて日本のうどんに似ています。",
+            "japanese": "ええ、ラグマンは小麦粉から作られた麺で、えっと、白くて日本のうどんに似ています。",
             "furigana": [
               { "text": "小麦粉", "reading": "こむぎこ" },
               { "text": "作", "reading": "つく" },
@@ -1331,72 +1358,96 @@
               { "text": "日本", "reading": "にほん" },
               { "text": "似", "reading": "に" }
             ],
-            "translation": "Lagman là loại mì làm từ bột mì; ừm, sợi mì màu trắng và giống mì udon của Nhật."
+            "translation": "Vâng, lagman là loại mì được làm từ bột mì, ừm, có màu trắng và giống mì udon của Nhật."
           },
           {
-            "id": "tncs4-unit-2-line-003",
+            "id": "tncs4-unit-2-line-006",
             "speaker": "マイ",
-            "japanese": "この麺をゆでて、その上に、炒めた肉と野菜をのせるんです。",
+            "japanese": "この麺を茹でて、その上に炒めた肉と野菜をのせるんです。",
             "furigana": [
               { "text": "麺", "reading": "めん" },
+              { "text": "茹", "reading": "ゆ" },
               { "text": "上", "reading": "うえ" },
               { "text": "炒", "reading": "いた" },
               { "text": "肉", "reading": "にく" },
               { "text": "野菜", "reading": "やさい" }
             ],
-            "translation": "Người ta luộc mì, rồi đặt thịt và rau đã xào lên trên."
+            "translation": "Người ta luộc sợi mì này, rồi đặt thịt và rau xào lên trên."
           },
           {
-            "id": "tncs4-unit-2-line-004",
+            "id": "tncs4-unit-2-line-007",
             "speaker": "マイ",
-            "japanese": "肉からスープが出るので、とてもおいしいんですよ。",
+            "japanese": "肉からスープが出るので、とても美味しいんですよ。",
             "furigana": [
               { "text": "肉", "reading": "にく" },
-              { "text": "出", "reading": "で" }
+              { "text": "出", "reading": "で" },
+              { "text": "美味", "reading": "おい" }
             ],
-            "translation": "Nước ngọt từ thịt tiết ra nên món này ngon lắm."
+            "translation": "Vì nước súp tiết ra từ thịt nên món này rất ngon đấy."
           },
           {
-            "id": "tncs4-unit-2-line-005",
+            "id": "tncs4-unit-2-line-008",
             "speaker": "マイ",
             "japanese": "パセリをかけて食べたりもします。",
-            "furigana": [{ "text": "食", "reading": "た" }],
-            "translation": "Đôi khi người ta còn rắc rau mùi tây lên rồi ăn."
+            "furigana": [
+              { "text": "食", "reading": "た" }
+            ],
+            "translation": "Người ta cũng rắc rau mùi tây lên rồi ăn."
           },
           {
-            "id": "tncs4-unit-2-line-006",
-            "speaker": "マイ",
-            "japanese": "実は、ラグマンは、中央アジアの他の国にもあって、国によって、色々なパラエティがあるんです。",
+            "id": "tncs4-unit-2-line-009",
+            "speaker": "森",
+            "japanese": "うーん、実はラグマンは中央アジアの他の国にもあって、国によって色々なバラエティがあるんです。",
             "furigana": [
               { "text": "実", "reading": "じつ" },
               { "text": "中央", "reading": "ちゅうおう" },
               { "text": "他", "reading": "ほか" },
               { "text": "国", "reading": "くに" },
-              { "text": "国", "reading": "くに" },
               { "text": "色々", "reading": "いろいろ" }
             ],
-            "translation": "Thật ra, lagman cũng có ở các quốc gia khác thuộc Trung Á, và mỗi nước lại có nhiều biến thể khác nhau."
+            "translation": "Ừm, thật ra lagman cũng có ở các quốc gia khác ở Trung Á, và tùy từng quốc gia mà có nhiều biến thể khác nhau."
           },
           {
-            "id": "tncs4-unit-2-line-007",
+            "id": "tncs4-unit-2-line-010",
+            "speaker": "森",
+            "japanese": "そうなんですか。",
+            "furigana": [],
+            "translation": "Vậy à?"
+          },
+          {
+            "id": "tncs4-unit-2-line-011",
             "speaker": "マイ",
-            "japanese": "日本の方に、一番好きなキルギス料理を聞くと、たいていラグマンだとおしゃいます。",
+            "japanese": "日本の方に一番好きなキルギス料理を聞くと、大抵ラグマンだとおっしゃいます。",
             "furigana": [
               { "text": "日本", "reading": "にほん" },
               { "text": "方", "reading": "かた" },
               { "text": "一番", "reading": "いちばん" },
               { "text": "好", "reading": "す" },
               { "text": "料理", "reading": "りょうり" },
-              { "text": "聞", "reading": "き" }
+              { "text": "聞", "reading": "き" },
+              { "text": "大抵", "reading": "たいてい" },
+              { "text": "召", "reading": "おっ" }
             ],
-            "translation": "Khi hỏi người Nhật món Kyrgyzstan họ thích nhất, thường họ nói đó là lagman."
+            "translation": "Khi hỏi người Nhật món Kyrgyzstan họ thích nhất, đa phần họ đều nói là lagman."
           },
           {
-            "id": "tncs4-unit-2-line-008",
+            "id": "tncs4-unit-2-line-012",
             "speaker": "マイ",
-            "japanese": "ぜひ、めしあがってみてください。",
-            "furigana": [],
-            "translation": "Nhất định bạn hãy thử nếm nhé."
+            "japanese": "ぜひ召し上がってみてください。",
+            "furigana": [
+              { "text": "召", "reading": "めし" },
+              { "text": "上", "reading": "あ" }
+            ],
+            "translation": "Nhất định hãy thử thưởng thức nhé."
+          },
+          {
+            "id": "tncs4-unit-2-line-013",
+            "speaker": "森",
+            "japanese": "それは楽しみですね。",
+            "furigana": [
+              { "text": "楽", "reading": "たの" }
+            ],
+            "translation": "Thế thì tôi rất mong chờ đấy."
           }
         ]
       },
